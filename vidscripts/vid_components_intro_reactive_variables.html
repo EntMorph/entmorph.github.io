@@ -1,0 +1,997 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-05-20 Tue 20:14 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>entmorph Introducing Components - State Variables and the UI</title>
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link href="/css/style.css" rel="stylesheet" type="text/css"></link>
+<style>body{font-size: 30px;}code{background:#efefef;padding: 4px;border-radius:5px;}ul{list-style-type:circle;}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">entmorph Introducing Components - State Variables and the UI</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgf14a1a9">1. Preparation</a></li>
+<li><a href="#orgd354956">2. Introduction</a></li>
+<li><a href="#orgea8b7d9">3. Note on Overview Video</a></li>
+<li><a href="#org4867cf9">4. Component Demo</a></li>
+<li><a href="#orge79856e">5. Switch to full screen</a></li>
+<li><a href="#org2202532">6. Start: Add Component</a></li>
+<li><a href="#org7e00bf8">7. Rename <code>state-var</code>, and set default</a></li>
+<li><a href="#orgf566d80">8. Create User Interface</a></li>
+<li><a href="#orgc6656ec">9. Add input/number</a>
+<ul>
+<li><a href="#orgee607c6">9.1. Update <code>:value</code> attribute</a></li>
+</ul>
+</li>
+<li><a href="#org2195e51">10. Add Input &gt; Range</a></li>
+<li><a href="#org2dc70b2">11. Close :render section</a></li>
+<li><a href="#org90660e8">12. Build component <code>[first time]</code></a></li>
+<li><a href="#orgbd71503">13. <b>Preview Component</b> <code>[first time]</code></a></li>
+<li><a href="#orgb807b71">14. Not how HTML works</a></li>
+<li><a href="#orgbcc5a33">15. HTML+JS: Event Handlers</a></li>
+<li><a href="#org120e75d">16. How entmorph components work (1)</a>
+<ul>
+<li><a href="#org7e616e8">16.1. Connecting input elements to state variables</a></li>
+</ul>
+</li>
+<li><a href="#org1bde13b">17. Further Examples of @Reactives</a>
+<ul>
+<li><a href="#org145623a">17.1. Add <code>@x</code> to 3rd cell</a></li>
+<li><a href="#orgee467dc">17.2. Add &lt;svg&gt; viewport</a></li>
+<li><a href="#orgdb0a185">17.3. <b>Preview Component</b> [second time]</a></li>
+</ul>
+</li>
+<li><a href="#org131d336">18. How entmorph components work (2)</a></li>
+<li><a href="#orgd9c1421">19. Quickly add y, radius to SVG component, table</a>
+<ul>
+<li><a href="#org2d8d05a">19.1. <b>Preview Component</b></a></li>
+</ul>
+</li>
+<li><a href="#org6f09d5c">20. To Replicate in HTML+JS</a></li>
+<li><a href="#org89b72e4">21. Non-detailed comparison with HTML+JS</a></li>
+<li><a href="#org89215d1">22. What is a component?</a>
+<ul>
+<li><a href="#org738bdf6">22.1. Component Sections fit to "Reactivity Cycle"</a></li>
+</ul>
+</li>
+<li><a href="#orgfdf596b">23. Summary</a></li>
+<li><a href="#org49637e7">24. No Virtual DOM</a></li>
+<li><a href="#orgfc204fd">25. Code Editor built using entmorph components</a></li>
+<li><a href="#org4541c2b">26. Call to Action: what next</a>
+<ul>
+<li><a href="#org281e8d9">26.1. Sign-Up to entmorph</a></li>
+<li><a href="#org06e6a99">26.2. More videos / Next video</a></li>
+<li><a href="#org0d2ecef">26.3. Share</a></li>
+<li><a href="#org35b1b8c">26.4. Final</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+<a href="./index.html">Index</a>
+<a id="orga174ed7"></a>
+</p>
+<div id="outline-container-orgf14a1a9" class="outline-2">
+<h2 id="orgf14a1a9"><span class="section-number-2">1.</span> Preparation</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><code>Center Finished component on screen</code>
+<ul class="org-ul">
+<li><code>[Initial Values: x=250, y=100, r=50]</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd354956" class="outline-2">
+<h2 id="orgd354956"><span class="section-number-2">2.</span> Introduction</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="#orga174ed7">Top</a>  
+</p>
+<ul class="org-ul">
+<li>Hi, I'm Ali Hussein, creator of entmorph
+<ul class="org-ul">
+<li>and in this video I'm going to show you how to create this component,</li>
+<li>using the entmorph component editor introduced in the video "Introducing entmorph components - Overview";</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgea8b7d9" class="outline-2">
+<h2 id="orgea8b7d9"><span class="section-number-2">3.</span> Note on Overview Video</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>We're going to build on the fundamentals covered in the Overview video, so if you haven't seen that already, it's a good idea to watch it first.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4867cf9" class="outline-2">
+<h2 id="org4867cf9"><span class="section-number-2">4.</span> Component Demo</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>We have a table with a number of controls which let you modify
+<ul class="org-ul">
+<li>the x-, and y- positions</li>
+<li>and the radius of the circle below;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge79856e" class="outline-2">
+<h2 id="orge79856e"><span class="section-number-2">5.</span> Switch to full screen</h2>
+</div>
+<div id="outline-container-org2202532" class="outline-2">
+<h2 id="org2202532"><span class="section-number-2">6.</span> Start: Add Component</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>Create New Project - "Introducing Reactivity"
+<ul class="org-ul">
+<li>I'll scroll down to the Namespace Commands</li>
+<li>and click on "Add Component",</li>
+<li>which creates a Component cell;</li>
+<li>I'll rename its <b>Id</b> to <code>SVGCircleComponent</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7e00bf8" class="outline-2">
+<h2 id="org7e00bf8"><span class="section-number-2">7.</span> Rename <code>state-var</code>, and set default</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>We're going to cover state varibles and how they interact with the <b>User Interface</b>.</li>
+<li>So we'll start with the :state section,
+<ul class="org-ul">
+<li>which is where we create state variables;</li>
+<li>there's already a state variable called <code>state-var</code> which is created by default;</li>
+<li>I'll rename it to <code>x</code>;</li>
+</ul></li>
+<li>I'll also set its initial value,
+<ul class="org-ul">
+<li>by clicking on <code>nil</code></li>
+<li>selecting Number from the drop down</li>
+<li>and typing 250;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf566d80" class="outline-2">
+<h2 id="orgf566d80"><span class="section-number-2">8.</span> Create User Interface</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+<a href="#orga174ed7">Top</a>
+</p>
+<ul class="org-ul">
+<li><p>
+In the <code>:render</code> section I want to create a &lt;table&gt; element with a number of controls;
+</p>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:table</span> ,,,<span style="color: #707183;">]</span>
+</pre>
+</div></li>
+<li>I'll open the <code>div</code> /\ element editor,
+<ul class="org-ul">
+<li>and scroll down to the Element Children panel;</li>
+</ul></li>
+<li>So I'll click on <b>Add</b>
+<ul class="org-ul">
+<li>select <b>HTML Element</b></li>
+<li>and type <code>table</code>;</li>
+</ul></li>
+<li>This creates a <code>&lt;table&gt;</code> element, with a header and body;
+<ul class="org-ul">
+<li>I'll select the head,
+<ul class="org-ul">
+<li>and click on Delete</li>
+<li>to delete the header as we don't need it;</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc6656ec" class="outline-2">
+<h2 id="orgc6656ec"><span class="section-number-2">9.</span> Add input/number</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+<a href="#orga174ed7">Top</a>
+</p>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:tr</span>
+ <span style="color: #7388d6;">[</span><span style="color: #F5666D;">:td</span> <span style="color: #909183;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">number</span> <span style="color: #709870;">{</span><span style="color: #F5666D;">:value</span> @x<span style="color: #709870;">}</span><span style="color: #909183;">]</span><span style="color: #7388d6;">]</span><span style="color: #707183;">]</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>In the table body, 
+<ul class="org-ul">
+<li>there's a default row,
+<ul class="org-ul">
+<li>with two empty cells;</li>
+</ul></li>
+</ul></li>
+<li>I want to add two Input elements to this row;
+<ul class="org-ul">
+<li>so I'll open the first cell for editing;</li>
+<li>click on <b>Add Input</b>
+<ul class="org-ul">
+<li>-&gt; <b>Number</b></li>
+</ul></li>
+</ul></li>
+<li>this creates an element which has a tag of <code>input/number</code></li>
+<li>this is an entmorph <b>enhancement</b> to HTML,
+<ul class="org-ul">
+<li>and is a shortcut for an <code>input</code> element with its <code>type</code> attribute set to <code>number</code>;</li>
+<li>You can do this for any type of <code>input</code> element, and we'll see more examples as we go along;</li>
+</ul></li>
+<li><code>[scroll-to attributes]</code></li>
+<li>it also creates a default set of attributes for the element,
+<ul class="org-ul">
+<li>which are represented as a map;</li>
+<li>making it easy to see all the attributes and their values arranged neatly,
+<ul class="org-ul">
+<li>one above the other;</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-orgee607c6" class="outline-3">
+<h3 id="orgee607c6"><span class="section-number-3">9.1.</span> Update <code>:value</code> attribute</h3>
+<div class="outline-text-3" id="text-9-1">
+<p>
+<a href="#orga174ed7">Top</a>
+</p>
+<ul class="org-ul">
+<li>I want to update the <code>:value</code> attribute, so I'll click on its value
+<ul class="org-ul">
+<li>and that opens an <b>Attribute Value</b> dropdown;</li>
+</ul></li>
+<li>the item I'm interested in is <code>@Reactive</code>;
+<ul class="org-ul">
+<li>which when I click on it, it gives me a choice of variables defined in the <code>:state</code> section above;</li>
+</ul></li>
+<li>I'll select <code>@x</code>,</li>
+<li>and I'll change the <code>:max</code> attribute from <code>200</code> to <code>500</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org2195e51" class="outline-2">
+<h2 id="org2195e51"><span class="section-number-2">10.</span> Add Input &gt; Range</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+<a href="#orga174ed7">Top</a>
+</p>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:tr</span>
+ ,,,
+ <span style="color: #7388d6;">[</span><span style="color: #F5666D;">:td</span> <span style="color: #909183;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">range</span> <span style="color: #709870;">{</span><span style="color: #F5666D;">:value</span> @x<span style="color: #709870;">}</span><span style="color: #909183;">]</span><span style="color: #7388d6;">]</span><span style="color: #707183;">]</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>within the next table cell, I'll add a Range element
+<ul class="org-ul">
+<li>Add Input &gt; Range
+<ul class="org-ul">
+<li>and this creates an element with a tag of <code>input/range</code>;</li>
+</ul></li>
+<li>again I'll set its <code>:value</code> attribute to <code>@Reactive</code> -&gt; <code>@x</code></li>
+<li>and I'll also set its <code>:max</code> attribute to <code>500</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2dc70b2" class="outline-2">
+<h2 id="org2dc70b2"><span class="section-number-2">11.</span> Close :render section</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+<a href="#orga174ed7">Top</a>
+</p>
+<ul class="org-ul">
+<li>If I click on <b>Goto</b> &gt; <code>:render</code> section,
+<ul class="org-ul">
+<li>and close the root <code>&lt;div&gt;</code> editor;</li>
+<li>this also closes all the open editors within it,</li>
+<li>and we can see the <b>User Interface</b> design much more clearly;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org90660e8" class="outline-2">
+<h2 id="org90660e8"><span class="section-number-2">12.</span> Build component <code>[first time]</code></h2>
+<div class="outline-text-2" id="text-12">
+<p>
+<a href="#orga174ed7">Top</a>
+</p>
+<ul class="org-ul">
+<li>So now we're ready to build our component</li>
+<li>I'll click on <b>Goto &gt; Run</b>
+<ul class="org-ul">
+<li>to go to the Run panel of the cell;</li>
+<li>then click on the <b>Build Component</b> button</li>
+</ul></li>
+<li>You'll see that now the <b>Output Panel</b> becomes populated with a number of items, including:
+<ul class="org-ul">
+<li>a <b>Test Component</b> panel</li>
+<li>At the top of the panel is how we as developers would see the component if we included it in another component;
+<ul class="org-ul">
+<li>and it has the Id which we gave it, <code>SVGCircleComponent</code></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbd71503" class="outline-2">
+<h2 id="orgbd71503"><span class="section-number-2">13.</span> <b>Preview Component</b> <code>[first time]</code></h2>
+<div class="outline-text-2" id="text-13">
+<p>
+<a href="#orga174ed7">Top</a>
+</p>
+<ul class="org-ul">
+<li>Below that, there's a <b>Preview Component</b> button,</li>
+<li>When I click on it,
+<ul class="org-ul">
+<li>it populates the dashed area below with how the component will look to our users,</li>
+</ul></li>
+<li>and this is what we specified in the <code>:render</code> section above;</li>
+<li>The :input elements are rendered as:
+<ul class="org-ul">
+<li>a number box</li>
+<li>and a range slider</li>
+<li>respectively;</li>
+</ul></li>
+<li>This of course is just standard HTML</li>
+<li>But if I click and hold down the mouse button on the <b>Up Arrow</b> inside the number box,
+<ul class="org-ul">
+<li>not only does the number box update,</li>
+<li>but the range slider also moves to reflect the value in the number box;</li>
+</ul></li>
+<li>And if I move the range slider,
+<ul class="org-ul">
+<li>the number box updates to reflect the value of the range slider;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb807b71" class="outline-2">
+<h2 id="orgb807b71"><span class="section-number-2">14.</span> Not how HTML works</h2>
+<div class="outline-text-2" id="text-14">
+<p>
+<a href="#orga174ed7">Top</a>
+</p>
+<ul class="org-ul">
+<li>Now this isn't how HTML works!</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbcc5a33" class="outline-2">
+<h2 id="orgbcc5a33"><span class="section-number-2">15.</span> HTML+JS: Event Handlers</h2>
+<div class="outline-text-2" id="text-15">
+<p>
+<a href="#orga174ed7">Top</a>
+</p>
+<ul class="org-ul">
+<li>If we had to replicate this in HTML+JavaScript,
+<ul class="org-ul">
+<li>even if we used a framework,</li>
+<li>in most cases we would need to add <b>Event Handlers</b> to the input elements;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org120e75d" class="outline-2">
+<h2 id="org120e75d"><span class="section-number-2">16.</span> How entmorph components work (1)</h2>
+<div class="outline-text-2" id="text-16">
+<p>
+<a href="#orga174ed7">Top</a>
+</p>
+<ul class="org-ul">
+<li>But since we haven't added any <b>Event Handlers</b>, the question is how does this work?</li>
+<li><code>[scroll-to input/number then input/range]</code></li>
+<li>You've probably guessed that this is because we set the <code>:value</code> attribute of each input element to <code>@x</code>,
+<ul class="org-ul">
+<li>and if you had, you'd be absolutely right.</li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-org7e616e8" class="outline-3">
+<h3 id="org7e616e8"><span class="section-number-3">16.1.</span> Connecting input elements to state variables</h3>
+<div class="outline-text-3" id="text-16-1">
+<p>
+<a href="#orga174ed7">Top</a>
+</p>
+<ul class="org-ul">
+<li><b>diagram</b>: <code>2-way connections between input elements and state var</code>
+<ul class="org-ul">
+<li>this is another entmorph enhancement to HTML,
+<ul class="org-ul">
+<li>and probably the most important one;</li>
+</ul></li>
+<li><code>[highlight]</code> by setting the <code>:value</code> attribute of each input element to <code>@x</code></li>
+<li><code>[animate]</code> we're effectively <b>connecting</b> that element to the the <code>x</code> state variable;
+<ul class="org-ul">
+<li>so that when a user interacts with that element,
+<ul class="org-ul">
+<li>it updates the <code>x</code> state variable;</li>
+</ul></li>
+</ul></li>
+<li><code>[animate]</code> BUT it also creates a <b>connection</b> from the <code>x</code> state variable back to each element,
+<ul class="org-ul">
+<li>so that when <code>x</code> updates,
+<ul class="org-ul">
+<li><b>ALL</b> elements connected to it update</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>This explains why updating one input element causes the other to update,
+<ul class="org-ul">
+<li>even though we didn't add any <b>Event Handlers</b>;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org1bde13b" class="outline-2">
+<h2 id="org1bde13b"><span class="section-number-2">17.</span> Further Examples of @Reactives</h2>
+<div class="outline-text-2" id="text-17">
+<ul class="org-ul">
+<li>Let's look at a couple more examples;</li>
+</ul>
+</div>
+<div id="outline-container-org145623a" class="outline-3">
+<h3 id="org145623a"><span class="section-number-3">17.1.</span> Add <code>@x</code> to 3rd cell</h3>
+<div class="outline-text-3" id="text-17-1">
+<p>
+<a href="#orga174ed7">Top</a>
+</p>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:table</span>
+ <span style="color: #7388d6;">[</span><span style="color: #F5666D;">:tbody</span>
+  <span style="color: #909183;">[</span><span style="color: #F5666D;">:tr</span>
+   <span style="color: #204A87;">;; </span><span style="color: #204A87;">Insert label cell first!</span>
+   <span style="color: #709870;">[</span><span style="color: #F5666D;">:td</span> <span style="color: #4E9A06;">"x"</span><span style="color: #709870;">]</span> 
+   ,,,
+   <span style="color: #709870;">[</span><span style="color: #F5666D;">:td</span> @x<span style="color: #709870;">]</span><span style="color: #909183;">]</span><span style="color: #7388d6;">]</span><span style="color: #707183;">]</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>Going back to the table,
+<ul class="org-ul">
+<li>I'll insert a label cell at the start of the first row;
+<ul class="org-ul">
+<li><b>Insert Before</b> &gt; "td"
+<ul class="org-ul">
+<li><b>Add</b> <b>:String</b> &gt; "x"</li>
+</ul></li>
+</ul></li>
+<li>Then a cell at the end,
+<ul class="org-ul">
+<li>by clicking on <b>Add :td</b>;</li>
+</ul></li>
+<li>and within its Element Children, I'll click <b>Add</b>
+<ul class="org-ul">
+<li>and select @Reactive &gt; <code>@x</code></li>
+</ul></li>
+<li>so this is the first time we're setting an @Reactive as a child of an HTML Element;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgee467dc" class="outline-3">
+<h3 id="orgee467dc"><span class="section-number-3">17.2.</span> Add &lt;svg&gt; viewport</h3>
+<div class="outline-text-3" id="text-17-2">
+<ul class="org-ul">
+<li>Below the table, I'll add an SVG viewport
+<ul class="org-ul">
+<li>I'll leave the default attributes as they are;</li>
+<li>and click on <b>Add</b> &gt; <b>SVG Element</b></li>
+<li>and add a <code>circle</code> element;</li>
+<li>I'll set <code>:cx</code> to <b>@Reactive</b> &gt; <code>@x</code></li>
+<li>this is an example of setting an ordinary attribute of a non-input element
+<ul class="org-ul">
+<li>to an <b>@Reactive</b>;</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgdb0a185" class="outline-3">
+<h3 id="orgdb0a185"><span class="section-number-3">17.3.</span> <b>Preview Component</b> [second time]</h3>
+<div class="outline-text-3" id="text-17-3">
+<ul class="org-ul">
+<li>Now I'll go straight to the <b>Output Panel</b>
+<ul class="org-ul">
+<li>and click on <b>Preview Component</b>;</li>
+</ul></li>
+<li><code>[scroll-to Build Component]</code></li>
+<li>In case you're wondering why I didn't click on Build Component first;
+<ul class="org-ul">
+<li>that's because clicking on <b>Preview Component</b> builds the component automatically, so you only ever need to press a single button to see your changes;</li>
+</ul></li>
+<li>One thing to notice is that the input elements have reset to the initial values of 250;</li>
+<li>they've also been joined by:
+<ul class="org-ul">
+<li>a label of x</li>
+<li>the number 250 in last cell of the table row,</li>
+<li>and of course, a black circle below the table;</li>
+</ul></li>
+<li>If I update either the number box or the range slider,
+<ul class="org-ul">
+<li>the value in the last cell updates,</li>
+<li>and the circle moves left and right along the x-axis;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org131d336" class="outline-2">
+<h2 id="org131d336"><span class="section-number-2">18.</span> How entmorph components work (2)</h2>
+<div class="outline-text-2" id="text-18">
+<ul class="org-ul">
+<li>Let's try and understand what's going on here;</li>
+<li><b>diagram</b> <code>How @Reactives work - Generally</code>
+<ul class="org-ul">
+<li>We've already seen how setting an input element's <code>:value</code> attribute to <code>@x</code>
+<ul class="org-ul">
+<li>creates a 2-way connection between the element and the state variable,
+<ul class="org-ul">
+<li>as shown here by the red and green connectors;</li>
+</ul></li>
+</ul></li>
+<li>Now we've added two more <code>@Reactives</code> to the <code>:render</code> section,
+<ul class="org-ul">
+<li><code>[PPT-highlight]</code> one in the last table cell</li>
+<li><code>[PPT-highlight]</code> and one as the value of the circle element's <code>:cx</code> attribute;</li>
+</ul></li>
+<li>So more generally, placing an <code>@Reactive</code> in the <code>:render</code> section
+<ul class="org-ul">
+<li>creates a [fade in] <b>1-way connection</b> from the state variable (in this case <code>x</code>)
+<ul class="org-ul">
+<li>to the part of the <code>:render</code> section where we have placed the @Reactive;</li>
+<li>as indicated by the green arrows on this diagram;</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>In other words, you update the <b>User Interface</b> by updating a :state variable;</li>
+<li>and you update a :state variable by <code>[PPT-highlight]</code> interacting with an input element <code>[PPT-highlight]</code> which has its value attribute set to that state variable;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd9c1421" class="outline-2">
+<h2 id="orgd9c1421"><span class="section-number-2">19.</span> Quickly add y, radius to SVG component, table</h2>
+<div class="outline-text-2" id="text-19">
+<p>
+<a href="#orga174ed7">Top</a>
+</p>
+<ul class="org-ul">
+<li>This is a fairly simple component,
+<ul class="org-ul">
+<li>so if we had to create the same thing in HTML and JavaScript,</li>
+<li>we could do it with just one event handler;</li>
+<li>we would attach the event handler to each of the input elements,</li>
+<li>and it would need to update:
+<ul class="org-ul">
+<li><code>[highlight ]</code> the value of each input element,</li>
+<li><code>[highlight ]</code> the number in last cell,</li>
+<li><code>[highlight ]</code> and the <code>circle.cx</code> property;</li>
+</ul></li>
+</ul></li>
+<li>But what if we want our users to control the circle's <code>cy</code> and <code>radius</code> properties?</li>
+<li><code>Order:</code>
+<ul class="org-ul">
+<li>add state variables (y, radius)</li>
+<li>update circle attributes (:cy, :r)</li>
+<li>then finally table
+<ul class="org-ul">
+<li>(copy and paste row twice)</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-org2d8d05a" class="outline-3">
+<h3 id="org2d8d05a"><span class="section-number-3">19.1.</span> <b>Preview Component</b></h3>
+<div class="outline-text-3" id="text-19-1">
+<ul class="org-ul">
+<li>So let's preview the component again;
+<ul class="org-ul">
+<li>now we have a table with controls that let us update the position and radius of the circle, like so;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org6f09d5c" class="outline-2">
+<h2 id="org6f09d5c"><span class="section-number-2">20.</span> To Replicate in HTML+JS</h2>
+<div class="outline-text-2" id="text-20">
+<ul class="org-ul">
+<li>The reason I added these controls,
+<ul class="org-ul">
+<li>which allow our users to update the circle y and radius properties,</li>
+<li>is to illustrate how quickly you can add control elements to a component</li>
+</ul></li>
+<li>To creat the same thing in HTML and JavaScript,
+<ul class="org-ul">
+<li>[Zoom in to component so we can highlight better]</li>
+<li>we would need one event handler for each state variable
+<ul class="org-ul">
+<li>or for each row in the table;</li>
+<li>[PAUSE] [highlight each row]</li>
+</ul></li>
+<li>we would need to add the event handler to each input element in that row;
+<ul class="org-ul">
+<li>[PAUSE] [highlight all input elements, in pairs]</li>
+</ul></li>
+<li>and we would need each event handler to update the parts of the user interface where we've added @Reactives;
+<ul class="org-ul">
+<li>[PAUSE] [highlight all elements]</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org89b72e4" class="outline-2">
+<h2 id="org89b72e4"><span class="section-number-2">21.</span> Non-detailed comparison with HTML+JS</h2>
+<div class="outline-text-2" id="text-21">
+<p>
+<a href="#orga174ed7">Top</a>
+</p>
+<ul class="org-ul">
+<li>Hopefully you're beginning to see that as a component becomes more complex, to do the same thing in HTML and JavaScript requires a lot more code, particularly event handlers,
+<ul class="org-ul">
+<li>and each event handler needs update code for each element it updates;</li>
+</ul></li>
+<li>Whereas for the entmorph version we just had to add an @Reactive to the :render section where we want a state variable to update the <b>User Interface</b>;</li>
+<li>I should also point out that it takes me on average around <b>2 minutes</b> to create this whole component, from scratch, when I'm not recording a video explaining how entmorph components work;
+<ul class="org-ul">
+<li>I'm fairly sure that for most of us this will take much longer using any other approach, even with a good JavaScript framework;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org89215d1" class="outline-2">
+<h2 id="org89215d1"><span class="section-number-2">22.</span> What is a component?</h2>
+<div class="outline-text-2" id="text-22">
+<p>
+<a href="#orga174ed7">Top</a>
+</p>
+<ul class="org-ul">
+<li>Now we're in a better position to understand what a component is;</li>
+<li><b>diagram</b> <code>What is a component?</code></li>
+<li>broadly speaking, a component lets you define three things:
+<ul class="org-ul">
+<li><b>Reactive Data</b></li>
+<li>a <b>User Interface</b></li>
+<li>and how the two interact with each other;</li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-org738bdf6" class="outline-3">
+<h3 id="org738bdf6"><span class="section-number-3">22.1.</span> Component Sections fit to "Reactivity Cycle"</h3>
+<div class="outline-text-3" id="text-22-1">
+<ul class="org-ul">
+<li><b>diagram</b> <code>Component Sections</code>
+<ul class="org-ul">
+<li>Each part of a component that we've looked at so far fits into this model:
+<ul class="org-ul">
+<li><code>[highlight ]</code> the <code>:state</code> section lets you create <b>Reactive Data</b></li>
+<li><code>[highlight ]</code> the <code>:render</code> section is where you create your <b>User Interface</b></li>
+<li><code>[highlight ]</code> setting an <code>@Reactive</code> in the <code>:render</code> section
+<ul class="org-ul">
+<li>allows the state variable it references to update that part of the interface;</li>
+</ul></li>
+<li><code>[highlight ]</code> and if we're setting the <code>:value</code> attribute of the majority of input elements,
+<ul class="org-ul">
+<li>it allows the input element to update the state variable it references;</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfdf596b" class="outline-2">
+<h2 id="orgfdf596b"><span class="section-number-2">23.</span> Summary</h2>
+<div class="outline-text-2" id="text-23">
+<ul class="org-ul">
+<li>State variables are the main mechanism for controlling and manipulating all aspects of user interfaces in entmorph;</li>
+<li>In future videos
+<ul class="org-ul">
+<li>we'll look at other uses of @Reactives in the <b>User Interface</b>, including
+<ul class="org-ul">
+<li>dynamically adding and removing CSS classes,</li>
+<li>controlling how Special Elements are rendered,</li>
+<li>and triggering animated effects;</li>
+</ul></li>
+<li>We'll also look at ways to update state variables other than using input elements;
+<ul class="org-ul">
+<li>although you can do quite a lot using just input elements,</li>
+<li>there will be times when you have to add event handlers,
+<ul class="org-ul">
+<li>for instance when working buttons;</li>
+</ul></li>
+</ul></li>
+<li>For those times,
+<ul class="org-ul">
+<li>we'll look at entmorph component <b>Event Handlers</b>,</li>
+<li>which are much simpler to create and work with than normal <b>Event Handlers</b></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org49637e7" class="outline-2">
+<h2 id="org49637e7"><span class="section-number-2">24.</span> No Virtual DOM</h2>
+<div class="outline-text-2" id="text-24">
+<ul class="org-ul">
+<li>In case you're wondering, entmorph doesn't use a Virtual DOM.</li>
+<li>Instead, it uses a custom-built mechanism based on a Directed Acyclic Graph, or DAG, to provide its reactive capabilities.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfc204fd" class="outline-2">
+<h2 id="orgfc204fd"><span class="section-number-2">25.</span> Code Editor built using entmorph components</h2>
+<div class="outline-text-2" id="text-25">
+<ul class="org-ul">
+<li>And finally, the Code Editor that we've been using all this time is itself built using entmorph components,
+<ul class="org-ul">
+<li>so that should give you some idea of what entmorph components are capable of.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4541c2b" class="outline-2">
+<h2 id="org4541c2b"><span class="section-number-2">26.</span> Call to Action: what next</h2>
+<div class="outline-text-2" id="text-26">
+<p>
+<a href="#orga174ed7">Top</a>
+That's all for this video.
+</p>
+</div>
+<div id="outline-container-org281e8d9" class="outline-3">
+<h3 id="org281e8d9"><span class="section-number-3">26.1.</span> Sign-Up to entmorph</h3>
+<div class="outline-text-3" id="text-26-1">
+<ul class="org-ul">
+<li>if you haven't done so already,
+<ul class="org-ul">
+<li>you can create a free account by
+<ul class="org-ul">
+<li>going to entmorph.com</li>
+<li>clicking on <b>Sign-Up</b></li>
+<li>and submitting your details</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org06e6a99" class="outline-3">
+<h3 id="org06e6a99"><span class="section-number-3">26.2.</span> More videos / Next video</h3>
+<div class="outline-text-3" id="text-26-2">
+<ul class="org-ul">
+<li>You can access more videos on the entmorph YouTube channel:
+<ul class="org-ul">
+<li>youtube.com/@entmorph</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0d2ecef" class="outline-3">
+<h3 id="org0d2ecef"><span class="section-number-3">26.3.</span> Share</h3>
+<div class="outline-text-3" id="text-26-3">
+<ul class="org-ul">
+<li>Please Share this with anyone you think might benefit from using entmorph;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org35b1b8c" class="outline-3">
+<h3 id="org35b1b8c"><span class="section-number-3">26.4.</span> Final</h3>
+<div class="outline-text-3" id="text-26-4">
+<ul class="org-ul">
+<li>Although what we've created works well, it doesn't look very pretty at all;
+<ul class="org-ul">
+<li>So in the next video, we'll look at how to style components by using the :styles editor of the entmorph component editor.</li>
+</ul></li>
+</ul>
+
+<p>
+Thanks a lot for watching.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2025-05-20 Tue 20:14</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

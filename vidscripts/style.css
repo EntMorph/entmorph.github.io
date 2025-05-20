@@ -1,0 +1,4249 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lato:wght@700&family=Rajdhani:wght@400;500;600;700&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+html, body  {
+    min-height:      100% !important;
+    height:          100%;
+    line-height:     1.6;
+    font-family:     "DM Sans", sans-serif;
+    font-weight:     400;
+    font-size:       18px;
+}
+
+ul { list-style: none }
+
+.logo {
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.grey3 {
+    color: #333;
+}
+.grey6 {
+    color: #666;
+}
+
+a:link {
+    color: #333;
+}
+
+footer {
+    background: #666;
+    padding:    20px;
+    color:      #eee;
+    font-size:  1.1em;
+}
+footer a:link,
+footer a:visited {
+    color: #eee;
+}
+
+/*
+ * Global Styles
+ *
+ */
+button,
+input,
+select,
+textarea {
+    font-family: "DM Sans";
+}
+
+:visited {
+    color: #333;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+:focus {
+    outline: 2px solid #629eff;
+}
+
+.float-left {
+    float: left;
+}
+.float-right {
+    float: right;
+}
+.clear-both {
+    clear:       both;
+    line-height: 0; 
+    height:      0;
+}
+
+.bold {
+    font-weight:    bold;
+}
+
+.abs {              
+    position:       absolute;
+}                   
+.rel {              
+    position:       relative;
+}                   
+.abs00 {            
+    position:       absolute;
+    top:            0;
+    left:           0;
+}
+.z1000 {
+    z-index: 1000;
+}
+/*for disabling text selection*/
+.no-user-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select:   none;
+    -khtml-user-select:    none;
+    -moz-user-select:      none;
+    -ms-user-select:       none;
+    user-select:           none;
+}
+
+.inl {
+    display: inline;
+}
+.blk {
+    display: block;
+}
+.inblk {
+    display:        inline-block; 
+}
+.disp-none {
+    display:        none;
+}
+.inblk-ch > * {
+    display:        inline-block; 
+}
+.of-hidden {
+    overflow: hidden;
+}
+.auto-height {height: auto;}
+.horiz-ul li {
+    display:        inline-block;
+}
+.pad0 {
+    padding:        0;
+}
+.padl5 {
+    padding-left:   5%;
+}
+.pad5 {
+    padding:   5px;
+}
+.mg5 {margin: 5px;}
+.mgl5 {margin-left: 5px;}
+.mgr5 {margin-right: 5px;}
+.mgr10 {margin-right: 10px;}
+.no-border {border: none;}
+.br1 {border-radius: 1px;}
+.br2 {border-radius: 2px;}
+.br3 {border-radius: 3px;}
+.br4 {border-radius: 4px;}
+.br5, .borrad5 {
+    border-radius: 5px;
+}
+.w100 {width: 100%;}
+.w90  {width: 90%;}
+
+
+li {
+    vertical-align: top;
+}
+.text-dec-none {
+    text-decoration: none
+}
+.dashed {
+    border-radius: 5px;
+    border:        0.4em dashed #ccc;
+    padding:       2em;
+    color:         #aaa;
+    font-family:   monospace;
+}
+.center {
+    margin-left:    auto;
+    margin-right:   auto;
+}
+.indent {
+    padding-left: 1em;
+}
+.text-center {
+    text-align: center;
+}
+.vert-top {
+    vertical-align: top;
+}
+.vert-mid {
+    vertical-align: middle;
+}
+
+.w20em {
+    width:  20em;
+}
+
+/* General Table Styles */
+table.head-radius > thead > tr:first-child > th:first-child {
+    border-top-left-radius: 6px;
+}
+table.head-radius > thead > tr:first-child > th:last-child {
+    border-top-right-radius: 6px;
+}
+table.body-bottom-radius > tbody > tr:last-child > td:first-child {
+    border-bottom-left-radius: 6px;
+}
+table.body-bottom-radius > tbody > tr:last-child > td:last-child {
+    border-bottom-right-radius: 6px;
+}
+
+table.body-middle-radius > tbody > tr > td:first-child {
+    border-top-left-radius:    6px;
+    border-bottom-left-radius: 6px;
+}
+table.body-middle-radius > tbody > tr > td:last-child {
+    border-top-right-radius:    6px;
+    border-bottom-right-radius: 6px;
+}
+
+
+.login-form,
+.login-screen {
+    margin: 0.2em auto;
+    width:  20em;
+}
+.panel {
+    border:        1px solid #aaa;
+    border-radius: 0 0 4px 4px;
+    padding:       10px;
+    margin-bottom: 5px;
+}
+/*TESTONLY*/
+.panel-bg-green {
+    background: #c7e1a0;
+}
+
+.ui-panel {
+    margin:        10px 0;
+    border:        1px solid #aaa;
+    border-radius: 6px;
+    padding:       7px;
+    margin-bottom: 5px;
+    background:    #fafafa;
+    box-shadow:    0 0 5px #ccc;
+}
+.ui-panel.selected,
+.ui-panel.selected:hover
+ {
+    box-shadow: 0 0 0 5px purple;
+    background: #efefef;
+    color:      #333;
+}
+
+.heading {
+    font-size:      1.0em;
+    background:     #006bad;
+    color:          #fff;
+    border-radius:  3px 3px 0 0;
+    padding:        0.45em 0.6em;
+    margin-top:     0px;
+    margin-bottom:  5px;
+}
+
+.heading.main-editor-heading {
+    background:     #006bad;
+    color:          #fff;
+}
+
+/* Set padding in a parent class selector */
+.expander {
+    display:     inline-block;
+    line-height: 0;
+    text-shadow: none;
+    /* Disable transition when resize animation not in effect, otherwise
+       this looks very strange */
+    transition: 50ms ease-in-out;
+    cursor:     pointer;
+    user-select: none;
+}
+
+
+/* NEW */
+.tab-section {
+    margin-bottom: 1em;
+}
+
+/* DROP once everything converted */
+.tab-section > .tab-body {
+    margin-bottom: 0;
+}
+
+/* last tab-section in a tab-body, no margin-bottom */
+.tab-body > .tab-section:last-child {
+    margin-bottom: 0;
+}
+
+.nowrap {
+    white-space:    nowrap;
+}
+
+.tab-section-heading {
+    white-space:    nowrap;
+}
+
+.tab-section-heading > * {
+    display:       inline-block;
+    vertical-align: bottom;
+}
+
+.tab-section-heading > *:not([class="tab-heading"]) {
+}
+
+
+/* Provides general shape of a section tab heading */
+.tab-heading {
+    margin-bottom:  -1px;
+    display:        inline-block;
+    font-size:      1.0em;
+    border-radius:  4px 4px 0 0;
+    padding:        0.3em 0.5em 0.2em 0.6em;
+    vertical-align: bottom;
+    user-select:    none;
+}
+
+/* Override existing temporarily while we switch over
+ then drop this */
+.tab-section-heading > .tab-heading {
+    margin-bottom: 0;
+}
+
+
+.tab-heading.closed {
+    /* transition:    border-bottom-left-radius, border-bottom-right-radius 100ms ease-in-out; */
+    border-radius: 4px 4px 4px 4px;
+}
+
+.tab-heading-controls {
+    padding:       0 0 0.4em 0.3em;
+}
+
+.tab-heading-controls > a.link-button {
+    padding: 0 0.6em;
+}
+
+/* NOTE: we are doing this elsewhere below for .goto-id-selector */
+.tab-heading-controls .goto-id-selector  {
+    margin-left: 0.2em;
+}
+
+.tab-heading-controls .goto-id-selector > input[type="button"].editor-section-button {
+    padding:       0.3em 0.6em 0.2em 0.6em;
+    margin-bottom: 0;
+}
+
+.tab-heading-controls > * {
+    display:       inline-block;
+    vertical-align: bottom;
+}
+
+input[type="button"].editor-section-button {
+    margin-bottom:  0.3em;
+    vertical-align: bottom;
+    cursor:         pointer;
+    border:         none;
+    background:     #DEDEDE;
+    padding:        0.3em 0.5em;
+    border-radius:  5px;
+}
+input[type="button"].editor-section-button:hover {
+    background: #b8e0de;
+    transition: background 100ms ease-in-out;
+}
+
+.css-editor-section > .tab-section-heading > .tab-heading {
+    background:     #007694;
+    color:          #ffffff;
+}
+
+/* NEW in progress, override to align all keyframes cells top */
+.css-rule-section table.records > tbody > tr > td {
+    vertical-align:   top;
+    border-bottom:    1px solid hsl(177deg 25% 60%);
+}
+
+.css-rule-section > .tab-section-heading > .tab-heading {
+    background:     #DDDDDD;
+    color:          #000000;
+}
+
+table.keyframes {
+    border-spacing: 0 1em;
+}
+table.keyframes > thead > tr > th {
+    background: #EEE;
+    padding:    1em;
+    color:      #444;
+}
+table.keyframes > tbody > tr > td {
+    vertical-align: top;
+    padding:        1em;
+    border-bottom:  1px solid #AAA;
+}
+
+/* Probably worth making this a standard style and override 
+   any deviations
+*/
+.tab-heading > .expander
+{
+    border-radius: 5px;
+    padding:       0.2em;
+    margin-right:  0.3em;
+    margin-top:    0.2em;
+}
+
+.ns-code-section    > .tab-section-heading > .tab-heading > .expander path,
+.css-editor-section > .tab-section-heading > .tab-heading > .expander path {
+    fill: #FFFFFF;
+}
+.css-editor-section > .tab-section-heading > .edit-icon {
+    margin-bottom: 0.1em;
+}
+.css-editor-section > .tab-section-heading > .edit-button {
+    margin-bottom: 0.2em;
+}
+.css-editor-section > .tab-section-heading > .link-button {
+    display:       inline-block;
+    margin-left:   0.2em;
+    margin-bottom: 0.2em;
+    padding:       0.1em 0.5em;
+}
+
+.heading2 {
+    color:          #fff;
+    background:     #777;
+    padding:        6px;
+    border-radius:  4px 4px 0 0;
+}
+.ui-panel .heading2 {
+    margin:         -7px -7px 4px -7px;
+}
+
+.truncate {
+    white-space:   nowrap;
+    overflow:      hidden;
+    text-overflow: ellipsis;
+}
+
+/* BlockGrid */
+.table-grid {
+    border-top:  1px solid #ccc;
+    border-left: 1px solid #ccc;
+}
+.table-grid td {
+    border-right:   1px solid #ccc;
+    border-bottom:  1px solid #ccc;
+}
+
+.signup {
+    border:        1px solid #ccc;
+    border-radius: 10px;
+    background:    #f7f7f7;
+    padding:       1em;
+    margin-bottom: 1em;
+}
+
+ul.validation {
+    padding:         0;
+    margin:          0;
+    list-style-type: none;
+    border: 1px solid #c7e1a0;
+    /* border-radius:   10px; */
+    /* box-shadow: 0px 0px 5px 2px #c7e1a0; */
+}
+ul.validation > li {
+    background: #fff;
+    padding:    10px;
+    margin: 0px;
+        /* padding: 0px; */
+}
+
+table.user {
+}
+table.user > tbody > tr > td {
+    padding: 0.4em;
+    margin-bottom: 1em;
+}
+table.user input[type="text"],
+table.user input[type="password"],
+table.user input[type="email"],
+table.user textarea
+{
+    border-radius: 0.2em;
+    border: 1px solid #c7e1a0; /*#ccc;*/
+    padding: 0.4em;
+}
+table.user input:focus {
+    outline-width:     3px;
+    /* background:        hsl(60 100% 90% / 1); */
+}
+
+table.records > thead > tr > th,
+table.records > thead > tr > td {
+    padding:     10px;
+    background:  #eeeeee;
+    font-weight: normal;
+    text-align:  center;
+}
+table.records > tbody > tr > td {
+    vertical-align:   middle;
+    border-bottom:    1px solid hsl(177deg 25% 60%);
+    padding:          1em 0.6em;
+}
+
+
+table.cursors {
+    width: 100%;
+	  border-collapse: collapse;
+	  /* border-spacing:  5px; */
+}
+table.cursors > thead > tr > th {
+    text-align: center;
+    background: #ddd;
+    font-weight: normal;
+    padding:     10px;
+}
+
+table.cursors > thead > tr > th:first-child {
+    border-radius: 5px 0 0 5px;
+}
+table.cursors > thead > tr > th:last-child {
+    border-radius: 0 5px 5px 0;
+}
+
+.record-tab {
+    display:       inline-block;
+    background:    #b3d9ff;
+    padding:       5px;
+    border-radius: 2px 2px 0 0;   
+}
+
+table.vert-vector {}
+table.horiz-vector {}
+table.horiz-vector > tbody > tr > td {
+    vertical-align: top;
+    padding: 2px;
+}
+.no-lr-border {
+    border-left:  none;
+    border-right: none;
+}
+
+/* Really text headers for editing vectors, etc. */
+
+/* Refactoring of much of above;
+   params, indexes will then have their own rules;
+   General: 
+- first-child left border
+- all children top,right borders
+- params: nothing extra for borders, font-size should be set
+- indexes: bottom border, 
+ */
+table.action-args > thead > tr > td {
+    padding:        5px;
+    text-align:     center;
+    background:     #fefefe;
+    border:         1px solid #aaa;
+    border-top-width:     0;
+    border-left-width:    0;
+    font-family:    monospace;
+    font-size:      1.4em;
+}
+table.action-args > thead > tr > td:first-child {
+    border-left-width:      1px;
+}
+table.action-args > thead > tr.params > td {
+    border-top-width:     1px;
+    /* border-bottom-width:  1px; */
+}
+table.action-args > thead > tr.params > td.placeholder {
+    border-style:  dashed;
+    color:         #777;
+}
+table.action-args > thead > tr.indexes > td {
+    border-bottom:         1px solid #aaa;
+}
+tr.vert-indexes > td:first-child {
+    border-left: 1px solid #aaa;
+}
+
+
+
+
+
+tr.vec-indexes > td:first-child,
+tr.vec-indexes > td:last-child
+{
+    border: none;
+    background: none;
+}
+tr.vec-indexes > td:nth-child(2) {
+    border-left: 1px solid #aaa;
+}
+
+/* Second style disables text-align inheritance, otherwise it will interfere with e.g. nested popups */
+tr.centered-cells > td {
+    text-align:  center;
+}
+tr.centered-cells > td * {
+    text-align:  initial;
+}
+
+
+
+/* This is the select checkbox cell */
+table.map-editor > tbody > tr > td:nth-child(2) {
+    text-align:  center;
+}
+
+/* Top row of body */
+table.map-editor > tbody > tr:first-child > td {
+    padding-top: 5px;
+}
+
+tr.map-edit-header td {
+    background:  #ccc;
+    text-align:  center;
+    padding:     2px;
+    font-weight: normal;
+}
+
+
+table {
+    border-spacing: 0;
+}
+
+.app {
+    min-height:   100%;
+    padding-top:  1em;
+    padding-left: 20px;
+    margin-left:  auto; 
+    margin-right: auto;
+    width:        90%;
+}
+
+/* Let Bindings Vector */
+.let-bindings {
+    /* width: 100%; */
+}
+.let-bindings > thead > tr {
+    background: #efefef;
+}
+
+.let-bindings > thead >  tr > th {
+    font-weight:   normal;
+    padding:       10px;
+    border-bottom: 2px solid #fff;
+}
+
+.let-bindings > tbody >  tr > td:first-child {
+    padding-left: 5px;
+    vertical-align: top;
+}
+.let-bindings > tbody >  tr > td:last-child {
+    padding-right: 5px;
+}
+
+.let-bindings > tbody >  tr > td {
+    border-bottom: 1px solid #ccc;
+    vertical-align: top;
+    padding-top: 6px;
+    padding-bottom: 2px;
+}
+.let-bindings > tbody >  tr:last-child > td {
+    border-bottom: none;
+}
+
+.let-bindings > tbody >  tr > td.vert-mid {
+    vertical-align: middle;
+}
+
+
+.let-edit > td:first-child {
+    background: #ccc;
+}
+
+/* For row hover */
+/* 
+.entity-tree tr:hover {
+    background: yellow;
+    border: yello;
+}
+*/
+
+
+/* Collapsing buttons (+, -) */
+[data-expander] {
+    max-width: 2em;
+    cursor: pointer;
+    background: #ccc;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 2px;
+
+    /* TODO: This most likely needs to go on the parent cell rather than its content
+    max-width: 25px; */
+}
+
+[data-expander]:hover {
+    background: #999;
+}
+
+
+ul.list {
+    margin: 0px;
+    padding: 0px;
+}
+
+ul.list > li {
+    padding:       5px 8px;
+    border-bottom: 1px solid #ddd;
+    border-radius: 5px 5px 0 0;
+}
+
+ul.list > li:hover {
+    background:    #EFEFEF;
+}
+
+ul.list > li > a,
+ul.list > li > label {
+    cursor:  pointer;
+}
+
+ul.list > li > a {
+    display: block;
+}
+
+ul.list > li > span.log-entry {
+    min-width: 15em;    
+}
+
+.list-container {
+    background:   white;
+    padding-left: 2px;
+}
+
+.list-button {
+    background: white;
+    padding:    1px;
+}
+
+.list-selected {
+    background: purple;
+    color:      white;
+    padding:    2px;
+}
+
+.select-item {
+    padding-left:   0.5em;
+    padding-right:  0.5em;
+    padding-bottom: 0.2em;
+    cursor:         pointer;
+}
+
+ul.select-items-editor {
+    padding-left: 0;
+    font-family:  monospace;
+}
+ul.select-items-editor li {
+    margin-bottom: 5px;
+    padding:       10px;
+    border-radius: 5px;
+}
+ul.select-items-editor li:has(input[type="checkbox"][checked]),
+ul.select-items-editor.display li
+{
+    background: #ddd;
+}
+
+.tree-section-class {
+    background: #efefef;
+}
+
+
+/*
+.main-grid * {
+    pointer-events: none;
+}
+*/
+
+
+
+/* Browser */
+.browser {
+    border: 1px solid #eee;
+    padding: 1px;
+}
+
+.browser ul {
+    list-style: none;
+    padding-left: 1px;
+}
+
+.browser li {
+    border: 1px solid #ccc;
+    background: #9e9;
+    padding: 2px;
+}
+
+.browser li a {
+    display: block;
+}
+
+.browser li.latest {
+    background: #0b0;
+}
+
+.browser li.undone {
+    background: #fbb;
+}
+
+.browser li.undone a {
+    color: #999;
+}
+
+.browser li.selected {
+    background: #77f;
+}
+
+
+/* Input boxes */
+input.search {
+    width:      100%;
+    min-width:  250px;
+    border:     1px solid #ccc;
+    box-shadow: 0px 0px 5px #ccc;
+    background: #fafcd1;
+    padding:    4px;
+}
+
+/* Used by SelectList component */
+input[type="text"][name="search"] {
+    margin-bottom: 5px;
+}
+
+input.editor  {
+    padding:       7px;
+    border-radius: 5px;
+    border:        1px solid #aaa;
+    margin-bottom: 2px;
+}
+.string-editor > textarea {
+    font-size:     1.1em;
+    line-height:   1.4em;
+    padding:       0.4em;
+    resize:        vertical;
+    width:         93%;
+    border-radius: 3px;
+}
+
+.string-editor > textarea:focus,
+input.editor:focus {
+    box-shadow:    0px 0px 10px 1px #79acff;
+}
+
+input[type=range] {
+    margin: 10px;
+}
+
+/*
+input[type="text"]:focus {
+    outline: none;
+}
+*/
+
+
+/* TODO: link-button */
+
+input.plain-button {
+    background: white;
+    border: none;
+}
+
+.edit-icon {
+    vertical-align: bottom;
+    width:          2.1em;
+    margin-left:    0.2em;
+    padding:        0.2em;
+    margin-bottom:  0.1em;
+    
+}
+.edit-icon:hover {
+    background:    #ddd;
+    border-radius: 5px;
+    transition:    background 200ms ease-in-out;
+}
+
+.tab-heading-controls > .edit-icon {
+    margin-left:   -0.1em;
+    margin-bottom: -0.2em;
+}
+.tab-heading-controls > .edit-button.ok {
+    margin-left:   0.2em;
+    margin-bottom: 0em;
+}
+
+
+input.clear-value {
+    color: #aaa;
+}
+
+input.clear-value:hover {
+    color: #f00;
+    background: #efefef;
+    cursor: pointer;
+}
+
+/*****************
+
+ Tab Button Styles
+
+******************/
+
+.tab3 {
+    border-radius: 3px 3px 0px 0px;
+}
+.tab4 {
+    border-radius: 4px 4px 0px 0px;
+}
+
+.tab-pad {
+    padding:    6px 10px 3px 9px;
+}
+
+ul.tab-buttons {
+    list-style-type: none;
+    cursor:          pointer;
+    margin:          0px;
+    margin-bottom:   5px;
+    border-bottom:   3px solid #888;
+    padding:         0px;
+}
+
+ul.tab-buttons li {
+    border-radius:   2px 2px 0 0;
+    border:          1px solid #ccc;
+    border-top:      2px solid #ccc;
+    border-bottom:   2px solid #ddd;
+    border-left:     none;
+    background:      #ddd;
+    margin:          0px;
+    padding:         10px 10px 10px;
+    display:         inline-block;
+    cursor:          pointer;
+}
+
+ul.tab-buttons li:hover,
+ul.tab-buttons li:focus {
+    color:           #888;
+    background:      #fff;
+    border:          1px solid #fff;
+    border-width:    2px 1px 2px 0;
+}
+
+ul.tab-buttons li.selected {
+    color:           white;
+    background:      #888;
+    border:          1px solid #888;
+    border-radius:   4px 4px 0 0;
+    border-top:      2px solid #888;
+    border-bottom:   2px solid #888;
+}
+
+ul.arity-tabs {
+    border: none;
+    
+}
+
+ul.arity-tabs li {
+    border-radius: 5px;
+    margin:        2px;
+    margin-bottom: 5px;
+}
+
+/* Entity Composer Nodes */
+table.composer-node {
+	border-collapse: separate;
+	border-spacing: 0;
+  margin: 3px;
+}
+table.composer-node > tbody > tr  > td {
+    padding: 5px;
+
+    /* border-top: 1px solid #ddd; */
+    /* border-bottom: 1px solid #ddd; */
+
+
+    /* border: 1px solid #ddd; */
+
+
+    background: #efefef;
+    vertical-align: top;
+}
+.conn {
+    background: #ccc;
+    border: 2px solid black;
+    width: 20px;
+    height: 20px;
+    border-radius: 60px;
+    box-shadow: 0px 0px 5px #000;
+    vertical-align: top;
+}
+.conn.in {
+    text-align: left;
+}
+.conn.out {
+    text-align: right;
+}
+
+.string-editor:before,
+.string-editor:after  {
+    font-family:    "Source Code Pro";
+    vertical-align: top;
+    padding:        0 5px;
+    color:          #333;
+}
+.string-editor:before {
+    content: "\201C";
+}
+.string-editor:after {
+    content: "\201D";
+}
+
+.keyword:before {
+    content: ":";
+}
+
+.deref-editor .code {
+    color:         #333;
+    background:    hsl(60deg 100% 50%);
+    padding:       0.1em;
+    border:        1px solid hsl(43deg 100% 50%);
+    border-radius: 3px;
+    white-space:   nowrap;
+}
+
+.deref-editor:before {
+    color:       #00A;
+    font-weight: bold;
+    content:     "@";
+    font-size:   1.1em;
+    padding-right: 0.1em;
+    
+}
+/* This is to ensure that the div produced by SelectId is rendered on
+   the same line as the @ symbol */
+.deref-editor > div {
+    display: inline-block;
+}
+
+.tab-body {
+    background:    #ffffff;
+    border:        1px solid #ccc;
+    border-radius: 0 5px 5px 5px;
+    padding:       1em 0.9em;
+    /* margin-bottom: 1em; */
+}
+
+/* Useful for overriding .tab-body elements whose containers are closed */
+.tab-body-top-left-radius {
+    border-top-left-radius: 5px;
+}
+
+/* Cancel out since tab-body already provides bottom padding */
+.tab-body > :last-child {
+    margin-bottom: 0;
+}
+/* For all elements which are the last-child of their parents,
+   and whose last-child is a tab-body,
+   set margin-bottom: 0 to cancel the margin-bottom introduced
+   by .tab-body; on hold as doesn't work in html editors,
+   and probably others*/
+/*
+*:last-child > .tab-body:last-child {
+    margin-bottom: 0;
+}
+*/
+
+.component-editor > .tab-body {
+    border: 2px solid #006bad;    
+}
+
+ul.component-editor-list {
+    padding-left: 0;
+}
+ul.component-editor-list > li {
+    margin-bottom: 0;
+}
+
+/* Keep .component-section free of any padding since that affects collapsing */
+.component-section > .tab-body,
+.component-section.tab-body {
+    border:        2px solid #c7e1a0;
+    padding:       0;
+}
+
+/* This is to counter the padding:0 in .component-section.tab-body */
+.component-section > .tab-body > *,
+.component-section.tab-body > * {
+    margin:        1em;
+}
+
+.action-section > .tab-body {
+    border:     2px solid #c7e1a0;
+    background: #f7f7f7;
+}
+
+/* DROP combined version */
+.editor-section > .tab-body,
+.editor-section.tab-body {
+    border:        2px solid #c7e1a0;
+    background:    #fff;
+}
+
+table.each-editor {
+    width:         100%;
+    margin-bottom: 1em;
+}
+table.each-editor > thead > tr > th {
+    background:    #c7e1a0;
+    padding:       0.4em 0.6em;
+    font-weight:   normal;
+    text-align:    center;
+}
+table.each-editor > tbody > tr > td {
+    background: #fff;
+    padding:    0.7em;
+}
+table.each-editor > tbody > tr:last-child > td {
+    border-bottom: 2px solid #c7e1a0;
+}
+table.each-editor > tbody > tr > td:first-child {
+    border-left:        2px solid #c7e1a0;
+}
+table.each-editor > tbody > tr > td:last-child {
+    border-right:        2px solid #c7e1a0;
+}
+
+.horiz-vector-items td:first-child:before,
+.horiz-vector-items td:last-child:after {
+    font-size: 2em;
+}
+.horiz-vector-items td:first-child:before {
+    content: "[";
+}
+.horiz-vector-items td:last-child:after {
+    content: "]";
+}
+
+.horiz-vector-editor {
+    padding:       10px;
+}
+
+.horiz-vector-editor > thead > tr > th {
+    text-align: center;
+}
+
+.horiz-vector-editor > tbody > tr > td {
+    padding-left:  2px;
+    padding-right: 2px;
+}
+
+
+/*
+ON HOLD, revisit this to add brackets to start/end cell contents;
+.horiz-vector-editor > tbody > tr > td > * {
+    display: inline-block;
+    padding-left: 1em;
+}
+
+.horiz-vector-editor > tbody > tr > td:first-child::before {
+    content:       "[";
+    font-size:     2em;
+    padding-right: 0.2em;
+}
+.horiz-vector-editor > tbody > tr > td:last-child::after {
+    content:      "]";
+    font-size:    2em;
+    padding-left: 0.2em;
+}
+*/
+
+/* ON HOLD: each item in each td is a div, so trying
+   to place something before it using :before 
+   doesn't look right.
+.horiz-vector-editor tbody td:first-child:before {
+    content: "[";
+    font-size: 2em;
+    text-shadow: 0px 0px 2px #aaa;
+}
+*/
+
+
+
+/*
+input[type="number"] {
+    width: 90%;
+    text-align: right;
+}
+*/
+
+/*
+input[type="text"] {
+    width: 100%;
+}
+*/
+
+.quote {
+    font-size: 2em;
+}
+
+table.rect-config input[type="text"] {
+    width: 30px;
+}
+
+/*
+input[type="button"] {
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    margin-bottom: 1px;
+    background: #ff9400;
+}
+*/
+
+div.root-ent {
+    /* This is currently just a hack to ensure that overlays for HTML
+       entities are rendered in the correct positions; look at a better
+       (non-hack) solution */
+    position: relative;
+    /* This is a lso a hack to ensure that any elements with margin-top do not
+       push the outer element down.*/
+    padding-top: 0.1px;
+    min-height: 600px;
+    height: 100%;
+    background: #ddeeff;
+    box-shadow: 0px 0px 30px #ccc
+}
+
+/*
+div.root-ent.no-events * {
+    pointer-events: none;
+}
+*/
+
+
+div.left-panel {
+    width: 20%;
+    float: left;
+    margin-right: 0.5%;
+    display: inline-block;
+}
+div.windows {
+    margin-left: 20.2%;
+    padding-bottom: 100px;
+    overflow: hidden;
+
+    background: #efefef;
+}
+div.outer-window {
+    float: left;
+}
+div.main-window {
+    float: left;
+}
+.collapse-handle {
+    font-size:       1.0em;
+    margin-right:    20px;
+    margin-left:     10px;
+}
+.collapse-handle:hover {
+    color:           #999;
+}
+
+div.toolbar input[type="button"] {
+    padding: 0.25%;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    box-shadow: #999 0 0 10px 0;
+    cursor: pointer;
+}
+
+div.toolbar input[type="button"]:hover {
+    background: #ccc;
+}
+
+div.toolbar.vertical input[type="button"] {
+    display: block;
+    width: 100%;
+}
+
+div.toolbar.horizontal input[type="button"] {
+    margin-left: 5px;
+}
+
+/*div.toolbar.vertical */
+input.selected {
+    background: #f9992a; /*#c1e1ff;*/
+}
+
+div.toolbar.vertical input.selected:hover {
+    background: #f9992a; /*#c1e1ff;*/
+}
+
+div.toolbar.vertical
+
+
+/*
+div.toolbar.vertical
+input.disabled:hover {
+    background-color: #ffaaaa;
+    border-color: #ffaaaa;
+}
+*/
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes openBox {
+    from { 
+        height: 0;
+    }
+    to { 
+        height: 200px;
+    }
+}
+
+
+.anim-open-box {
+    animation-name: openBox, fadeIn;
+    animation-duration: 1s, 5s;
+    animation-fill-mode: forwards;
+}
+
+.fade-in-pt2 {
+    animation-name:     fadeIn;
+    animation-duration: 0.2s;
+}
+
+/* Disable while we work out why a new fading in cell comes in front of a popup menu.
+ Ah: it probably is fading in with the parent cell ? */
+.fade-in-pt5 {
+    animation-name:     fadeIn;
+    animation-duration: 0.5s;
+}
+
+/*
+ *
+ * Window Styles
+ *
+ */
+
+.win-top-corners {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.win-bottom-corners {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.window {
+    position:           absolute;
+    /* TODO: This should probably be managed by entity */
+    z-index:            1000;
+    min-width:          200px;
+
+    /* TEMP: We should set this as part of the style property programmatically */
+    width:              600px;
+
+    animation-name:     fadeIn;
+    animation-duration: 0.2s;
+    background:         #efefef;
+    box-shadow:         0px 0px 15px #666;
+
+    border:             1px solid #ccc;
+    border-top:         none;
+
+}
+
+.window .header {
+    padding: 5px;
+    background: #008;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: -1px;
+    margin-left: -1px;
+
+}
+
+
+/* New window styles */
+.win-main {
+    background: green;
+}
+
+.win-side {
+    width: 10px;
+    cursor: ew-resize;
+}
+
+.win-bottom {
+    height: 10px;
+    cursor: ns-resize;
+}
+
+.win-sw-corner {
+    cursor: sw-resize;
+}
+
+.win-se-corner {
+    cursor: se-resize;
+}
+
+
+/* Old Window Styles */
+.window .outer-content {
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+}
+
+.window .lrb {
+    float: left;
+             
+    background: yellow;
+    width: 10px;
+    padding-bottom: 10px;
+    height: 100%;
+    cursor: ew-resize;
+}
+
+.window .brb {
+    width: 95%;
+    height: 10px;
+    background: orange;
+    cursor: ns-resize;
+    float: left;
+}
+
+.window .low-left-corn {
+    cursor: sw-resize; 
+    width: 10px;
+    float: left;
+}
+
+.window .low-right-corn {
+    cursor: nw-resize; 
+    width: 10px;
+    float: left;
+}
+
+.window .content {
+    /* This is just for testing; we should set width within the component */
+    width: 95%;
+
+    float: left;
+
+    padding: 5px;
+    /* display: inline-block; */
+}
+
+.window .rrb {
+    float: right;
+    width: 10px;
+
+    display: inline-block;
+    background: yellow;
+    cursor: ew-resize;
+}
+
+.help-box {
+    animation-name: fadeIn;
+    animation-duration: 0.3s;
+
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background: white;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    z-index: 1000;
+    position: absolute;
+    left: 200px;
+    top: 50px;
+    /*height: 500px;*/
+    width: 500px;
+}
+
+.help-box h1 {
+    font-size: 1em;
+}
+
+.mode-menu {
+    /*animation-name: openBox;*/
+    animation-name: fadeIn;
+    animation-duration: 0.2s;
+}
+
+
+/* disabling as most likely out of date */
+/*
+.highlight {
+    display:             inline-block;
+    padding:             0.2em;
+    background:          #efefef;
+    border-radius:       0.2em;
+    box-shadow:          0 0 3px 3px #eee;
+}
+*/
+
+/* Main UI Buttons */
+.button,
+.ent-form input[type="button"]
+{
+    transform:     scale(1);
+    transition:    transform 100ms ease-in-out;
+    border:        1px solid #bbb;
+    border:        none;
+    border-radius: 4px;
+    background:    #fefefe;
+    cursor:        pointer;
+    padding:       10px;
+    margin:        6px 8px 10px 4px;
+    box-shadow:    0px 3px 10px -4px #bbb,
+                   -5px 0px 5px -5px #bbb,
+                    5px 0px 5px -5px #bbb,
+                    0px 0px 1px  1px #ddd;
+    text-align:    center;    
+}
+
+.button.sub {
+    margin-left:  2px;
+    margin-right: 6px;
+    padding:      9px;
+}
+
+.push-down {
+    transform:  scale(1);
+    transition: transform 100ms ease-in-out;
+}
+
+.push-down:active,
+.button:active {
+    transform:  scale(0.95);
+    transition: transform 100ms ease-in-out;
+}
+
+/* TODO: .button bg: #00807A, #007694 */
+.ent-form input[type="button"]:not([disabled]):not([aria-disabled]):hover,
+.button:not([disabled]):not([aria-disabled]):hover {
+    background: #b8e0de;
+    box-shadow:  0px 8px 17px -9px #bbb,
+                -5px 0px 10px -5px #bbb,
+                 5px 0px 10px -5px #bbb;
+    outline:     2px solid #007694;
+    /* transition: background 100ms ease-in-out; */
+}
+.ent-form input[type="button"].selected,
+.button.selected {
+    background: #ffffff;
+    outline:    2px solid #007694;
+}
+.ent-form input[type="button"].selected:hover,
+.button.selected:hover {
+    background: #b8e0de;
+}
+.ent-form input[type="button"]:focus,
+.button:focus {
+    background: #b8e0de;
+    outline:    2px solid #007694;
+}
+.ent-form input[type="button"].selected:focus,
+.button.selected:focus {
+    background: #b8e0de;
+    color:      #000;
+}
+.ent-form input[type="button"]:focus:hover,
+.button:focus:hover {
+    background: #b8e0de;
+}
+.ent-form input[type="button"][aria-disabled],
+.ent-form input[type="button"][aria-disabled]:hover,
+.button[aria-disabled],
+.button[aria-disabled]:hover
+{
+    background: #efefef;
+    color:      #888;
+}
+
+.big-button {
+    border:        1px solid #ccc;
+    border-bottom: 1px solid #aaa;
+    border-radius: 2px;
+    padding:       0.5em 1em;
+    margin:        0.5em;
+    margin-left:   0;
+    text-align:    center;
+    cursor:        pointer;
+    background:    #efefef;
+}
+
+.user input[type="button"],
+.user input[type="submit"],
+.submit
+{
+    border:      none;
+    font-weight: bold;
+    background:  hsl(120deg 50% 50%);
+    color:       white;
+    font-size:   1.1em;
+    margin:      0;
+}
+
+.select-id {
+    color: hsl(222deg 100% 45%);
+}
+
+/*
+.dashed-button {
+    border: 2px dashed #ccc;
+    border-radius: 2px;
+    background:    #ddd;
+    cursor:        pointer;
+    padding:       8px;
+}
+*/
+
+.debug-area {
+    margin: 5px;
+    border: 4px dashed #0af;
+    border-radius: 10px;
+    background:    #fff;
+    padding:       2em;
+    font-size:     1.4em;
+}
+
+/*
+div.button {
+    width: 96%;
+}
+*/
+
+.dialog-buttons {
+    text-align: right;
+}
+
+.dialog-buttons .button {
+    margin: 2px;
+    margin-right: 5px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+
+.disabled, :disabled,
+[aria-disabled] {
+    background: #ddd;
+    color:      #888;
+    cursor:     not-allowed;
+}
+
+.disabled:hover,
+[aria-disabled]:hover {
+    background: #ddd;
+    cursor:     not-allowed;
+}
+
+
+
+.help .hlp {
+    cursor: help !important; 
+}
+
+/*
+.help input,
+.help input + label,
+.help select,
+{
+    cursor: help !important; 
+}
+*/
+
+.help-button {
+    font-size: 1.3em;
+    font-weight: bold;
+    border-radius: 20px;
+    /* width: 40px; */
+    /* height: 40px; */
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    
+}
+
+
+/* not working at present, since the checked attribute does not seem
+   to be set on the element, only the checked property on the object. */
+input[type="radio"]:checked {
+    background: #ccccff;
+}
+
+label.checked {
+    background: #f9992a;
+}
+
+/*
+thead tr td {
+    font-weight: bold;
+}
+*/
+
+table.entity {
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+table.history {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+table.history tbody > tr > td {
+    border: 1px solid #ccc;
+}
+
+table.history-item td {
+}
+
+canvas {
+    background: #efefef;
+}
+
+.edit-properties {
+    margin-top: 5px;
+    background: #efefef;
+    border: 1px solid #ccc;
+    padding-left: 5px;
+}
+
+.edit-properties input[type="text"] {
+    width: 5em;
+    padding: 5px;
+    border-radius: 2px;
+    border: 1px solid #aaa;
+}
+
+.edit-properties thead td {
+    text-align: center;
+}
+
+div.ui-surf {
+    border: 1px solid #ddd;
+    background: #efefef;
+    min-height: 100px;
+}
+
+table.param-editor {
+    background: white;
+    margin-top: 5px;
+}
+
+table.param-editor-horiz input {
+    width: 50px;
+}
+
+table.param-editor td {
+    /* vertical-align: top; */
+}
+
+table.func-body {
+    clear: both;
+    /* width: 100%; */
+}
+table.func-body td {
+    vertical-align: top; /*middle;*/
+}
+
+/* DROP as this does nothing at present
+table.func-body > tbody > tr > td:first-child {
+    width: 100%;
+}
+*/
+
+/*
+tr.expr > td:first-child {
+    font-weight: bold;
+    color: blue;
+    background: #ccc;
+    padding: 5px;
+    border-radius: 5px;
+}
+*/
+
+.light-shad {
+    box-shadow: #ccc 0px 2px 10px 1px;
+}
+.dark-shad {
+    box-shadow: #666 0px 0px 8px 1px;
+}
+
+
+
+
+.call-action {
+    /* background: #eeffFE; */
+    border-radius: 4px;
+    /* border-radius: 5px 5px 10px 10px; */
+    box-shadow: #666 0px 0px 8px 1px;
+    padding: 4px;
+    margin-bottom: 5px;
+}
+
+.action-heading > .tab-heading {
+    background:     #006000;
+    color:          #fff;
+}
+
+/* Matches .select-item */
+.action-heading > .tab-heading > .static-item {
+    padding-right:  0.5em;
+    padding-bottom: 0.2em;
+    padding-left:   0.5em;
+}
+
+.action-editor > .tab-body {
+    border:         3px solid #006000;
+    background:     #ffffff;
+}
+
+.drag-head {
+    margin-left:  -13px;
+    margin-top:   -9px;
+    margin-right: -13px;
+}
+
+.args {
+    padding: 0;
+}
+
+.args td {
+    vertical-align: top;
+    padding:        0.4em 0.4em 0.2em 0.4em;
+}
+
+.args td > * {
+    width: 100%;
+}
+
+.args td.sep {
+    vertical-align: middle;
+}
+
+.args > li {
+    vertical-align: top;
+    display: inline-block;
+    padding: 2px;
+}
+
+.eq {
+    padding: 0 5px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.disabled-action {
+    background: #ccc;
+}
+
+.code {
+    font-family: "Source Code Pro", "Courier New", Courier, monospace;
+}
+
+.fn-doc {
+    border:        1px solid #ccc;
+    border-radius: 2px;
+    padding:       0.4em;
+    line-height:   1.5;
+}
+
+.bracket {
+    text-shadow: 0px 0px 2px #aaa;
+    font-size: 2em;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.link {
+    text-decoration: underline;
+}
+
+.hover-link:hover {
+    cursor:          pointer;
+    text-decoration: underline;
+}
+
+table.params > tbody > tr > td {
+    vertical-align: top
+}
+
+table.func-params {
+    list-style: none;
+}
+
+table.func-params td {
+    padding:       5px;
+    border:        1px dashed #aaa;
+    border-radius: 5px;
+}
+
+/********************
+ *
+ * Edit Viewer Styles
+ *
+ ********************/
+.editor-shadow {
+    box-shadow:    0px 1px 5px 0px #ccc;
+}
+
+.viewer {
+    color:         black;
+    font-weight:   normal;
+    border:        1px solid #ccc;
+    border-bottom: 1px solid #999;
+    box-shadow:    0px 1px 5px 0px #ccc;
+    border-radius: 5px;
+    background:    #FEFEFE;
+    padding:       0.5em 0.7em;
+    margin-bottom: 5px;
+    transform-origin: top left;
+}
+
+.viewer > .heading {
+    margin: -7px -7px 0 -7px;
+}
+
+.tf-org-tl {transform-origin: top left;}
+
+.viewer.clickable:hover {
+    transition: all 100ms ease-in-out;
+    border: 1px solid #777;
+    border-bottom: 1px solid #00f;
+    box-shadow: #aaa 0px 1px 10px 0px;
+}
+
+/* currently only used by blockgrid items editor */
+.viewer.selected {
+    background: purple;
+    color:      white;
+}
+
+.keyword-editor {
+    background: #eee;
+    cursor:     not-allowed;
+}
+
+.action-viewer {
+    padding:       0px 0px;
+}
+
+.viewer:focus,
+.focused {
+    /* background: #add8e6; */
+    /* background: #ddf7ff;  */
+    /* ON HOLD FOR NOW, we may not use this after all
+    background: #c9e2a1;*/
+}
+
+.found {
+    box-shadow:    #0a0 0px 0px 0px 3px;
+}
+
+.replaced {
+    box-shadow: #f90 0px 0px 0px 3px;
+}
+
+.tab-button {
+    background: #efefef;
+}
+
+/* Useful when we are showing arity count tab */
+.arity-params-body {
+    border-radius: 0 8px 5px 5px;
+    border:        2px solid #005600;
+    /* box-shadow:    #ccc 0px 0px 15px 2px; */
+    background:    #efefef;
+    padding:       1px;
+}
+
+
+.editor-section    > .tab-section-heading > .tab-heading,
+.action-section    > .tab-section-heading > .tab-heading,
+.component-section > .tab-section-heading > .tab-heading,
+.editor-section-heading .tab-heading {
+    background:    #c7e1a0;
+    min-width:     10em;
+    min-height:    2.3em;
+}
+
+.bindings-header {
+    margin-top:    5px;
+    display:       inline-block;
+    background:    #ffae51;
+    border-radius: 5px 5px 0px 0px;
+    padding:       6px 10px 3px 9px;
+}
+
+.viewer-bindings {
+    /* background: #fafad2; */
+    /* box-shadow: none; */
+    /* border: none; */
+}
+
+.form-focused {
+    border:        1px solid #999;
+    border-radius: 2px;
+    box-shadow:    #aaa 0px 0px 8px 1px;
+}
+
+.component-editor > .tab-section-heading > .tab-heading,
+.editor-heading > .tab-heading {
+    color:      #fff;
+    background: #006bad;
+    font-size:  1.1em;
+}
+
+.editor-head {
+    font-size:     1.1em;
+    margin-bottom: 0.5em;
+    border-bottom: 3px solid #006bad;
+    border-radius: 5px 5px 0 0;
+    background:    #eee;
+    white-space:   nowrap;
+}
+
+.editor-name {
+    display:        inline-block;
+    box-shadow:     3px 2px 6px -2px #006bad;
+    background:     #006bad;
+    color:          white;
+    padding:        0.3em 0.6em 0.3em 0.6em;
+    vertical-align: bottom;
+    margin-bottom: -1px;
+}
+
+.editor-body-head {
+    margin-bottom:  10px;
+}
+
+
+.header {
+    color: white;
+    width: 100%;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 4px 4px 3px 3px;
+    padding: 2px 5px;
+    margin-bottom: 3px;
+}
+
+.color-white {
+    color:         white;
+}
+
+.mini-header {
+    font-weight:   bold;
+    /* = .tab4 */
+    border-radius: 4px 4px 0px 0px;
+    padding:       0.2em 0.5em;
+}
+
+.bg-dark-blue {
+    background: #008;
+}
+
+.bg-light-green {
+    background: #c7e1a0;
+}
+
+.bg-dark-purple {
+    background: #6d006d;
+}
+
+.bg-turq {
+    background: #00807a;
+}
+
+.bg-lightest-grey {
+    background: #efefef;
+}
+
+.ok-tick {
+    font-size: 1.5em;
+}
+
+/* TODO: Refactor common props with editor-head */
+.display-header {
+    /* background: #6d006d; */
+    background: #00807a;
+    color: white;
+    width: 100%;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 4px 4px 3px 3px;
+    padding: 4px 7px;
+    margin-bottom: 3px;
+    box-shadow:    0px 5px 5px -3px #aaa;
+}
+
+.ed-pre-suf {
+    padding:     0 5px;
+    font-weight: bold;
+    font-size:   1.1em;
+}
+
+.data-edit-box {
+    border: none;
+}
+
+.user-edit-box {
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 2px 2px 3px;
+}
+
+.user-edit-box:focus {
+    background: #efefef;
+}
+
+.none-box {
+    padding: 2px;
+    color: #666;
+    border: 1px dashed #999;
+}
+
+.test-drive {
+    background: #c6dcff;
+    background: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 5px;
+    border: 1px;
+}
+
+.editor-controls {
+    border:         1px solid #aaa;
+    padding:        5px;
+    border-radius:  5px;
+    margin-top:     10px;
+    margin-bottom:  10px;
+    box-shadow:     0 10px 20px -10px #888;
+}
+
+.prompt-args-title {
+    font-weight:   bold;
+    color:         #fff;
+    background:    #00807A;
+    padding:       10px;
+    border-radius: 5px;    
+}
+
+.bool {
+    padding: 3px;
+    font-weight: bold;
+    text-decoration: underline blue;
+}
+
+/* In use: true, false */
+.true, .false {
+    font-weight:   bold;
+    border-radius: 3px;
+}
+.true:before, .false:before {
+    font-size:    1.2em;
+    padding-right: 5px;
+    text-shadow: 1px 1px 3px #000;
+}
+.true {
+    color:         green;
+}
+.true:before {
+    content:      "\2714";
+}
+
+.false {
+    color:         red;
+}
+.false:before {
+    content:      "\2716";
+}
+
+
+.true-bg {
+    background:    #00cd00;
+}
+
+.false-bg {
+    background:    #ff8989;
+}
+
+/* if expression */
+ul.if {
+    padding: 0px;
+}
+
+ul.if-arg {
+    padding: 0;
+    margin-bottom: 10px;
+}
+ul.if-arg > li:first-child {
+    padding:       8px 8px 5px 8px;
+    border-radius: 5px 5px 0 0;
+}
+ul.if-arg > li:nth-child(2) {
+    border:        3px solid;
+    border-radius: 0 0 5px 5px;
+}
+
+ul.if-cond {
+}
+ul.if-cond > li:first-child {
+    background:    #a39cfe;
+}
+ul.if-cond > li:nth-child(2) {
+    border-color:  #a39cfe;
+}
+
+
+ul.if-true {
+    padding-left:  20px;
+}
+ul.if-true > li:first-child {
+    background:    #70ff70; /*#00cd00;*/
+}
+ul.if-true > li:nth-child(2) {
+    border-color:  #70ff70; /*#00cd00;*/
+}
+
+
+ul.if-false {
+    padding-left:  20px;
+}
+ul.if-false > li:first-child {
+    background:    #ff8989;
+}
+ul.if-false > li:nth-child(2) {
+    border-color:  #ff8989;
+}
+
+
+.params-vector {
+    /* background:    #ffff86; */
+}
+
+
+
+
+/*
+.if-cond {
+    background:    #7a7aff;
+}
+
+
+.if-expr {
+    padding:       5px 5px 5px 5px;
+    border-radius: 3px;
+}
+*/
+
+.border2-green {
+    border: 3px solid #0a0;
+}
+.border2-red {
+    border: 3px solid #f00;
+}
+
+.nil {
+    color: blue;
+}
+
+.def-cell-code-panel-section > .tab-section-heading > .tab-heading {
+    background:              #88d7d4;
+    font-weight:             bold;
+}
+.def-cell-code-panel-section > .tab-body {
+    border:        2px solid #88d7d4;
+}
+
+.cell {
+    box-shadow:
+        0px 1px 10px 0px #ccc,
+        0px 17px 10px -13px #444444,
+        0px 26px 10px -29px hsl(0 0% 39% / 1);
+}
+
+.def-cell-buttons {
+    padding-top:    0.2em;
+    padding-bottom: 0.6em;
+}
+
+.def-cell-buttons .goto-id-selector {
+    margin-left: 0;
+}
+
+.def-cell-buttons .goto-id-selector > input.editor-section-button {
+    margin-bottom: 0;
+    margin-right:  0.3em;
+}
+
+/*
+.def-cell-eval-section > .tab-section-heading > .tab-heading {
+    background: #21a9ff;
+    color:      #fff;
+    font-weight: bold;
+}
+.def-cell-eval-section > .tab-body {
+    border:  2px solid #21a9ff;
+}
+*/
+
+.run-btn {
+    vertical-align: top;
+    text-shadow:   1px 1px 3px #000;
+    display:       inline-block;
+    font-weight:   bold;
+    color:         white;
+    background:    #21a9ff;
+    border:        1px solid #72c8ff;
+    border-radius: 3px;
+    margin:        5px 10px 5px 0;
+    padding:       0.8em;
+}
+.run-btn:hover {
+    background:    #0075bf;
+}
+.run-btn:focus {
+    border-radius: 0;
+    outline:       3px solid blue;
+}
+
+/*
+.edit-cell {
+    text-decoration: underline;
+    float:           right;
+}
+*/
+
+.add-cell-box {
+    margin-bottom: 30px;
+}
+
+.cell-editor-panel {
+    margin-top:    10px;
+    padding:       10px;
+    border:        2px solid #ccc;
+    border-radius: 5px;
+    background:    #fff;
+
+}
+
+.cell-editor-panel.debug-panel {
+    /* margin-top:    10px; */
+    /* border:        7px solid #ccc; */
+    /* padding:       10px; */
+    /* border-radius: 5px; */
+    border:        7px solid #ccc;
+    background:    #ddd;
+}
+
+.action-editing {
+    margin-left:   0.5em;
+    margin-right:  0.5em;
+}
+
+.cell-title {
+    margin-left: 10px;
+    display: inline;
+}
+
+.cell-comments {
+    padding:     10px 5px 5px 12px;
+    line-height: 1.5em;
+    font-size:   1.2em;    
+}
+
+.rounded {
+    background: none;
+    border: 1px solid #AAA;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.embedded-editor {
+    border-radius: 3px;
+    padding:       0.5em;
+    text-shadow:   none;
+}
+
+.checkbox-wrapper {
+    border-radius: 5px;
+    padding:       1em;
+    cursor:        pointer;
+    transition-duration: 200ms;
+}
+.checkbox-wrapper:hover {
+    background: #eee;
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+}
+
+input[type="checkbox"] {
+    margin: 0.5em;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    margin: 0.5em;
+}
+.checkbox-wrapper.checked {
+    background: #eee;
+}
+
+/* Taken from Lea Verou CSS Secrets */
+/* input[type="checkbox"] + label::before, */
+.checkbox {
+    content:        '\a0'; /* non-breaking space */
+    display:        inline-block;
+    vertical-align: .2em;
+    width:          1.2em;
+    height:         1.2em;
+    margin-right:   .2em;
+    border-radius:  .2em;
+    line-height:    .95;
+    text-indent:    .15em;
+    background:     #fff;
+    border:         1px solid #999;
+    box-shadow:     inset #ddd 0 0 5px 0px;
+}
+input[type="checkbox"]:checked + label::before {
+    text-align:   center;
+    background:   yellowgreen;
+    box-shadow:   inset #fff 0 0 1px 3px;
+    font-weight:  bold;
+    color:        #333;
+}
+input[type="checkbox"] + label {
+    user-select:  none;
+    cursor:       pointer;
+    margin-right: 0.2em;
+}
+
+/* for now only hide if it has the class .checkbox */
+/* Restoring so that our UI tests can pass */
+input[type="checkbox"] .checkbox {
+/* input[type="checkbox"] { */
+    position: absolute;
+    clip: rect(0,0,0,0);
+}
+
+
+.checkbox .tick {
+    font-size:     1.5em;
+    text-align:    center;
+    display:       inline-block;
+    width:         1.2em;
+    height:        1.2em;
+    border-radius: 5px;
+    margin:        2px;
+    color:         #fff;
+}
+
+.checkbox:hover {
+    box-shadow: 0 0 2px 2px #ccc;
+}
+
+.checkbox .checked {
+    /* background: #090; */
+    color: #090;
+}
+
+
+.editor-name .expander path {
+    fill: #FFFFFF;
+}
+
+
+/**********
+
+ NSCode Editor
+
+ **********/
+
+fieldset.commands {
+    padding-top:   0.6em;
+    margin-top:    10px;
+    margin-bottom: 1em;
+    border:        2px solid #559D9A;
+    border-radius: 5px;
+    background:    #FAFAFA;
+}
+.commands legend {
+    border:        2px solid #559D9A;
+    background:    #FFFFFF;
+    color:         #333;
+    padding:       0.1em 1em 0.1em 1em;
+    border-radius: 20px;
+}
+
+.ns-code-id-box {
+    background:   #efefef;
+    border:       1px solid #ccc;
+    display:      inline-block;
+    padding:      0;
+    min-width:    22em;
+}
+
+.ns-code-id-box > * {
+    display: inline-block;
+}
+
+/* Def Id */
+.ns-code-id-box > :first-child {
+    padding:     0.3em;
+}
+
+.ns-code-id-box .expander {
+    transition-duration: 100ms;
+    padding:             0.6em;
+    border-radius:       0.2em;
+}
+
+.ns-code-id-box .expander path {
+    fill: #555;
+}
+
+.ns-code-id-box .expander:focus {
+    outline:     2px solid hsl(197deg 50% 70%);
+    background:  rgb(20 188 255 / 35%);
+}
+
+.ns-code-id-box-symdef {
+    padding:         10px;
+    text-decoration: underline;
+}
+
+.ns-code-id-box.open {
+    position:      relative;
+    z-index:       1;
+    border-bottom: none;
+}
+.ns-code-id-box.collapsed {
+    border-bottom: 1px solid #ccc;
+}
+
+.ns-code-section > .tab-section-heading > .tab-heading {
+    background:     #007694;
+    color:          #ffffff;
+}
+
+.ns-code-section > .tab-body {
+    border:       1px solid #007694;
+}
+
+.ns-code-tree-container {
+    width:      20%;
+    border:     1px solid #ccc;
+    padding:    0.4em;
+    margin-right: 0.5%;
+}
+
+/* ul.ns-code-editor Styles */
+ul.ns-code-editor {
+    margin:           0;
+    padding:          0;
+}
+ul.ns-code-editor > li {
+    padding:         5px;
+}
+ul.ns-code-editor > li.open {
+    margin-bottom: 30px;
+    /* box-shadow: 0 14px 10px -7px #777; */
+}
+.ns-code-def-edit {
+    top: 1em;
+    right: 1em;
+}
+
+/*** FORMS ****/
+.form td.label {
+    vertical-align: top;
+}
+
+.matrix {
+    background: white;
+    padding: 1px;
+    /* border: 5px solid #000; */
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.matrix td {
+    text-align: center;
+    padding: 5px;
+    /* border: 1px solid #fff; */
+    /* background: #efefef; */
+    min-width: 40px;
+    min-height: 40px;
+    height: 40px;
+}
+
+.matrix td.hl {
+    background: #cfc;
+}
+
+
+
+.matrix tr:first-child td:first-child,
+.matrix tr:first-child td:last-child 
+{
+    border-top: 5px solid #000;
+}
+
+.matrix tr:last-child td:first-child,
+.matrix tr:last-child td:last-child 
+{
+    border-bottom: 5px solid #000;
+}
+
+
+
+.matrix td:first-child {
+    border: 0;
+    border-left: 5px solid #000;
+    width: 0px;
+    min-width: 0px;
+}
+
+.matrix td:last-child {
+    border: 0;
+    border-right: 5px solid #000;
+    width: 0px;
+    min-width: 0px;
+}
+
+.counter-editor .digit {
+    font-size:  2em;
+}
+.counter-editor input[type="text"] {
+    width:      1em;
+    border:     none;
+    font-size:  1.5em;
+    text-align: center;
+}
+
+.counter-editor input[type="button"] {
+    border:     none;
+    /* background: inherit; */
+    padding:    10px;
+}
+
+.counter-editor input[type="button"]:focus {
+    outline:     none !important;
+    border:      none;
+}
+
+/* For CSS editor */
+.info-label {
+    color:         #666;
+    font-weight:   bold;
+    padding:       0.4em 0.6em;
+    background:    #efefef;
+    border-radius: 5px;
+}
+
+.css-rule-editor {
+    border:        2px solid #007694;
+    box-shadow:    0px 1px 5px 0px #ccc;
+    background:    hsl(192.25deg 100% 29% / 5%);
+}
+.css-rule-editor .chevron {
+    font-size: 1.5em;
+    padding:   0.2em;
+}
+.css-selector {
+    margin-bottom: 1em;
+}
+.css-preview-container {
+    border:        5px dashed #EEE;
+    border-radius: 4px;
+    padding:       10px;
+    margin:        0;
+}
+.css-declaration-preview {
+    /* border:        1px solid #999; */
+    font-family:   arial;
+    background:    #fff;
+    padding:       1px;
+}
+/* DROP all .css-editor styles */
+.css-editor {
+    margin-bottom: 10px;
+}
+.css-editor > thead > tr > td {
+    text-align: center;
+    padding:    10px;
+    background: #ccc;
+}
+.css-editor > tbody > tr > td {
+    padding: 4px;
+    padding-top: 6px;
+    border-bottom:  1px solid #ddd;
+}
+.css-editor td.left {
+    text-align: left;
+}
+.css-editor td.right {
+    text-align: right;
+}
+.css-editor td.center {
+    text-align: center;
+}
+.css-editor input[type="number"] {
+    margin-left: 20px;    padding:     5px;
+    border:      1px solid #999;
+    width:       100px;
+    text-align:  right;
+}
+
+
+
+
+.css-unit {
+    font-size: 1em;
+}
+.css-view-color {
+    width:        100px;
+    height:       25px;
+    margin-right: 10px;
+    border:       1px solid #aaa;
+    box-shadow:   0 0 2px 2px #eee;
+}
+.css-color {
+    display: inline-block;
+    width:  2em;
+    height: 2em;
+    border: 1px solid #999;
+    border-radius: 5px;
+    box-shadow:    0 0 5px 1px #ccc;
+    margin: 5px;
+}
+
+.view-color .color-block {
+    box-shadow: 0 0 4px 2px #eee;
+    border: 1px solid #ccc;
+    width: 2em;
+    height: 2em;
+}
+.view-color .color-text {
+    padding-left:   0.4em;
+    vertical-align: 0.6em;
+}
+
+.color-hsl-selector {
+    margin-left: 20px;
+    /* float:  left; */
+    width: 70%;
+}
+
+.color-hsl-selector td.slider-cell {
+    padding: 0;
+}
+
+.grad-slider {
+    cursor:        pointer;
+    box-shadow:    0 0 1px 1px rgb(100, 100, 100, 1),
+                   0 0 1px 5px #fff,
+                   0 0 1px 6px   #aaa;
+    border:        1px solid #666;
+    border-radius: 15px;
+    height:        30px;
+    margin:        10px;
+}
+
+.slider-button {
+    height:     30px;
+    width:      20px;
+    background: #fff;
+    border:     1px solid #aaa;
+    border-radius: 10px;
+}
+
+.color-hsl-selector td:first-child {
+    width: 10%;
+}
+
+.color-hsl-selector td:nth-child(2) {
+    width: 85%;
+}
+
+
+
+.editor-slider {
+    padding:       2px;
+    border:        1px solid #ccc;
+    border-radius: 5px;
+    background:    #efefef;
+}
+
+.editor-slider td.min,
+.editor-slider td.max {
+    color:      #333;
+    font-size:  0.95em;
+    width:      80px;
+    text-align: center;
+}
+
+.editor-slider.disabled {
+    background: #ff9999;
+        /* #ebebe4; */
+}
+
+.editor-slider input[type="number"] {
+    border-radius: 2px;
+}
+
+.css-box-shadow {
+    vertical-align: top;
+    margin:     30px;
+    border:     1px solid #ccc;
+    background: #fff;
+    width:      200px;
+    height:     200px;
+}
+
+.css-margin-outer-box {
+    border:     1px solid black;
+    background: #fff2be;
+    padding:    0;
+    margin:     50px;
+    display:    inline-block;
+}
+
+/* KEEP and work with this */
+.css-demo-container {
+    padding:         50px;
+    border:          1px solid #ccc;
+    margin-bottom:   10px;
+    display:         inline-block;
+}
+
+.css-demo-outer-box {
+    /* display:    inline-block; */
+    /* border:     1px dashed #aaa; */
+    padding:    50px;
+}
+
+/* Rename to demo shape */
+.css-demo {
+    border:      1px solid #ccc;
+    pointer-events: none;
+}
+
+.css-image,
+.css-gradient {
+    background:  none;
+    border:      1px solid #ccc;
+    width:       400px;
+    height:      400px;
+}
+
+/* side-or-corner selector table */
+.css-side-or-corner {
+    margin-bottom: 10px;
+}
+
+.css-side-or-corner td {
+    background:        #fff;
+    /* box-shadow: 0 0 1px 1px #ccc; */
+    border:            1px solid #ddd;
+    /* width:  100px; */
+    padding:           20px;
+    text-align:        center;
+    cursor:            pointer;
+    transition:        all 50ms ease-in-out;
+}
+
+.css-side-or-corner td.selected {
+    background:        #009;
+}
+
+.css-side-or-corner td:hover {
+    background:        #bbb;
+    color:             #fff;
+    transition:        all 50ms ease-in-out;
+}
+
+.css-side-or-corner td.no-sel  {
+    cursor: not-allowed;
+}
+.css-side-or-corner td.no-sel:hover  {
+    background:        #fff;
+}
+
+/*
+.css-gradient.display {
+    width:       200px;
+    height:      200px;
+}
+*/
+
+.css-demo.margin {
+    background:  rgba(250, 250, 250, 0.9);
+}
+
+.css-demo.box {
+    width:       150px;
+    height:      150px;
+    padding:     0.4em 0.5em;
+    font-size:   1.2em;
+    color:       #333;
+}
+
+.css-demo.mini-box {
+    width:       100px;
+    height:      100px;
+}
+
+.transform-editor {
+    width:       500px;
+    height:      300px;
+}
+.css-demo.transform-orig-box {
+    border:            1px dashed #000;
+    /* background-color:  rgba(254, 254, 254, 0.2); */
+    text-align:        center;
+    vertical-align:    middle;
+    font-size:         1.5em;
+}
+
+.css-demo.border-box {
+    border: none;
+}
+
+
+.css-prop-value {
+    margin-bottom: 5px;
+}
+.css-prop-value td:first-child {
+    text-shadow:   0px 1px 2px #aaa;
+}
+
+.css-prop-value td:nth-child(2) {
+    border:        2px solid #e3d360;
+    border-radius: 2px;
+    padding:       13px;
+    font-size:     1em;
+    color:         #333;
+    box-shadow:    inset 0 0 6px -1px #e3d360;
+}
+
+table.css-rect-report {
+    margin-left: 10px;
+    border:      1px solid #efefef;
+    border-top:  none;
+    border-left: none;
+}
+
+table.css-rect-report td {
+    border:        1px solid #efefef;
+    border-right:  none;
+    border-bottom: none;
+
+    width:         50px;
+    height:        50px;
+    align:         center;
+    padding:       5px;
+}
+
+table.css-rect-report td.corner {
+    background: #adca42;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    border: 1px solid #666;
+}
+
+/*
+ * Error Related
+ */
+
+.error {
+    font-family: monospace;
+    margin-top:  5px;
+    line-height: 1.5em;
+    color:       #f00;
+}
+div.error {
+    padding:     0.3em;
+}
+
+.error-box-tab {
+    padding:    0.2em 0.6em;
+    background: #aa0000;
+    color:      #ffffff;
+    font-family: monospace;
+    font-weight: bold;
+}
+.error-box {
+    font-family:   monospace;
+    color:         #333;
+    margin-bottom: 0.5em;
+    padding:       0.6em;
+    background:    #ffe8e5;
+    border-top:    2px solid #aa0000;
+    border-radius: 0 0 10px 10px;
+}
+
+.error-box input[type="button"] {
+    box-shadow: 0 0 1px 1px #a00;
+}
+.error-box input[type="button"]:hover {
+    background: #a00;
+}
+
+.error-box .title {
+    color:       #333;
+    font-weight: bold;
+}
+.error-box ul  {
+    padding-left:    1em;
+    list-style-type: initial;
+}
+
+.child-error {
+    outline:    3px solid #f00;
+    box-shadow: none;
+    /* box-shadow: 0 0 2px 2px #f00; */
+}
+
+input.disabled, input:disabled {
+    color:      #999;
+    cursor:     not-allowed;
+    background: #ebebe5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[role="checkbox"] {
+    cursor: pointer;
+}
+
+.slide-box {
+    /* border:        1px solid #ccc; */
+    vertical-align: middle;
+    border-radius: 18px;
+    background:    #ccc;
+    /* Either container or switch "3D", but not both */
+    /* box-shadow:    inset 0px 3px 5px -1px #888; */
+    width:         65px;
+    /* height:        30px; */
+    padding:       5px;
+
+}
+
+
+.slide-box-switch {
+    background:    #fdfdfd;
+    border:        1px solid #ccc;
+    height:        24px;
+    width:         24px;
+    border-radius: 12px;
+    box-shadow:    0 2px 3px -2px #000;
+}
+
+.slide-box, .slide-box-switch {
+    transition:    all 200ms ease-in-out;
+}
+
+/* .slide-box:hover  */
+.slider-checked
+{
+    background:    #090;
+    transition:    all 200ms ease-in-out;
+}
+
+/* .slide-box:hover .slide-box-switch  */
+.slider-checked .slide-box-switch
+{
+    transform:     translate(32px,0);
+    transition:    transform 200ms ease-in-out;
+}
+
+
+
+.collapse-buttons input[type="button"],
+.collapse-buttons button {
+    cursor:           pointer;
+    background:       #6d006d;
+    color:            #fff;
+    box-shadow:       0 0 1px 1px #990099;
+    padding:          5px 10px;
+    border-radius:    2px;
+    border:           none;
+    margin-right:     5px;
+}
+
+.collapse-buttons {
+    margin-top:       10px;
+    margin-bottom:    3px;
+    padding-right:    14px;
+}
+
+.collapse-buttons input[type="button"]:hover,
+.collapse-buttons button:hover {
+    background: #990099;
+}
+
+
+/* Icons */
+.icon-linear-gradient {
+    width:         32px;
+    height:        32px;
+    background:    linear-gradient(to right, #f00, #0ff);
+}
+
+
+
+/* StyleSheet Editor */
+.stylesheet ul.tree {
+    float:      left;
+    width:      40%;
+}
+
+.stylesheet ul {
+    padding-left:  30px;
+    /* list-style:    circle; */
+}
+
+/*
+.stylesheet li {
+    padding-left: 30px;
+}
+*/
+
+.stylesheet li > div {
+    cursor:        pointer;
+    display:       inline-block;
+    font-size:     1.2em;
+    border:        1px solid #ccc;
+    border-radius: 20px;
+    /* height:        40px; */
+    background:    #efefef;
+    padding:       5px 10px;
+    margin-bottom: 5px;
+}
+
+/*
+.stylesheet li::before {
+    content:       "-- ";
+}
+*/
+
+.stylesheet li > div:hover {
+    background:      #efefef;
+    text-decoration: underline;
+}
+
+.stylesheet li > div.selected {
+    background:    #01a2b5;
+}
+
+
+.stylesheet-panel {
+    padding:       10px;
+    float:         left;
+    width:         59%;
+    background:    #efefef;
+}
+
+
+
+/********************
+ *
+ * Popup panel Styles
+ *
+ ********************/
+.popup {
+    margin:        0;
+    background:    white;
+    color:         #333;
+    border:        1px solid #ccc;
+    z-index:       1000;
+    box-shadow:    #aaa 0px 0px 5px 0px;
+    padding:       0.3em 0.2em 0.1em 0.2em;
+    border:        1px solid #999;
+    border-radius: 10px;
+    font-weight:   normal;
+    /* font-family:   arial; */
+    font-size:     0.9rem;
+    min-width:     15em;
+    /* This is why CSS sucks: text-shadow is inherited, though it shouldn't be */
+    text-shadow:   initial;
+
+    animation:     popup-appear 0.1s ease-in;
+}
+@keyframes popup-appear {
+  from {transform: translateY(-10px);
+        opacity: 0;}
+  to   {transform: translateY(0px);
+        opacity: 1;}
+}
+
+.popup a {
+    text-decoration: none;
+}
+
+/* .popup table* styles
+ Some apply to all tables, some to just table.select, and some to just
+ table.autosuggest
+*/
+.popup table {
+    width:          100%;
+    border-spacing: 0 2px;
+}
+.popup table td {
+    padding: 0.2em;
+}
+.popup table.shortcuts td:first-child {
+    width: 3em;
+}
+.popup table tr {
+    cursor: pointer;
+}
+
+.popup table tr.selector-heading {
+    background:    #828282;
+    color:         #fff;
+}
+.popup table tr.selecting {
+    background:    #cce6e4;
+    color:         #333;
+}
+/* Rounded cornders for first, last cells */
+.popup table tr.selector-heading td:first-child,
+.popup table tr.selecting td:first-child {
+    border-radius: 5px 0 0 5px;
+}
+.popup table tr.selector-heading td:last-child,
+.popup table tr.selecting td:last-child {
+    border-radius: 0 5px 5px 0;
+}
+.popup table.autosuggest td:first-child {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.popup table.autosuggest tr.selecting td:first-child {
+    border-radius: 5px;
+}
+
+.popup table.select td.collapse {
+    text-align: right;
+}
+/* header drags content to edges via negative margins, whereas selecting
+   doesnt' */
+.popup-header {
+    margin:        -0.3em -0.2em 0.3em -0.2em;
+    border-radius: 9px 9px 0 0;
+    text-align:    center;
+    padding:       3px 5px;
+    background:    #ddd;
+}
+.popup input.editor {
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+}
+
+.popup .shortcut {
+    display:       block;
+    text-shadow:   1px 0px 0px #bbb;
+    font-family:   monospace;
+    text-align:    center;
+    border-radius: 6px;
+    color:         #333;
+    background:    #ddd;
+}
+.popup .selecting .shortcut {
+    background: #ccc;
+}
+
+.popup input[type="button"] {
+    border-radius: 3px;
+    border: 1px solid #bbb;
+    padding: 0.3em 0.5em;
+    margin: 0.07em 0 0.3em 0.2em;
+}
+.popup input[type="button"]:hover {
+    color:      #fff;
+    background: #21a9ff;
+}
+
+/*
+.popup li .collapser {
+    margin-right: 0;
+    margin-left: -22px;
+}
+*/
+
+.select-behaviour .popup table td {
+    font-family: monospace;
+}
+
+.goto-id-selector {
+    display:      inline-block;
+    margin-left:  0.5em;
+}
+
+a.link-button {
+    display:        inline-block;
+    margin-right:   0.4em;
+    background:     #eee;
+    border-radius:  4px;
+    padding:        0.2em 0.6em;
+}
+
+a.link-button:hover {
+    background:   #dddddd;
+    transition:   background 100ms ease-in-out;
+}
+.goto-id-selector .popup ul {
+    padding-left: 0;
+}
+
+.goto-id-selector .popup li {
+    padding:       0.3em 1em;
+    border-bottom: 1px solid #ccc;
+}
+.goto-id-selector .popup li:last-child {
+    border-bottom: none;
+}
+.goto-id-selector .popup .selector-heading {
+    padding:       0.3em 0.5em;
+    color:         #555;
+    background:    #cce6e4;
+    border-radius: 2px;
+    border-bottom: 1px solid #cce6e4;
+}
+
+.goto-id-selector .popup li:not([class*="no-hover"]):hover {
+    background:    #efefef;
+}
+.goto-id-selector .popup .heading-label {
+    background:    #00807A;
+}
+
+
+.selector-margins {
+    margin-left:    -5px;
+    margin-right:    -5px;
+}
+
+ul.func-versions {
+    /* list-style: none; */
+    padding-left: 10px;
+}
+
+
+/*.popup li:hover,*/
+ul.func-versions li:hover {
+    background: purple;
+    color: white;
+}
+
+
+
+
+/* SERVER-SIDE STYLES */
+.site-header {
+    padding-right:  1em;
+    border:         1px solid #aaa;
+    background:     #00807a;
+    color:          #fff;
+    box-shadow:     #00807a 0px 0 50px -10px;
+    overflow:       hidden;
+}
+.site-header a.site-subtitle {
+    padding-top:    1.2em;
+    padding-bottom: 1.2em;
+    font-size:      1.5em;
+}
+.site-header a {
+    display:            block;
+    padding:            1em 0.2em;
+    color:              #efefef;
+    text-decoration:    none;
+}
+.site-header .hl-title {
+    color:             #555;
+    background:        #ffaf1c;
+    border-radius:     5px;
+    padding:           10px 20px;
+}
+
+ul.site-nav {
+    float:          left;
+    margin:         0;
+    padding-top:    0;
+    padding-bottom: 0;
+}
+.site-nav a.site-subtitle:hover
+{
+    background:      #009991;
+    transition:      background 200ms;
+}
+.site-title  {
+    font-size:     2.6em;
+    margin-right:  20px;
+    padding-right: 0.1em;
+    border-radius: 2px;
+    text-shadow:   0 0 2px #fff;
+}
+.site-title .bold {
+    font-weight:   500;
+}
+
+.site-nav .signup {
+    background: orange;
+    color: #333;
+    border-radius: 5px;
+    padding: 0.1em;
+    margin-top: 1em;
+}
+
+h1.title {
+    font-family:   "Lato",serif;
+    margin-top:    0.5em;
+    margin-bottom: 0.2em;
+    color:         #555;
+}
+
+
+.site-menu > li {
+    /* margin-top: 2px; */
+    margin-bottom: 10px;
+    margin-right:  10%;
+    padding:       10px;
+    background:    #efefef;
+    border-radius: 2px;
+}
+
+.site-menu > li:hover {
+    background:    #ddd;
+    
+}
+
+.site-menu .sub-menu li {
+    padding: 5px;
+    border:  1px solid #999;
+}
+
+.list-apps > li {
+    border:           1px solid #efefef;
+    margin-bottom:    20px;
+    padding:          10px;
+    border-radius:    1px;
+    box-shadow:       0 8px 10px 0 rgba(0,0,0, .14),
+                      0 3px 14px 2px rgba(0,0,0,.12),
+                      0 5px 5px -4px rgba(0,0,0,.2);
+}
+
+.list-apps .sub-menu  {
+    padding-left: 5px;
+}
+
+
+/*
+.site-menu > li > a {
+    display: block;
+    padding:       10px;
+}
+*/
+
+.login-status {
+    color: #f00;
+}
+
+
+
+/* Special (taken from https://lea.verou.me/2011/02/checkerboard-pattern-with-css3/)
+Disabled since not intuitive, nor easy to scale, nor understand.
+ */
+.checkered {
+    background-image:
+        -moz-linear-gradient(45deg, #000 25%, transparent 25%), 
+        -moz-linear-gradient(-45deg, #000 25%, transparent 25%),
+        -moz-linear-gradient(45deg, transparent 75%, #000 75%),
+        -moz-linear-gradient(-45deg, transparent 75%, #000 75%);
+
+    background-image:
+        -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #000), color-stop(.25, transparent)), 
+        -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #000), color-stop(.25, transparent)),
+        -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #000)),
+        -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, transparent), color-stop(.75, #000));
+
+    background-size:
+        100px 100px;
+    -webkit-background-size:
+        100px 101px; /* override value for shitty webkit */
+    
+    background-position: 0 0, 50px 0, 50px -50px, 0px 50px;
+}
+
+
+
+
+/* Debugger Styles */
+.debug-tree li > span {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    margin: 1px;
+}
+
+.debug-tree li:not(selected) > span:hover {
+    background: #ccc;
+}
+
+
+
+ul.todos li {
+    border-bottom: 1px solid #ccc;
+}
+
+ul.bugs li {
+
+}
+
+/*
+.placeholder {
+    padding: 10px;
+    border: 3px dashed #aaa;
+}
+*/
+
+h2 {
+    font-size: 1.1em;
+    font-weight: bold
+}
+
+
+.testh {
+    height: 100px;
+}
+
+.fade-test {
+    animation-name:     fadeIn;
+    animation-duration: 3s;
+}
+
+
+.scroll-panel {
+    width:        40%;
+    height:       15em;
+    overflow:     scroll;
+}
+
+.ns-tree {
+    padding-left: 0.5em;
+}
+
+.ns-tree > li {
+    margin: 3px;
+    margin-left: 0.1em;
+}
+
+.ns-tree > li > .ns-tree-item {
+    cursor:        pointer;
+    padding:       0.2em;
+    margin-left:   0.1em;
+    border:        1px solid #bbb;
+    border-radius: 0.2em;
+    display:       inline-block;
+}
+
+.ns-tree > li > .selected {
+    border-radius: 0.2em;
+}
+
+ul.ns-code-require {
+    padding-left: 0.1em;
+}
+ul.ns-code-require > li > .include-exclude {
+    display:          inline-block;
+    border: 1px solid #ccc;
+    border-radius:    0.1em;
+    font-weight:      bold;
+    padding:          0.2em;
+    background:       #ccc;
+}
+ul.ns-code-require > li > ul {
+    padding-left: 0.5em;
+}
+
+ul.ns-code-require > li > ul > li {
+    padding:          0.2em;
+    padding-left:     0.4em;
+    margin:           0.2em;
+    border-radius:    0.2em;
+    background:       #efefef;
+}
+
+
+table.ns-code-require {
+    margin-top:    0.5em;
+}
+table.ns-code-require td {
+    padding:       0.2em;
+}
+table.ns-code-require td:first-child {
+    vertical-align: top;
+}
+.ns-code-require-items {
+    margin-top:    0.1em;
+    padding-left:  0.5em;
+    height:        15em;
+    overflow:      scroll;
+    border:        1px solid #ccc;
+    border-radius: 0.2em;
+}
+.ns-code-require-items > li {
+    cursor:        pointer;
+    padding:       0.1em;
+}
+
+table.project-details {
+    padding:       0.4em 0.9em;
+}
+
+table.project-details td {
+    padding:       0.6em;
+}
+table.project-details input {
+    padding:       0.4em;
+}
+
+
+.editor-save-button:hover {
+    background: #b8e0de;
+    outline:     2px solid #007694;
+}
+.editor-save-button:active {
+    transform:           scale(0.95);
+    transition: transform 100ms ease-in-out;
+    /* transition-property: transform; */
+    /* transition-duration: 500ms; */
+}
+
+.html-element > .tab-body {
+    border:        2px solid #001FBD;
+    box-shadow:    0px 1px 5px 0px #ccc;
+    background:    #f7f8fd;
+}
+/* Overrides the general .tab-section:last-child
+   which doesn't apply to .*-elements 
+   (or probably other listed elements)
+   */
+.html-element.tab-section,
+.special-element.tab-section,
+.component-element.tab-section {
+    margin-bottom: 0.8em;
+}
+
+.special-tag {
+    background:    #2d8634;
+}
+
+.special-element > .tab-body {
+    border:        2px solid #2d8634;
+    background:    #f2faf2;
+}
+
+.element-tag.component-tag {
+    background:     #328ba9;
+}
+.component-element > .tab-body {
+    border:        2px solid #328ba9;
+    background:    #cce2ea;
+}
+
+
+/*
+.tab-body.closed {
+    padding: 0;
+    border:  none;
+}
+*/
+.html-element > .tab-body.empty,
+.tab-body.empty {
+    transition: border 0s ease 50ms;
+    padding:  0;
+    border:   0;
+}
+
+
+/*****************************************
+
+  For HTML editors
+
+*****************************************/
+.element-tag {
+    color:         white;
+    font-weight:   bold;
+}
+.html-tag {
+    background: #001FBD;
+}
+
+.viewer:has(> div > div.special-attr) {
+    background: hsl(39 100% 77% / 1);
+}
+
+.mem-browser {
+    background:    #fffef0;
+    margin-bottom: 2em;
+}
+
+.html-editor {
+    display: inline-block;
+}
+/*
+.html-editor .edit-icon {
+    margin-bottom: 1em;
+}
+*/
+
+.element-tag .expander path {
+    fill: #FFFFFF;
+}
+
+/* DROP if we manage to set equivalent styles on *-elements themselves */
+table.html-element-children {
+    /* border-spacing: 0 0.4em; */
+}
+
+table.html-element-children > tbody > tr > td > .checkbox-wrapper {
+    padding:    0.5em;
+    background: #efefef;
+}
+table.html-element-children > tbody > tr > td > .checkbox-wrapper:hover {
+    background: #ddd;
+}
+
+
+table.html-element-children > tbody > tr.selected > td {
+    background: #efefef;
+    transition: background 100ms ease-out;
+}
+
+table.html-element-children.editing > tbody > tr > td {
+    vertical-align: top;
+    padding:        0.6em;
+    transition:     background 100ms ease-in;
+}
+
+/* Override for .tab-section:last-child */
+table.html-element-children > tbody > tr:last-child > td > .html-editor > div > .tab-section {
+    margin-bottom: 0;
+}
+
+
+.html-children {
+    padding: 5px 10px;
+}
+
+ul.html-children > li {
+    padding-left: 5px;
+}
+ul.html-children > li > input[type="checkbox"] {
+    margin: 10px;
+}
+
+ul > li:last-child > .tab-section {
+    margin-bottom: 0em;
+}
+
+.collapsible {
+    transform-origin: top left;
+    transition:       height 0.3s ease-out,
+                      width 0.3s ease-out;
+    height:           auto;
+}
+
+.accordion > .acc-panel {
+    padding:     2px 2px;
+    max-height:  0;
+    overflow:    hidden;
+    transition:  max-height 50ms ease-in-out;
+}
+.rot90 {
+    transform: rotate(90deg);
+}
+.rot-90 {
+    transform: rotate(-90deg);
+}
+
+
+.repl {
+    width: 100%;
+    /* border: 1px solid #ccc; */
+    border-radius: 5px;
+    border-collapse: separate;
+    border-spacing: 0 1.5em;
+}
+
+.repl > tbody > tr > td {
+    border-style: solid;
+    border-color: #eee;
+    background:   #f7f7f7;
+}
+
+.repl > tbody > tr > td:first-child {
+    width:         50px;
+    text-align:    center;
+    padding:       10px;
+    border-width:  1px 0px 3px 1px;
+    border-radius: 5px 0 0 5px;
+    /* box-shadow:    #aaa -6px 0px 20px -6px */
+}
+
+.repl > tbody > tr > td:last-child {
+    border-width:  1px 1px 3px 0px;
+    border-radius: 0 5px 5px 0;
+    padding:       5px 5px 0 0;
+    /* box-shadow: #aaa 0px 0px 10px 0px; */
+}
+
+.debug-panel {
+    color:      #fff;
+    font-weight: bold;
+    padding:    5px;
+}
+.debug-panel.dev {
+    background: #a00;
+}
+.debug-panel.dev-test {
+    background: #aa6300;
+}
+.debug-panel.test {
+    background: #de7700;
+}
+
+
+.collapser {
+    display:      inline-block;
+    margin-left:  5px;
+    margin-right: 5px;
+}
+
+details > summary {
+    cursor: pointer;
+}
+
+/* Styles which need to be as low down as possible to work */
+.cancel-top-left {
+    border-top-left-radius: 0 !important;
+}
+.cancel-top-right {
+    border-top-right-radius: 0 !important;
+}
+/* Blank Button */
+.editor-head .blank-button:focus {
+    color: #000;
+}
+
+input.blank-button {
+    color: inherit;
+    background: none;
+    border-color: rgba(0, 0, 0, 0);
+    border-width: 1px;
+    cursor: pointer;
+}
+
+input.blank-button:focus {
+    background: #fff;
+    border: 1px solid lightblue;
+    border-radius: 1px;
+}
+
+input.edit-button.ok {
+    vertical-align: bottom;
+    border:         1px solid #aaa;
+    border-radius:  2px;
+    color:          #333;
+    font-size:      0.9rem;
+    font-weight:    bold;
+    background:     #fff9cc;
+    padding:        0.3em 0.5em;
+    margin:         0 0.3em 0.3em 0.5em;
+    cursor:         pointer;
+}
+input.edit-button.ok:hover {
+    background:  #CCC;
+    transition:  background 200ms ease-in-out;
+}
+
+
+.home-button {
+    display: inline-block;
+    padding:       0.7em;
+    border-radius: 5px;
+    color:         #666;
+    text-decoration: none;
+}
+
+ul.big-buttons > li {
+    border:        1px solid #ccc;
+    border-radius: 15px;
+    margin-bottom: 1em;
+    transition:    transform 200ms ease-in-out;
+    background:    #efefef;
+}
+ul.big-buttons > li > a:focus {
+    border-radius: 15px;
+}
+
+ul.big-buttons > li:hover {
+    transform: scale(1.01);
+    box-shadow:
+        hsl(177deg 30% 79%) 0px 6px 10px 0px,
+        /* #dcdcdc 0px 6px 10px 0px, */
+        #cbcbcb 0px 20px 7px -15px;
+}
+
+ul.big-buttons > li > a {
+    display:         block;
+    padding:         2em;
+    text-decoration: none;
+    font-size:       1.1em;
+    color:           #666;
+}
+/* Test Component Panel Styles */
+
+.invisible-top-padded {
+    padding-top:    1em;
+}
+.invisible-bottom-padded {
+    padding-bottom: 1em;
+}
+.invisible-top-bottom-padded {
+    padding-top:    1em;
+    padding-bottom: 1em;
+}
+
+/*
+.test-component-options {
+    border-top:    1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding:       0.2em 0.5em;
+    margin:        0.5em 0.2em;
+}
+*/
+
+.test-component-options li {
+    background:    #efefef;
+    border-radius: 4px;
+}
+
+.test-component-container iframe.test-component-iframe {
+    border:        none;
+    min-height:    1000px;
+    border:        2px dashed #CCC;
+}
+
+/*
+.test-component input[type="text"],
+.test-component input[type="number"] {
+    padding:       0.45em;
+    margin:        0.1em;
+    border-radius: 5px;
+    border:        1px solid #aaa;
+}
+
+.test-component input[type="button"] {
+    padding:       0.45em;
+    margin:        0.1em;
+    border-radius: 3px;
+    border:        1px solid #aaa;
+    cursor:        pointer;
+}
+*/
+
+.cursor-auto {
+    cursor: auto;
+}
+.cursor-not {
+    cursor: not-allowed;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+
+
+.undo-history-section > .tab-section-heading {
+    margin-bottom: -1px;
+}
+.undo-history-section > .tab-section-heading > .tab-heading {
+    background:    #fff;
+    border:        1px solid #CCC;
+    border-bottom: none;
+}
+.undo-history-section > .tab-section-heading > .tab-heading.closed {
+    border-bottom: 1px solid #CCC;
+}
+
+.undo-history-section > .tab-body {
+    overflow-y:    scroll;
+    max-height:    15em;
+}
+table.undo-history {
+    border-spacing: 0 0.1em;
+}
+table.undo-history td {
+    padding:       0.3em 0.5em;
+    border-bottom: 1px solid #aaa;
+}
+table.undo-history td:first-child {
+    text-align:    center;
+}
+table.undo-history tr.selected td {
+    background:    #ccc;
+}
+table.undo-history tr.selected td:first-child {
+    border-top-left-radius:    6px;
+    border-bottom-left-radius: 6px;
+}
+table.undo-history tr.selected td:last-child {
+    border-top-right-radius:    6px;
+    border-bottom-right-radius: 6px;
+}
+
+table.undo-history tr.redoable td {
+    color: #aaa;
+}
+
+.status-bar {
+    position: fixed;
+    bottom:   0px;
+    width:    100px;
+    height:   20px;
+}
+
+.svg-scene-editor {
+}
+
+.svg-scene-editor .list-shapes {
+    width:   20%;
+    padding: 0.2em;
+}
+
+.svg-scene-editor .scene-editor {
+    border-radius: 5px;
+    outline:       1px solid #999;
+    margin:        0.2em;
+
+}
+
+.blockgrid {
+    display:     inline-block;
+    cursor:      pointer;
+    user-select: none;
+    border-top:  1px solid #ccc;
+    border-left: 1px solid #ccc;
+}
+.blockgrid > div > div {
+    display:        inline-block;
+    text-align:     center;
+    vertical-align: middle;
+    border-right:   1px solid #ccc;
+    border-bottom:  1px solid #ccc;
+    width:          2em;
+    height:         2em;
+}
+
+.blockgrid.selected {
+    outline: 1px solid #00a;
+}
+
+/*******
+
+Palette 
+
+********/
+.palette {
+    background: #efefef;
+    margin: 5px;
+}
+
+.palette td {
+    padding: 2px;
+    border: 1px solid #ddd;
+    border-right: 0;
+    border-bottom: 0;
+    text-align: center;
+}
+.view-palette td:first-child {
+    width:  2em;
+    height: 2em;
+}
+.view-palette tr.selected td:first-child {
+    box-shadow: inset 0 0 0px 5px #ccc;
+}
+.view-palette td:nth-child(2) {
+    padding-left:  0.4em;
+    padding-right: 0.4em;
+}
+
+.cancel-top,
+.no-top-radius {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/* From: https://stackoverflow.com/questions/3540194/how-to-make-a-grid-like-graph-paper-grid-with-just-css */
+/*
+.grid-div {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, grey 1px, transparent 1px),
+    linear-gradient(to bottom, grey 1px, transparent 1px);
+}
+*/
+
+
+.loader {
+  margin-top:     10px;
+  width:          48px;
+  height:         48px;
+  border:         5px solid #72c8ff;
+  border-radius:  50%;
+  display:        inline-block;
+  position:       relative;
+  box-sizing:     border-box;
+  animation:      loader-rotation 1s linear infinite;
+}
+.loader::after {
+  content:      '';  
+  box-sizing:   border-box;
+  position:     absolute;
+  left:         50%;
+  top:          50%;
+  transform:    translate(-50%, -50%);
+  width:        40px;
+  height:       40px;
+  border-radius:50%;
+  border:       20px solid;
+  border-color: #777 transparent;
+}
+@keyframes loader-rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.slider-container {
+    position: relative;
+}
+.hue-slider {
+  width:      400px;
+  height:     30px;
+  background: linear-gradient(
+    to right,
+    hsl(0, 100%, 50%),
+    hsl(60, 100%, 50%),
+    hsl(120, 100%, 50%),
+    hsl(180, 100%, 50%),
+    hsl(240, 100%, 50%),
+    hsl(300, 100%, 50%),
+    hsl(360, 100%, 50%)
+  );
+  margin-bottom: 1em;
+}
+
+.hue-slider-thumb {
+    position:      absolute;
+    width:         16px;
+    height:        30px;
+    border-radius: 15px;
+    background:    #FFFFFF88;
+    border:        1px solid #AAA;
+}
+
+.color-panel {
+  width:         400px;
+  height:        150px;
+  margin-bottom: 1em;
+}
+.color-panel-thumb {
+    position:      absolute;
+    width:         14px;
+    height:        14px;
+    border-radius: 7px;
+    border:        1px solid #AAA;
+    background:    #FFFFFF88;
+}
+
+
+
+/* Not yet in use, for deleting e.g. sequence items */
+.delete {
+    animation: delete-item 0.2s ease-in;
+}
+@keyframes delete-item {
+  0%   {opacity:1}
+  100% {opacity:0}
+}
+
