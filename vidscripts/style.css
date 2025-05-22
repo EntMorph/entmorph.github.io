@@ -638,6 +638,7 @@ table {
 }
 
 .let-bindings > thead >  tr > th {
+    text-align:    center;
     font-weight:   normal;
     padding:       10px;
     border-bottom: 2px solid #fff;
@@ -4194,9 +4195,6 @@ Palette
   }
 }
 
-.slider-container {
-    position: relative;
-}
 .hue-slider {
   width:      400px;
   height:     30px;

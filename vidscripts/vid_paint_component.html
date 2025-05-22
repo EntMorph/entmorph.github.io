@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-12 Mon 19:16 -->
+<!-- 2025-05-22 Thu 09:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Creating a Paint Component in entmorph</title>
@@ -202,22 +202,49 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8b06d35">1. Overview</a></li>
-<li><a href="#org5a8f54c">2. Starting with :styles</a></li>
-<li><a href="#org317fd5b">3. Add classes</a></li>
-<li><a href="#orge5ff906">4. Add &lt;canvas&gt;</a></li>
-<li><a href="#org7f70f59">5. Build, Preview</a></li>
-<li><a href="#org15d1b17">6. Add :behaviours</a></li>
-<li><a href="#orgdfaffd1">7. Rename <code>state-var</code> -&gt; <code>canvas-styles</code></a></li>
-<li><a href="#org2f94616">8. Preview Component</a></li>
-<li><a href="#org1696bfa">9. Add line to canvas</a></li>
-<li><a href="#org87de74e">10. Set :autostart? true</a></li>
-<li><a href="#org68eb0e2">11. Conclusion</a></li>
+<li><a href="#orge51bf40">1. Overview</a></li>
+<li><a href="#org6db6dda">2. Starting with :styles</a></li>
+<li><a href="#org82a4a8b">3. Add classes</a></li>
+<li><a href="#org2e5aa97">4. Add &lt;canvas&gt;</a></li>
+<li><a href="#org0f5da61">5. Build, Preview</a></li>
+<li><a href="#org3d718c9">6. Add :behaviours</a></li>
+<li><a href="#org22a02be">7. Rename <code>state-var</code> -&gt; <code>canvas-styles</code></a></li>
+<li><a href="#org7d4149d">8. <b>Preview Component</b></a></li>
+<li><a href="#org034f73f">9. Add line to canvas</a></li>
+<li><a href="#org628f541">10. Set :autostart? true</a></li>
+<li><a href="#orgca26218">11. <b>Preview Component</b></a></li>
+<li><a href="#org647d92a">12. Add: rect, fill-circle behaviours</a></li>
+<li><a href="#orgaa10912">13. Switch to <code>rectangle</code> on canvas</a></li>
+<li><a href="#org9d70f01">14. Switch to <code>fill-circle</code> on canvas</a></li>
+<li><a href="#orga3e9da3">15. Two things</a></li>
+<li><a href="#org591c631">16. Add :switcher</a></li>
+<li><a href="#org4ff669c">17. Update switcher :behaviours map</a></li>
+<li><a href="#orgf37a66a">18. Add <code>mode-state</code></a></li>
+<li><a href="#org12f3b31">19. Set switcher :mode-state, :init-mode</a></li>
+<li><a href="#org1126ea7">20. Add switcher to canvas</a></li>
+<li><a href="#orgfbd6a66">21. <b>Preview Component</b></a></li>
+<li><a href="#org2c5fe25">22. Add canvas mode buttons</a></li>
+<li><a href="#org2e21fcd">23. Add :#each Special Element</a></li>
+<li><a href="#orgdc0973b">24. Add Collection to :#each</a></li>
+<li><a href="#org7b1f0f7">25. Update :#each <code>:render</code> section</a></li>
+<li><a href="#org724620e">26. <b>Preview Component</b></a></li>
+<li><a href="#orgc2dea45">27. Set canvas-styles state var</a></li>
+<li><a href="#org183980b">28. <b>Preview Component</b></a></li>
+<li><a href="#org60abd7f">29. Add table to update canvas-styles</a></li>
+<li><a href="#orgd071129">30. Destructure canvas-styles state variable</a></li>
+<li><a href="#org06d080a">31. Add cursors to :input elements</a></li>
+<li><a href="#orgcd25d08">32. <b>Preview Component</b></a></li>
+<li><a href="#org3dfb0a9">33. Last steps: Clear Canvas, Download</a></li>
+<li><a href="#org7f26401">34. Set :html.canvas/clear :canvas-id</a></li>
+<li><a href="#orgfd39aaa">35. Add Download button</a></li>
+<li><a href="#org9011bbd">36. <b>Preview Component</b></a></li>
+<li><a href="#org1f560f1">37. TODO</a></li>
+<li><a href="#orgb2904e4">38. Conclusion</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org8b06d35" class="outline-2">
-<h2 id="org8b06d35"><span class="section-number-2">1.</span> Overview</h2>
+<div id="outline-container-orge51bf40" class="outline-2">
+<h2 id="orge51bf40"><span class="section-number-2">1.</span> Overview</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>in this video I want to show you how to create a Paint Component
@@ -228,81 +255,86 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org5a8f54c" class="outline-2">
-<h2 id="org5a8f54c"><span class="section-number-2">2.</span> Starting with :styles</h2>
+<div id="outline-container-org6db6dda" class="outline-2">
+<h2 id="org6db6dda"><span class="section-number-2">2.</span> Starting with :styles</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>I'm starting with a component which already has all the required styles added to it;
 <ul class="org-ul">
-<li>creating styles can take a lot of time which will make the video unnecessarily longer;</li>
-<li>there are three styles that we're going to use:
+<li>this is because creating styles can take a lot of time which will make the video longer,</li>
+<li>and I want to focus on Canvas behaviours which is what this video is all about;</li>
+</ul></li>
+<li>There are three styles that we're going to use:
 <ul class="org-ul">
 <li><code>.main</code></li>
 <li><code>.control-panel</code></li>
 <li><code>.canvas-container</code></li>
 </ul></li>
-</ul></li>
 <li>So I'll collapse the :styles section as we won't need to update it;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org317fd5b" class="outline-2">
-<h2 id="org317fd5b"><span class="section-number-2">3.</span> Add classes</h2>
+<div id="outline-container-org82a4a8b" class="outline-2">
+<h2 id="org82a4a8b"><span class="section-number-2">3.</span> Add classes</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>I'll set .main on the root <code>div</code> element
 <ul class="org-ul">
 <li>I'm using the <code>tag.class</code> notation,</li>
 <li>which is a shortcut for adding classes to elements, and is a lot quicker than setting the :class attribute;</li>
-<li>within that I'll Add two <code>div</code> elements:</li>
+</ul></li>
+<li>within that I'll Add two <code>div</code> elements:
+<ul class="org-ul">
 <li><code>div.control-panel</code></li>
 <li><code>div.canvas-container</code></li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge5ff906" class="outline-2">
-<h2 id="orge5ff906"><span class="section-number-2">4.</span> Add &lt;canvas&gt;</h2>
+<div id="outline-container-org2e5aa97" class="outline-2">
+<h2 id="org2e5aa97"><span class="section-number-2">4.</span> Add &lt;canvas&gt;</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>within <code>div.canvas-container</code>
 <ul class="org-ul">
 <li>I'll add a &lt;canvas&gt; element</li>
-<li>it has default attributes for width and height</li>
+<li>it has default attributes for width and height
+<ul class="org-ul">
+<li>and a message which lets people know if their browser doesn't support canvas elements</li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org7f70f59" class="outline-2">
-<h2 id="org7f70f59"><span class="section-number-2">5.</span> Build, Preview</h2>
+<div id="outline-container-org0f5da61" class="outline-2">
+<h2 id="org0f5da61"><span class="section-number-2">5.</span> Build, Preview</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
-<li>there's a panel on the left which we'll fill with buttons</li>
+<li>there's a panel on the left which we'll fill with buttons
+<ul class="org-ul">
 <li>and so far clicking on the canvas does nothing</li>
+</ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org15d1b17" class="outline-2">
-<h2 id="org15d1b17"><span class="section-number-2">6.</span> Add :behaviours</h2>
+<div id="outline-container-org3d718c9" class="outline-2">
+<h2 id="org3d718c9"><span class="section-number-2">6.</span> Add :behaviours</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
-<li>Let's go up to the Code panel
-<ul class="org-ul">
+<li>Let's change it so that users can draw lines on the canvas;</li>
 <li><b>Goto</b> &gt; <code>Code</code></li>
-</ul></li>
 <li>Open the Component for editing <code>(Edit icon)</code>
 <ul class="org-ul">
 <li>which makes the <code>Component Commands</code> appear;</li>
 </ul></li>
-<li>Click on <code>Add Section</code>
+<li><code>click on</code> <b>Add Section &gt; :behavrious</b>
 <ul class="org-ul">
-<li>and select <code>:behaviours</code> to add a :behaviours section</li>
-<li>which has an empty default behaviour;</li>
+<li>to add a <code>:behaviours</code> section</li>
+<li>which has an default empty behaviour;</li>
 </ul></li>
-<li>I want our users to be able to draw on the Canvas,
+<li>For our users to be able to draw on the Canvas,
 <ul class="org-ul">
-<li>so I'll start by providing them with the ability to draw a line;</li>
-<li>to do this, I need to create a line behaviour;</li>
+<li>we need to create a line behaviour;</li>
 </ul></li>
 <li>I'll give the default behaviour a name of <code>line</code>
 <ul class="org-ul">
@@ -310,18 +342,18 @@
 <li>there's a behaviour called <code>:html.canvas.mouse/line</code> so I'll select that;</li>
 <li>notice that the <code>:arg</code> value is updated with a map which defines a <code>:canvas-styles</code> entry;
 <ul class="org-ul">
-<li>I'll click on <code>Select State</code> to set this,</li>
+<li><code>click on</code> <b>Select State</b></li>
 <li>and select <code>state-var</code></li>
 </ul></li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdfaffd1" class="outline-2">
-<h2 id="orgdfaffd1"><span class="section-number-2">7.</span> Rename <code>state-var</code> -&gt; <code>canvas-styles</code></h2>
+<div id="outline-container-org22a02be" class="outline-2">
+<h2 id="org22a02be"><span class="section-number-2">7.</span> Rename <code>state-var</code> -&gt; <code>canvas-styles</code></h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
-<li>I'll go up to the :state section
+<li><b>Goto</b> &gt; <code>:state</code>
 <ul class="org-ul">
 <li>and rename <code>state-var</code> by clicking on it</li>
 <li>and changing its name to <code>canvas-styles</code></li>
@@ -331,76 +363,696 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org2f94616" class="outline-2">
-<h2 id="org2f94616"><span class="section-number-2">8.</span> Preview Component</h2>
+<div id="outline-container-org7d4149d" class="outline-2">
+<h2 id="org7d4149d"><span class="section-number-2">8.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
-<li><b>Goto</b> &gt; <code>Output</code> to go to the Output Panel
-<ul class="org-ul">
-<li>click on <b>Preview Component</b></li>
-</ul></li>
 <li>Now when I click on the canvas,
 <ul class="org-ul">
 <li>nothing happens(!)</li>
 </ul></li>
 <li>This is to be expected;
 <ul class="org-ul">
-<li>although we create the line behaviour in the :behaviours section,</li>
-<li>we need to add to an element for it to do anything;</li>
+<li>although we created the line behaviour in the <code>:behaviours</code> section,</li>
+<li>we need to add the behaviour to an element for it to do anything;</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1696bfa" class="outline-2">
-<h2 id="org1696bfa"><span class="section-number-2">9.</span> Add line to canvas</h2>
+<div id="outline-container-org034f73f" class="outline-2">
+<h2 id="org034f73f"><span class="section-number-2">9.</span> Add line to canvas</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
-<li>so let's fix that now</li>
+<li>So let's do that now</li>
 <li>The element we need to add the behaviour to is of course our <code>canvas</code></li>
 <li><code>[scroll-to canvas element]</code></li>
 <li>To add it, we need to use a special attribute
 <ul class="org-ul">
 <li>so I'll click on the Edit icon for the Attributes,</li>
 <li>which opens the Attributes Map editor;</li>
-<li>from there, I'll click on "Add Special"
+<li><code>click on</code> <b>Add Special</b>
 <ul class="org-ul">
-<li>and select #behaviours</li>
+<li>and select <code>#behaviours</code></li>
 <li>this is an entmorph extension to HTML which lets us connect behaviours to elements;</li>
-<li>under "Select Behaviours", I'll check "line", to add the line behaviour to the canvas;</li>
+</ul></li>
+<li>Under "Select Behaviours",
+<ul class="org-ul">
+<li>I'll check "line",</li>
+<li>to add the line behaviour to the canvas;</li>
 </ul></li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org87de74e" class="outline-2">
-<h2 id="org87de74e"><span class="section-number-2">10.</span> Set :autostart? true</h2>
+<div id="outline-container-org628f541" class="outline-2">
+<h2 id="org628f541"><span class="section-number-2">10.</span> Set :autostart? true</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>but there's one more thing I need to do to get this to work</li>
 <li><b>Goto</b> &gt; <code>:behaviours</code></li>
-<li>and I'll set the :autostart? entry of the line behaviour from false to true;
+<li>and I'll set the <code>:autostart?</code> entry of the line behaviour from false to true;</li>
+<li>this ensures that the behaviour starts as soon as it's added to the element;
 <ul class="org-ul">
 <li>the reason it's set to false by default is that there are other ways to start behaviours, including:
 <ul class="org-ul">
 <li>using special start and stop behaviour events</li>
-<li>and via other behaviours, which we'll look at soon;</li>
+<li>and via other behaviours, which we'll look at very soon in this video;</li>
 </ul></li>
 </ul></li>
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org68eb0e2" class="outline-2">
-<h2 id="org68eb0e2"><span class="section-number-2">11.</span> Conclusion</h2>
+<div id="outline-container-orgca26218" class="outline-2">
+<h2 id="orgca26218"><span class="section-number-2">11.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-11">
 <ul class="org-ul">
+<li>Now let's try drawing on the canvas again
+<ul class="org-ul">
+<li>As I click and drag the mouse on the canvas, a straight line appears</li>
+<li>[TODO: if I move the mouse outside of the canvas, the line continues to move!]</li>
+</ul></li>
+<li>Our users can now draw straight lines on the canvas;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org647d92a" class="outline-2">
+<h2 id="org647d92a"><span class="section-number-2">12.</span> Add: rect, fill-circle behaviours</h2>
+<div class="outline-text-2" id="text-12">
+<ul class="org-ul">
+<li>So let's give our users the ability to draw more things</li>
+<li><b>Goto</b> &gt; <code>:behaviours</code></li>
+<li><code>click on</code> <b>Add</b>
+<ul class="org-ul">
+<li><code>rectangle</code></li>
+<li><code>stroke.rect</code></li>
+<li>Set: canvas-styles</li>
+<li>:autostart? true</li>
+</ul></li>
+<li><code>click on</code> <b>Add</b>
+<ul class="org-ul">
+<li><code>fill-circle</code></li>
+<li><code>fill.circle</code></li>
+<li>Set: canvas-styles</li>
+<li>:autostart? true</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgaa10912" class="outline-2">
+<h2 id="orgaa10912"><span class="section-number-2">13.</span> Switch to <code>rectangle</code> on canvas</h2>
+<div class="outline-text-2" id="text-13">
+<ul class="org-ul">
+<li><code>[scroll-to canvas]</code></li>
+<li><code>click on</code> <b>:#behaviours</b></li>
+<li>We can change from <code>line</code> to <code>rectangle</code></li>
+<li><b>Preview Component</b></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9d70f01" class="outline-2">
+<h2 id="org9d70f01"><span class="section-number-2">14.</span> Switch to <code>fill-circle</code> on canvas</h2>
+<div class="outline-text-2" id="text-14">
+<ul class="org-ul">
+<li><b>Preview Component</b></li>
+<li>So depending on which behaviour we select for them,
+<ul class="org-ul">
+<li>our users can draw a line, or a rectangle or a cirle;</li>
+<li>but our users can't select the shape they can draw;</li>
+<li>they're stuck with what we set for them when we build the component,
+<ul class="org-ul">
+<li>which of course is very dull;</li>
+</ul></li>
+</ul></li>
+<li>So let's give our users the ability to select a shape;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga3e9da3" class="outline-2">
+<h2 id="orga3e9da3"><span class="section-number-2">15.</span> Two things</h2>
+<div class="outline-text-2" id="text-15">
+<ul class="org-ul">
+<li>The best way to do this is to add some buttons to let our users select a shape;</li>
+<li>There are two things we need to do to make this happen;
+<ul class="org-ul">
+<li>first we need some way to select which behaviour is active on the canvas at any one time</li>
+<li>then, we need to create buttons which will do the actual selecting</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org591c631" class="outline-2">
+<h2 id="org591c631"><span class="section-number-2">16.</span> Add :switcher</h2>
+<div class="outline-text-2" id="text-16">
+<ul class="org-ul">
+<li>To select a behaviour that's active on the canvas,
+<ul class="org-ul">
+<li>we need to create yet another behaviour;</li>
+</ul></li>
+<li><code>click on</code> <b>Add</b>
+<ul class="org-ul">
+<li><code>switcher</code></li>
+<li><code>:switch-behaviour</code></li>
+<li>This is a behaviour which lets you switch between different behaviours;</li>
+<li>If we look at its :arg map;
+<ul class="org-ul">
+<li>it defines the following few keys;</li>
+<li><code>:behaviours</code> is a map of all the behaviours we want the switcher to select from;</li>
+<li><code>:mode-state</code> has to refer to a state variable which will hold the current mode;</li>
+<li><code>:init-mode</code> is the initial mode when the behaviour is first added to the canvas;</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4ff669c" class="outline-2">
+<h2 id="org4ff669c"><span class="section-number-2">17.</span> Update switcher :behaviours map</h2>
+<div class="outline-text-2" id="text-17">
+<ul class="org-ul">
+<li>Let's update the :behaviours map</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">{</span><span style="color: #F5666D;">:line</span>        line
+ <span style="color: #F5666D;">:rectangle</span>   rectangle
+ <span style="color: #F5666D;">:fill-circle</span> fill-circle<span style="color: #707183;">}</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>The keys need to be keywords, and the values are behaviours;
+<ul class="org-ul">
+<li>we'll use the keys to refer to the behaviours from <code>mode-state</code> and <code>init-mode</code></li>
+</ul></li>
+<li>For <code>mode-state</code> we need to create a new state variable;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf37a66a" class="outline-2">
+<h2 id="orgf37a66a"><span class="section-number-2">18.</span> Add <code>mode-state</code></h2>
+<div class="outline-text-2" id="text-18">
+<ul class="org-ul">
+<li><b>Goto</b> &gt; <code>:state</code></li>
+<li><code>click on</code> <b>Add</b>
+<ul class="org-ul">
+<li><code>canvas-mode</code></li>
+<li><code>nil</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org12f3b31" class="outline-2">
+<h2 id="org12f3b31"><span class="section-number-2">19.</span> Set switcher :mode-state, :init-mode</h2>
+<div class="outline-text-2" id="text-19">
+<ul class="org-ul">
+<li><b>Goto</b> &gt; <code>:behaviours &gt; switcher</code>
+<ul class="org-ul">
+<li>Set <code>:mode-state</code> <code>canvas-mode</code></li>
+<li>:init-mode -&gt; <code>:line</code></li>
+</ul></li>
+<li>:autostart? <code>true</code>
+<ul class="org-ul">
+<li>to ensure that the switcher behaviour starts when it's added to the canvas</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1126ea7" class="outline-2">
+<h2 id="org1126ea7"><span class="section-number-2">20.</span> Add switcher to canvas</h2>
+<div class="outline-text-2" id="text-20">
+<ul class="org-ul">
+<li><b>Goto</b> &gt; <code>:render &gt; canvas</code></li>
+<li>Deselect all behaviours</li>
+<li>Select <code>switcher</code></li>
+<li><code>[close</code> (:#behaviours) <code>]</code> as now done</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfbd6a66" class="outline-2">
+<h2 id="orgfbd6a66"><span class="section-number-2">21.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-21">
+<ul class="org-ul">
+<li>We can still draw a line on the canvas;</li>
+<li><code>[scroll-to :behaviours &gt; switcher]</code></li>
+<li>If we go back up to switcher behaviour,
+<ul class="org-ul">
+<li>and set the :init-mode to <code>rectangle</code>,</li>
+</ul></li>
+<li><b>Preview Component</b>
+<ul class="org-ul">
+<li>we can now draw rectangles on the canvas;</li>
+</ul></li>
+<li>Which means our switcher behaviour,
+<ul class="org-ul">
+<li>which is the only behaviour we added to the canvas,</li>
+<li>is working correctly;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2c5fe25" class="outline-2">
+<h2 id="org2c5fe25"><span class="section-number-2">22.</span> Add canvas mode buttons</h2>
+<div class="outline-text-2" id="text-22">
+<ul class="org-ul">
+<li>However, our users still have no way to switch behaviours themselves;</li>
+<li>So let's take care of that now;</li>
+<li>We'll create a set of buttons in the panel on the left hand side,
+<ul class="org-ul">
+<li>one for each mode;</li>
+</ul></li>
+<li><b>Goto</b> &gt; <code>:behaviours &gt; switcher</code></li>
+<li>Our <code>switcher</code> behaviour has a <code>:mode-state</code> key which is set to the <code>canvas-mode</code> state variable;
+<ul class="org-ul">
+<li>so we need to be able to update the <code>canvas-mode</code> state variable to change the active behaviour on the canvas;</li>
+</ul></li>
+<li>To do that, we'll create a set of buttons as follows;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2e21fcd" class="outline-2">
+<h2 id="org2e21fcd"><span class="section-number-2">23.</span> Add :#each Special Element</h2>
+<div class="outline-text-2" id="text-23">
+<ul class="org-ul">
+<li><b>Goto</b> &gt; <code>:render</code></li>
+<li><code>[open</code> (div.control-panel) <code>]</code></li>
+<li><code>click on</code> <b><b>Add</b></b></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:fieldset</span>
+ <span style="color: #7388d6;">[</span><span style="color: #F5666D;">:legend</span> <span style="color: #4E9A06;">"Canvas Mode"</span><span style="color: #7388d6;">]</span><span style="color: #707183;">]</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>Within <code>:fieldset</code>
+<ul class="org-ul">
+<li><code>click on</code> <b>Special &gt; :#each</b></li>
+<li>:#each Special Elements are covered in their own video so I won't go over them here;</li>
+</ul></li>
+<li>We want to render a set of buttons,
+<ul class="org-ul">
+<li>so we'll start with the <code>:render</code> section</li>
+</ul></li>
+<li>Rename: <code>div</code> -&gt; <code>input/button</code>
+<ul class="org-ul">
+<li>to create a default input button element;</li>
+<li>the button needs two things:
+<ul class="org-ul">
+<li>a :value, which is the button's label</li>
+<li>and an :on-click event handler</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgdc0973b" class="outline-2">
+<h2 id="orgdc0973b"><span class="section-number-2">24.</span> Add Collection to :#each</h2>
+<div class="outline-text-2" id="text-24">
+<ul class="org-ul">
+<li>To give the input button element what it wants,
+<ul class="org-ul">
+<li>we have to pass a collection to the :#each loop</li>
+</ul></li>
+<li>I could create the collection in the :locals section,
+<ul class="org-ul">
+<li>or even outside of the component,</li>
+<li>but since it's so small I'm going to create it directly in the :#each element;</li>
+</ul></li>
+<li><code>click on</code> <b><code>nil</code></b></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #204A87;">;; </span><span style="color: #204A87;">Add vector &gt; map</span>
+<span style="color: #204A87;">;; </span><span style="color: #204A87;">Copy Child</span>
+<span style="color: #204A87;">;; </span><span style="color: #204A87;">Paste Child</span>
+<span style="color: #707183;">[</span><span style="color: #7388d6;">{</span><span style="color: #F5666D;">:label</span> <span style="color: #4E9A06;">"Line"</span>
+  <span style="color: #F5666D;">:mode</span>  <span style="color: #F5666D;">:line</span><span style="color: #7388d6;">}</span>
+ <span style="color: #7388d6;">{</span><span style="color: #F5666D;">:label</span> <span style="color: #4E9A06;">"Rectangle"</span>
+  <span style="color: #F5666D;">:mode</span>  <span style="color: #F5666D;">:rectangle</span><span style="color: #7388d6;">}</span>
+ <span style="color: #7388d6;">{</span><span style="color: #F5666D;">:label</span> <span style="color: #4E9A06;">"Fill Circle"</span>
+  <span style="color: #F5666D;">:mode</span>  <span style="color: #F5666D;">:fill-circle</span><span style="color: #7388d6;">}</span><span style="color: #707183;">]</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>Each :mode in the Collection corresonds directly to one of the behaviours in the switcher :behaviours map;
+<ul class="org-ul">
+<li><code>[scroll-to :behaviours &gt; switcher]</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7b1f0f7" class="outline-2">
+<h2 id="org7b1f0f7"><span class="section-number-2">25.</span> Update :#each <code>:render</code> section</h2>
+<div class="outline-text-2" id="text-25">
+<ul class="org-ul">
+<li><code>[scroll-to :render &gt; :#each &gt; input/button]</code></li>
+<li>So our :#each block will take each item in the collection,
+<ul class="org-ul">
+<li>a map of :label and :mode,</li>
+<li>and render an <code>input/button</code> element from it;</li>
+</ul></li>
+<li>So we need to pass the information from the item to the input button element;</li>
+<li>To do that, we'll use a feature called <i>map destructuring</i>,
+<ul class="org-ul">
+<li>which works like this;</li>
+</ul></li>
+<li><code>click on</code> <b>item binding</b>
+<ul class="org-ul">
+<li><code>click on</code> <b>Destructure</b></li>
+<li>Each item is a map of keywords, so &#x2026;</li>
+<li><code>click on</code> <b>{:keys []}</b></li>
+</ul></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">{</span><span style="color: #F5666D;">:keys</span> <span style="color: #7388d6;">[</span>label
+        mode<span style="color: #7388d6;">]</span>
+ <span style="color: #F5666D;">:as</span> item<span style="color: #707183;">}</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>So now for each item, the :#each block takes the :label and :mode directly from the item, and we can pass those to the ~input/button;</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">{</span><span style="color: #F5666D;">:value</span> label
+ <span style="color: #F5666D;">:on-click</span> <span style="color: #7388d6;">{</span><span style="color: #F5666D;">:handler</span> <span style="color: #F5666D;">:reset</span>
+            <span style="color: #F5666D;">:arg</span>     <span style="color: #909183;">{</span><span style="color: #F5666D;">:state</span> canvas-mode
+                      <span style="color: #F5666D;">:value</span> mode<span style="color: #909183;">}</span><span style="color: #7388d6;">}</span><span style="color: #707183;">}</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>When we click on this button, set the <code>canvas-mode</code> state variable to the mode supplied by the item in the collection;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org724620e" class="outline-2">
+<h2 id="org724620e"><span class="section-number-2">26.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-26">
+<ul class="org-ul">
+<li>First, we have a "Canvas Mode" fieldset in the left panel,
+<ul class="org-ul">
+<li>with three buttons</li>
+<li>one for each mode</li>
+</ul></li>
+<li>[Demo]</li>
+<li>So our users can finally select what to draw on the canvas;</li>
+<li>However, they can only draw black shapes,
+<ul class="org-ul">
+<li>and very thin lines;</li>
+</ul></li>
+<li>Let's give them the ability change color and line thickness;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc2dea45" class="outline-2">
+<h2 id="orgc2dea45"><span class="section-number-2">27.</span> Set canvas-styles state var</h2>
+<div class="outline-text-2" id="text-27">
+<ul class="org-ul">
+<li><b>Goto</b> &gt; <code>Code &gt; :state</code></li>
+<li>Our line, rectangle, and circle behaviours all have their :canvas-styles argument set to the <code>canvas-styles</code> state variable
+<ul class="org-ul">
+<li>which until now we've kept as any empty map;</li>
+</ul></li>
+<li><code>[open</code> (canvas-styles map) <code>]</code></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">{</span><span style="color: #4E9A06;">"fillStyle"</span>   <span style="color: #4E9A06;">"Browser Color &gt; orange"</span>
+ <span style="color: #4E9A06;">"strokeStyle"</span> <span style="color: #4E9A06;">"Browser Color &gt; blue"</span>
+ <span style="color: #4E9A06;">"lineWidth"</span>   <span style="color: #4E9A06;">"Number &gt; 5"</span>
+ <span style="color: #707183;">}</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>I know these properties off the top of my head,
+<ul class="org-ul">
+<li>and they're taken from the Canvas Context object;</li>
+<li>in time there'll be an editor which lets you select these values so you don't have to remember them;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org183980b" class="outline-2">
+<h2 id="org183980b"><span class="section-number-2">28.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-28">
+<ul class="org-ul">
+<li>Draw Circle - nice orange color</li>
+<li>Draw Line</li>
+<li>Draw Rectangle</li>
+<li>both are blue, with a thickness of 5 pixels</li>
+<li>So this shows that to set styles for each shape we draw,
+<ul class="org-ul">
+<li>all we had to was to update the canvas-styles state variable</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org60abd7f" class="outline-2">
+<h2 id="org60abd7f"><span class="section-number-2">29.</span> Add table to update canvas-styles</h2>
+<div class="outline-text-2" id="text-29">
+<ul class="org-ul">
+<li>Now all we need to do is to give our users the same ability;</li>
+<li>To do that, let's create a table of controls;</li>
+<li><b>Goto</b> &gt; <code>:render &gt; div.control-panel</code></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:fieldset</span>
+ <span style="color: #7388d6;">[</span><span style="color: #F5666D;">:legend</span> <span style="color: #4E9A06;">"Styles"</span><span style="color: #7388d6;">]</span><span style="color: #707183;">]</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>and within the :fieldset, let's create a <code>table</code> element;</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:table</span>
+ <span style="color: #204A87;">;; </span><span style="color: #204A87;">DELETE</span>
+ <span style="color: #7388d6;">[</span><span style="color: #F5666D;">:thead</span> ...<span style="color: #7388d6;">]</span>
+
+ <span style="color: #7388d6;">[</span><span style="color: #F5666D;">:tbody</span>
+  <span style="color: #204A87;">;; </span><span style="color: #204A87;">Create</span>
+  <span style="color: #909183;">[</span><span style="color: #F5666D;">:tr</span>
+   <span style="color: #709870;">[</span><span style="color: #F5666D;">:td</span> <span style="color: #4E9A06;">"Fill Color"</span><span style="color: #709870;">]</span>
+   <span style="color: #709870;">[</span><span style="color: #F5666D;">:td</span>
+    <span style="color: #204A87;">;; </span><span style="color: #204A87;">:value @Reactive &gt; ???</span>
+    <span style="color: #204A87;">;; </span><span style="color: #204A87;">We'll come back to this</span>
+    <span style="color: #907373;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">color</span> <span style="color: #6276ba;">{</span><span style="color: #F5666D;">:value</span> <span style="color: #F5666D;">:???</span><span style="color: #6276ba;">}</span><span style="color: #907373;">]</span><span style="color: #709870;">]</span><span style="color: #909183;">]</span>
+  <span style="color: #204A87;">;; </span><span style="color: #204A87;">Copy :tr and paste</span>
+  <span style="color: #909183;">[</span><span style="color: #F5666D;">:tr</span>
+   <span style="color: #709870;">[</span><span style="color: #F5666D;">:td</span> <span style="color: #4E9A06;">"Stroke Color"</span><span style="color: #709870;">]</span>
+   <span style="color: #709870;">[</span><span style="color: #F5666D;">:td</span> <span style="color: #907373;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">color</span> <span style="color: #6276ba;">{</span><span style="color: #F5666D;">:value</span> <span style="color: #F5666D;">:???</span><span style="color: #6276ba;">}</span><span style="color: #907373;">]</span><span style="color: #709870;">]</span><span style="color: #909183;">]</span>
+  <span style="color: #909183;">[</span><span style="color: #F5666D;">:tr</span>
+   <span style="color: #204A87;">;; </span><span style="color: #204A87;">Copy :tr and paste</span>
+   <span style="color: #709870;">[</span><span style="color: #F5666D;">:td</span> <span style="color: #4E9A06;">"Line Width"</span><span style="color: #709870;">]</span>
+   <span style="color: #709870;">[</span><span style="color: #F5666D;">:td</span>
+    <span style="color: #907373;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">number</span> <span style="color: #6276ba;">{</span><span style="color: #F5666D;">:value</span> <span style="color: #F5666D;">:???</span>
+                    <span style="color: #F5666D;">:min</span>   0
+                    <span style="color: #F5666D;">:max</span>   50
+                    <span style="color: #F5666D;">:step</span>  0.1<span style="color: #6276ba;">}</span><span style="color: #907373;">]</span>
+    <span style="color: #907373;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">range</span> <span style="color: #6276ba;">{</span><span style="color: #F5666D;">:value</span> <span style="color: #F5666D;">:???</span>
+                   <span style="color: #F5666D;">:min</span>   0
+                   <span style="color: #F5666D;">:max</span>   50
+                   <span style="color: #F5666D;">:step</span>  0.1<span style="color: #6276ba;">}</span><span style="color: #907373;">]</span><span style="color: #709870;">]</span><span style="color: #909183;">]</span><span style="color: #7388d6;">]</span><span style="color: #707183;">]</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>So for all three rows we've just added,
+<ul class="org-ul">
+<li>we need to connect each input element's :value attribute to a state variable,</li>
+<li>so that the input element can control that state variable;</li>
+</ul></li>
+<li>We have the <code>canvas-styles</code> state variable,
+<ul class="org-ul">
+<li>but we can't set that directly;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd071129" class="outline-2">
+<h2 id="orgd071129"><span class="section-number-2">30.</span> Destructure canvas-styles state variable</h2>
+<div class="outline-text-2" id="text-30">
+<ul class="org-ul">
+<li><b>Goto</b> &gt; <code>:state</code></li>
+<li><code>canvas-styles</code> is a map of three items;</li>
+<li>And we need to pass a state variable to each input element's :value attribute so the input element can control that part of <code>canvas-styles</code></li>
+<li>The way to do this is to use <i>map destructuring</i> again;</li>
+<li><code>click on</code> <b>canvas-styles &gt; Destructure</b></li>
+<li>Previously, the map we destructured has keywords keys, so we used the {:keys [&#x2026;]} command;</li>
+<li>This time our map has string keys, so we need to use:</li>
+<li>{{{click({:strs [&#x2026;]}}}</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">{</span><span style="color: #F5666D;">:strs</span> <span style="color: #7388d6;">[</span>fillStyle
+        strokeStyle
+        lineWidth<span style="color: #7388d6;">]</span><span style="color: #707183;">}</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li><code>[close</code> (canvas-styles) <code>]</code></li>
+<li>What we've just done is to create three state variables,
+<ul class="org-ul">
+<li>but they aren't really state variables;</li>
+<li>they're all parts of one state variable, <code>canvas-styles</code>,</li>
+<li>and the technical name for them is <i>cursors</i>;</li>
+<li>but they are effectively the same as state variables;</li>
+</ul></li>
+<li>The great thing about these cursors is that we can now use them within the :input elements we created,
+<ul class="org-ul">
+<li>to control each individual style within <code>canvas-styles</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org06d080a" class="outline-2">
+<h2 id="org06d080a"><span class="section-number-2">31.</span> Add cursors to :input elements</h2>
+<div class="outline-text-2" id="text-31">
+<ul class="org-ul">
+<li><b>Goto</b> &gt; <code>:render &gt; :table</code></li>
+<li><code>set :value of each row accordingly</code></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgcd25d08" class="outline-2">
+<h2 id="orgcd25d08"><span class="section-number-2">32.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-32">
+<ul class="org-ul">
+<li>Now we have a second panel of controls,
+<ul class="org-ul">
+<li>which lets us set the styles in our <code>canvas-styles</code></li>
+</ul></li>
+<li>Draw Line &gt; change width &gt; draw again</li>
+<li>Draw Rect &gt; change stroke color &gt; draw again</li>
+<li>Draw Circle &gt; change fill color &gt; draw again</li>
+<li>This is now looking a lot better;
+<ul class="org-ul">
+<li>our users can draw different shapes,</li>
+<li>and they can set styles for those shapes;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3dfb0a9" class="outline-2">
+<h2 id="org3dfb0a9"><span class="section-number-2">33.</span> Last steps: Clear Canvas, Download</h2>
+<div class="outline-text-2" id="text-33">
+<ul class="org-ul">
+<li>We could keep adding more canvas shape behaviours,
+<ul class="org-ul">
+<li>and more buttons to allow our users to select those;</li>
+</ul></li>
+<li>But I want to add two other features instead;</li>
+<li>First, let's give our users the ability to clear the canvas</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:fieldset</span>
+ <span style="color: #7388d6;">[</span><span style="color: #F5666D;">:legend</span> <span style="color: #4E9A06;">"Utilities"</span>
+  <span style="color: #909183;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">button</span>
+   <span style="color: #709870;">{</span><span style="color: #F5666D;">:value</span>    <span style="color: #4E9A06;">"Clear"</span>
+    <span style="color: #F5666D;">:on-click</span> <span style="color: #907373;">{</span><span style="color: #F5666D;">:handler</span> <span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">html.canvas</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">clear</span>
+               <span style="color: #F5666D;">:arg</span>     <span style="color: #6276ba;">{</span><span style="color: #F5666D;">:canvas-id</span> <span style="color: #F5666D;">:???</span><span style="color: #6276ba;">}</span><span style="color: #907373;">}</span><span style="color: #709870;">}</span><span style="color: #909183;">]</span><span style="color: #7388d6;">]</span><span style="color: #707183;">]</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>We need to set a canvas id and pass that to the handler;</li>
+<li><code>[scroll-to canvas]</code></li>
+<li><code>[open</code> (Attributes) <code>]</code></li>
+<li>Traditionally, to add an id to an element, we would use the :id attribute;
+<ul class="org-ul">
+<li><code>click on</code> <b>Add</b></li>
+<li>:id "my-canvas"</li>
+</ul></li>
+<li>However, the problem with this approach is that if we had two instances of our paint component on a single page, then the canvas element in each component would have the same id, and so only one of them can be referenced;</li>
+<li>To get around this problem, entmorph has a special id attribute which is guaranteed to be unique for each element;</li>
+<li><code>click on</code> <b>Add Special</b>
+<ul class="org-ul">
+<li><code>:#id</code> my-canvas</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7f26401" class="outline-2">
+<h2 id="org7f26401"><span class="section-number-2">34.</span> Set :html.canvas/clear :canvas-id</h2>
+<div class="outline-text-2" id="text-34">
+<ul class="org-ul">
+<li>Now let's go back to our Clear button</li>
+<li>And we can set the <code>:canvas-id</code> to <code>my-canvas</code> by selecting it from the dropdown;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfd39aaa" class="outline-2">
+<h2 id="orgfd39aaa"><span class="section-number-2">35.</span> Add Download button</h2>
+<div class="outline-text-2" id="text-35">
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">button</span>
+ <span style="color: #7388d6;">{</span><span style="color: #F5666D;">:value</span>    <span style="color: #4E9A06;">"Download"</span>
+  <span style="color: #F5666D;">:on-click</span> <span style="color: #909183;">{</span><span style="color: #F5666D;">:handler</span> <span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">html.canvas</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">download</span>
+             <span style="color: #F5666D;">:arg</span>     <span style="color: #709870;">{</span><span style="color: #F5666D;">:canvas-id</span> my-canvas<span style="color: #709870;">}</span><span style="color: #909183;">}</span><span style="color: #7388d6;">}</span><span style="color: #707183;">]</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org9011bbd" class="outline-2">
+<h2 id="org9011bbd"><span class="section-number-2">36.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-36">
+<ul class="org-ul">
+<li>Now we have a "Utilities" panel in our control panel on the LHS</li>
+<li><code>Draw shapes</code></li>
+<li><code>click on</code> <b>Download</b>
+<ul class="org-ul">
+<li>Works</li>
+</ul></li>
+<li><code>Draw shapes</code></li>
+<li><code>click on</code> <b>Clear</b>
+<ul class="org-ul">
+<li>Works</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1f560f1" class="outline-2">
+<h2 id="org1f560f1"><span class="section-number-2">37.</span> TODO</h2>
+<div class="outline-text-2" id="text-37">
+<ul class="org-ul">
+<li>rename behaviour :name to :type</li>
+<li>Capture mouse events outside of the canvas using new functionality</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb2904e4" class="outline-2">
+<h2 id="orgb2904e4"><span class="section-number-2">38.</span> Conclusion</h2>
+<div class="outline-text-2" id="text-38">
+<ul class="org-ul">
 <li>as you've hopefully noticed, throughout this tutorial I've used tools which have always been available to our users as part of the development process; this is one of the goals of entmorph, to give developers access to as many tools as possible to make their jobs much easier, quicker, and less error prone;</li>
+<li>To create this component from scratch,
+<ul class="org-ul">
+<li>it takes around 5 minutes when I'm not explaining how to create it;</li>
+<li>and around another 5 minutes to create the styles for it using the compnent styles editor;</li>
+</ul></li>
+<li>To do the same thing in HTML, JavaScript and CSS will easily take several hours;</li>
+<li>Just to be able to draw on the canvas requires a lot of imperative code,
+<ul class="org-ul">
+<li>as well as detailed knowledge of how the Canvas API works,</li>
+<li>which honestly is a complete pain to use;</li>
+</ul></li>
+<li>Just handling all the mouse events for drawing each shape is another area which requries a lot of detail and there's a lot of scope for making errors;</li>
+<li>In the entmorph version, all we really had to do was to create:
+<ul class="org-ul">
+<li>two state variables,</li>
+<li>four behaviours, one of which is a switcher for the other three</li>
+<li>and a set of HTML elements including:
+<ul class="org-ul">
+<li>a canvas which is connected to the behaviours</li>
+<li>and input controls which are connected to the state variables</li>
+</ul></li>
+</ul></li>
+<li>The entmorph version is almost entirely declarative,
+<ul class="org-ul">
+<li>and requires a tiny amount of code to produce a lot of functionality;</li>
+</ul></li>
+<li>There are more features like Undo and Redo which I'll cover in a future tutorial specifically for this paint component.</li>
+<li>To create a free account &#x2026;</li>
+<li>I hope you enjoyed this video,
+<ul class="org-ul">
+<li>stay tuned for more,</li>
+<li>and thanks a lot for watching.</li>
+</ul></li>
 </ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2025-05-12 Mon 19:16</p>
+<p class="date">Created: 2025-05-22 Thu 09:07</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
