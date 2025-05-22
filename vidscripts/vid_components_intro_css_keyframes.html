@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-05-21 Wed 16:02 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>entmorph Components - CSS Keyframes</title>
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link href="/css/style.css" rel="stylesheet" type="text/css"></link>
+<style>body{font-size: 30px;}code{background:#efefef;padding: 4px;border-radius:5px;}ul{list-style-type:circle;}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">entmorph Components - CSS Keyframes</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgb401922">1. PREPARATION</a></li>
+<li><a href="#org1be9268">2. Introduction</a></li>
+<li><a href="#org3ea4cba">3. Add keyframes for border-radius</a></li>
+<li><a href="#org1e54b4c">4. Add :border-radius</a></li>
+<li><a href="#org6b4fa3c">5. Add .animate-radii <b>Style Rule</b></a></li>
+<li><a href="#orge0856b3">6. Add .pause style</a></li>
+<li><a href="#org32a6c9b">7. Intention to add checkboxes</a></li>
+<li><a href="#org6dcc2ba">8. Add animate?, paused? state vars</a></li>
+<li><a href="#org7524a5c">9. Add checkboxes to :render</a></li>
+<li><a href="#org6390b0a">10. <b>Preview Component</b></a></li>
+<li><a href="#org1b2d9a7">11. Add @animate? to svg :class map</a></li>
+<li><a href="#org6a0056d">12. <b>Preview Component</b></a></li>
+</ul>
+</div>
+</div>
+<p>
+<a href="./index.html">Index</a>
+<a id="org7d120d0"></a>
+</p>
+
+<div id="outline-container-orgb401922" class="outline-2">
+<h2 id="orgb401922"><span class="section-number-2">1.</span> PREPARATION</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Start with localhost/ &#x2026; "Styling Components [Complete]"
+<ul class="org-ul">
+<li>(haven't set this up on prod yet)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1be9268" class="outline-2">
+<h2 id="org1be9268"><span class="section-number-2">2.</span> Introduction</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>In the previous video, we used the entmorph component styles editor to style our component, so it now looks like this:
+<ul class="org-ul">
+<li><code>show Styling [Complete]</code></li>
+</ul></li>
+<li>In this video we'll wrap up our introduction to the styles editor by adding a couple of controls to the table,
+<ul class="org-ul">
+<li>so that by the end we will have a component which looks like this:</li>
+<li><code>show Keyframes [Complete]</code></li>
+</ul></li>
+<li>If we click on the Animate? checkbox,
+<ul class="org-ul">
+<li>the border radius is animated in an infinite loop;</li>
+</ul></li>
+<li>We can then use the Pause? checkbox to pause and resume the animation;</li>
+<li><code>switch back to the orignal component</code></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3ea4cba" class="outline-2">
+<h2 id="org3ea4cba"><span class="section-number-2">3.</span> Add keyframes for border-radius</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+<a href="#org7d120d0">Top</a>
+</p>
+<ul class="org-ul">
+<li>We'll start by adding an animation,</li>
+<li><b>Goto</b> &gt; <code>Code &gt; :styles</code></li>
+<li><code>click on</code> <b>Collapse All</b></li>
+<li><code>click on</code> <b>CSS Style Rules &gt; Add</b>
+<ul class="org-ul">
+<li>which opens up a sub-menu;</li>
+</ul></li>
+<li><code>click on</code> <b>@Keyframes</b>
+<ul class="org-ul">
+<li>to add a <b>Keyframes Rule</b> editor</li>
+</ul></li>
+<li>It has an Id,
+<ul class="org-ul">
+<li>which we'll change to <code>radii-animation</code></li>
+</ul></li>
+<li>and a <code>:frames</code> section
+<ul class="org-ul">
+<li>which lets us edit the actual keyframes of our animation;</li>
+</ul></li>
+<li><code>[open</code> (:frames) <code>]</code></li>
+<li>There are two keyframes by default
+<ul class="org-ul">
+<li>one at the start (0%)</li>
+<li>and the other at the very end (100%) of the animation</li>
+</ul></li>
+<li>Let's add one more frame:
+<ul class="org-ul">
+<li><code>click on</code> <b>Add Frame &gt; Empty</b> to add an empty keyframe</li>
+<li>notice that now the frame stops have been re-arranged to 0%, 50% and 100%;</li>
+<li>this happens automatically, to save you from having to manually set the stops yourself;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1e54b4c" class="outline-2">
+<h2 id="org1e54b4c"><span class="section-number-2">4.</span> Add :border-radius</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>So let's set a property to animate;</li>
+<li><code>[open</code> (first <b>Declaration Block</b>) <code>]</code></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">{</span><span style="color: #F5666D;">:border-radius</span> <span style="color: #4E9A06;">"SelectId &gt; row-radius"</span><span style="color: #707183;">}</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li><code>click on</code> <b>Clipboard &gt; Copy</b></li>
+<li>Paste to all <b>Declaration Block</b></li>
+<li>Open 2nd <b>Declaration Block</b></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">{</span><span style="color: #F5666D;">:border-radius</span> <span style="color: #4E9A06;">"250px"</span><span style="color: #707183;">}</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>Close <b>Keyframes Rule</b></li>
+<li>Review 3 frames</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6b4fa3c" class="outline-2">
+<h2 id="org6b4fa3c"><span class="section-number-2">5.</span> Add .animate-radii <b>Style Rule</b></h2>
+<div class="outline-text-2" id="text-5">
+<p>
+<a href="#org7d120d0">Top</a>
+</p>
+<ul class="org-ul">
+<li><b>Goto</b> &gt; <code>:styles</code></li>
+<li><code>click on</code> <b>Add &gt; <b>Style Rule</b></b>
+<ul class="org-ul">
+<li>Selector: <code>.animate-radii</code></li>
+<li>properties</li>
+</ul></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">{</span><span style="color: #F5666D;">:animation</span> <span style="color: #4E9A06;">"radii-animation 5s linear infinite"</span><span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orge0856b3" class="outline-2">
+<h2 id="orge0856b3"><span class="section-number-2">6.</span> Add .pause style</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li><b>Goto</b> &gt; <code>:styles</code></li>
+<li><code>click on</code> <b>Add &gt; <b>Style Rule</b></b>
+<ul class="org-ul">
+<li>Selector: <code>.pause</code></li>
+<li>properties</li>
+</ul></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">{</span><span style="color: #F5666D;">:animation-play-state</span> <span style="color: #4E9A06;">"paused"</span><span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org32a6c9b" class="outline-2">
+<h2 id="org32a6c9b"><span class="section-number-2">7.</span> Intention to add checkboxes</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+<a href="#org7d120d0">Top</a>
+</p>
+<ul class="org-ul">
+<li>we want to add two checkboxes:
+<ul class="org-ul">
+<li>one to start the animation</li>
+<li>and one to pause it;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6dcc2ba" class="outline-2">
+<h2 id="org6dcc2ba"><span class="section-number-2">8.</span> Add animate?, paused? state vars</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+<a href="#org7d120d0">Top</a>
+</p>
+<ul class="org-ul">
+<li>But before we do that,
+<ul class="org-ul">
+<li>we need to add state variables</li>
+<li>which we'll then reference from within the checkboxes</li>
+</ul></li>
+<li>So let's create those</li>
+<li><b>Goto</b> &gt; <code>:state</code></li>
+<li><code>[open</code> (:state) <code>]</code></li>
+<li><code>click on</code> <b>Add</b>
+<ul class="org-ul">
+<li>Enter: <code>animate?</code> <code>false</code></li>
+<li>Enter: <code>paused?</code> <code>false</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7524a5c" class="outline-2">
+<h2 id="org7524a5c"><span class="section-number-2">9.</span> Add checkboxes to :render</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+<a href="#org7d120d0">Top</a>
+</p>
+<ul class="org-ul">
+<li>Now we can add our checkboxes to trigger and pause the animation;
+<ul class="org-ul">
+<li>We'll add two new rows to the table;</li>
+<li><b>Goto</b> &gt; <code>:render</code></li>
+<li><code>[scroll-to table &gt; tbody]</code></li>
+<li><code>[open</code> (tbody) <code>]</code></li>
+<li>TWICE <code>click on</code> <b>Add :tr</b></li>
+</ul></li>
+<li>We'll update the first new row</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:tr</span>
+ <span style="color: #7388d6;">[</span><span style="color: #F5666D;">:td</span> <span style="color: #4E9A06;">"animate?"</span><span style="color: #7388d6;">]</span>
+ <span style="color: #7388d6;">[</span><span style="color: #F5666D;">:td</span> <span style="color: #909183;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">checkbox</span>
+       <span style="color: #709870;">{</span><span style="color: #F5666D;">:value</span> @animate?<span style="color: #709870;">}</span><span style="color: #909183;">]</span><span style="color: #7388d6;">]</span><span style="color: #707183;">]</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>Then the next row</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:tr</span>
+ <span style="color: #7388d6;">[</span><span style="color: #F5666D;">:td</span> <span style="color: #4E9A06;">"paused?"</span><span style="color: #7388d6;">]</span>
+ <span style="color: #7388d6;">[</span><span style="color: #F5666D;">:td</span> <span style="color: #909183;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">checkbox</span>
+       <span style="color: #709870;">{</span><span style="color: #F5666D;">:value</span> @paused?<span style="color: #709870;">}</span><span style="color: #909183;">]</span><span style="color: #7388d6;">]</span><span style="color: #707183;">]</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org6390b0a" class="outline-2">
+<h2 id="org6390b0a"><span class="section-number-2">10.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-10">
+<p>
+<a href="#org7d120d0">Top</a>
+</p>
+<ul class="org-ul">
+<li>We've made a lot of changes,
+<ul class="org-ul">
+<li>so let's preview them</li>
+</ul></li>
+<li>Now we have a fourth row, Animate?, with a checkbox;
+<ul class="org-ul">
+<li>when we press it, nothing happens</li>
+<li>So let's fix it to actually trigger the animation</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1b2d9a7" class="outline-2">
+<h2 id="org1b2d9a7"><span class="section-number-2">11.</span> Add @animate? to svg :class map</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+<a href="#org7d120d0">Top</a>
+</p>
+<ul class="org-ul">
+<li><code>[scroll-to svg element]</code></li>
+<li><code>[open</code> (svg element) <code>]</code></li>
+<li><code>[open</code> (Attributes) <code>]</code></li>
+<li><code>click on</code> <b>Add</b></li>
+<li><code>Change Editor from</code> String <code>to</code>  Map</li>
+<li><code>click on</code> <b>Add Entry</b>
+<ul class="org-ul">
+<li>Key: <code>"animate-radii"</code> (the name of the class we want to trigger)</li>
+<li>Val: @Reactive &gt; <code>@animate?</code></li>
+</ul></li>
+<li>This is the first time we're seeing a map as the value of a class attribute;
+<ul class="org-ul">
+<li>what it does is to add the class to the element only when the <code>@animate?</code> state variable is <code>true</code></li>
+<li>And the only way to set <code>@animate?</code> to <code>true</code> is by checking the checkbox</li>
+</ul></li>
+<li>So let's test this</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6a0056d" class="outline-2">
+<h2 id="org6a0056d"><span class="section-number-2">12.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-12">
+<p>
+<a href="#org7d120d0">Top</a>
+</p>
+<ul class="org-ul">
+<li>And now hopefully when I click on the Animate? checkbox,
+<ul class="org-ul">
+<li>yes! we see the border radii animate in an infinite loop</li>
+<li>and if we uncheck it, the whole animate abruptly comes to an end;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2025-05-21 Wed 16:02</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
