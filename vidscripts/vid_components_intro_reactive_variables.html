@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-30 Fri 19:36 -->
+<!-- 2025-05-30 Fri 19:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>entmorph Introducing Components - State Variables and the UI</title>
@@ -202,59 +202,59 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org72899ca">1. Preparation</a></li>
-<li><a href="#orge02395c">2. Introduction</a></li>
-<li><a href="#orgad9be66">3. Note on Overview Video</a></li>
-<li><a href="#org47cb513">4. Component Demo</a></li>
-<li><a href="#org9cbe875">5. Switch Tab to Home Screen</a></li>
-<li><a href="#org178b857">6. Start: Add Component</a></li>
-<li><a href="#org43024df">7. Rename <code>state-var</code>, and set default</a></li>
-<li><a href="#orgc5a132b">8. Create User Interface</a></li>
-<li><a href="#org93abed2">9. Add input/number</a>
+<li><a href="#org2c6e26a">1. Preparation</a></li>
+<li><a href="#org9b9d48f">2. Introduction</a></li>
+<li><a href="#org504a99a">3. Note on Overview Video</a></li>
+<li><a href="#org4a654b4">4. Component Demo</a></li>
+<li><a href="#orgf842b61">5. Switch Tab to Home Screen</a></li>
+<li><a href="#org2910567">6. Start: Add Component</a></li>
+<li><a href="#org2235a36">7. Rename <code>state-var</code>, and set default</a></li>
+<li><a href="#orgcbc899d">8. Create User Interface</a></li>
+<li><a href="#orge9a1cbd">9. Add input/number</a>
 <ul>
-<li><a href="#orga5557e6">9.1. Update <code>:value</code> attribute</a></li>
+<li><a href="#org12836b0">9.1. Update <code>:value</code> attribute</a></li>
 </ul>
 </li>
-<li><a href="#org3bd3a8e">10. Add Input &gt; Range</a></li>
-<li><a href="#orgb053068">11. Close :render section</a></li>
-<li><a href="#orgb0f3493">12. Build component <code>[first time]</code></a></li>
-<li><a href="#orgd2b9f5d">13. <b>Preview Component</b> <code>[first time]</code></a></li>
-<li><a href="#orgc3506e2">14. Not how HTML works</a></li>
-<li><a href="#orgda91ddd">15. HTML+JS: Event Handlers</a></li>
-<li><a href="#orgf9e7ca5">16. How entmorph components work (1)</a>
+<li><a href="#orgc60ccc5">10. Add Input &gt; Range</a></li>
+<li><a href="#orgc376871">11. Close :render section</a></li>
+<li><a href="#orgaaedbc6">12. Build component <code>[first time]</code></a></li>
+<li><a href="#org482b43b">13. <b>Preview Component</b> <code>[first time]</code></a></li>
+<li><a href="#org531dcbd">14. Not how HTML works</a></li>
+<li><a href="#orgabb5a87">15. HTML+JS: Event Handlers</a></li>
+<li><a href="#orgd5c8b1b">16. How entmorph components work (1)</a>
 <ul>
-<li><a href="#org71eb53c">16.1. Connecting input elements to state variables</a></li>
+<li><a href="#orgfa0d7ca">16.1. Connecting input elements to state variables</a></li>
 </ul>
 </li>
-<li><a href="#org9bc32b9">17. Further Examples of @Reactives</a>
+<li><a href="#org3d5b01a">17. Further Examples of @Reactives</a>
 <ul>
-<li><a href="#orgd4fa9cf">17.1. Add <code>@x</code> to 3rd cell</a></li>
-<li><a href="#org23ac796">17.2. Add &lt;svg&gt; viewport</a></li>
-<li><a href="#org9e347ae">17.3. <b>Preview Component</b> [second time]</a></li>
+<li><a href="#org0c9afe8">17.1. Add <code>@x</code> to 3rd cell</a></li>
+<li><a href="#org38874c7">17.2. Add &lt;svg&gt; viewport</a></li>
+<li><a href="#org7534c96">17.3. <b>Preview Component</b> [second time]</a></li>
 </ul>
 </li>
-<li><a href="#orgfeace5c">18. How entmorph components work (2)</a></li>
-<li><a href="#orga6c285c">19. Quickly add y, radius to SVG component, table</a>
+<li><a href="#org9c55910">18. How entmorph components work (2)</a></li>
+<li><a href="#orga463ad0">19. Quickly add y, radius to SVG component, table</a>
 <ul>
-<li><a href="#orgb005d7e">19.1. <b>Preview Component</b></a></li>
+<li><a href="#orgef47601">19.1. <b>Preview Component</b></a></li>
 </ul>
 </li>
-<li><a href="#org7f509fb">20. To Replicate in HTML+JS</a></li>
-<li><a href="#orgcfd2076">21. Non-detailed comparison with HTML+JS</a></li>
-<li><a href="#orgfceff47">22. What is a component?</a>
+<li><a href="#orgdd99969">20. To Replicate in HTML+JS</a></li>
+<li><a href="#org17d549f">21. Non-detailed comparison with HTML+JS</a></li>
+<li><a href="#org108c626">22. What is a component?</a>
 <ul>
-<li><a href="#org6c3514d">22.1. Component Sections fit to "Reactivity Cycle"</a></li>
+<li><a href="#org0bffca9">22.1. Component Sections fit to "Reactivity Cycle"</a></li>
 </ul>
 </li>
-<li><a href="#orgd3499da">23. Summary</a></li>
-<li><a href="#org2d5c1f7">24. No Virtual DOM</a></li>
-<li><a href="#org4e4a8e8">25. Code Editor built using entmorph components</a></li>
-<li><a href="#org9db551f">26. Call to Action: what next</a>
+<li><a href="#orgd2c96ae">23. Summary</a></li>
+<li><a href="#org6a21174">24. No Virtual DOM</a></li>
+<li><a href="#org6ba4c00">25. Code Editor built using entmorph components</a></li>
+<li><a href="#org43098e8">26. Call to Action: what next</a>
 <ul>
-<li><a href="#org6f97a0f">26.1. Sign-Up to entmorph</a></li>
-<li><a href="#orgaa20d6e">26.2. More videos / Next video</a></li>
-<li><a href="#orgf354365">26.3. Share</a></li>
-<li><a href="#orgc8a48a5">26.4. Final</a></li>
+<li><a href="#org4d61ed9">26.1. Sign-Up to entmorph</a></li>
+<li><a href="#orga742b68">26.2. More videos / Next video</a></li>
+<li><a href="#orgf551373">26.3. Share</a></li>
+<li><a href="#org646cb03">26.4. Final</a></li>
 </ul>
 </li>
 </ul>
@@ -262,10 +262,10 @@
 </div>
 <p>
 <a href="./index.html">Index</a>
-<a id="org5d30897"></a>
+<a id="org60a2400"></a>
 </p>
-<div id="outline-container-org72899ca" class="outline-2">
-<h2 id="org72899ca"><span class="section-number-2">1.</span> Preparation</h2>
+<div id="outline-container-org2c6e26a" class="outline-2">
+<h2 id="org2c6e26a"><span class="section-number-2">1.</span> Preparation</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li><code>Center Finished component on screen</code>
@@ -275,11 +275,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orge02395c" class="outline-2">
-<h2 id="orge02395c"><span class="section-number-2">2.</span> Introduction</h2>
+<div id="outline-container-org9b9d48f" class="outline-2">
+<h2 id="org9b9d48f"><span class="section-number-2">2.</span> Introduction</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-<a href="#org5d30897">Top</a>  
+<a href="#org60a2400">Top</a>  
 </p>
 <ul class="org-ul">
 <li>Hi, I'm Ali Hussein, creator of entmorph
@@ -293,11 +293,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgad9be66" class="outline-2">
-<h2 id="orgad9be66"><span class="section-number-2">3.</span> Note on Overview Video</h2>
+<div id="outline-container-org504a99a" class="outline-2">
+<h2 id="org504a99a"><span class="section-number-2">3.</span> Note on Overview Video</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-<a href="#org5d30897">Top</a>  
+<a href="#org60a2400">Top</a>  
 </p>
 <ul class="org-ul">
 <li>We're going to build on the fundamentals covered in the Overview video, so if you haven't seen that already, you can either watch it first, or come back to it at the end of this video.</li>
@@ -305,11 +305,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org47cb513" class="outline-2">
-<h2 id="org47cb513"><span class="section-number-2">4.</span> Component Demo</h2>
+<div id="outline-container-org4a654b4" class="outline-2">
+<h2 id="org4a654b4"><span class="section-number-2">4.</span> Component Demo</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-<a href="#org5d30897">Top</a>  
+<a href="#org60a2400">Top</a>  
 </p>
 <ul class="org-ul">
 <li>We have a table with a number of controls which let you modify
@@ -320,9 +320,12 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org9cbe875" class="outline-2">
-<h2 id="org9cbe875"><span class="section-number-2">5.</span> Switch Tab to Home Screen</h2>
+<div id="outline-container-orgf842b61" class="outline-2">
+<h2 id="orgf842b61"><span class="section-number-2">5.</span> Switch Tab to Home Screen</h2>
 <div class="outline-text-2" id="text-5">
+<p>
+<a href="#org60a2400">Top</a>  
+</p>
 <ul class="org-ul">
 <li>I'll just switch to another tab with my entmorph Home Screen</li>
 <li>and I'll also put the browser in Full Screen mode:
@@ -335,11 +338,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org178b857" class="outline-2">
-<h2 id="org178b857"><span class="section-number-2">6.</span> Start: Add Component</h2>
+<div id="outline-container-org2910567" class="outline-2">
+<h2 id="org2910567"><span class="section-number-2">6.</span> Start: Add Component</h2>
 <div class="outline-text-2" id="text-6">
 <p>
-<a href="#org5d30897">Top</a>  
+<a href="#org60a2400">Top</a>  
 </p>
 <ul class="org-ul">
 <li>From my Home Screen;</li>
@@ -353,11 +356,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org43024df" class="outline-2">
-<h2 id="org43024df"><span class="section-number-2">7.</span> Rename <code>state-var</code>, and set default</h2>
+<div id="outline-container-org2235a36" class="outline-2">
+<h2 id="org2235a36"><span class="section-number-2">7.</span> Rename <code>state-var</code>, and set default</h2>
 <div class="outline-text-2" id="text-7">
 <p>
-<a href="#org5d30897">Top</a>  
+<a href="#org60a2400">Top</a>  
 </p>
 <ul class="org-ul">
 <li>We're going to cover state varibles and how they interact with the <b>User Interface</b>.</li>
@@ -376,11 +379,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc5a132b" class="outline-2">
-<h2 id="orgc5a132b"><span class="section-number-2">8.</span> Create User Interface</h2>
+<div id="outline-container-orgcbc899d" class="outline-2">
+<h2 id="orgcbc899d"><span class="section-number-2">8.</span> Create User Interface</h2>
 <div class="outline-text-2" id="text-8">
 <p>
-<a href="#org5d30897">Top</a>
+<a href="#org60a2400">Top</a>
 </p>
 <ul class="org-ul">
 <li><p>
@@ -410,11 +413,11 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </ul>
 </div>
 </div>
-<div id="outline-container-org93abed2" class="outline-2">
-<h2 id="org93abed2"><span class="section-number-2">9.</span> Add input/number</h2>
+<div id="outline-container-orge9a1cbd" class="outline-2">
+<h2 id="orge9a1cbd"><span class="section-number-2">9.</span> Add input/number</h2>
 <div class="outline-text-2" id="text-9">
 <p>
-<a href="#org5d30897">Top</a>
+<a href="#org60a2400">Top</a>
 </p>
 <div class="org-src-container">
 <pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:tr</span>
@@ -454,11 +457,11 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-orga5557e6" class="outline-3">
-<h3 id="orga5557e6"><span class="section-number-3">9.1.</span> Update <code>:value</code> attribute</h3>
+<div id="outline-container-org12836b0" class="outline-3">
+<h3 id="org12836b0"><span class="section-number-3">9.1.</span> Update <code>:value</code> attribute</h3>
 <div class="outline-text-3" id="text-9-1">
 <p>
-<a href="#org5d30897">Top</a>
+<a href="#org60a2400">Top</a>
 </p>
 <ul class="org-ul">
 <li>I want to update the <code>:value</code> attribute, so I'll click on its value
@@ -475,11 +478,11 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </div>
 </div>
 </div>
-<div id="outline-container-org3bd3a8e" class="outline-2">
-<h2 id="org3bd3a8e"><span class="section-number-2">10.</span> Add Input &gt; Range</h2>
+<div id="outline-container-orgc60ccc5" class="outline-2">
+<h2 id="orgc60ccc5"><span class="section-number-2">10.</span> Add Input &gt; Range</h2>
 <div class="outline-text-2" id="text-10">
 <p>
-<a href="#org5d30897">Top</a>
+<a href="#org60a2400">Top</a>
 </p>
 <div class="org-src-container">
 <pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:tr</span>
@@ -500,11 +503,11 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb053068" class="outline-2">
-<h2 id="orgb053068"><span class="section-number-2">11.</span> Close :render section</h2>
+<div id="outline-container-orgc376871" class="outline-2">
+<h2 id="orgc376871"><span class="section-number-2">11.</span> Close :render section</h2>
 <div class="outline-text-2" id="text-11">
 <p>
-<a href="#org5d30897">Top</a>
+<a href="#org60a2400">Top</a>
 </p>
 <ul class="org-ul">
 <li>If I click on <b>Goto</b> &gt; <code>:render</code> section,
@@ -516,11 +519,11 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb0f3493" class="outline-2">
-<h2 id="orgb0f3493"><span class="section-number-2">12.</span> Build component <code>[first time]</code></h2>
+<div id="outline-container-orgaaedbc6" class="outline-2">
+<h2 id="orgaaedbc6"><span class="section-number-2">12.</span> Build component <code>[first time]</code></h2>
 <div class="outline-text-2" id="text-12">
 <p>
-<a href="#org5d30897">Top</a>
+<a href="#org60a2400">Top</a>
 </p>
 <ul class="org-ul">
 <li>So now we're ready to build our component</li>
@@ -536,11 +539,11 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd2b9f5d" class="outline-2">
-<h2 id="orgd2b9f5d"><span class="section-number-2">13.</span> <b>Preview Component</b> <code>[first time]</code></h2>
+<div id="outline-container-org482b43b" class="outline-2">
+<h2 id="org482b43b"><span class="section-number-2">13.</span> <b>Preview Component</b> <code>[first time]</code></h2>
 <div class="outline-text-2" id="text-13">
 <p>
-<a href="#org5d30897">Top</a>
+<a href="#org60a2400">Top</a>
 </p>
 <ul class="org-ul">
 <li>If I click on the <b>Preview Component</b> button,
@@ -567,22 +570,22 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc3506e2" class="outline-2">
-<h2 id="orgc3506e2"><span class="section-number-2">14.</span> Not how HTML works</h2>
+<div id="outline-container-org531dcbd" class="outline-2">
+<h2 id="org531dcbd"><span class="section-number-2">14.</span> Not how HTML works</h2>
 <div class="outline-text-2" id="text-14">
 <p>
-<a href="#org5d30897">Top</a>
+<a href="#org60a2400">Top</a>
 </p>
 <ul class="org-ul">
 <li>Now this isn't how HTML works!</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgda91ddd" class="outline-2">
-<h2 id="orgda91ddd"><span class="section-number-2">15.</span> HTML+JS: Event Handlers</h2>
+<div id="outline-container-orgabb5a87" class="outline-2">
+<h2 id="orgabb5a87"><span class="section-number-2">15.</span> HTML+JS: Event Handlers</h2>
 <div class="outline-text-2" id="text-15">
 <p>
-<a href="#org5d30897">Top</a>
+<a href="#org60a2400">Top</a>
 </p>
 <ul class="org-ul">
 <li>If we had to replicate this in HTML+JavaScript,
@@ -593,11 +596,11 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf9e7ca5" class="outline-2">
-<h2 id="orgf9e7ca5"><span class="section-number-2">16.</span> How entmorph components work (1)</h2>
+<div id="outline-container-orgd5c8b1b" class="outline-2">
+<h2 id="orgd5c8b1b"><span class="section-number-2">16.</span> How entmorph components work (1)</h2>
 <div class="outline-text-2" id="text-16">
 <p>
-<a href="#org5d30897">Top</a>
+<a href="#org60a2400">Top</a>
 </p>
 <ul class="org-ul">
 <li>But since we haven't added any <b>Event Handlers</b>, the question is how does this work?</li>
@@ -608,11 +611,11 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-org71eb53c" class="outline-3">
-<h3 id="org71eb53c"><span class="section-number-3">16.1.</span> Connecting input elements to state variables</h3>
+<div id="outline-container-orgfa0d7ca" class="outline-3">
+<h3 id="orgfa0d7ca"><span class="section-number-3">16.1.</span> Connecting input elements to state variables</h3>
 <div class="outline-text-3" id="text-16-1">
 <p>
-<a href="#org5d30897">Top</a>
+<a href="#org60a2400">Top</a>
 </p>
 <ul class="org-ul">
 <li><b>diagram</b>: <code>2-way connections between input elements and state var</code>
@@ -645,18 +648,18 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </div>
 </div>
 </div>
-<div id="outline-container-org9bc32b9" class="outline-2">
-<h2 id="org9bc32b9"><span class="section-number-2">17.</span> Further Examples of @Reactives</h2>
+<div id="outline-container-org3d5b01a" class="outline-2">
+<h2 id="org3d5b01a"><span class="section-number-2">17.</span> Further Examples of @Reactives</h2>
 <div class="outline-text-2" id="text-17">
 <ul class="org-ul">
 <li>Let's look at a couple more examples;</li>
 </ul>
 </div>
-<div id="outline-container-orgd4fa9cf" class="outline-3">
-<h3 id="orgd4fa9cf"><span class="section-number-3">17.1.</span> Add <code>@x</code> to 3rd cell</h3>
+<div id="outline-container-org0c9afe8" class="outline-3">
+<h3 id="org0c9afe8"><span class="section-number-3">17.1.</span> Add <code>@x</code> to 3rd cell</h3>
 <div class="outline-text-3" id="text-17-1">
 <p>
-<a href="#org5d30897">Top</a>
+<a href="#org60a2400">Top</a>
 </p>
 <div class="org-src-container">
 <pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:table</span>
@@ -691,8 +694,8 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </ul>
 </div>
 </div>
-<div id="outline-container-org23ac796" class="outline-3">
-<h3 id="org23ac796"><span class="section-number-3">17.2.</span> Add &lt;svg&gt; viewport</h3>
+<div id="outline-container-org38874c7" class="outline-3">
+<h3 id="org38874c7"><span class="section-number-3">17.2.</span> Add &lt;svg&gt; viewport</h3>
 <div class="outline-text-3" id="text-17-2">
 <ul class="org-ul">
 <li>Below the table, I'll add an SVG viewport
@@ -709,8 +712,8 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </ul>
 </div>
 </div>
-<div id="outline-container-org9e347ae" class="outline-3">
-<h3 id="org9e347ae"><span class="section-number-3">17.3.</span> <b>Preview Component</b> [second time]</h3>
+<div id="outline-container-org7534c96" class="outline-3">
+<h3 id="org7534c96"><span class="section-number-3">17.3.</span> <b>Preview Component</b> [second time]</h3>
 <div class="outline-text-3" id="text-17-3">
 <ul class="org-ul">
 <li>Now I'll go straight to the <b>Output Panel</b>
@@ -738,8 +741,8 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </div>
 </div>
 </div>
-<div id="outline-container-orgfeace5c" class="outline-2">
-<h2 id="orgfeace5c"><span class="section-number-2">18.</span> How entmorph components work (2)</h2>
+<div id="outline-container-org9c55910" class="outline-2">
+<h2 id="org9c55910"><span class="section-number-2">18.</span> How entmorph components work (2)</h2>
 <div class="outline-text-2" id="text-18">
 <ul class="org-ul">
 <li>Let's try and understand what's going on here;</li>
@@ -771,11 +774,11 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </ul>
 </div>
 </div>
-<div id="outline-container-orga6c285c" class="outline-2">
-<h2 id="orga6c285c"><span class="section-number-2">19.</span> Quickly add y, radius to SVG component, table</h2>
+<div id="outline-container-orga463ad0" class="outline-2">
+<h2 id="orga463ad0"><span class="section-number-2">19.</span> Quickly add y, radius to SVG component, table</h2>
 <div class="outline-text-2" id="text-19">
 <p>
-<a href="#org5d30897">Top</a>
+<a href="#org60a2400">Top</a>
 </p>
 <ul class="org-ul">
 <li>This is a fairly simple component,
@@ -802,8 +805,8 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-orgb005d7e" class="outline-3">
-<h3 id="orgb005d7e"><span class="section-number-3">19.1.</span> <b>Preview Component</b></h3>
+<div id="outline-container-orgef47601" class="outline-3">
+<h3 id="orgef47601"><span class="section-number-3">19.1.</span> <b>Preview Component</b></h3>
 <div class="outline-text-3" id="text-19-1">
 <ul class="org-ul">
 <li>So let's preview the component again;
@@ -814,8 +817,8 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </div>
 </div>
 </div>
-<div id="outline-container-org7f509fb" class="outline-2">
-<h2 id="org7f509fb"><span class="section-number-2">20.</span> To Replicate in HTML+JS</h2>
+<div id="outline-container-orgdd99969" class="outline-2">
+<h2 id="orgdd99969"><span class="section-number-2">20.</span> To Replicate in HTML+JS</h2>
 <div class="outline-text-2" id="text-20">
 <ul class="org-ul">
 <li>The reason I added these controls,
@@ -843,11 +846,11 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcfd2076" class="outline-2">
-<h2 id="orgcfd2076"><span class="section-number-2">21.</span> Non-detailed comparison with HTML+JS</h2>
+<div id="outline-container-org17d549f" class="outline-2">
+<h2 id="org17d549f"><span class="section-number-2">21.</span> Non-detailed comparison with HTML+JS</h2>
 <div class="outline-text-2" id="text-21">
 <p>
-<a href="#org5d30897">Top</a>
+<a href="#org60a2400">Top</a>
 </p>
 <ul class="org-ul">
 <li>Hopefully you're beginning to see that as a component becomes more complex,
@@ -864,11 +867,11 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfceff47" class="outline-2">
-<h2 id="orgfceff47"><span class="section-number-2">22.</span> What is a component?</h2>
+<div id="outline-container-org108c626" class="outline-2">
+<h2 id="org108c626"><span class="section-number-2">22.</span> What is a component?</h2>
 <div class="outline-text-2" id="text-22">
 <p>
-<a href="#org5d30897">Top</a>
+<a href="#org60a2400">Top</a>
 </p>
 <ul class="org-ul">
 <li>Now we're in a better position to understand what a component is;</li>
@@ -881,8 +884,8 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-org6c3514d" class="outline-3">
-<h3 id="org6c3514d"><span class="section-number-3">22.1.</span> Component Sections fit to "Reactivity Cycle"</h3>
+<div id="outline-container-org0bffca9" class="outline-3">
+<h3 id="org0bffca9"><span class="section-number-3">22.1.</span> Component Sections fit to "Reactivity Cycle"</h3>
 <div class="outline-text-3" id="text-22-1">
 <ul class="org-ul">
 <li><b>diagram</b> <code>Component Sections</code>
@@ -905,8 +908,8 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </div>
 </div>
 </div>
-<div id="outline-container-orgd3499da" class="outline-2">
-<h2 id="orgd3499da"><span class="section-number-2">23.</span> Summary</h2>
+<div id="outline-container-orgd2c96ae" class="outline-2">
+<h2 id="orgd2c96ae"><span class="section-number-2">23.</span> Summary</h2>
 <div class="outline-text-2" id="text-23">
 <ul class="org-ul">
 <li>State variables are the main mechanism for controlling and manipulating all aspects of user interfaces in entmorph;</li>
@@ -935,8 +938,8 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </ul>
 </div>
 </div>
-<div id="outline-container-org2d5c1f7" class="outline-2">
-<h2 id="org2d5c1f7"><span class="section-number-2">24.</span> No Virtual DOM</h2>
+<div id="outline-container-org6a21174" class="outline-2">
+<h2 id="org6a21174"><span class="section-number-2">24.</span> No Virtual DOM</h2>
 <div class="outline-text-2" id="text-24">
 <ul class="org-ul">
 <li>In case you're wondering, entmorph doesn't use a Virtual DOM.</li>
@@ -944,8 +947,8 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </ul>
 </div>
 </div>
-<div id="outline-container-org4e4a8e8" class="outline-2">
-<h2 id="org4e4a8e8"><span class="section-number-2">25.</span> Code Editor built using entmorph components</h2>
+<div id="outline-container-org6ba4c00" class="outline-2">
+<h2 id="org6ba4c00"><span class="section-number-2">25.</span> Code Editor built using entmorph components</h2>
 <div class="outline-text-2" id="text-25">
 <ul class="org-ul">
 <li>And finally, the Code Editor that we've been using all this time is itself built using entmorph components,
@@ -955,16 +958,16 @@ In the <code>:render</code> section I want to create a &lt;table&gt; element wit
 </ul>
 </div>
 </div>
-<div id="outline-container-org9db551f" class="outline-2">
-<h2 id="org9db551f"><span class="section-number-2">26.</span> Call to Action: what next</h2>
+<div id="outline-container-org43098e8" class="outline-2">
+<h2 id="org43098e8"><span class="section-number-2">26.</span> Call to Action: what next</h2>
 <div class="outline-text-2" id="text-26">
 <p>
-<a href="#org5d30897">Top</a>
+<a href="#org60a2400">Top</a>
 That's all for this video.
 </p>
 </div>
-<div id="outline-container-org6f97a0f" class="outline-3">
-<h3 id="org6f97a0f"><span class="section-number-3">26.1.</span> Sign-Up to entmorph</h3>
+<div id="outline-container-org4d61ed9" class="outline-3">
+<h3 id="org4d61ed9"><span class="section-number-3">26.1.</span> Sign-Up to entmorph</h3>
 <div class="outline-text-3" id="text-26-1">
 <ul class="org-ul">
 <li>if you haven't done so already,
@@ -979,8 +982,8 @@ That's all for this video.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgaa20d6e" class="outline-3">
-<h3 id="orgaa20d6e"><span class="section-number-3">26.2.</span> More videos / Next video</h3>
+<div id="outline-container-orga742b68" class="outline-3">
+<h3 id="orga742b68"><span class="section-number-3">26.2.</span> More videos / Next video</h3>
 <div class="outline-text-3" id="text-26-2">
 <ul class="org-ul">
 <li>You can access more videos on the entmorph YouTube channel:
@@ -990,16 +993,16 @@ That's all for this video.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf354365" class="outline-3">
-<h3 id="orgf354365"><span class="section-number-3">26.3.</span> Share</h3>
+<div id="outline-container-orgf551373" class="outline-3">
+<h3 id="orgf551373"><span class="section-number-3">26.3.</span> Share</h3>
 <div class="outline-text-3" id="text-26-3">
 <ul class="org-ul">
 <li>Please Share this with anyone you think might benefit from using entmorph;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc8a48a5" class="outline-3">
-<h3 id="orgc8a48a5"><span class="section-number-3">26.4.</span> Final</h3>
+<div id="outline-container-org646cb03" class="outline-3">
+<h3 id="org646cb03"><span class="section-number-3">26.4.</span> Final</h3>
 <div class="outline-text-3" id="text-26-4">
 <ul class="org-ul">
 <li><code>Switch to component</code></li>
@@ -1021,7 +1024,7 @@ Thanks a lot for watching.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2025-05-30 Fri 19:36</p>
+<p class="date">Created: 2025-05-30 Fri 19:38</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
