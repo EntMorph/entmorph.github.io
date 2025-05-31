@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-05-31 Sat 14:34 -->
+<!-- 2025-05-31 Sat 15:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>entmorph Components - Styling</title>
@@ -202,43 +202,46 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org04a6b39">1. Topics to Cover</a></li>
-<li><a href="#org377fb5e">2. PREPARATION</a></li>
-<li><a href="#org76f50e1">3. Introduction</a></li>
-<li><a href="#org890d7ba">4. Add :styles Editor</a></li>
-<li><a href="#org5056193">5. Edit Default <b>Style Rule</b></a></li>
-<li><a href="#orgdb435ad">6. Add class to :render section - Method 1: class attribute</a></li>
-<li><a href="#orgfe76d0b">7. <b>Preview Component</b></a></li>
-<li><a href="#orgecd48b5">8. Add class to :render section - Method 2: tag name extension</a></li>
-<li><a href="#org2027328">9. <b>Preview Component</b></a></li>
-<li><a href="#org2c4c742">10. Add table <b>Style Rule</b></a></li>
-<li><a href="#orgbdf23dd">11. Add td styles</a></li>
-<li><a href="#orgce75824">12. Style :td</a></li>
-<li><a href="#orga0bf683">13. Add td:first-child</a></li>
-<li><a href="#org75f4f73">14. Add td:last-child</a></li>
-<li><a href="#orgea18c9c">15. <b>Preview Component</b></a></li>
-<li><a href="#orgf346737">16. Style input/number</a></li>
-<li><a href="#org2ef4a37">17. Style SVG</a></li>
-<li><a href="#org658b862">18. Style Circle</a></li>
-<li><a href="#orge703d4c">19. <b>Preview Component</b></a></li>
-<li><a href="#orgdc28d28">20. Finally, align both elements</a></li>
-<li><a href="#org0d97d31">21. Set row-radius in :locals</a>
+<li><a href="#orge74e2d4">1. Topics to Cover</a></li>
+<li><a href="#org720d02c">2. PREPARATION</a></li>
+<li><a href="#orgf29e539">3. Introduction</a></li>
+<li><a href="#org19741f4">4. Add :styles Editor</a></li>
+<li><a href="#orgafab284">5. Edit Default <b>Style Rule</b></a></li>
+<li><a href="#org17b7045">6. Add class to :render section - Method 1: class attribute</a></li>
+<li><a href="#org3496ab2">7. <b>Preview Component</b></a></li>
+<li><a href="#org2455e8a">8. Add class to :render section - Method 2: tag name extension</a></li>
+<li><a href="#orgcbf0180">9. <b>Preview Component</b></a></li>
+<li><a href="#org51a0dd7">10. Add table <b>Style Rule</b></a></li>
+<li><a href="#org4977695">11. Add td styles</a></li>
+<li><a href="#orge8045e7">12. Style :td</a></li>
+<li><a href="#org45d1188">13. Add td:first-child</a></li>
+<li><a href="#orgb57abfc">14. Add td:last-child</a></li>
+<li><a href="#orgbd9b3db">15. <b>Preview Component</b></a></li>
+<li><a href="#org9d99d5c">16. Style input/number</a></li>
+<li><a href="#org87cb6ea">17. Style SVG</a></li>
+<li><a href="#orgb9eb21a">18. Style Circle</a></li>
+<li><a href="#orgc828a65">19. <b>Preview Component</b></a></li>
+<li><a href="#orge4bd839">20. Finally, align both elements</a></li>
+<li><a href="#org2809a25">21. <b>Preview Component</b></a></li>
+<li><a href="#orga239827">22. Move table to top</a></li>
+<li><a href="#orgcc8f8a9">23. <b>Preview Component</b></a></li>
+<li><a href="#orgeefe7b7">24. Set row-radius in :locals</a>
 <ul>
-<li><a href="#org6d2e590">21.1. Swap all 30px for row-radius</a></li>
+<li><a href="#orga632123">24.1. Swap all 30px for row-radius</a></li>
 </ul>
 </li>
-<li><a href="#orga55c247">22. Summary</a></li>
-<li><a href="#orgc0d9004">23. Final</a></li>
+<li><a href="#org16c37d9">25. Summary</a></li>
+<li><a href="#org0250ff4">26. Final</a></li>
 </ul>
 </div>
 </div>
 <p>
 <a href="./index.html">Index</a>
-<a id="orgd69f2c6"></a>
+<a id="org8f1fd24"></a>
 </p>
 
-<div id="outline-container-org04a6b39" class="outline-2">
-<h2 id="org04a6b39"><span class="section-number-2">1.</span> Topics to Cover</h2>
+<div id="outline-container-orge74e2d4" class="outline-2">
+<h2 id="orge74e2d4"><span class="section-number-2">1.</span> Topics to Cover</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>StyleRules
@@ -265,8 +268,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org377fb5e" class="outline-2">
-<h2 id="org377fb5e"><span class="section-number-2">2.</span> PREPARATION</h2>
+<div id="outline-container-org720d02c" class="outline-2">
+<h2 id="org720d02c"><span class="section-number-2">2.</span> PREPARATION</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Delete final table column;</li>
@@ -275,11 +278,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org76f50e1" class="outline-2">
-<h2 id="org76f50e1"><span class="section-number-2">3.</span> Introduction</h2>
+<div id="outline-container-orgf29e539" class="outline-2">
+<h2 id="orgf29e539"><span class="section-number-2">3.</span> Introduction</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-<a href="#orgd69f2c6">Top</a>
+<a href="#org8f1fd24">Top</a>
 </p>
 <ul class="org-ul">
 <li>Hi, I'm Ali Hussein, creator of entmorph,
@@ -296,11 +299,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org890d7ba" class="outline-2">
-<h2 id="org890d7ba"><span class="section-number-2">4.</span> Add :styles Editor</h2>
+<div id="outline-container-org19741f4" class="outline-2">
+<h2 id="org19741f4"><span class="section-number-2">4.</span> Add :styles Editor</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-<a href="#orgd69f2c6">Top</a>
+<a href="#org8f1fd24">Top</a>
 </p>
 <ul class="org-ul">
 <li>So let's begin.</li>
@@ -333,13 +336,14 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org5056193" class="outline-2">
-<h2 id="org5056193"><span class="section-number-2">5.</span> Edit Default <b>Style Rule</b></h2>
+<div id="outline-container-orgafab284" class="outline-2">
+<h2 id="orgafab284"><span class="section-number-2">5.</span> Edit Default <b>Style Rule</b></h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
-<li>There's already a default <b>Style Rule</b>, so let's edit that;
+<li><code>[scroll-to {{{sty-rule}}}]</code></li>
+<li>There's already a default <b>Style Rule</b>;
 <ul class="org-ul">
-<li>it has a selector at the top, which has a name ".selector",
+<li>it has a selector which has a name ".selector",
 <ul class="org-ul">
 <li>let's rename it to <code>.main</code>;
 <ul class="org-ul">
@@ -362,7 +366,7 @@
 <li>When I click on the property value, it opens a String editor by default.</li>
 <li>If I click on the String editor heading,
 <ul class="org-ul">
-<li>it brings up a <code>CSS Property Value</code> editor,</li>
+<li>it opens a <code>CSS Property Value</code> dropdown,</li>
 <li>which provides dedicated editors for various properties, for example
 <ul class="org-ul">
 <li>for creating:
@@ -374,11 +378,11 @@
 <li>and so on;</li>
 </ul></li>
 </ul></li>
-<li>We'll explore these in detail in future videos dedicated to the Styles editor, but for most of this video I'm going to stick with using strings as they're the default option and I want to show you more fundamental aspects of using styles;</li>
+<li>We'll explore these in detail in future videos dedicated to the Styles editor, but for most of this video we'll stick with strings as they're the default option and I want to show you more fundamental aspects of using styles;</li>
 <li><code>click on</code> <b>cancel</b></li>
 </ul></li>
 <li><code>1px solid #AAA</code></li>
-<li>Notice that as I add these properties,
+<li>Notice that as I add properties,
 <ul class="org-ul">
 <li>the Preview panel underneath updates to give you a rough idea of how an element will look, when this Style Rule is applied to it;</li>
 </ul></li>
@@ -394,11 +398,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdb435ad" class="outline-2">
-<h2 id="orgdb435ad"><span class="section-number-2">6.</span> Add class to :render section - Method 1: class attribute</h2>
+<div id="outline-container-org17b7045" class="outline-2">
+<h2 id="org17b7045"><span class="section-number-2">6.</span> Add class to :render section - Method 1: class attribute</h2>
 <div class="outline-text-2" id="text-6">
 <p>
-<a href="#orgd69f2c6">Top</a>
+<a href="#org8f1fd24">Top</a>
 </p>
 <ul class="org-ul">
 <li>Now let's go down to the :render section and apply this class to an element;</li>
@@ -424,25 +428,27 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfe76d0b" class="outline-2">
-<h2 id="orgfe76d0b"><span class="section-number-2">7.</span> <b>Preview Component</b></h2>
+<div id="outline-container-org3496ab2" class="outline-2">
+<h2 id="org3496ab2"><span class="section-number-2">7.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-7">
 <p>
-<a href="#orgd69f2c6">Top</a>
+<a href="#org8f1fd24">Top</a>
 </p>
 <ul class="org-ul">
-<li>Now let's <b>Goto</b> &gt; <code>Output</code></li>
-<li>and click on <b>Preview Component</b></li>
+<li>{{goto(Output)}}}</li>
+<li><b>Preview Component</b>
+<ul class="org-ul">
 <li>and you can see a border with a light box shadow has appeared around the whole component;</li>
+</ul></li>
 <li>so this is method 1;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgecd48b5" class="outline-2">
-<h2 id="orgecd48b5"><span class="section-number-2">8.</span> Add class to :render section - Method 2: tag name extension</h2>
+<div id="outline-container-org2455e8a" class="outline-2">
+<h2 id="org2455e8a"><span class="section-number-2">8.</span> Add class to :render section - Method 2: tag name extension</h2>
 <div class="outline-text-2" id="text-8">
 <p>
-<a href="#orgd69f2c6">Top</a>
+<a href="#org8f1fd24">Top</a>
 </p>
 <ul class="org-ul">
 <li>Now let's <code>[scroll-to :render]</code></li>
@@ -455,38 +461,38 @@
 <li>and this time I'll just type ".main" at the end of the tag,</li>
 <li>and press <code>Enter</code> to close the editor</li>
 </ul></li>
-<li>This is a shortcut which is very useful when you have static classes that never need to be removed;
+<li>This is a shortcut which is very useful when you have static classes that never need to be added or removed;
 <ul class="org-ul">
-<li>You can add as many CSS class names as you want;</li>
+<li>and you can add as many CSS class names after the element tag as you want;</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org2027328" class="outline-2">
-<h2 id="org2027328"><span class="section-number-2">9.</span> <b>Preview Component</b></h2>
+<div id="outline-container-orgcbf0180" class="outline-2">
+<h2 id="orgcbf0180"><span class="section-number-2">9.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-9">
 <p>
-<a href="#orgd69f2c6">Top</a>
+<a href="#org8f1fd24">Top</a>
 </p>
 <ul class="org-ul">
-<li>Now if we <b>Goto</b> &gt; <code>Output</code></li>
-<li>and click on <b>Preview Component</b> again</li>
+<li><b>Goto</b> &gt; <code>Output</code></li>
+<li><b>Preview Component</b></li>
 <li>nothing has changed,
 <ul class="org-ul">
-<li>which is a good thing because it means that adding ".main" to the end of the root div tag has the same effect as adding a class attribute of "main"</li>
+<li>which is a good thing because it means that adding ".main" to the end of the <code>div</code> tag has the same effect as adding a class attribute of "main"</li>
 <li>So this is method 2 for adding classes to elements
 <ul class="org-ul">
-<li>and I recommend you use it whenever you can as it will save you a lot of time and makes it easier to see which classes have been applied to a given element;</li>
+<li>and I recommend you use it whenever you can as it saves time and makes it easier to see which classes have been applied to a given element;</li>
 </ul></li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org2c4c742" class="outline-2">
-<h2 id="org2c4c742"><span class="section-number-2">10.</span> Add table <b>Style Rule</b></h2>
+<div id="outline-container-org51a0dd7" class="outline-2">
+<h2 id="org51a0dd7"><span class="section-number-2">10.</span> Add table <b>Style Rule</b></h2>
 <div class="outline-text-2" id="text-10">
 <p>
-<a href="#orgd69f2c6">Top</a>
+<a href="#org8f1fd24">Top</a>
 </p>
 <ul class="org-ul">
 <li>Let's style the table next;</li>
@@ -504,17 +510,21 @@
 <li>This lets us add nested <b>Style Rule</b> s within the parent <b>Style Rule</b>;
 <ul class="org-ul">
 <li>let's add a "table" rule;</li>
-<li>I'll click on "Style Rule" to add the new rule,</li>
-<li>and change its selector from <code>.selector</code> to <code>table</code>,</li>
+<li>I'll click on "Add <b>Style Rule</b>" to add a new child rule,</li>
+<li>and change its selector from <code>.selector</code> to <code>table</code></li>
+</ul></li>
+<li><code>[scroll-to .main {{{sty-rule}}}]</code>
+<ul class="org-ul">
+<li><code>close, collapse everything</code></li>
 </ul></li>
 <li>Having a <code>table</code> rule nested inside the <code>.main</code> rule means it will only be applied to a <code>table</code> element which is a <i>descendant</i> of an element that has the .main class applied to it;
 <ul class="org-ul">
 <li>In other words, it will generate a style rule which has a selector of:
 <ul class="org-ul">
-<li><code>.main table</code></li>
+<li><code>.main &lt;space&gt; table</code></li>
 </ul></li>
 </ul></li>
-<li>Let's add the following properties:</li>
+<li>Let's add the following properties to the <code>table</code> rule:</li>
 </ul>
 <div class="org-src-container">
 <pre class="src src-clojurescript"><span style="color: #707183;">{</span><span style="color: #F5666D;">:background</span>     <span style="color: #4E9A06;">"#EEE"</span>
@@ -526,23 +536,23 @@
 </pre>
 </div>
 <ul class="org-ul">
-<li><code>Go back up to .main rule and close everything</code></li>
-<li>I'll collapse the <code>table</code> <b>Declaration Block</b> because we're done with it;</li>
+<li>I'll collapse+Close the <code>table</code> <b>Declaration Block</b> because we're done with it;</li>
 <li>Let's preview this:</li>
 <li><b>Goto</b> &gt; <code>Output &gt; {{{prev-comp}}}</code></li>
 <li>So now our table has a grey, rounded background;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbdf23dd" class="outline-2">
-<h2 id="orgbdf23dd"><span class="section-number-2">11.</span> Add td styles</h2>
+<div id="outline-container-org4977695" class="outline-2">
+<h2 id="org4977695"><span class="section-number-2">11.</span> Add td styles</h2>
 <div class="outline-text-2" id="text-11">
 <p>
-<a href="#orgd69f2c6">Top</a>
+<a href="#org8f1fd24">Top</a>
 </p>
 <ul class="org-ul">
 <li>Next, let's style the rows;</li>
 <li>I'm just going to press the Back button on the browser to go back to where we just were;</li>
+<li><code>[open</code> (<code>table</code>) <code>]</code></li>
 <li><b>Add Child Rules</b> within the <code>table</code>
 <ul class="org-ul">
 <li>to add a <b>Child Rules</b> section;</li>
@@ -550,20 +560,19 @@
 <li><b>Add <b>Style Rule</b></b></li>
 <li>And rename it to <code>td</code>
 <ul class="org-ul">
-<li>If I wanted to I could have added nested rules for <code>tbody</code> and then <code>tr</code> within that,</li>
-<li>but for this particular table, there's no need;</li>
+<li>so this rule will be applied to all cells within the table;</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgce75824" class="outline-2">
-<h2 id="orgce75824"><span class="section-number-2">12.</span> Style :td</h2>
+<div id="outline-container-orge8045e7" class="outline-2">
+<h2 id="orge8045e7"><span class="section-number-2">12.</span> Style :td</h2>
 <div class="outline-text-2" id="text-12">
 <p>
-<a href="#orgd69f2c6">Top</a>
+<a href="#org8f1fd24">Top</a>
 </p>
 <ul class="org-ul">
-<li>Now let's add some properties which will apply to all cells under this table:</li>
+<li>Let's add some properties which will apply to all cells under this table:</li>
 </ul>
 <div class="org-src-container">
 <pre class="src src-clojurescript"><span style="color: #707183;">{</span><span style="color: #F5666D;">:padding</span>    <span style="color: #4E9A06;">"0.6em 1em"</span>
@@ -580,11 +589,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orga0bf683" class="outline-2">
-<h2 id="orga0bf683"><span class="section-number-2">13.</span> Add td:first-child</h2>
+<div id="outline-container-org45d1188" class="outline-2">
+<h2 id="org45d1188"><span class="section-number-2">13.</span> Add td:first-child</h2>
 <div class="outline-text-2" id="text-13">
 <p>
-<a href="#orgd69f2c6">Top</a>
+<a href="#org8f1fd24">Top</a>
 </p>
 <ul class="org-ul">
 <li><b>Add Child Rules</b></li>
@@ -599,20 +608,17 @@
 <ul class="org-ul">
 <li>this is a special code introduced by the Sass CSS framework;</li>
 <li>and it means that :first-child will apply directly to the parent <code>td</code> rule;</li>
-<li>you can also see that the Parent Selector checkbox to indicate this;</li>
+<li>you can also see that the Parent Selector checkbox is checked to indicate this;</li>
 <li>if we were to uncheck it,
 <ul class="org-ul">
 <li>the ampersand disappears,</li>
-<li>and that means that this rule will apply to all <i>descendants</i> of <code>td</code> elements which are the first child of their parents,</li>
+<li>and that means that this rule will apply to all <i>descendants</i> of <code>td</code> elements which are the first child of their parent elements,</li>
 <li>but not <code>td</code> itself;</li>
 </ul></li>
 <li>if this isn't clear now, we'll preview the component in a minute and hopefully it will make more sense then;</li>
 </ul></li>
 </ul></li>
-<li><code>Show tr &gt; td vs td &gt; input/number</code></li>
-<li>For the properties, we'll add:</li>
-<li><code>Copy background from parent cell for background</code></li>
-<li>Paste and decrease lightness to approx. 40</li>
+<li>For the :first-child properties, we'll add:</li>
 </ul>
 <div class="org-src-container">
 <pre class="src src-clojurescript"><span style="color: #707183;">{</span><span style="color: #F5666D;">:border-top-left-radius</span>
@@ -637,11 +643,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org75f4f73" class="outline-2">
-<h2 id="org75f4f73"><span class="section-number-2">14.</span> Add td:last-child</h2>
+<div id="outline-container-orgb57abfc" class="outline-2">
+<h2 id="orgb57abfc"><span class="section-number-2">14.</span> Add td:last-child</h2>
 <div class="outline-text-2" id="text-14">
 <p>
-<a href="#orgd69f2c6">Top</a>
+<a href="#org8f1fd24">Top</a>
 </p>
 <ul class="org-ul">
 <li>and let's go back up to the parent <code>td</code> <b>Style Rule</b> Child Rules</li>
@@ -665,11 +671,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgea18c9c" class="outline-2">
-<h2 id="orgea18c9c"><span class="section-number-2">15.</span> <b>Preview Component</b></h2>
+<div id="outline-container-orgbd9b3db" class="outline-2">
+<h2 id="orgbd9b3db"><span class="section-number-2">15.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-15">
 <p>
-<a href="#orgd69f2c6">Top</a>
+<a href="#org8f1fd24">Top</a>
 </p>
 <ul class="org-ul">
 <li><code>If we make a deliberate mistake with :first-child (no parent selector)</code>
@@ -687,13 +693,17 @@
 <ul class="org-ul">
 <li><code>[scroll-to any tr]</code></li>
 </ul></li>
-<li>Without the parent selector, the :first-child pseudo-class rule would be applied to all descendants of <code>td</code> which are the first child of their parents;
+<li>Without the parent selector, the :first-child pseudo-class rule would be applied to all descendants of <code>td</code> elements which are the first child of their parent elements;
 <ul class="org-ul">
-<li>in this case, it would be applied to both the input elements;</li>
-<li>however since you can't apply styling to range sliders, we could only see it for the input/number elements;</li>
+<li>in this case, it would be applied to both the input elements;
+<ul class="org-ul">
+<li>since you can't apply styling to range sliders,</li>
+<li>we could only see it for the input/number elements;</li>
 </ul></li>
-<li>With the parent selector, the :first-child pseudo-class rule would be applied to all <code>td</code> elements which are the first child of their parent rows;
+</ul></li>
+<li>With the parent selector enabled,
 <ul class="org-ul">
+<li>the :first-child pseudo-class rule would be applied to all <code>td</code> elements which are the first child of their parent row elements;</li>
 <li>and that's what we have now;</li>
 </ul></li>
 </ul></li>
@@ -708,11 +718,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf346737" class="outline-2">
-<h2 id="orgf346737"><span class="section-number-2">16.</span> Style input/number</h2>
+<div id="outline-container-org9d99d5c" class="outline-2">
+<h2 id="org9d99d5c"><span class="section-number-2">16.</span> Style input/number</h2>
 <div class="outline-text-2" id="text-16">
 <p>
-<a href="#orgd69f2c6">Top</a>
+<a href="#org8f1fd24">Top</a>
 </p>
 <ul class="org-ul">
 <li>Next, let's add some styling to the input/number box</li>
@@ -723,23 +733,23 @@
 </ul>
 <div class="org-src-container">
 <pre class="src src-clojurescript"><span style="color: #707183;">{</span><span style="color: #F5666D;">:padding</span>       <span style="color: #4E9A06;">"0.6em"</span>
- <span style="color: #F5666D;">:border</span>        <span style="color: #4E9A06;">"none"</span> 
- <span style="color: #204A87;">;; </span><span style="color: #204A87;">to remove any default border</span>
- <span style="color: #F5666D;">:outline</span>       <span style="color: #4E9A06;">"1px solid green"</span>
+ <span style="color: #F5666D;">:border</span>        <span style="color: #4E9A06;">"1px solid green"</span>
  <span style="color: #F5666D;">:border-radius</span> <span style="color: #4E9A06;">"5px"</span>
  <span style="color: #707183;">}</span>
 </pre>
 </div>
 <ul class="org-ul">
-<li>I also want to highlight it when a user focuses on it;</li>
-<li>so within it, let's <b>Add Child Rules</b> &gt; *Add Pseudo-class"
+<li>Let's also highlight the number element when a user focuses on it;
+<ul class="org-ul">
+<li>so again, let's <b>Add Child Rules</b> &gt; *Add Pseudo-class"
 <ul class="org-ul">
 <li>and this select <code>:focus</code></li>
+</ul></li>
 </ul></li>
 </ul>
 <div class="org-src-container">
 <pre class="src src-clojurescript"><span style="color: #707183;">{</span><span style="color: #F5666D;">:background</span>    <span style="color: #4E9A06;">"Browser Color &gt; lightyellow"</span>
- <span style="color: #F5666D;">:outline-width</span> <span style="color: #4E9A06;">"2px"</span><span style="color: #707183;">}</span>
+ <span style="color: #F5666D;">:border</span>        <span style="color: #4E9A06;">"2px solid green"</span><span style="color: #707183;">}</span>
 </pre>
 </div>
 <ul class="org-ul">
@@ -747,11 +757,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org2ef4a37" class="outline-2">
-<h2 id="org2ef4a37"><span class="section-number-2">17.</span> Style SVG</h2>
+<div id="outline-container-org87cb6ea" class="outline-2">
+<h2 id="org87cb6ea"><span class="section-number-2">17.</span> Style SVG</h2>
 <div class="outline-text-2" id="text-17">
 <p>
-<a href="#orgd69f2c6">Top</a>
+<a href="#org8f1fd24">Top</a>
 </p>
 <ul class="org-ul">
 <li>Now, let's add styling to the SVG viewport and circle</li>
@@ -769,7 +779,7 @@
  <span style="color: #4E9A06;">"#FAFAFA"</span>
  <span style="color: #204A87;">;; </span>
  <span style="color: #F5666D;">:border</span>
- <span style="color: #4E9A06;">"1px solid #B8D035"</span>
+ <span style="color: #4E9A06;">"1px solid green"</span>
  <span style="color: #204A87;">;; </span>
  <span style="color: #F5666D;">:box-shadow</span>
  <span style="color: #4E9A06;">"0 0 10px 0px #DDD"</span><span style="color: #707183;">}</span>
@@ -780,11 +790,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org658b862" class="outline-2">
-<h2 id="org658b862"><span class="section-number-2">18.</span> Style Circle</h2>
+<div id="outline-container-orgb9eb21a" class="outline-2">
+<h2 id="orgb9eb21a"><span class="section-number-2">18.</span> Style Circle</h2>
 <div class="outline-text-2" id="text-18">
 <p>
-<a href="#orgd69f2c6">Top</a>
+<a href="#org8f1fd24">Top</a>
 </p>
 <ul class="org-ul">
 <li>Then <b>Add Child Rules</b></li>
@@ -801,11 +811,11 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orge703d4c" class="outline-2">
-<h2 id="orge703d4c"><span class="section-number-2">19.</span> <b>Preview Component</b></h2>
+<div id="outline-container-orgc828a65" class="outline-2">
+<h2 id="orgc828a65"><span class="section-number-2">19.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-19">
 <p>
-<a href="#orgd69f2c6">Top</a>
+<a href="#org8f1fd24">Top</a>
 </p>
 <ul class="org-ul">
 <li><b>Goto</b> &gt; <code>Output &gt; {{{prev-comp}}}</code></li>
@@ -813,11 +823,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdc28d28" class="outline-2">
-<h2 id="orgdc28d28"><span class="section-number-2">20.</span> Finally, align both elements</h2>
+<div id="outline-container-orge4bd839" class="outline-2">
+<h2 id="orge4bd839"><span class="section-number-2">20.</span> Finally, align both elements</h2>
 <div class="outline-text-2" id="text-20">
 <p>
-<a href="#orgd69f2c6">Top</a>
+<a href="#org8f1fd24">Top</a>
 </p>
 <ul class="org-ul">
 <li>So it almost looks good;</li>
@@ -828,32 +838,56 @@
 <li>Click <b>Back</b></li>
 <li>.main Child Rules &gt; Collapse All</li>
 <li>Rather than modify the <code>table</code> and <code>svg</code> rules &#x2026;</li>
-<li><p>
-Add <b>Style Rule</b>
-</p>
+<li>Add <b>Style Rule</b>
 <ul class="org-ul">
-<li>Rename the selector to: "&gt; *"</li>
-</ul>
-<p>
--And add the following properties:
-</p></li>
+<li>Rename the selector to: "&gt; *"
+<ul class="org-ul">
+<li>which means "apply this rule to all immediate children of .main elements"</li>
+</ul></li>
+<li>And add the following properties:</li>
+</ul></li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-clojurescript"><span style="color: #707183;">{</span><span style="color: #F5666D;">:vertical-align</span>
- <span style="color: #4E9A06;">"top"</span>
- <span style="color: #204A87;">;; </span>
- <span style="color: #F5666D;">:display</span>
- <span style="color: #4E9A06;">"inline-block"</span>
-<span style="color: #707183;">}</span>
+<pre class="src src-clojurescript"><span style="color: #707183;">{</span><span style="color: #F5666D;">:display</span>
+ <span style="color: #4E9A06;">"inline-block"</span><span style="color: #707183;">}</span>
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org0d97d31" class="outline-2">
-<h2 id="org0d97d31"><span class="section-number-2">21.</span> Set row-radius in :locals</h2>
+<div id="outline-container-org2809a25" class="outline-2">
+<h2 id="org2809a25"><span class="section-number-2">21.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-21">
+<ul class="org-ul">
+<li>So that's put the table and viewport side-by-side next to each other,
+<ul class="org-ul">
+<li>which is definitely an improvement,</li>
+<li>but it would be nicer if the table was at the top;</li>
+<li>so let's fix that</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga239827" class="outline-2">
+<h2 id="orga239827"><span class="section-number-2">22.</span> Move table to top</h2>
+<div class="outline-text-2" id="text-22">
+<ul class="org-ul">
+<li><code>click on</code> <b>Back</b></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">{</span><span style="color: #F5666D;">:vertical-align</span>
+ <span style="color: #4E9A06;">"top"</span><span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcc8f8a9" class="outline-2">
+<h2 id="orgcc8f8a9"><span class="section-number-2">23.</span> <b>Preview Component</b></h2>
+</div>
+<div id="outline-container-orgeefe7b7" class="outline-2">
+<h2 id="orgeefe7b7"><span class="section-number-2">24.</span> Set row-radius in :locals</h2>
+<div class="outline-text-2" id="text-24">
 <p>
-<a href="#orgd69f2c6">Top</a>
+<a href="#org8f1fd24">Top</a>
 </p>
 <ul class="org-ul">
 <li>Now suppose we want to change both the table and row radii from 30px to 20px;
@@ -875,15 +909,15 @@ Add <b>Style Rule</b>
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-org6d2e590" class="outline-3">
-<h3 id="org6d2e590"><span class="section-number-3">21.1.</span> Swap all 30px for row-radius</h3>
+<div id="outline-container-orga632123" class="outline-3">
+<h3 id="orga632123"><span class="section-number-3">24.1.</span> Swap all 30px for row-radius</h3>
 </div>
 </div>
-<div id="outline-container-orga55c247" class="outline-2">
-<h2 id="orga55c247"><span class="section-number-2">22.</span> Summary</h2>
-<div class="outline-text-2" id="text-22">
+<div id="outline-container-org16c37d9" class="outline-2">
+<h2 id="org16c37d9"><span class="section-number-2">25.</span> Summary</h2>
+<div class="outline-text-2" id="text-25">
 <p>
-<a href="#orgd69f2c6">Top</a>
+<a href="#org8f1fd24">Top</a>
 </p>
 <ul class="org-ul">
 <li>The entmorph component styles editor lets you do all the things a text-based CSS stylesheet can do,
@@ -915,10 +949,11 @@ Add <b>Style Rule</b>
 <li>Child Style Rules can be nested inside parent style rules;
 <ul class="org-ul">
 <li>reflecting the way elements are arranged in the <code>:render</code> section,</li>
-<li>and making it easier to manage all related styles for a particular element from within one parent <b>Style Rule</b>, rather than having to type out multiple rules like you would in a text editor;
+<li>and making it easier to manage all related styles for a particular element from within one ancestor <b>Style Rule</b>,
 <ul class="org-ul">
-<li>For example, we would need to create style rules for all of the following selectors which begin with <code>td</code></li>
+<li>rather than having to type out multiple rules like you would in a text editor;</li>
 </ul></li>
+<li>To give you an example, we would need to create style rules for all of the following selectors which begin with <code>td</code></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -932,7 +967,7 @@ td input[type=<span style="color: #4E9A06;">"number"</span>]:focus {...}
 </pre>
 </div>
 <ul class="org-ul">
-<li>and this is just a lot messier to maintain, especially if we need to move things around;
+<li>and this is just a lot more work to maintain, especially if we need to move things around;
 <ul class="org-ul">
 <li>We can add variables to the <code>:locals</code> section,
 <ul class="org-ul">
@@ -943,21 +978,29 @@ td input[type=<span style="color: #4E9A06;">"number"</span>]:focus {...}
 <li>the traditional method, via :class attributes</li>
 <li>and adding class names to the end of element tag names</li>
 </ul></li>
-<li>And when the component is built, it renames the CSS classnames to make them unique to that component, so that you never have to worry about two components having the same class names which clash;</li>
+<li>One thing we haven't looked at yet is when the component is built,
+<ul class="org-ul">
+<li>it renames the CSS classnames to make them unique to that component,</li>
+<li>so that you never have to worry about two components having the same class names which might clash;</li>
+</ul></li>
 <li>Here's an example of it looks</li>
 <li>[show styles under *Preview Component*]</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc0d9004" class="outline-2">
-<h2 id="orgc0d9004"><span class="section-number-2">23.</span> Final</h2>
-<div class="outline-text-2" id="text-23">
+<div id="outline-container-org0250ff4" class="outline-2">
+<h2 id="org0250ff4"><span class="section-number-2">26.</span> Final</h2>
+<div class="outline-text-2" id="text-26">
 <ul class="org-ul">
-<li>So we've covered the basics of using the entmorph :styles editor for creating and applying style rules to elements;
+<li>So we've covered the basics of using the entmorph :styles editor for creating and applying style rules to elements;</li>
+<li>I hope you can join me for the next video,
 <ul class="org-ul">
-<li>in the next video, we'll look at how to create CSS animations using Keyframes rules</li>
-<li>and we'll also look at how to dynamically add CSS classes to elements using state variables</li>
+<li>where we'll look at:
+<ul class="org-ul">
+<li>how to create CSS animations using Keyframes rules</li>
+<li>and how to dynamically add CSS classes to elements using state variables;</li>
+</ul></li>
 </ul></li>
 </ul>
 <p>
@@ -967,7 +1010,7 @@ Thanks a lot for watching.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2025-05-31 Sat 14:34</p>
+<p class="date">Created: 2025-05-31 Sat 15:40</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
