@@ -1010,7 +1010,7 @@ table.composer-node > tbody > tr  > td {
 .string-editor:after  {
     font-family:    "Source Code Pro";
     vertical-align: top;
-    padding:        0 5px;
+    padding:        0 1px;
     color:          #333;
 }
 .string-editor:before {
@@ -2995,6 +2995,59 @@ table.css-rect-report td {
 
 table.css-rect-report td.corner {
     background: #adca42;
+}
+
+.css-rules-outline-section > .tab-section-heading > .tab-heading {
+    background:     #28accc;
+    color:          #ffffff;
+}
+.css-rules-outline-section > .tab-section-heading > .tab-heading > .expander path {
+    fill: #FFFFFF;
+}
+
+.css-rules-outline-section > .tab-body {
+    border:     2px solid #28accc;
+}
+
+ul.css-rules-outline {
+    padding-left: 1.2em;
+    margin-top:   0.4em;
+    margin-left:  1em;
+    border-left:  3px dotted #b8e0de;
+
+}
+ul.css-rules-outline > li {
+    position:     relative;
+    padding:      0.4em;
+    padding-left: 0;
+}
+ul.css-rules-outline > li::before {
+    content:       "\00a0\00a0\00a0\00a0";
+    border-top:   3px dotted #b8e0de;
+    margin-left:  -1.2em;
+    position:     absolute;
+    top:          1.1em;
+}
+ul.css-rules-outline > li > a {
+    border-radius: 15px;
+    background:    #EEE;
+    padding:       0.2em 1em;
+    outline:       2px solid #CCC;
+}
+ul.css-rules-outline > li > a:hover {
+    background:      #DDD;
+    text-decoration: underline;
+}
+
+.cancel-css-rules-outline > ul.css-rules-outline {
+    padding-left: 0;
+    margin-top:   0;
+    margin-left:  0;
+    border:       none;
+}
+.cancel-css-rules-outline > ul.css-rules-outline > li::before {
+    content:      none;
+    border-top:   none;
 }
 
 textarea {
