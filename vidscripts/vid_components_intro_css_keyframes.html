@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-06-17 Tue 16:15 -->
+<!-- 2025-06-17 Tue 21:18 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>entmorph Components - CSS Keyframes</title>
@@ -202,55 +202,56 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orge9705b3">1. PREPARATION</a></li>
-<li><a href="#org0e668e6">2. Introduction</a></li>
-<li><a href="#orgafd9cd0">3. Add keyframes for border-radius</a></li>
-<li><a href="#orgfa2417f">4. Add :border-radius to keyframes</a>
+<li><a href="#org0d953d0">1. PREPARATION</a></li>
+<li><a href="#orgc57a4e3">2. Introduction</a></li>
+<li><a href="#orgc90bdd2">3. Add keyframes for border-radius</a></li>
+<li><a href="#org335cd5d">4. Add :border-radius to keyframes</a>
 <ul>
-<li><a href="#org978b369">4.1. 0%: border-radius 0</a></li>
-<li><a href="#org95ad69a">4.2. 50%: border-radius 250px</a></li>
-<li><a href="#orgb7efa94">4.3. 100%: border-radius 0px</a></li>
-<li><a href="#orgb072d05">4.4. Review 3 frames</a></li>
+<li><a href="#orgc144169">4.1. 0%: border-radius 0</a></li>
+<li><a href="#org174afa8">4.2. 50%: border-radius 250px</a></li>
+<li><a href="#orgf874421">4.3. 100%: border-radius 0px</a></li>
+<li><a href="#orgbc5a9b8">4.4. Review 3 frames</a></li>
 </ul>
 </li>
-<li><a href="#org03bc162">5. Add .animate-radii <b>Style Rule</b></a></li>
-<li><a href="#org6bdf8ab">6. Set: svg.animate-radii element tag</a></li>
-<li><a href="#org73f221a">7. <b>Preview Component</b></a></li>
-<li><a href="#org6c10b14">8. Remove: svg.animate-radii element tag</a></li>
-<li><a href="#orgf1be6b5">9. <b>Preview Component</b></a></li>
-<li><a href="#orgb92de37">10. Add animate? Checkbox</a>
+<li><a href="#org6abffa8">5. Add .animate-radii <b>Style Rule</b></a></li>
+<li><a href="#org186b812">6. Set: svg.animate-radii element tag</a></li>
+<li><a href="#org9fda6ec">7. <b>Preview Component</b></a></li>
+<li><a href="#orgad7b37d">8. Remove: svg.animate-radii element tag</a></li>
+<li><a href="#org7a79131">9. <b>Preview Component</b></a></li>
+<li><a href="#orgf9d8cbd">10. Add animate? Checkbox</a>
 <ul>
-<li><a href="#org1ad97ea">10.1. Add row + checkbox</a></li>
-<li><a href="#orgc070f99">10.2. Add animate? state variable</a></li>
-<li><a href="#org0771f90">10.3. Set @Reactive(animate?) in "animate?" checkbox</a></li>
+<li><a href="#org5c17a63">10.1. Add row + checkbox</a></li>
+<li><a href="#orgcbca535">10.2. Add animate? state variable</a></li>
+<li><a href="#org70c8588">10.3. Set @Reactive(animate?) in "animate?" checkbox</a></li>
 </ul>
 </li>
-<li><a href="#orge90ffbc">11. Create :class map in &lt;svg&gt; element</a></li>
-<li><a href="#org1388b48">12. <b>Preview Component</b></a></li>
-<li><a href="#orgb674b9d">13. How it works</a></li>
-<li><a href="#org64244b9">14. Uncheck Animate?</a></li>
-<li><a href="#orge3ff44e">15. Add Pause? chekbox</a>
+<li><a href="#org4326825">11. Add</a></li>
+<li><a href="#org67ebb6c">12. Create :class map in &lt;svg&gt; element</a></li>
+<li><a href="#orgd075f7e">13. <b>Preview Component</b></a></li>
+<li><a href="#org9ff34a5">14. How it works</a></li>
+<li><a href="#orgf5adb44">15. Uncheck Animate?</a></li>
+<li><a href="#orgbea02d6">16. Add Pause? chekbox</a>
 <ul>
-<li><a href="#org587191e">15.1. Add .pause style</a></li>
-<li><a href="#orgd2a5e55">15.2. Add paused? state var</a></li>
-<li><a href="#org869ce21">15.3. Add row + checkbox to :render</a></li>
+<li><a href="#orgb0cffd7">16.1. Add .pause style</a></li>
+<li><a href="#org6cc8c55">16.2. Add paused? state var</a></li>
+<li><a href="#org9bfc8f6">16.3. Add row + checkbox to :render</a></li>
 </ul>
 </li>
-<li><a href="#org666ab86">16. Add @paused? to svg class map</a></li>
-<li><a href="#org9667f42">17. <b>Preview Component</b></a></li>
-<li><a href="#orgea80f65">18. Finally</a></li>
-<li><a href="#org5630c02">19. Summary</a></li>
-<li><a href="#org01295cb">20. Coming Up next</a></li>
+<li><a href="#org8b14ab3">17. Add @paused? to svg class map</a></li>
+<li><a href="#org3fb06fc">18. <b>Preview Component</b></a></li>
+<li><a href="#orge487dc0">19. Finally</a></li>
+<li><a href="#orgf8ce7c8">20. Summary</a></li>
+<li><a href="#orgbc6d69d">21. Coming Up next</a></li>
 </ul>
 </div>
 </div>
 <p>
 <a href="./index.html">Index</a>
-<a id="org7bc7908"></a>
+<a id="org76fb2bf"></a>
 </p>
 
-<div id="outline-container-orge9705b3" class="outline-2">
-<h2 id="orge9705b3"><span class="section-number-2">1.</span> PREPARATION</h2>
+<div id="outline-container-org0d953d0" class="outline-2">
+<h2 id="org0d953d0"><span class="section-number-2">1.</span> PREPARATION</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Start with localhost/ &#x2026; "Styling Components [Complete]"
@@ -261,17 +262,17 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org0e668e6" class="outline-2">
-<h2 id="org0e668e6"><span class="section-number-2">2.</span> Introduction</h2>
+<div id="outline-container-orgc57a4e3" class="outline-2">
+<h2 id="orgc57a4e3"><span class="section-number-2">2.</span> Introduction</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Hi, I'm Ali Hussein, creator of entmorph,
 <ul class="org-ul">
 <li>and in this video we're going to continue working with the entmorph component styles editor;</li>
 <li>we're going to look at adding Keyframes animations,</li>
-<li>and also look at how we can use state variables to add and remove styles from elements;</li>
+<li>and we'll also look at how we can use state variables to dynamically add and remove styles from elements;</li>
 </ul></li>
-<li>At the end of the previous video, we styled our component so it now looks like this:
+<li>At the end of the previous video, we styled our component to make it look like this:
 <ul class="org-ul">
 <li><code>show Styling [Complete]</code></li>
 </ul></li>
@@ -282,20 +283,21 @@
 </ul></li>
 <li>If we click on the <b>Animate?</b> checkbox,
 <ul class="org-ul">
-<li>the border radius is animated in an infinite loop;</li>
+<li>the border radius is pulsates in an infinite loop;</li>
 </ul></li>
 <li>We can then click on the <b>Pause?</b> checkbox to pause &#x2026;. and resume the animation;</li>
 <li><code>switch back to the orignal component</code></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgafd9cd0" class="outline-2">
-<h2 id="orgafd9cd0"><span class="section-number-2">3.</span> Add keyframes for border-radius</h2>
+<div id="outline-container-orgc90bdd2" class="outline-2">
+<h2 id="orgc90bdd2"><span class="section-number-2">3.</span> Add keyframes for border-radius</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-<a href="#org7bc7908">Top</a>
+<a href="#org76fb2bf">Top</a>
 </p>
 <ul class="org-ul">
+<li>Let's begin;</li>
 <li>We'll start by adding a <b>Keyframes Rule</b>:</li>
 <li><b>Goto</b> &gt; <code>Code &gt; :styles</code></li>
 <li><b>Goto</b> &gt; <code>:rules</code></li>
@@ -338,21 +340,21 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfa2417f" class="outline-2">
-<h2 id="orgfa2417f"><span class="section-number-2">4.</span> Add :border-radius to keyframes</h2>
+<div id="outline-container-org335cd5d" class="outline-2">
+<h2 id="org335cd5d"><span class="section-number-2">4.</span> Add :border-radius to keyframes</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-<a href="#org7bc7908">Top</a>
+<a href="#org76fb2bf">Top</a>
 </p>
 <ul class="org-ul">
 <li>Let's create an animation;</li>
 </ul>
 </div>
-<div id="outline-container-org978b369" class="outline-3">
-<h3 id="org978b369"><span class="section-number-3">4.1.</span> 0%: border-radius 0</h3>
+<div id="outline-container-orgc144169" class="outline-3">
+<h3 id="orgc144169"><span class="section-number-3">4.1.</span> 0%: border-radius 0</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
-<a href="#org7bc7908">Top</a>
+<a href="#org76fb2bf">Top</a>
 </p>
 <ul class="org-ul">
 <li>We'll start by setting the properties at 0%;</li>
@@ -369,11 +371,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org95ad69a" class="outline-3">
-<h3 id="org95ad69a"><span class="section-number-3">4.2.</span> 50%: border-radius 250px</h3>
+<div id="outline-container-org174afa8" class="outline-3">
+<h3 id="org174afa8"><span class="section-number-3">4.2.</span> 50%: border-radius 250px</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
-<a href="#org7bc7908">Top</a>
+<a href="#org76fb2bf">Top</a>
 </p>
 <ul class="org-ul">
 <li><code>[open</code> (50% <b>Declaration Block</b>) <code>]</code></li>
@@ -384,11 +386,11 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgb7efa94" class="outline-3">
-<h3 id="orgb7efa94"><span class="section-number-3">4.3.</span> 100%: border-radius 0px</h3>
+<div id="outline-container-orgf874421" class="outline-3">
+<h3 id="orgf874421"><span class="section-number-3">4.3.</span> 100%: border-radius 0px</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
-<a href="#org7bc7908">Top</a>
+<a href="#org76fb2bf">Top</a>
 </p>
 <ul class="org-ul">
 <li><code>Just paste it as-is and leave</code>
@@ -398,11 +400,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb072d05" class="outline-3">
-<h3 id="orgb072d05"><span class="section-number-3">4.4.</span> Review 3 frames</h3>
+<div id="outline-container-orgbc5a9b8" class="outline-3">
+<h3 id="orgbc5a9b8"><span class="section-number-3">4.4.</span> Review 3 frames</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
-<a href="#org7bc7908">Top</a>
+<a href="#org76fb2bf">Top</a>
 </p>
 <ul class="org-ul">
 <li>This defines an animation which animates the the border radius of a an element from 0 to 250px in the middle and then back to 0 at the end;</li>
@@ -410,11 +412,11 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org03bc162" class="outline-2">
-<h2 id="org03bc162"><span class="section-number-2">5.</span> Add .animate-radii <b>Style Rule</b></h2>
+<div id="outline-container-org6abffa8" class="outline-2">
+<h2 id="org6abffa8"><span class="section-number-2">5.</span> Add .animate-radii <b>Style Rule</b></h2>
 <div class="outline-text-2" id="text-5">
 <p>
-<a href="#org7bc7908">Top</a>
+<a href="#org76fb2bf">Top</a>
 </p>
 <ul class="org-ul">
 <li>Now let's also add a <b>Style Rule</b> to run the animation;</li>
@@ -444,8 +446,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org6bdf8ab" class="outline-2">
-<h2 id="org6bdf8ab"><span class="section-number-2">6.</span> Set: svg.animate-radii element tag</h2>
+<div id="outline-container-org186b812" class="outline-2">
+<h2 id="org186b812"><span class="section-number-2">6.</span> Set: svg.animate-radii element tag</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Let's add the .animate-radii class to an element;</li>
@@ -457,11 +459,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org73f221a" class="outline-2">
-<h2 id="org73f221a"><span class="section-number-2">7.</span> <b>Preview Component</b></h2>
+<div id="outline-container-org9fda6ec" class="outline-2">
+<h2 id="org9fda6ec"><span class="section-number-2">7.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-7">
 <p>
-<a href="#org7bc7908">Top</a>
+<a href="#org76fb2bf">Top</a>
 </p>
 <ul class="org-ul">
 <li>So this shows that our animation works;</li>
@@ -473,43 +475,43 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org6c10b14" class="outline-2">
-<h2 id="org6c10b14"><span class="section-number-2">8.</span> Remove: svg.animate-radii element tag</h2>
+<div id="outline-container-orgad7b37d" class="outline-2">
+<h2 id="orgad7b37d"><span class="section-number-2">8.</span> Remove: svg.animate-radii element tag</h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>First let's remove the .animate-radii class from the svg element;</li>
 </ul>
 <p>
-<a href="#org7bc7908">Top</a>
+<a href="#org76fb2bf">Top</a>
 </p>
 </div>
 </div>
-<div id="outline-container-orgf1be6b5" class="outline-2">
-<h2 id="orgf1be6b5"><span class="section-number-2">9.</span> <b>Preview Component</b></h2>
+<div id="outline-container-org7a79131" class="outline-2">
+<h2 id="org7a79131"><span class="section-number-2">9.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li>and that's at least stopped the animation;</li>
 </ul>
 <p>
-<a href="#org7bc7908">Top</a>
+<a href="#org76fb2bf">Top</a>
 </p>
 </div>
 </div>
-<div id="outline-container-orgb92de37" class="outline-2">
-<h2 id="orgb92de37"><span class="section-number-2">10.</span> Add animate? Checkbox</h2>
+<div id="outline-container-orgf9d8cbd" class="outline-2">
+<h2 id="orgf9d8cbd"><span class="section-number-2">10.</span> Add animate? Checkbox</h2>
 <div class="outline-text-2" id="text-10">
 <p>
-<a href="#org7bc7908">Top</a>
+<a href="#org76fb2bf">Top</a>
 </p>
 <ul class="org-ul">
 <li>So let's give our users some way to start and stop the animation;</li>
 </ul>
 </div>
-<div id="outline-container-org1ad97ea" class="outline-3">
-<h3 id="org1ad97ea"><span class="section-number-3">10.1.</span> Add row + checkbox</h3>
+<div id="outline-container-org5c17a63" class="outline-3">
+<h3 id="org5c17a63"><span class="section-number-3">10.1.</span> Add row + checkbox</h3>
 <div class="outline-text-3" id="text-10-1">
 <p>
-<a href="#org7bc7908">Top</a>
+<a href="#org76fb2bf">Top</a>
 </p>
 <ul class="org-ul">
 <li><p>
@@ -526,11 +528,11 @@ We'll add a new row in the table with a checkbox:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc070f99" class="outline-3">
-<h3 id="orgc070f99"><span class="section-number-3">10.2.</span> Add animate? state variable</h3>
+<div id="outline-container-orgcbca535" class="outline-3">
+<h3 id="orgcbca535"><span class="section-number-3">10.2.</span> Add animate? state variable</h3>
 <div class="outline-text-3" id="text-10-2">
 <p>
-<a href="#org7bc7908">Top</a>
+<a href="#org76fb2bf">Top</a>
 </p>
 <ul class="org-ul">
 <li>Since this is an input element,
@@ -550,11 +552,11 @@ We'll add a new row in the table with a checkbox:
 </ul>
 </div>
 </div>
-<div id="outline-container-org0771f90" class="outline-3">
-<h3 id="org0771f90"><span class="section-number-3">10.3.</span> Set @Reactive(animate?) in "animate?" checkbox</h3>
+<div id="outline-container-org70c8588" class="outline-3">
+<h3 id="org70c8588"><span class="section-number-3">10.3.</span> Set @Reactive(animate?) in "animate?" checkbox</h3>
 <div class="outline-text-3" id="text-10-3">
 <p>
-<a href="#org7bc7908">Top</a>
+<a href="#org76fb2bf">Top</a>
 </p>
 <ul class="org-ul">
 <li>Now let's connect our new checkbox to it;</li>
@@ -573,21 +575,26 @@ We'll add a new row in the table with a checkbox:
        <span style="color: #709870;">{</span><span style="color: #F5666D;">:checked</span> @animate?<span style="color: #709870;">}</span><span style="color: #909183;">]</span><span style="color: #7388d6;">]</span><span style="color: #707183;">]</span>
 </pre>
 </div>
-</div>
-</div>
-</div>
-<div id="outline-container-orge90ffbc" class="outline-2">
-<h2 id="orge90ffbc"><span class="section-number-2">11.</span> Create :class map in &lt;svg&gt; element</h2>
-<div class="outline-text-2" id="text-11">
-<p>
-<a href="#org7bc7908">Top</a>
-</p>
 <ul class="org-ul">
-<li>Now whenever a user clicks on our chekbox,
+<li>Now whenever a user clicks on this chekbox,
 <ul class="org-ul">
 <li>it toggles the <code>animate?</code> state variable between <code>true</code> and <code>false</code>;</li>
 </ul></li>
-<li>But we still can't add or remove our animation from the &lt;svg&gt; element;</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org4326825" class="outline-2">
+<h2 id="org4326825"><span class="section-number-2">11.</span> Add</h2>
+</div>
+<div id="outline-container-org67ebb6c" class="outline-2">
+<h2 id="org67ebb6c"><span class="section-number-2">12.</span> Create :class map in &lt;svg&gt; element</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+<a href="#org76fb2bf">Top</a>
+</p>
+<ul class="org-ul">
+<li>But we want the checkbox to add or remove the animation from the &lt;svg&gt; element;</li>
 <li>So let's do that now;</li>
 <li><code>[scroll-to &lt;svg&gt; element]</code>;</li>
 <li>From the Attributes Map;
@@ -604,28 +611,27 @@ We'll add a new row in the table with a checkbox:
 <li>Key: <code>"animate-radii"</code> (the name of the class we want to dynamically add to the element)</li>
 <li>Val: @Reactive &gt; <code>@animate?</code></li>
 </ul></li>
-<li>Let's see this in action;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1388b48" class="outline-2">
-<h2 id="org1388b48"><span class="section-number-2">12.</span> <b>Preview Component</b></h2>
-<div class="outline-text-2" id="text-12">
+<div id="outline-container-orgd075f7e" class="outline-2">
+<h2 id="orgd075f7e"><span class="section-number-2">13.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-13">
 <p>
-<a href="#org7bc7908">Top</a>
+<a href="#org76fb2bf">Top</a>
 </p>
 <ul class="org-ul">
-<li>So the animation no longer runs automatically when we first preview the component;</li>
-<li>And now hopefully when I click on the Animate? checkbox,
+<li>Firstly the animation isn't running when we first preview the component;</li>
+<li>And now hopefully when I click on the <b>Animate?</b> checkbox,
 <ul class="org-ul">
-<li>we see the border radii animate in an infinite loop</li>
+<li>we see the border radii animate in an infinite loop;</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb674b9d" class="outline-2">
-<h2 id="orgb674b9d"><span class="section-number-2">13.</span> How it works</h2>
-<div class="outline-text-2" id="text-13">
+<div id="outline-container-org9ff34a5" class="outline-2">
+<h2 id="org9ff34a5"><span class="section-number-2">14.</span> How it works</h2>
+<div class="outline-text-2" id="text-14">
 <ul class="org-ul">
 <li>Here's how this works;</li>
 <li><code>[scroll-to input/checkbox]</code></li>
@@ -634,12 +640,12 @@ We'll add a new row in the table with a checkbox:
 <li>The svg element has its :class attribute set to a map;</li>
 <li>This is another entmorph extension to HTML,
 <ul class="org-ul">
-<li>which causes the :class attribute to react to changes in the @animate? state variable;</li>
-<li>the way it works is that when the <code>@animate?</code> state variable switches from false to true,
+<li>which makes the :class attribute react to changes in the <code>animate?</code> state variable;</li>
+<li>the way it works is that when the <code>animate~</code> state variable switches from false to true,
 <ul class="org-ul">
 <li>it adds the <code>animate-radii</code> class (the map key) to the &lt;svg&gt; element;</li>
 </ul></li>
-<li>Then when the <code>@animate?</code> state variable changes back to <code>false</code>
+<li>Then when the <code>animate?</code> state variable changes back to <code>false</code>
 <ul class="org-ul">
 <li>it removes <code>animate-radii</code> class from the element;</li>
 </ul></li>
@@ -647,9 +653,9 @@ We'll add a new row in the table with a checkbox:
 </ul>
 </div>
 </div>
-<div id="outline-container-org64244b9" class="outline-2">
-<h2 id="org64244b9"><span class="section-number-2">14.</span> Uncheck Animate?</h2>
-<div class="outline-text-2" id="text-14">
+<div id="outline-container-orgf5adb44" class="outline-2">
+<h2 id="orgf5adb44"><span class="section-number-2">15.</span> Uncheck Animate?</h2>
+<div class="outline-text-2" id="text-15">
 <ul class="org-ul">
 <li>Let's see that in action;
 <ul class="org-ul">
@@ -663,24 +669,24 @@ We'll add a new row in the table with a checkbox:
 </ul>
 </div>
 </div>
-<div id="outline-container-orge3ff44e" class="outline-2">
-<h2 id="orge3ff44e"><span class="section-number-2">15.</span> Add Pause? chekbox</h2>
-<div class="outline-text-2" id="text-15">
+<div id="outline-container-orgbea02d6" class="outline-2">
+<h2 id="orgbea02d6"><span class="section-number-2">16.</span> Add Pause? chekbox</h2>
+<div class="outline-text-2" id="text-16">
 <p>
-<a href="#org7bc7908">Top</a>
+<a href="#org76fb2bf">Top</a>
 </p>
 <ul class="org-ul">
-<li>We can make this look nicer by adding a Pause checkbox to let our users pause and resume the animation;</li>
+<li>We can make this look nicer by adding another checkbox to let our users pause and resume the animation;</li>
 </ul>
 </div>
-<div id="outline-container-org587191e" class="outline-3">
-<h3 id="org587191e"><span class="section-number-3">15.1.</span> Add .pause style</h3>
-<div class="outline-text-3" id="text-15-1">
+<div id="outline-container-orgb0cffd7" class="outline-3">
+<h3 id="orgb0cffd7"><span class="section-number-3">16.1.</span> Add .pause style</h3>
+<div class="outline-text-3" id="text-16-1">
 <p>
-<a href="#org7bc7908">Top</a>
+<a href="#org76fb2bf">Top</a>
 </p>
 <ul class="org-ul">
-<li>First let's add a new <b>Style Rule</b> which when added to an element will pause the animation;</li>
+<li>First let's add a new <b>Style Rule</b> which will pause the animation when added to an element;</li>
 <li><b>Goto</b> &gt; <code>:styles</code></li>
 <li><code>click on</code> <b>Add &gt; <b>Style Rule</b></b>
 <ul class="org-ul">
@@ -694,11 +700,11 @@ We'll add a new row in the table with a checkbox:
 </div>
 </div>
 </div>
-<div id="outline-container-orgd2a5e55" class="outline-3">
-<h3 id="orgd2a5e55"><span class="section-number-3">15.2.</span> Add paused? state var</h3>
-<div class="outline-text-3" id="text-15-2">
+<div id="outline-container-org6cc8c55" class="outline-3">
+<h3 id="org6cc8c55"><span class="section-number-3">16.2.</span> Add paused? state var</h3>
+<div class="outline-text-3" id="text-16-2">
 <p>
-<a href="#org7bc7908">Top</a>
+<a href="#org76fb2bf">Top</a>
 </p>
 <ul class="org-ul">
 <li><b>Goto</b> &gt; <code>:state</code></li>
@@ -710,11 +716,11 @@ We'll add a new row in the table with a checkbox:
 </ul>
 </div>
 </div>
-<div id="outline-container-org869ce21" class="outline-3">
-<h3 id="org869ce21"><span class="section-number-3">15.3.</span> Add row + checkbox to :render</h3>
-<div class="outline-text-3" id="text-15-3">
+<div id="outline-container-org9bfc8f6" class="outline-3">
+<h3 id="org9bfc8f6"><span class="section-number-3">16.3.</span> Add row + checkbox to :render</h3>
+<div class="outline-text-3" id="text-16-3">
 <p>
-<a href="#org7bc7908">Top</a>
+<a href="#org76fb2bf">Top</a>
 </p>
 <ul class="org-ul">
 <li>So let's copy the "Animate?" row</li>
@@ -730,11 +736,11 @@ We'll add a new row in the table with a checkbox:
 </div>
 </div>
 </div>
-<div id="outline-container-org666ab86" class="outline-2">
-<h2 id="org666ab86"><span class="section-number-2">16.</span> Add @paused? to svg class map</h2>
-<div class="outline-text-2" id="text-16">
+<div id="outline-container-org8b14ab3" class="outline-2">
+<h2 id="org8b14ab3"><span class="section-number-2">17.</span> Add @paused? to svg class map</h2>
+<div class="outline-text-2" id="text-17">
 <p>
-<a href="#org7bc7908">Top</a>
+<a href="#org76fb2bf">Top</a>
 </p>
 <ul class="org-ul">
 <li>Now let's go back to our &lt;svg&gt; element and an entry in the :class attribute map;</li>
@@ -750,11 +756,11 @@ We'll add a new row in the table with a checkbox:
 </ul>
 </div>
 </div>
-<div id="outline-container-org9667f42" class="outline-2">
-<h2 id="org9667f42"><span class="section-number-2">17.</span> <b>Preview Component</b></h2>
-<div class="outline-text-2" id="text-17">
+<div id="outline-container-org3fb06fc" class="outline-2">
+<h2 id="org3fb06fc"><span class="section-number-2">18.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-18">
 <p>
-<a href="#org7bc7908">Top</a>
+<a href="#org76fb2bf">Top</a>
 </p>
 <ul class="org-ul">
 <li>We'll first set the animation in motion;</li>
@@ -769,9 +775,9 @@ We'll add a new row in the table with a checkbox:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgea80f65" class="outline-2">
-<h2 id="orgea80f65"><span class="section-number-2">18.</span> Finally</h2>
-<div class="outline-text-2" id="text-18">
+<div id="outline-container-orge487dc0" class="outline-2">
+<h2 id="orge487dc0"><span class="section-number-2">19.</span> Finally</h2>
+<div class="outline-text-2" id="text-19">
 <ul class="org-ul">
 <li>That's it for this video;</li>
 <li>We created a <b>Keyframes Rule</b> and set a property to animate;</li>
@@ -782,9 +788,9 @@ We'll add a new row in the table with a checkbox:
 </ul>
 </div>
 </div>
-<div id="outline-container-org5630c02" class="outline-2">
-<h2 id="org5630c02"><span class="section-number-2">19.</span> Summary</h2>
-<div class="outline-text-2" id="text-19">
+<div id="outline-container-orgf8ce7c8" class="outline-2">
+<h2 id="orgf8ce7c8"><span class="section-number-2">20.</span> Summary</h2>
+<div class="outline-text-2" id="text-20">
 <ul class="org-ul">
 <li>There are a lot more things you can do with the entmorph Component Styles Editor,
 <ul class="org-ul">
@@ -794,9 +800,9 @@ We'll add a new row in the table with a checkbox:
 </ul>
 </div>
 </div>
-<div id="outline-container-org01295cb" class="outline-2">
-<h2 id="org01295cb"><span class="section-number-2">20.</span> Coming Up next</h2>
-<div class="outline-text-2" id="text-20">
+<div id="outline-container-orgbc6d69d" class="outline-2">
+<h2 id="orgbc6d69d"><span class="section-number-2">21.</span> Coming Up next</h2>
+<div class="outline-text-2" id="text-21">
 <ul class="org-ul">
 <li>In the videos that follow, we'll look at
 <ul class="org-ul">
@@ -814,7 +820,7 @@ Thanks for watching.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2025-06-17 Tue 16:15</p>
+<p class="date">Created: 2025-06-17 Tue 21:18</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

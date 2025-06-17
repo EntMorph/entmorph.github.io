@@ -2969,12 +2969,10 @@ table.css-prop-editor {
     margin:            0 1em 1em 1em;
 }
 
-table.css-prop-editor > thead > tr {
-    background:              #CCC;
-}
 table.css-prop-editor > thead > tr > td {
     padding:    1em;
     text-align: center;
+    background: #CCC;
 }
 table.css-prop-editor > thead > tr > td:first-child {
     border-top-left-radius:  20px;
