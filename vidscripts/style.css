@@ -135,7 +135,6 @@ textarea {
 .mgl5 {margin-left: 5px;}
 .mgr5 {margin-right: 5px;}
 .mgr10 {margin-right: 10px;}
-.no-border {border: none;}
 .br1 {border-radius: 1px;}
 .br2 {border-radius: 2px;}
 .br3 {border-radius: 3px;}
@@ -169,6 +168,9 @@ li {
 }
 .text-center {
     text-align: center;
+}
+.text-right {
+    text-align: right;
 }
 .vert-top {
     vertical-align: top;
@@ -2958,6 +2960,62 @@ ul.ns-code-editor > li.open {
     border: none;
 }
 
+table.css-prop-editor {
+    padding: 0;
+    border-spacing:    0;
+    border-collapse:   separate;
+    background:        #F8F8F8;
+    border-radius:     20px;
+    margin:            0 1em 1em 1em;
+}
+
+table.css-prop-editor > thead > tr {
+    background:              #CCC;
+}
+table.css-prop-editor > thead > tr > td {
+    padding:    1em;
+    text-align: center;
+}
+table.css-prop-editor > thead > tr > td:first-child {
+    border-top-left-radius:  20px;
+}
+table.css-prop-editor > thead > tr > td:last-child {
+    border-top-right-radius:  20px;
+}
+table.css-prop-editor > tbody > tr > td {
+    padding:       0.4em 1.3em;
+    /* border-bottom: 1px dotted #ccc; */
+}
+table.css-prop-editor > tbody > tr > td:first-child {
+    color:       #555;
+    background:  #EEE;
+    font-weight: bold;
+    text-align:  right;
+}
+table.css-prop-editor > tbody > tr:last-child > td:first-child {
+    border-bottom-left-radius:  20px;
+}
+table.css-prop-editor > tbody > tr:last-child > td:last-child {
+    border-bottom-right-radius:  20px;
+}
+
+.min-slider-max {
+    background:    #EFEFEF;
+    padding:       1em;
+    border-radius: 10px;
+}
+.min-slider-max > * {
+    vertical-align: middle;
+}
+.min-slider-max > span {
+    display:       inline-block;
+    background:    #F9F9f9;
+    color:         #555;
+    border-radius: 4px;
+    padding:       0.4em 0.6em;
+    min-width:     3em;
+    text-align:    center;
+}
 
 .css-prop-value {
     margin-bottom: 5px;
@@ -2974,6 +3032,21 @@ ul.ns-code-editor > li.open {
     color:         #333;
     box-shadow:    inset 0 0 6px -1px #e3d360;
 }
+
+.css-unit-container {
+    border-radius: 10px;
+    padding:       0.8em;
+    background:    #EFEFEF;
+    margin-bottom: 0.6em;
+}
+.css-magnitude-editor {
+    margin-right:  0.2em;
+    width:         6em;
+}
+.css-unit-editor {
+    width:         4em;
+}
+
 
 table.css-rect-report {
     margin-left: 10px;
@@ -4298,3 +4371,4 @@ Palette
   100% {opacity:0}
 }
 
+.no-border {border: none;}
