@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-06-24 Tue 20:52 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Entmorph Components - Computed Variables</title>
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link href="/css/style.css" rel="stylesheet" type="text/css"></link>
+<style>body{font-size: 30px;}code{background:#efefef;padding: 4px;border-radius:5px;}ul{list-style-type:circle;}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Entmorph Components - Computed Variables</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgead5233">1. PREPARATION</a></li>
+<li><a href="#orgefa7a3f">2. Introduction</a></li>
+<li><a href="#org7269cf8">3. Add new :circle</a></li>
+<li><a href="#orgbb5b4c5">4. Add :computed</a></li>
+<li><a href="#org0199358">5. Set circle:cx to <code>twin-x</code></a></li>
+<li><a href="#org86a8bb5">6. <b>Preview Component</b></a></li>
+<li><a href="#orgc123a53">7. Explanation</a></li>
+<li><a href="#org6f6e792">8. Add twin-y, twin-radius :computed</a></li>
+<li><a href="#org6bd0407">9. Set circle.cy, circle.radius</a></li>
+<li><a href="#orgc20ea8a">10. <b>Preview Component</b></a></li>
+<li><a href="#orga621309">11. Set <code>twin-radius</code> to computeds</a></li>
+<li><a href="#org73aff09">12. <b>Preview Component</b></a></li>
+<li><a href="#orge61cf63">13. That's All Folks</a></li>
+<li><a href="#org70ba2c6">14. What is a Component? Diagram</a></li>
+<li><a href="#orgc703a5c">15. Next</a></li>
+</ul>
+</div>
+</div>
+<p>
+<a href="./index.html">Index</a>
+<a id="org12e77f8"></a>
+</p>
+
+<div id="outline-container-orgead5233" class="outline-2">
+<h2 id="orgead5233"><span class="section-number-2">1.</span> PREPARATION</h2>
+</div>
+<div id="outline-container-orgefa7a3f" class="outline-2">
+<h2 id="orgefa7a3f"><span class="section-number-2">2.</span> Introduction</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>Hi, I'm Ali Hussein,
+<ul class="org-ul">
+<li>and in this video we're going to look at Computed Variables,</li>
+<li>which are very similar to State Variables;</li>
+</ul></li>
+<li>We'll start from this component,
+<ul class="org-ul">
+<li>which we've been building over the last few videos,</li>
+</ul></li>
+<li>and we'll end up with this component,
+<ul class="org-ul">
+<li>which looks very similar in most respects to our starting component,</li>
+<li>except that our circle has now been joined by a second circle;</li>
+</ul></li>
+<li>If we try and use the controls in the table,
+<ul class="org-ul">
+<li>you can see that the circles move in the opposite direction to each other;</li>
+</ul></li>
+<li>And if we update the radius of our table,
+<ul class="org-ul">
+<li>our first circle expands,</li>
+<li>while our second circle contracts by the same amount;</li>
+</ul></li>
+<li>So you can think of the second circle as a "mirror twin" of the first;
+<ul class="org-ul">
+<li>whatever the first circle does,</li>
+<li>the second circle mirrors it;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org7269cf8" class="outline-2">
+<h2 id="org7269cf8"><span class="section-number-2">3.</span> Add new :circle</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>So let's begin;</li>
+<li><code>click on</code> <b>Start Project tab</b></li>
+<li><code>[scroll-to :render &gt; :svg]</code></li>
+<li><code>[open</code> (:svg) <code>]</code></li>
+<li><code>[scroll-to Element Children]</code></li>
+<li><code>click on</code> <b>Add &gt; SVG Element &gt; circle</b></li>
+<li>We need to set its attributes,
+<ul class="org-ul">
+<li>but we can't use the same @Reactives as we're using for the first circle,</li>
+<li>so we need to create new ones;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbb5b4c5" class="outline-2">
+<h2 id="orgbb5b4c5"><span class="section-number-2">4.</span> Add :computed</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>The second circle has to <i>depend</i> on the first circle for its position and radius,
+<ul class="org-ul">
+<li>so we can't just create State Variables for it like we did for the first circle;</li>
+</ul></li>
+<li>Instead, we need to create Reactive Variables which depend on the Reactive Variables for the first circle;</li>
+<li>To do that, we need to add a new section for dependant Reactive Variables;</li>
+<li><b>Goto</b> &gt; <code>Code</code></li>
+<li><code>[open</code> (Component) <code>]</code></li>
+<li>From the Component Commands
+<ul class="org-ul">
+<li><code>click on</code> <b>Add Section &gt; :computed</b></li>
+</ul></li>
+<li>This creates a <code>:computed</code> section,
+<ul class="org-ul">
+<li>which looks very similar to the <code>:state</code> section;</li>
+</ul></li>
+<li>This allows us to create <b>Computed Variables</b>,
+<ul class="org-ul">
+<li>which I'll do right now to illustrate what they are;</li>
+</ul></li>
+<li><code>click on</code> <b>Add</b>
+<ul class="org-ul">
+<li>Id: <code>twin-x</code></li>
+<li>Expr: <code>click on</code> <b>nil &gt; Action &gt; &#x2026;</b>
+<ul class="org-ul">
+<li>this adds an Action editor,</li>
+<li>with a dropdown menu asking me to <b>Select a Function</b>;</li>
+<li>I'll select <code>-</code>,
+<ul class="org-ul">
+<li>which is a function in Entmorph,</li>
+</ul></li>
+<li>and this creates a <b>call</b> to the <code>-</code> function;</li>
+</ul></li>
+<li>From the <b>Action Args Commands</b>
+<ul class="org-ul">
+<li><code>click on</code> <b>Add</b></li>
+<li>and change the default <span class="underline">Number</span> to 500</li>
+<li><code>click on</code> <b>Add</b></li>
+<li><code>Change Editor from</code> <span class="underline">Number</span> <code>to</code> x</li>
+<li><code>[close</code> (Action) <code>]</code></li>
+</ul></li>
+</ul></li>
+<li><code>Review</code>
+<ul class="org-ul">
+<li>We've create a computed variable called <code>twin-x</code></li>
+<li>its value is an <code>-</code> Action, in this case it means: "500 - x"</li>
+<li>since our viewport dimensions are 500x500, this makes sure that <code>twin-x</code> has the opposite value to <code>x</code> along the x-axis;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0199358" class="outline-2">
+<h2 id="org0199358"><span class="section-number-2">5.</span> Set circle:cx to <code>twin-x</code></h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li><code>[scroll-to :render]</code> OR <code>click on</code> <b>Back</b></li>
+<li>Now let's update the :cx attribute of our second circle;</li>
+<li><code>click on</code> <b>"100"</b></li>
+<li><code>Change Editor from</code> <span class="underline">String</span> <code>to</code> @Reactive</li>
+<li>this shows that even though we create <code>twin-x</code> in the <code>:computed</code> section,
+<ul class="org-ul">
+<li>it appears as an @Reactive in the <code>:render</code> section;</li>
+</ul></li>
+<li><code>click on</code> <b><code>twin-x</code></b></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org86a8bb5" class="outline-2">
+<h2 id="org86a8bb5"><span class="section-number-2">6.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>If we move the x slider in the table,
+<ul class="org-ul">
+<li>our original circle moves in one direction</li>
+<li>while our twin circle moves in the opposite direction;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc123a53" class="outline-2">
+<h2 id="orgc123a53"><span class="section-number-2">7.</span> Explanation</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li><code>[scroll-to :state]</code></li>
+<li>Up to now,
+<ul class="org-ul">
+<li>we've used State variables,</li>
+<li>such as <code>x</code>, <code>y</code> and <code>radius</code></li>
+<li>to update our <b>User Interface</b>;</li>
+</ul></li>
+<li><code>[scroll-to :render]</code></li>
+<li>The way we allow our users to update these State variables is by setting the <code>:value</code> attribute of our input number and input range elements to <code>@x</code>, <code>@y</code> or <code>@radius</code>;</li>
+<li><code>[scroll-to :computed]</code></li>
+<li>Here we've introduced the <code>twin-x</code> Computed Variable;
+<ul class="org-ul">
+<li>which as we've seen can also update the <b>User Interface</b>,</li>
+<li>specifically by setting the twin circle's x position to the opposite position of the original circle;</li>
+</ul></li>
+<li>The first thing to note is that we aren't updating <code>twin-x</code> using an input element;
+<ul class="org-ul">
+<li>at least not directly;</li>
+</ul></li>
+<li>Instead, we've set its value to an Action,
+<ul class="org-ul">
+<li>which returns "500 - x";</li>
+</ul></li>
+<li>The key thing here is that <code>x</code> is a state variable,
+<ul class="org-ul">
+<li>which means that whenever <code>x</code> changes,</li>
+<li>the value of <code>twin-x</code> also changes;</li>
+</ul></li>
+<li><b>Goto</b> &gt; <code>Output</code></li>
+<li>That's why updating <code>x</code> using the X range slider in the table moves the twin circle in the opposite direction of the original circle;
+<ul class="org-ul">
+<li>because the value of <code>twin-x</code> is always "500 - x";</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6f6e792" class="outline-2">
+<h2 id="org6f6e792"><span class="section-number-2">8.</span> Add twin-y, twin-radius :computed</h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li>Now let's add <code>twin-y</code> and <code>twin-radius</code></li>
+<li><code>click on</code> <b>BrowserBack</b></li>
+<li><code>click on</code> <b>Add</b>
+<ul class="org-ul">
+<li>Id:   <code>twin-y</code></li>
+<li>Expr: <code>(- 500 "SELECT")</code></li>
+</ul></li>
+<li>One thing to note is that I'm just selecting the <code>y</code> Id from the dropdown,
+<ul class="org-ul">
+<li>and not @Reactive;</li>
+</ul></li>
+<li>That's because within the :computed section,
+<ul class="org-ul">
+<li>we don't need to select @Reactives;</li>
+<li>just selecting an Id which is defined in a Reactive section, such as :state or :computed, is enough;</li>
+</ul></li>
+<li>So I'll select <code>y</code></li>
+<li>And do the same for <code>twin-radius</code>
+<ul class="org-ul">
+<li>Id:   <code>twin-radius</code></li>
+<li>Expr: <code>(- 100 radius)</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6bd0407" class="outline-2">
+<h2 id="org6bd0407"><span class="section-number-2">9.</span> Set circle.cy, circle.radius</h2>
+</div>
+<div id="outline-container-orgc20ea8a" class="outline-2">
+<h2 id="orgc20ea8a"><span class="section-number-2">10.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li>And this brings us to the component we were aiming for from the start;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga621309" class="outline-2">
+<h2 id="orga621309"><span class="section-number-2">11.</span> Set <code>twin-radius</code> to computeds</h2>
+<div class="outline-text-2" id="text-11">
+<ul class="org-ul">
+<li><b>Goto</b> &gt; <code>Code &gt; :computed</code></li>
+<li><code>[open</code> (<code>twin-radius</code> expr) <code>]</code></li>
+<li><code>click on</code> <b>Clear</b></li>
+<li>Set Action: (* (+ twin-x twin-y radius))</li>
+<li>This is going to look very strange, but let's do it anyway</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org73aff09" class="outline-2">
+<h2 id="org73aff09"><span class="section-number-2">12.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-12">
+<ul class="org-ul">
+<li>Well it certainly works;</li>
+<li>But more importantly, it shows that the radius of our twin circle can depend on any number of state variables or computed variables;</li>
+<li><b>Goto</b> &gt; <code>:computed</code></li>
+<li>in this case we've set it to both</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge61cf63" class="outline-2">
+<h2 id="orge61cf63"><span class="section-number-2">13.</span> That's All Folks</h2>
+<div class="outline-text-2" id="text-13">
+<ul class="org-ul">
+<li>So that's all there is to :computed variables;</li>
+<li>If you want to update the value of something using an input element,
+<ul class="org-ul">
+<li>create a state variable and add an @Reactive to it in one or more input elements;</li>
+</ul></li>
+<li>If you want to update the value of something using one or more reactive varirables,
+<ul class="org-ul">
+<li>create a computed variable which depends on one or more state or computed variables,</li>
+<li><code>[scroll-to :computed]</code></li>
+<li>as we've done here;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org70ba2c6" class="outline-2">
+<h2 id="org70ba2c6"><span class="section-number-2">14.</span> What is a Component? Diagram</h2>
+<div class="outline-text-2" id="text-14">
+<ul class="org-ul">
+<li>Returning to this diagram introduced in the "State Variables and Reactivity Video";
+<ul class="org-ul">
+<li>Computed Variables are of course a type of Reactive Data,</li>
+<li>so they sit together with State Variables on this diagram</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc703a5c" class="outline-2">
+<h2 id="orgc703a5c"><span class="section-number-2">15.</span> Next</h2>
+<div class="outline-text-2" id="text-15">
+<ul class="org-ul">
+<li>Although we can already do so much with state and now computed variables,
+<ul class="org-ul">
+<li>there are situations where we need to resort to directly handling events ourselves,</li>
+<li>such as for example when we need to handle button clicks;</li>
+</ul></li>
+<li>For such situations, Entmorph components provide a simple yet powerful mechanism 
+<ul class="org-ul">
+<li>which we'll look at in our next video.</li>
+</ul></li>
+<li>Thanks for watching.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2025-06-24 Tue 20:52</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
