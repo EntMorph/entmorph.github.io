@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-06-25 Wed 19:32 -->
+<!-- 2025-06-25 Wed 19:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Entmorph Components - Computed Variables</title>
@@ -202,32 +202,32 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd128c0a">1. PREPARATION</a></li>
-<li><a href="#orge72e6a8">2. Introduction</a></li>
-<li><a href="#org3ba5606">3. Add new :circle element</a></li>
-<li><a href="#org3c0d822">4. Add :computed</a></li>
-<li><a href="#org8aa017a">5. Set circle:cx to <code>twin-x</code></a></li>
-<li><a href="#orge08f861">6. <b>Preview Component</b></a></li>
-<li><a href="#org8a5aecc">7. Explanation</a></li>
-<li><a href="#org69ff5a7">8. Comparison: <b>State Variables</b> and <b>Computed Variables</b></a></li>
-<li><a href="#orgb3c7c6a">9. Add twin-y, twin-radius :computed</a></li>
-<li><a href="#org15f48dc">10. Set circle.cy, circle.radius</a></li>
-<li><a href="#org95d67ca">11. <b>Preview Component</b></a></li>
-<li><a href="#org8da3718">12. Set <code>twin-radius</code></a></li>
-<li><a href="#org5ba5d4c">13. <b>Preview Component</b></a></li>
-<li><a href="#org208bac2">14. That's All Folks</a></li>
-<li><a href="#org69eb14a">15. What is a Component? Diagram</a></li>
-<li><a href="#org5e4d456">16. Next</a></li>
+<li><a href="#org68af21d">1. PREPARATION</a></li>
+<li><a href="#orgdfa98e4">2. Introduction</a></li>
+<li><a href="#org99312b8">3. Add new :circle element</a></li>
+<li><a href="#org33d33a3">4. Add :computed</a></li>
+<li><a href="#org91bb8c0">5. Set circle:cx to <code>twin-x</code></a></li>
+<li><a href="#orgeec7e6c">6. <b>Preview Component</b></a></li>
+<li><a href="#org1a47885">7. Explanation</a></li>
+<li><a href="#org3b10674">8. Comparison: <b>State Variables</b> and <b>Computed Variables</b></a></li>
+<li><a href="#org508f984">9. Add twin-y, twin-radius :computed</a></li>
+<li><a href="#orgc3217fc">10. Set circle.cy, circle.radius</a></li>
+<li><a href="#org2c16020">11. <b>Preview Component</b></a></li>
+<li><a href="#org4f777fb">12. Set <code>twin-radius</code></a></li>
+<li><a href="#orgf9ce11d">13. <b>Preview Component</b></a></li>
+<li><a href="#org49f5196">14. That's All Folks</a></li>
+<li><a href="#org723fbfa">15. What is a Component? Diagram</a></li>
+<li><a href="#org1b8239b">16. Next</a></li>
 </ul>
 </div>
 </div>
 <p>
 <a href="./index.html">Index</a>
-<a id="orga1ed822"></a>
+<a id="org42cf134"></a>
 </p>
 
-<div id="outline-container-orgd128c0a" class="outline-2">
-<h2 id="orgd128c0a"><span class="section-number-2">1.</span> PREPARATION</h2>
+<div id="outline-container-org68af21d" class="outline-2">
+<h2 id="org68af21d"><span class="section-number-2">1.</span> PREPARATION</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Open "Introducing Components - Keyframes" [start]</li>
@@ -235,17 +235,17 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orge72e6a8" class="outline-2">
-<h2 id="orge72e6a8"><span class="section-number-2">2.</span> Introduction</h2>
+<div id="outline-container-orgdfa98e4" class="outline-2">
+<h2 id="orgdfa98e4"><span class="section-number-2">2.</span> Introduction</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-<a href="#orga1ed822">Top</a>
+<a href="#org42cf134">Top</a>
 </p>
 <ul class="org-ul">
 <li>Hi, I'm Ali Hussein, creator of Entmorph,
 <ul class="org-ul">
 <li>and in this video we're going to look at <b>Computed Variables</b>,</li>
-<li>which are very similar to <b>State Variables</b> which we've already looked at;</li>
+<li>which are very similar to <b>State Variables</b> which we've already looked at in previous videos in this series;</li>
 </ul></li>
 <li>We'll start with this component,
 <ul class="org-ul">
@@ -280,11 +280,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org3ba5606" class="outline-2">
-<h2 id="org3ba5606"><span class="section-number-2">3.</span> Add new :circle element</h2>
+<div id="outline-container-org99312b8" class="outline-2">
+<h2 id="org99312b8"><span class="section-number-2">3.</span> Add new :circle element</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-<a href="#orga1ed822">Top</a>
+<a href="#org42cf134">Top</a>
 </p>
 <ul class="org-ul">
 <li>Now, let's update our starting component to include this opposite twin;</li>
@@ -303,11 +303,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org3c0d822" class="outline-2">
-<h2 id="org3c0d822"><span class="section-number-2">4.</span> Add :computed</h2>
+<div id="outline-container-org33d33a3" class="outline-2">
+<h2 id="org33d33a3"><span class="section-number-2">4.</span> Add :computed</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-<a href="#orga1ed822">Top</a>
+<a href="#org42cf134">Top</a>
 </p>
 <ul class="org-ul">
 <li><b>Goto</b> &gt; <code>Code</code></li>
@@ -378,11 +378,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org8aa017a" class="outline-2">
-<h2 id="org8aa017a"><span class="section-number-2">5.</span> Set circle:cx to <code>twin-x</code></h2>
+<div id="outline-container-org91bb8c0" class="outline-2">
+<h2 id="org91bb8c0"><span class="section-number-2">5.</span> Set circle:cx to <code>twin-x</code></h2>
 <div class="outline-text-2" id="text-5">
 <p>
-<a href="#orga1ed822">Top</a>
+<a href="#org42cf134">Top</a>
 </p>
 <ul class="org-ul">
 <li><code>scroll-to</code> :render OR <code>click on</code> <b>Back</b></li>
@@ -398,11 +398,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orge08f861" class="outline-2">
-<h2 id="orge08f861"><span class="section-number-2">6.</span> <b>Preview Component</b></h2>
+<div id="outline-container-orgeec7e6c" class="outline-2">
+<h2 id="orgeec7e6c"><span class="section-number-2">6.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-6">
 <p>
-<a href="#orga1ed822">Top</a>
+<a href="#org42cf134">Top</a>
 </p>
 <ul class="org-ul">
 <li>First of all, a second circle has now appeared above the original circle;</li>
@@ -417,11 +417,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org8a5aecc" class="outline-2">
-<h2 id="org8a5aecc"><span class="section-number-2">7.</span> Explanation</h2>
+<div id="outline-container-org1a47885" class="outline-2">
+<h2 id="org1a47885"><span class="section-number-2">7.</span> Explanation</h2>
 <div class="outline-text-2" id="text-7">
 <p>
-<a href="#orga1ed822">Top</a>
+<a href="#org42cf134">Top</a>
 </p>
 <ul class="org-ul">
 <li><code>scroll-to</code> :computed</li>
@@ -441,11 +441,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org69ff5a7" class="outline-2">
-<h2 id="org69ff5a7"><span class="section-number-2">8.</span> Comparison: <b>State Variables</b> and <b>Computed Variables</b></h2>
+<div id="outline-container-org3b10674" class="outline-2">
+<h2 id="org3b10674"><span class="section-number-2">8.</span> Comparison: <b>State Variables</b> and <b>Computed Variables</b></h2>
 <div class="outline-text-2" id="text-8">
 <p>
-<a href="#orga1ed822">Top</a>
+<a href="#org42cf134">Top</a>
 </p>
 <ul class="org-ul">
 <li>Like <b>State Variables</b>, we can add a <b>Computed Variable</b> to most places in the <code>:render</code> section where we want it to update the <b>User Interface</b>;
@@ -465,11 +465,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb3c7c6a" class="outline-2">
-<h2 id="orgb3c7c6a"><span class="section-number-2">9.</span> Add twin-y, twin-radius :computed</h2>
+<div id="outline-container-org508f984" class="outline-2">
+<h2 id="org508f984"><span class="section-number-2">9.</span> Add twin-y, twin-radius :computed</h2>
 <div class="outline-text-2" id="text-9">
 <p>
-<a href="#orga1ed822">Top</a>
+<a href="#org42cf134">Top</a>
 </p>
 <ul class="org-ul">
 <li>Now let's add <code>twin-y</code> and <code>twin-radius</code></li>
@@ -487,11 +487,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org15f48dc" class="outline-2">
-<h2 id="org15f48dc"><span class="section-number-2">10.</span> Set circle.cy, circle.radius</h2>
+<div id="outline-container-orgc3217fc" class="outline-2">
+<h2 id="orgc3217fc"><span class="section-number-2">10.</span> Set circle.cy, circle.radius</h2>
 <div class="outline-text-2" id="text-10">
 <p>
-<a href="#orga1ed822">Top</a>
+<a href="#org42cf134">Top</a>
 </p>
 <ul class="org-ul">
 <li><b>Goto</b> &gt; <code>:render</code></li>
@@ -499,11 +499,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org95d67ca" class="outline-2">
-<h2 id="org95d67ca"><span class="section-number-2">11.</span> <b>Preview Component</b></h2>
+<div id="outline-container-org2c16020" class="outline-2">
+<h2 id="org2c16020"><span class="section-number-2">11.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-11">
 <p>
-<a href="#orga1ed822">Top</a>
+<a href="#org42cf134">Top</a>
 </p>
 <ul class="org-ul">
 <li>Moving the x-slider and y-sliders makes the twin circle move in the opposite direction to our original circle,</li>
@@ -511,11 +511,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org8da3718" class="outline-2">
-<h2 id="org8da3718"><span class="section-number-2">12.</span> Set <code>twin-radius</code></h2>
+<div id="outline-container-org4f777fb" class="outline-2">
+<h2 id="org4f777fb"><span class="section-number-2">12.</span> Set <code>twin-radius</code></h2>
 <div class="outline-text-2" id="text-12">
 <p>
-<a href="#orga1ed822">Top</a>
+<a href="#org42cf134">Top</a>
 </p>
 <ul class="org-ul">
 <li>Let's go back up to the <b>Computed Section</b></li>
@@ -533,11 +533,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org5ba5d4c" class="outline-2">
-<h2 id="org5ba5d4c"><span class="section-number-2">13.</span> <b>Preview Component</b></h2>
+<div id="outline-container-orgf9ce11d" class="outline-2">
+<h2 id="orgf9ce11d"><span class="section-number-2">13.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-13">
 <p>
-<a href="#orga1ed822">Top</a>
+<a href="#org42cf134">Top</a>
 </p>
 <ul class="org-ul">
 <li>Now when we move any of the sliders,
@@ -549,11 +549,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org208bac2" class="outline-2">
-<h2 id="org208bac2"><span class="section-number-2">14.</span> That's All Folks</h2>
+<div id="outline-container-org49f5196" class="outline-2">
+<h2 id="org49f5196"><span class="section-number-2">14.</span> That's All Folks</h2>
 <div class="outline-text-2" id="text-14">
 <p>
-<a href="#orga1ed822">Top</a>
+<a href="#org42cf134">Top</a>
 </p>
 <ul class="org-ul">
 <li><b>Goto</b> &gt; <code>:computed</code></li>
@@ -569,11 +569,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org69eb14a" class="outline-2">
-<h2 id="org69eb14a"><span class="section-number-2">15.</span> What is a Component? Diagram</h2>
+<div id="outline-container-org723fbfa" class="outline-2">
+<h2 id="org723fbfa"><span class="section-number-2">15.</span> What is a Component? Diagram</h2>
 <div class="outline-text-2" id="text-15">
 <p>
-<a href="#orga1ed822">Top</a>
+<a href="#org42cf134">Top</a>
 </p>
 <ul class="org-ul">
 <li>Returning to this diagram introduced in the "<b>State Variables</b> and Reactivity Video";
@@ -584,11 +584,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org5e4d456" class="outline-2">
-<h2 id="org5e4d456"><span class="section-number-2">16.</span> Next</h2>
+<div id="outline-container-org1b8239b" class="outline-2">
+<h2 id="org1b8239b"><span class="section-number-2">16.</span> Next</h2>
 <div class="outline-text-2" id="text-16">
 <p>
-<a href="#orga1ed822">Top</a>
+<a href="#org42cf134">Top</a>
 </p>
 <ul class="org-ul">
 <li>Although we can do a lot with state, and now <b>Computed Variables</b>,
@@ -606,7 +606,7 @@
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2025-06-25 Wed 19:32</p>
+<p class="date">Created: 2025-06-25 Wed 19:39</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
