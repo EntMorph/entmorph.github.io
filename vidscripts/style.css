@@ -1175,8 +1175,9 @@ table.each-editor > tbody > tr > td:last-child {
 }
 
 .horiz-vector-editor > tbody > tr > td {
-    padding-left:  2px;
-    padding-right: 2px;
+    vertical-align: top;
+    padding-left:   5px;
+    padding-right:  5px;
 }
 
 
@@ -3398,6 +3399,12 @@ input.disabled, input:disabled {
 
 .popup a {
     text-decoration: none;
+}
+
+.popup .popup-search-container {
+    padding-left:  0.5em;
+    padding-right: 0.5em;
+    margin-top:    0.2em;
 }
 
 /* .popup table* styles

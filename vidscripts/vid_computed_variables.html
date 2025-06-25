@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-06-24 Tue 21:05 -->
+<!-- 2025-06-25 Wed 19:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Entmorph Components - Computed Variables</title>
@@ -202,123 +202,153 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1c9b121">1. PREPARATION</a></li>
-<li><a href="#org299d156">2. Introduction</a></li>
-<li><a href="#org0523f96">3. Add new :circle</a></li>
-<li><a href="#orgcce63ba">4. Add :computed</a></li>
-<li><a href="#orga1464bd">5. Set circle:cx to <code>twin-x</code></a></li>
-<li><a href="#org63d7a08">6. <b>Preview Component</b></a></li>
-<li><a href="#orgf6205ed">7. Explanation</a></li>
-<li><a href="#org98940c8">8. Add twin-y, twin-radius :computed</a></li>
-<li><a href="#orgfd3f8b8">9. Set circle.cy, circle.radius</a></li>
-<li><a href="#org75f8899">10. <b>Preview Component</b></a></li>
-<li><a href="#orga6874bf">11. Set <code>twin-radius</code> to computeds</a></li>
-<li><a href="#orgaee0d6e">12. <b>Preview Component</b></a></li>
-<li><a href="#orga55e1e5">13. That's All Folks</a></li>
-<li><a href="#org03fd71a">14. What is a Component? Diagram</a></li>
-<li><a href="#orgb4b2fc1">15. Next</a></li>
+<li><a href="#org0196dd2">1. PREPARATION</a></li>
+<li><a href="#orgabed4cb">2. Introduction</a></li>
+<li><a href="#org083f147">3. Add new :circle element</a></li>
+<li><a href="#org3f5380c">4. Add :computed</a></li>
+<li><a href="#org527edd1">5. Set circle:cx to <code>twin-x</code></a></li>
+<li><a href="#orgf5a0355">6. <b>Preview Component</b></a></li>
+<li><a href="#orgae6a3fc">7. Explanation</a></li>
+<li><a href="#org3f26439">8. Comparison: <b>State Variables</b> and <b>Computed Variables</b></a></li>
+<li><a href="#org78194fc">9. Add twin-y, twin-radius :computed</a></li>
+<li><a href="#org807071b">10. Set circle.cy, circle.radius</a></li>
+<li><a href="#orgbe9c87c">11. <b>Preview Component</b></a></li>
+<li><a href="#org6b8ce05">12. Set <code>twin-radius</code></a></li>
+<li><a href="#org05cd9f8">13. <b>Preview Component</b></a></li>
+<li><a href="#org074bb65">14. That's All Folks</a></li>
+<li><a href="#org3d0f4b6">15. What is a Component? Diagram</a></li>
+<li><a href="#org5c77ef9">16. Next</a></li>
 </ul>
 </div>
 </div>
 <p>
 <a href="./index.html">Index</a>
-<a id="org584492b"></a>
+<a id="org78d9a39"></a>
 </p>
 
-<div id="outline-container-org1c9b121" class="outline-2">
-<h2 id="org1c9b121"><span class="section-number-2">1.</span> PREPARATION</h2>
+<div id="outline-container-org0196dd2" class="outline-2">
+<h2 id="org0196dd2"><span class="section-number-2">1.</span> PREPARATION</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Open "Introducing Components - Keyframes" [start]</li>
+<li>Open "Introducing Components - Computed Variables" [end]</li>
+</ul>
 </div>
-<div id="outline-container-org299d156" class="outline-2">
-<h2 id="org299d156"><span class="section-number-2">2.</span> Introduction</h2>
+</div>
+<div id="outline-container-orgabed4cb" class="outline-2">
+<h2 id="orgabed4cb"><span class="section-number-2">2.</span> Introduction</h2>
 <div class="outline-text-2" id="text-2">
+<p>
+<a href="#org78d9a39">Top</a>
+</p>
 <ul class="org-ul">
 <li>Hi, I'm Ali Hussein, creator of Entmorph,
 <ul class="org-ul">
-<li>and in this video we're going to look at Computed Variables,</li>
-<li>which are very similar to State Variables which we've already looked at;</li>
+<li>and in this video we're going to look at <b>Computed Variables</b>,</li>
+<li>and which are very similar to <b>State Variables</b> which we've already looked at;</li>
 </ul></li>
-<li>We'll start from this component,
+<li>We'll start with this component,
 <ul class="org-ul">
 <li>which we've been developing over the last few videos,</li>
 </ul></li>
-<li>and we'll end up with this component,
+<li>and we'll update it so that we end up with this component,
 <ul class="org-ul">
+<li><code>[pause for effect]</code></li>
 <li>which looks identical to our starting component,</li>
 <li>except for one subtle difference;</li>
 </ul></li>
-<li>If we play with the controls in the table,
+<li>If I move the <i>x - slider</i> back and forth,
 <ul class="org-ul">
 <li>you can see that our circle has now been joined by a second circle;</li>
+<li>which is moving in the opposite direction to the first circle;</li>
 </ul></li>
-<li>Both circles move in the opposite direction to each other;</li>
-<li>And if we update the radius of our first circle,
+<li>The same thing happens if I move the <i>y-slider</i>,
+<ul class="org-ul">
+<li><code>demonstrate</code></li>
+<li><code>Keep at corners, diagonally opposite each other</code></li>
+</ul></li>
+<li>And if we update the <i>radius-slider</i>
 <ul class="org-ul">
 <li>our first circle expands,</li>
 <li>while our second circle contracts by the same amount;</li>
 </ul></li>
-<li>So you can think of the second circle as an "opposite twin" of the first circle;</li>
+<li>So you can think of the second circle as an <i>opposite twin</i> of the first circle: whatever we do to the first circle, the second circle does exactly the opposite;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0523f96" class="outline-2">
-<h2 id="org0523f96"><span class="section-number-2">3.</span> Add new :circle</h2>
+<div id="outline-container-org083f147" class="outline-2">
+<h2 id="org083f147"><span class="section-number-2">3.</span> Add new :circle element</h2>
 <div class="outline-text-2" id="text-3">
+<p>
+<a href="#org78d9a39">Top</a>
+</p>
 <ul class="org-ul">
-<li>So let's begin;</li>
+<li>Now, let's update our component to include this opposite twin;</li>
 <li><code>click on</code> <b>Start Project tab</b></li>
-<li><code>[scroll-to :render &gt; :svg]</code></li>
-<li><code>[open</code> (:svg) <code>]</code></li>
-<li><code>[scroll-to Element Children]</code></li>
+<li><code>scroll-to</code> :render &gt; :svg</li>
+<li><code>[open</code> <b>:svg</b> <code>for editing]</code></li>
+<li><code>scroll-to</code> Element Children</li>
 <li><code>click on</code> <b>Add &gt; SVG Element &gt; circle</b></li>
-<li>We need to set its attributes,
+<li>We need to set its attributes to reactive variables,
 <ul class="org-ul">
-<li>but we can't use the same @Reactives as we're using for the first circle,</li>
-<li>so we need to create new ones;</li>
+<li>just like we did for the first circle,</li>
+<li><code>scroll-to</code> First Circle</li>
+<li>whose attributes are set to <code>@x</code>, <code>@y</code> and <code>@radius</code>;</li>
+<li><code>scroll-to</code> Twin Circle</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcce63ba" class="outline-2">
-<h2 id="orgcce63ba"><span class="section-number-2">4.</span> Add :computed</h2>
+<div id="outline-container-org3f5380c" class="outline-2">
+<h2 id="org3f5380c"><span class="section-number-2">4.</span> Add :computed</h2>
 <div class="outline-text-2" id="text-4">
+<p>
+<a href="#org78d9a39">Top</a>
+</p>
 <ul class="org-ul">
-<li>The second circle has to <i>depend</i> on the first circle for its position and radius,
-<ul class="org-ul">
-<li>so we can't just create State Variables for it like we did for the first circle;</li>
-</ul></li>
-<li>Instead, we need to create Reactive Variables which depend on the Reactive Variables for the first circle;</li>
-<li>To do that, we need to add a new section for dependant Reactive Variables;</li>
 <li><b>Goto</b> &gt; <code>Code</code></li>
-<li><code>[open</code> (Component) <code>]</code></li>
-<li>From the Component Commands
+<li>Instead of adding the new variables to the :state section,
 <ul class="org-ul">
-<li><code>click on</code> <b>Add Section &gt; :computed</b></li>
+<li>I'm going to add a new section;</li>
 </ul></li>
-<li>This creates a <code>:computed</code> section,
+<li><code>[open</code> <b>Component</b> <code>for editing]</code></li>
+<li>which makes the <b>Component Commands</b> appear;</li>
+<li><code>click on</code> <b>Add Section &gt; :computed</b></li>
+<li>This creates a <b>Computed Section</b>,
 <ul class="org-ul">
 <li>which looks very similar to the <code>:state</code> section;</li>
 </ul></li>
 <li>This allows us to create <b>Computed Variables</b>,
 <ul class="org-ul">
-<li>which I'll do right now to illustrate what they are;</li>
+<li>which I'll do now, and we'll see them in action in a minute;</li>
 </ul></li>
-<li><code>click on</code> <b>Add</b>
-<ul class="org-ul">
+<li>There's already an empty variable,</li>
 <li>Id: <code>twin-x</code></li>
 <li>Expr: <code>click on</code> <b>nil &gt; Action &gt; &#x2026;</b>
 <ul class="org-ul">
-<li>this adds an Action editor,</li>
-<li>with a dropdown menu asking me to <b>Select a Function</b>;</li>
-<li>I'll select <code>-</code>,
+<li>which adds an Action editor,</li>
+<li>This allows us to call a function;</li>
+<li>It also opens a <b>Select Function</b> dropdown menu which contains a list of functions we can call;</li>
+<li>I'll <code>type -</code></li>
+<li>and select <code>-</code> from the list;</li>
+<li>This creates a <b>call</b> to the <code>-</code> function,
 <ul class="org-ul">
-<li>which is a function in Entmorph,</li>
+<li>which is what is shown by this green box which has the <code>-</code> function in the tab at the top-left;</li>
 </ul></li>
-<li>and this creates a <b>call</b> to the <code>-</code> function;</li>
+<li>I should point out that unlike many other languages, in Entmorph, all arithmetic operators such as <code>+</code>, <code>-</code> and so on are functions;
+<ul class="org-ul">
+<li>this might appear a little odd if you're not used to it,
+<ul class="org-ul">
+<li>but it also has a number of advantages,</li>
+<li>which we'll look at in a dedicated video on arithmetic;</li>
 </ul></li>
+</ul></li>
+<li>We now need to add arguments to the <code>-</code> function;</li>
 <li>From the <b>Action Args Commands</b>
 <ul class="org-ul">
 <li><code>click on</code> <b>Add</b></li>
-<li>and change the default <span class="underline">Number</span> to 500</li>
+<li>and change the default <span class="underline">Number</span> to 500;</li>
+<li>And also add a second argument;</li>
 <li><code>click on</code> <b>Add</b></li>
 <li><code>Change Editor from</code> <span class="underline">Number</span> <code>to</code> x</li>
 <li><code>[close</code> (Action) <code>]</code></li>
@@ -326,184 +356,243 @@
 </ul></li>
 <li><code>Review</code>
 <ul class="org-ul">
-<li>We've create a computed variable called <code>twin-x</code></li>
-<li>its value is an <code>-</code> Action, in this case it means: "500 - x"</li>
-<li>since our viewport dimensions are 500x500, this makes sure that <code>twin-x</code> has the opposite value to <code>x</code> along the x-axis;</li>
+<li>We added a :computed section,</li>
+<li>with one <b>Computed Variable</b> called <code>twin-x</code>;</li>
+<li>Its value is an Action,
+<ul class="org-ul">
+<li>which calls the <code>-</code> function with two arguments,
+<ul class="org-ul">
+<li>500 and <code>x</code></li>
+</ul></li>
+</ul></li>
+<li>This means: "Set the value of <code>twin-x</code> to (500 - x)"</li>
+</ul></li>
+<li>In case you're wondering, the 500 comes from the fact that our SVG element dimensions are 500x500,
+<ul class="org-ul">
+<li>so this makes sure that <code>twin-x</code> has the opposite value to <code>x</code> along the x-axis;</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga1464bd" class="outline-2">
-<h2 id="orga1464bd"><span class="section-number-2">5.</span> Set circle:cx to <code>twin-x</code></h2>
+<div id="outline-container-org527edd1" class="outline-2">
+<h2 id="org527edd1"><span class="section-number-2">5.</span> Set circle:cx to <code>twin-x</code></h2>
 <div class="outline-text-2" id="text-5">
+<p>
+<a href="#org78d9a39">Top</a>
+</p>
 <ul class="org-ul">
-<li><code>[scroll-to :render]</code> OR <code>click on</code> <b>Back</b></li>
-<li>Now let's update the :cx attribute of our second circle;</li>
+<li><code>scroll-to</code> :render OR <code>click on</code> <b>Back</b></li>
+<li>Now let's update the :cx attribute of our twin circle;</li>
 <li><code>click on</code> <b>"100"</b></li>
 <li><code>Change Editor from</code> <span class="underline">String</span> <code>to</code> @Reactive</li>
-<li>this shows that even though we create <code>twin-x</code> in the <code>:computed</code> section,
+<li>and you can see that even though we created <code>twin-x</code> in the <b>Computed Section</b>,
 <ul class="org-ul">
-<li>it appears as an @Reactive in the <code>:render</code> section;</li>
+<li>it appears in the @Reactive menu together with our <b>State Variables</b>;</li>
+<li>This means that <b>Computed Variables</b> are reactive, just like <b>State Variables</b>;</li>
 </ul></li>
-<li><code>click on</code> <b><code>twin-x</code></b></li>
+<li><code>click on</code> <b><code>twin-x</code></b> to set the :cx attribute;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org63d7a08" class="outline-2">
-<h2 id="org63d7a08"><span class="section-number-2">6.</span> <b>Preview Component</b></h2>
+<div id="outline-container-orgf5a0355" class="outline-2">
+<h2 id="orgf5a0355"><span class="section-number-2">6.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-6">
+<p>
+<a href="#org78d9a39">Top</a>
+</p>
 <ul class="org-ul">
+<li>First of all, a second circle has now appeared above the original circle;</li>
 <li>If we move the x slider in the table,
 <ul class="org-ul">
 <li>our original circle moves in one direction</li>
-<li>while our twin circle moves in the opposite direction;</li>
+<li>while our new circle moves in the opposite direction,
+<ul class="org-ul">
+<li>and by the same amount;</li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf6205ed" class="outline-2">
-<h2 id="orgf6205ed"><span class="section-number-2">7.</span> Explanation</h2>
+<div id="outline-container-orgae6a3fc" class="outline-2">
+<h2 id="orgae6a3fc"><span class="section-number-2">7.</span> Explanation</h2>
 <div class="outline-text-2" id="text-7">
+<p>
+<a href="#org78d9a39">Top</a>
+</p>
 <ul class="org-ul">
-<li><code>[scroll-to :state]</code></li>
-<li>Up to now,
+<li><code>scroll-to</code> :computed</li>
+<li>We created <code>twin-x</code> in the :computed section,
 <ul class="org-ul">
-<li>we've used State variables,</li>
-<li>such as <code>x</code>, <code>y</code> and <code>radius</code></li>
-<li>to update our <b>User Interface</b>;</li>
+<li>and set its value to an expression which references <code>x</code>;</li>
 </ul></li>
-<li><code>[scroll-to :render]</code></li>
-<li>The way we allow our users to update these State variables is by setting the <code>:value</code> attribute of our input number and input range elements to <code>@x</code>, <code>@y</code> or <code>@radius</code>;</li>
-<li><code>[scroll-to :computed]</code></li>
-<li>Here we've introduced the <code>twin-x</code> Computed Variable;
+<li>Since <code>x</code> is a state variable,
 <ul class="org-ul">
-<li>which as we've seen can also update the <b>User Interface</b>,</li>
-<li>specifically by setting the twin circle's x position to the opposite position of the original circle;</li>
+<li>this means that the value of <code>twin-x</code> at any time <i>depends</i> on <code>x</code>;</li>
 </ul></li>
-<li>The first thing to note is that we aren't updating <code>twin-x</code> using an input element;
+<li>So whenever <code>x</code> changes, <code>twin-x</code> always has the value of "500 - x";</li>
+<li>That's why it's called a <b>Computed Variable</b>,
 <ul class="org-ul">
-<li>at least not directly;</li>
-</ul></li>
-<li>Instead, we've set its value to an Action,
-<ul class="org-ul">
-<li>which returns "500 - x";</li>
-</ul></li>
-<li>The key thing here is that <code>x</code> is a state variable,
-<ul class="org-ul">
-<li>which means that whenever <code>x</code> changes,</li>
-<li>the value of <code>twin-x</code> also changes;</li>
-</ul></li>
-<li><b>Goto</b> &gt; <code>Output</code></li>
-<li>That's why updating <code>x</code> using the X range slider in the table moves the twin circle in the opposite direction of the original circle;
-<ul class="org-ul">
-<li>because the value of <code>twin-x</code> is always "500 - x";</li>
+<li>because it's value at any time is computed from one, or more, other reactive variables;</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org98940c8" class="outline-2">
-<h2 id="org98940c8"><span class="section-number-2">8.</span> Add twin-y, twin-radius :computed</h2>
+<div id="outline-container-org3f26439" class="outline-2">
+<h2 id="org3f26439"><span class="section-number-2">8.</span> Comparison: <b>State Variables</b> and <b>Computed Variables</b></h2>
 <div class="outline-text-2" id="text-8">
+<p>
+<a href="#org78d9a39">Top</a>
+</p>
+<ul class="org-ul">
+<li>Like <b>State Variables</b>, we can add a <b>Computed Variable</b> to most places in the <code>:render</code> section where we want it to update the <b>User Interface</b>;
+<ul class="org-ul">
+<li>for instance the twin circle's :cx property;</li>
+</ul></li>
+<li>The one exception is that we can't update <b>Computed Variables</b> directly using :input elements,
+<ul class="org-ul">
+<li>so for example we can't set the <code>:value</code> attribute of input number or input range elements to a <b>Computed Variable</b>;</li>
+</ul></li>
+<li>And that's the difference between <b>State Variables</b> and <b>Computed Variables</b>;
+<ul class="org-ul">
+<li><b>State Variables</b> are read and write,</li>
+<li>whereas <b>Computed Variables</b> are read-only;</li>
+<li>The only way to update a <b>Computed Variable</b>, is to update any of the reactive variables it depends on;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org78194fc" class="outline-2">
+<h2 id="org78194fc"><span class="section-number-2">9.</span> Add twin-y, twin-radius :computed</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+<a href="#org78d9a39">Top</a>
+</p>
 <ul class="org-ul">
 <li>Now let's add <code>twin-y</code> and <code>twin-radius</code></li>
 <li><code>click on</code> <b>BrowserBack</b></li>
 <li><code>click on</code> <b>Add</b>
 <ul class="org-ul">
 <li>Id:   <code>twin-y</code></li>
-<li>Expr: <code>(- 500 "SELECT")</code></li>
+<li>Expr: <code>(- 500 y)</code></li>
 </ul></li>
-<li>One thing to note is that I'm just selecting the <code>y</code> Id from the dropdown,
-<ul class="org-ul">
-<li>and not @Reactive;</li>
-</ul></li>
-<li>That's because within the :computed section,
-<ul class="org-ul">
-<li>we don't need to select @Reactives;</li>
-<li>just selecting an Id which is defined in a Reactive section, such as :state or :computed, is enough;</li>
-</ul></li>
-<li>So I'll select <code>y</code></li>
-<li>And do the same for <code>twin-radius</code>
+<li><code>click on</code> <b>Add</b>
 <ul class="org-ul">
 <li>Id:   <code>twin-radius</code></li>
+<li>Expr: <code>(- twin-x radius)</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org807071b" class="outline-2">
+<h2 id="org807071b"><span class="section-number-2">10.</span> Set circle.cy, circle.radius</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+<a href="#org78d9a39">Top</a>
+</p>
+<ul class="org-ul">
+<li><b>Goto</b> &gt; <code>:render</code></li>
+<li>and set circle.cy, circle.r;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbe9c87c" class="outline-2">
+<h2 id="orgbe9c87c"><span class="section-number-2">11.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-11">
+<p>
+<a href="#org78d9a39">Top</a>
+</p>
+<ul class="org-ul">
+<li>Moving the x-slider and y-sliders makes the twin circle move in the opposite direction to our original circle,</li>
+<li>But the x-slider also updates the radius of the opposite circle, which isn't what we want;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6b8ce05" class="outline-2">
+<h2 id="org6b8ce05"><span class="section-number-2">12.</span> Set <code>twin-radius</code></h2>
+<div class="outline-text-2" id="text-12">
+<p>
+<a href="#org78d9a39">Top</a>
+</p>
+<ul class="org-ul">
+<li>Let's go back up to the <b>Computed Section</b></li>
+<li><code>click on</code> <b>BrowserBack</b></li>
+<li>The expression for <code>twin-radius</code> means that it should always equal the difference between <code>twin-x</code> and <code>radius</code></li>
+<li>I did this to illustrate two things:
+<ul class="org-ul">
+<li>first, that a <b>Computed Variable</b> can depend on more than one reactive variable;</li>
+<li>and second, that a <b>Computed Variable</b> can depend on another <b>Computed Variable</b>, in this case <code>twin-x</code>;</li>
+</ul></li>
+<li>Now that I've shown this works, let's change it to something more sensible;
+<ul class="org-ul">
 <li>Expr: <code>(- 100 radius)</code></li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfd3f8b8" class="outline-2">
-<h2 id="orgfd3f8b8"><span class="section-number-2">9.</span> Set circle.cy, circle.radius</h2>
-</div>
-<div id="outline-container-org75f8899" class="outline-2">
-<h2 id="org75f8899"><span class="section-number-2">10.</span> <b>Preview Component</b></h2>
-<div class="outline-text-2" id="text-10">
-<ul class="org-ul">
-<li>And this brings us to the component we were aiming for from the start;</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orga6874bf" class="outline-2">
-<h2 id="orga6874bf"><span class="section-number-2">11.</span> Set <code>twin-radius</code> to computeds</h2>
-<div class="outline-text-2" id="text-11">
-<ul class="org-ul">
-<li><b>Goto</b> &gt; <code>Code &gt; :computed</code></li>
-<li><code>[open</code> (<code>twin-radius</code> expr) <code>]</code></li>
-<li><code>click on</code> <b>Clear</b></li>
-<li>Set Action: (* (+ twin-x twin-y radius))</li>
-<li>This is going to look very strange, but let's do it anyway</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgaee0d6e" class="outline-2">
-<h2 id="orgaee0d6e"><span class="section-number-2">12.</span> <b>Preview Component</b></h2>
-<div class="outline-text-2" id="text-12">
-<ul class="org-ul">
-<li>Well it certainly works;</li>
-<li>But more importantly, it shows that the radius of our twin circle can depend on any number of state variables or computed variables;</li>
-<li><b>Goto</b> &gt; <code>:computed</code></li>
-<li>in this case we've set it to both</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orga55e1e5" class="outline-2">
-<h2 id="orga55e1e5"><span class="section-number-2">13.</span> That's All Folks</h2>
+<div id="outline-container-org05cd9f8" class="outline-2">
+<h2 id="org05cd9f8"><span class="section-number-2">13.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-13">
+<p>
+<a href="#org78d9a39">Top</a>
+</p>
 <ul class="org-ul">
-<li>So that's all there is to :computed variables;</li>
+<li>Now when we move any of the sliders,
+<ul class="org-ul">
+<li><code>demonstrate</code></li>
+<li>the twin circle always has the opposite position and radius of the first circle;</li>
+</ul></li>
+<li>This is the final component we were aiming to create that I showed you at the start;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org074bb65" class="outline-2">
+<h2 id="org074bb65"><span class="section-number-2">14.</span> That's All Folks</h2>
+<div class="outline-text-2" id="text-14">
+<p>
+<a href="#org78d9a39">Top</a>
+</p>
+<ul class="org-ul">
+<li><b>Goto</b> &gt; <code>:computed</code></li>
+<li>So that's all there is to <b>Computed Variables</b>;</li>
 <li>If you want to update the value of something using an input element,
 <ul class="org-ul">
-<li>create a state variable and add an @Reactive to it in one or more input elements;</li>
+<li>create a state variable and add an @Reactive to it to that input element;</li>
 </ul></li>
-<li>If you want to update the value of something using one or more reactive varirables,
+<li>If you want to update the value of something based on one or more reactive variables,
 <ul class="org-ul">
-<li>create a computed variable which depends on one or more state or computed variables,</li>
-<li><code>[scroll-to :computed]</code></li>
-<li>as we've done here;</li>
+<li>create a <b>Computed Variable</b> whose value depends on one or more reactive variables;</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org03fd71a" class="outline-2">
-<h2 id="org03fd71a"><span class="section-number-2">14.</span> What is a Component? Diagram</h2>
-<div class="outline-text-2" id="text-14">
-<ul class="org-ul">
-<li>Returning to this diagram introduced in the "State Variables and Reactivity Video";
-<ul class="org-ul">
-<li>Computed Variables are of course a type of Reactive Data,</li>
-<li>so they sit together with State Variables on this diagram</li>
-</ul></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgb4b2fc1" class="outline-2">
-<h2 id="orgb4b2fc1"><span class="section-number-2">15.</span> Next</h2>
+<div id="outline-container-org3d0f4b6" class="outline-2">
+<h2 id="org3d0f4b6"><span class="section-number-2">15.</span> What is a Component? Diagram</h2>
 <div class="outline-text-2" id="text-15">
+<p>
+<a href="#org78d9a39">Top</a>
+</p>
 <ul class="org-ul">
-<li>Although we can already do so much with state and now computed variables,
+<li>Returning to this diagram introduced in the "<b>State Variables</b> and Reactivity Video";
 <ul class="org-ul">
-<li>there are situations where we need to resort to directly handling events ourselves,</li>
-<li>such as for example when we need to handle button clicks;</li>
+<li><b>Computed Variables</b> are of course a type of Reactive Data,</li>
+<li>so they sit together with <b>State Variables</b> on this diagram</li>
 </ul></li>
-<li>For such situations, Entmorph components provide a simple yet powerful mechanism 
+</ul>
+</div>
+</div>
+<div id="outline-container-org5c77ef9" class="outline-2">
+<h2 id="org5c77ef9"><span class="section-number-2">16.</span> Next</h2>
+<div class="outline-text-2" id="text-16">
+<p>
+<a href="#org78d9a39">Top</a>
+</p>
+<ul class="org-ul">
+<li>Although we can do a lot with state, and now <b>Computed Variables</b>,
+<ul class="org-ul">
+<li>there are situations where we need to handle events ourselves,</li>
+<li>for example when dealing with button clicks;</li>
+</ul></li>
+<li>For those situations, Entmorph components provide a simple yet powerful event handling mechanism,
 <ul class="org-ul">
 <li>which we'll look at in our next video.</li>
 </ul></li>
@@ -513,7 +602,7 @@
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2025-06-24 Tue 21:05</p>
+<p class="date">Created: 2025-06-25 Wed 19:23</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
