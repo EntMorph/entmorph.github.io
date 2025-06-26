@@ -1,0 +1,864 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-06-26 Thu 15:23 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Entmorph Components - Event Handling</title>
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link href="/css/style.css" rel="stylesheet" type="text/css"></link>
+<style>body{font-size: 30px;}code{background:#efefef;padding: 4px;border-radius:5px;}ul{list-style-type:circle;}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Entmorph Components - Event Handling</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgad80654">1. Introduction</a></li>
+<li><a href="#org2716c48">2. Preview of Component</a></li>
+<li><a href="#org97f31b3">3. Starting Project</a></li>
+<li><a href="#org070ae27">4. Add [-] [0] [+]</a></li>
+<li><a href="#orgd5ed6e5">5. Add <code>counter</code> <b>State Variable</b></a></li>
+<li><a href="#org6168d2c">6. <b>Preview Component</b></a></li>
+<li><a href="#orgdfccf31">7. Add "-1" Button Event Handler</a>
+<ul>
+<li><a href="#org16e6fe1">7.1. Set :on-click to Event Map</a></li>
+<li><a href="#org1f99597">7.2. Add update-counter! setter</a></li>
+<li><a href="#org15ba39e">7.3. Add update-counter! to Event Map</a></li>
+</ul>
+</li>
+<li><a href="#orgb757873">8. <b>Preview Component</b></a></li>
+<li><a href="#org5bd0405">9. Add "+1" Button Event Handler</a>
+<ul>
+<li><a href="#org474ff32">9.1. Set :on-click to Event Map</a></li>
+</ul>
+</li>
+<li><a href="#org6917b14">10. <b>Preview Component</b></a></li>
+<li><a href="#org3b78d9c">11. Review</a></li>
+<li><a href="#org0545a4b">12. Add "-10" button with :swap Event Map</a>
+<ul>
+<li><a href="#org681ef07">12.1. Copy "-1" button</a></li>
+<li><a href="#org13b9996">12.2. Review</a></li>
+</ul>
+</li>
+<li><a href="#org5d1b9f0">13. <b>Preview Component</b></a></li>
+<li><a href="#org016a71c">14. Explanation</a></li>
+<li><a href="#org9e93266">15. Event Delegation</a>
+<ul>
+<li><a href="#orgd2c90cb">15.1. Delete :on-click attrbutes of all buttons</a></li>
+<li><a href="#org8476b43">15.2. Add :swap Event Map to parent :div</a></li>
+<li><a href="#org3b308cd">15.3. Set :data-arg attr in each button</a></li>
+<li><a href="#org81d91ef">15.4. Set :arg-spec in parent div Event Map</a></li>
+<li><a href="#org5475afd">15.5. Review of :arg-spec</a></li>
+</ul>
+</li>
+<li><a href="#orgfe2708a">16. <b>Preview Component</b></a></li>
+<li><a href="#org890d697">17. Recap</a></li>
+<li><a href="#org1a67435">18. Event Delegation</a></li>
+<li><a href="#orgc26d9f4">19. Add Event map :opts, :selector</a></li>
+<li><a href="#org8cdb2db">20. More buttons: -100, +10, +100, Reset</a></li>
+<li><a href="#org246e6c7">21. Event Handlers work directly with state variables</a></li>
+<li><a href="#org9f8b3a0">22. Final</a></li>
+</ul>
+</div>
+</div>
+<p>
+<a href="./index.html">Index</a>
+<a id="org3f897a7"></a>
+</p>
+
+<div id="outline-container-orgad80654" class="outline-2">
+<h2 id="orgad80654"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Hi, I'm Ali Hussein, creator of Entmorph,
+<ul class="org-ul">
+<li>and in this video we're going to look at Event Handling in Entmorph Components;</li>
+</ul></li>
+<li>So far we haven't had to handle events because we've been using reactive varaibles,
+<ul class="org-ul">
+<li>which implicitly take care of event handling for us;</li>
+</ul></li>
+<li>As long as we work with input elements such as number, range and checkbox,
+<ul class="org-ul">
+<li>these can update state variables directly;</li>
+</ul></li>
+<li>In this video, we're going to introduce buttons, and look at Entmorph's unique features for handling events using Event Maps;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2716c48" class="outline-2">
+<h2 id="org2716c48"><span class="section-number-2">2.</span> Preview of Component</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>We're going to take a break from our SVG component which we've been developing over the last few videos,
+<ul class="org-ul">
+<li>and instead create a new component,</li>
+<li>which will look like this by the time we finish it;</li>
+</ul></li>
+<li>There's a single number box, and to either side various buttons which allow us to update the value in the number box;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org97f31b3" class="outline-2">
+<h2 id="org97f31b3"><span class="section-number-2">3.</span> Starting Project</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>So let's begin.</li>
+<li><b>Goto</b> &gt; <code>Code</code></li>
+<li>To save some time,
+<ul class="org-ul">
+<li>I've already created a project with a component,</li>
+<li><b>Goto</b> &gt; <code>:styles</code></li>
+<li>and the component already has some styles defined in its :styles section;</li>
+<li><code>Show Outline</code></li>
+<li>The main style is called .main;</li>
+</ul></li>
+<li><b>Goto</b> &gt; <code>:render</code>
+<ul class="org-ul">
+<li>I've also added the .main style to the root <code>div</code> element;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org070ae27" class="outline-2">
+<h2 id="org070ae27"><span class="section-number-2">4.</span> Add [-] [0] [+]</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>So let's create our <b>User Interface</b>.</li>
+<li><code>[open</code> <b>:render</b> <code>for editing]</code></li>
+<li><code>scroll-to</code> Element Children
+<ul class="org-ul">
+<li><code>click on</code> <b>Add &gt; :div</b></li>
+<li><code>click on</code> <b>Add &gt; Add Input &gt; Button</b>
+<ul class="org-ul">
+<li>a button's <code>:value</code> attribute is actually its label;</li>
+<li>:value "-1"</li>
+</ul></li>
+<li><code>click on</code> <b>Add &gt; Add Input &gt; Number</b></li>
+<li><code>click on</code> <b>Add &gt; Add Input &gt; Button</b>
+<ul class="org-ul">
+<li>:value "+1"</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd5ed6e5" class="outline-2">
+<h2 id="orgd5ed6e5"><span class="section-number-2">5.</span> Add <code>counter</code> <b>State Variable</b></h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>We've added a Input Number element,
+<ul class="org-ul">
+<li>so we now need to create a state variable to connect it to;</li>
+</ul></li>
+<li><b>Goto</b> &gt; <code>Code &gt; :state</code></li>
+<li>Rename default <code>state-var</code> -&gt; <code>counter</code></li>
+<li>Set init value: <code>0</code></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6168d2c" class="outline-2">
+<h2 id="org6168d2c"><span class="section-number-2">6.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>we can update the <code>counter</code> state variable using the Input Number element;</li>
+<li>but the buttons of course don't do anything;</li>
+<li>So let's fix that;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgdfccf31" class="outline-2">
+<h2 id="orgdfccf31"><span class="section-number-2">7.</span> Add "-1" Button Event Handler</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li><code>scroll-to</code> :render</li>
+<li>We'll start with the "-1" button;</li>
+<li>When a user clicks on this button,
+<ul class="org-ul">
+<li>it needs to subtract 1 from the <code>counter</code> state variable;</li>
+</ul></li>
+<li>To achieve this, we need to add an <code>click</code> event handler to the button;</li>
+</ul>
+</div>
+<div id="outline-container-org16e6fe1" class="outline-3">
+<h3 id="org16e6fe1"><span class="section-number-3">7.1.</span> Set :on-click to Event Map</h3>
+<div class="outline-text-3" id="text-7-1">
+<ul class="org-ul">
+<li>There's already an <code>:on-click</code> attribute,
+<ul class="org-ul">
+<li>so if we click on its value,</li>
+<li>this opens an <b>Event Handler</b> dropdown menu;</li>
+</ul></li>
+<li>There's an <b>Event Maps</b> section with quite a few options,
+<ul class="org-ul">
+<li>but for now I'm just going to select <b>Event Map</b> at the very top;</li>
+</ul></li>
+<li>This adds an <b>Event Map</b> editor,
+<ul class="org-ul">
+<li>which contains a map with two keys:
+<ul class="org-ul">
+<li><code>:handler</code></li>
+<li>and <code>:arg</code></li>
+</ul></li>
+</ul></li>
+<li>These keys both have a grey background,
+<ul class="org-ul">
+<li>which means that their values are fixed,</li>
+<li>and we can't edit them;</li>
+</ul></li>
+<li>We need to set the <code>:handler</code> to something,
+<ul class="org-ul">
+<li>but before we do that we need to create that something;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1f99597" class="outline-3">
+<h3 id="org1f99597"><span class="section-number-3">7.2.</span> Add update-counter! setter</h3>
+<div class="outline-text-3" id="text-7-2">
+<ul class="org-ul">
+<li><b>Goto</b> &gt; <code>Code</code></li>
+<li><code>[open</code> <b>Component</b> <code>for editing]</code></li>
+<li><code>click on</code> <b>Add Section &gt; :setters</b></li>
+<li>This creates a :setters section,
+<ul class="org-ul">
+<li>which looks similar to the :state and :computed sections;</li>
+</ul></li>
+<li>But instead of creating Reactive Variables,
+<ul class="org-ul">
+<li>it allows us to create functions which can update state variables;</li>
+</ul></li>
+<li>Let's add a setter;</li>
+<li><code>click on</code> <b>Add</b>
+<ul class="org-ul">
+<li>This gives us three options;</li>
+</ul></li>
+<li>The most common one you'll use it the swap setter,
+<ul class="org-ul">
+<li>which I'll select now</li>
+<li><code>click on</code> <b>swap! setter</b></li>
+</ul></li>
+<li>Id: update-counter!</li>
+<li>Expr: there's a function which takes a single parameter,
+<ul class="org-ul">
+<li>and which calls the <code>swap!</code> function;</li>
+</ul></li>
+<li><code>[open</code> <b><code>swap!</code></b> <code>for editing]</code></li>
+<li>It takes at least two arguments:
+<ul class="org-ul">
+<li>a mutable,</li>
+<li>and a function to call on it;</li>
+</ul></li>
+<li><code>(swap! counter + x)</code></li>
+<li><code>scroll-to</code> :setters</li>
+<li><code>[close</code> (:setters) <code>]</code></li>
+<li><code>Review</code>
+<ul class="org-ul">
+<li>we've created a setter called <code>update-counter!</code></li>
+<li>its value is a function which takes an argument of <code>x</code></li>
+<li>and it calls the <code>swap!</code> function,
+<ul class="org-ul">
+<li>which updates the <code>counter</code> state variable by adding <code>x</code> to it;</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org15ba39e" class="outline-3">
+<h3 id="org15ba39e"><span class="section-number-3">7.3.</span> Add update-counter! to Event Map</h3>
+<div class="outline-text-3" id="text-7-3">
+<ul class="org-ul">
+<li><b>Goto</b> &gt; <code>:render</code></li>
+<li>And within the <code>:on-click</code> Event Map
+<ul class="org-ul">
+<li>we'll set its :handler by clicking on <code>nil</code></li>
+<li>and selecting <b>Select Id</b>, which opens as Select Id dropdown;</li>
+</ul></li>
+<li>From the <b>Local Ids</b> section of the dropdown,
+<ul class="org-ul">
+<li>I'll select <code>update-counter!</code></li>
+</ul></li>
+<li>and for the <code>:arg</code>,
+<ul class="org-ul">
+<li><code>click on</code> <b><code>nil</code> &gt; Number</b></li>
+<li><code>-1</code></li>
+</ul></li>
+<li><code>[close</code> (Event Map) <code>]</code></li>
+<li><code>Review</code>
+<ul class="org-ul">
+<li>Now our -1 Input Button has an :on-click attribute set to an Event Map containing a :handler (the <code>update-counter!</code> setter) and an :arg of -1 to pass to the setter;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb757873" class="outline-2">
+<h2 id="orgb757873"><span class="section-number-2">8.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li>Now when we click on the "-1" button,
+<ul class="org-ul">
+<li>the number in the number box decreases by -1 each time;</li>
+</ul></li>
+<li>So we've managed to successfully handle click events on the -1 button;</li>
+<li>Let's do the same for the "+1" button</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5bd0405" class="outline-2">
+<h2 id="org5bd0405"><span class="section-number-2">9.</span> Add "+1" Button Event Handler</h2>
+<div class="outline-text-2" id="text-9">
+<ul class="org-ul">
+<li><code>click on</code> <b>Browser Back</b></li>
+<li><code>scroll-to</code> "+1" Button</li>
+</ul>
+</div>
+<div id="outline-container-org474ff32" class="outline-3">
+<h3 id="org474ff32"><span class="section-number-3">9.1.</span> Set :on-click to Event Map</h3>
+<div class="outline-text-3" id="text-9-1">
+<ul class="org-ul">
+<li>As for "-1"
+<ul class="org-ul">
+<li>but just set :handler and :arg 1</li>
+</ul></li>
+<li><code>click on</code> <b>Browser Forward</b></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org6917b14" class="outline-2">
+<h2 id="org6917b14"><span class="section-number-2">10.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li>And now if we click on "+1",
+<ul class="org-ul">
+<li>the counter in the number box increases by 1 each time;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3b78d9c" class="outline-2">
+<h2 id="org3b78d9c"><span class="section-number-2">11.</span> Review</h2>
+<div class="outline-text-2" id="text-11">
+<ul class="org-ul">
+<li><code>scroll-to</code> :render</li>
+<li>So we've created a single setter function,
+<ul class="org-ul">
+<li>update-counter!</li>
+</ul></li>
+<li>And we're calling it from each of our buttons elements,
+<ul class="org-ul">
+<li>using this Event Map;</li>
+</ul></li>
+<li>We set the :handler for each button to the <code>update-counter!</code> setter,
+<ul class="org-ul">
+<li>and we set the :arg in each button to be <code>-1</code></li>
+<li>and <code>1</code> respectively</li>
+</ul></li>
+<li>This is much nicer and cleaner than having to create and call different event handlers for each button,
+<ul class="org-ul">
+<li>which is what we would have to do if we had to do this in JavaScript;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0545a4b" class="outline-2">
+<h2 id="org0545a4b"><span class="section-number-2">12.</span> Add "-10" button with :swap Event Map</h2>
+<div class="outline-text-2" id="text-12">
+</div>
+<div id="outline-container-org681ef07" class="outline-3">
+<h3 id="org681ef07"><span class="section-number-3">12.1.</span> Copy "-1" button</h3>
+<div class="outline-text-3" id="text-12-1">
+<ul class="org-ul">
+<li>Now let's add another button,
+<ul class="org-ul">
+<li>this time "-10";</li>
+</ul></li>
+<li><code>[open</code> <b>parent :div</b> <code>for editing]</code></li>
+<li><code>scroll-to</code> Element Children</li>
+<li><code>Select topmost input/button</code></li>
+<li><code>click on</code> <b>Clipboard &gt; Copy Child</b></li>
+<li>{{{click(Paste Child &gt; Paste Before}}}
+<ul class="org-ul">
+<li>which inserts a copy at the very beginning;</li>
+</ul></li>
+<li>Edit:</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">button</span>
+ <span style="color: #7388d6;">{</span><span style="color: #F5666D;">:value</span>    <span style="color: #4E9A06;">"-10"</span>
+  <span style="color: #F5666D;">:on-click</span> <span style="color: #4E9A06;">"Change Editor to :swap"</span><span style="color: #7388d6;">}</span><span style="color: #707183;">]</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>And that changes the contents of the Event Map,
+<ul class="org-ul">
+<li>so that now the <code>:handler</code> is set to the <code>:swap</code> keyword</li>
+<li>and the :arg is set to a map of 3 keys;</li>
+</ul></li>
+<li>Let's update the map as follows:
+<ul class="org-ul">
+<li><code>:state</code> <code>click on</code> <b>Select &gt; counter</b></li>
+<li><code>:fn</code> <code>click on</code> <b>inc &gt; +</b></li>
+<li><code>:arg</code> {{{click(nil &gt; Number &gt; -10}}}</li>
+</ul></li>
+<li><code>[close</code> (Event Map) <code>]</code></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org13b9996" class="outline-3">
+<h3 id="org13b9996"><span class="section-number-3">12.2.</span> Review</h3>
+<div class="outline-text-3" id="text-12-2">
+<ul class="org-ul">
+<li><code>scroll-to</code> parent input/button</li>
+<li>We created a "-10" button be copying the "-1" button</li>
+<li>We then changed its Event Map to a :swap handler Event Map</li>
+<li>and we set its arg :state, :fn and :value fields;</li>
+<li>this means that whenever a user clicks on this button,
+<ul class="org-ul">
+<li>it should update the <code>counter</code> state variable</li>
+<li>by taking its current value and adding -10 to it,
+<ul class="org-ul">
+<li>or subtracting 10 from it;</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org5d1b9f0" class="outline-2">
+<h2 id="org5d1b9f0"><span class="section-number-2">13.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-13">
+<ul class="org-ul">
+<li>A new "-10" button has appeared,
+<ul class="org-ul">
+<li>and clicking on it decreased the counter by 10 each time;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org016a71c" class="outline-2">
+<h2 id="org016a71c"><span class="section-number-2">14.</span> Explanation</h2>
+<div class="outline-text-2" id="text-14">
+<ul class="org-ul">
+<li><code>scroll-to</code> input/button with :swap handler</li>
+<li>So the :swap handler is an alternative to creating a setter;
+<ul class="org-ul">
+<li>instead of calling a function,</li>
+<li>we just specified a state variable, a function to call on it, and an argument to pass to that function;</li>
+</ul></li>
+<li>The two methods are equivalent to each other and you can use whichever one you prefer;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9e93266" class="outline-2">
+<h2 id="org9e93266"><span class="section-number-2">15.</span> Event Delegation</h2>
+<div class="outline-text-2" id="text-15">
+<ul class="org-ul">
+<li>One thing to note here is that for each new button we add,
+<ul class="org-ul">
+<li>we have to add an :on-click event handler to it;</li>
+<li>which quickly becomes cumbersome,</li>
+<li>not to mention tedious;</li>
+</ul></li>
+<li>So let's look at an alternative;</li>
+</ul>
+</div>
+<div id="outline-container-orgd2c90cb" class="outline-3">
+<h3 id="orgd2c90cb"><span class="section-number-3">15.1.</span> Delete :on-click attrbutes of all buttons</h3>
+<div class="outline-text-3" id="text-15-1">
+<ul class="org-ul">
+<li>I'm going to start be deleting <i>all</i> of the :on-click attributes for the buttons we've created so far;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8476b43" class="outline-3">
+<h3 id="org8476b43"><span class="section-number-3">15.2.</span> Add :swap Event Map to parent :div</h3>
+<div class="outline-text-3" id="text-15-2">
+<ul class="org-ul">
+<li><code>scroll-to</code> parent :div</li>
+<li><code>click on</code> <b>Add Attributes &gt; Add Event</b></li>
+<li><code>click on</code> <b>on-click</b></li>
+<li>For its value</li>
+<li><code>click on</code> <b>nil &gt; :swap</b></li>
+<li>which creates a :swap handler Event Map;</li>
+<li>Again, I'll set
+<ul class="org-ul">
+<li>:state -&gt; <code>counter</code></li>
+<li>:fn -&gt; <code>+</code></li>
+<li>but for :arg, I'll leave it blank for now;</li>
+</ul></li>
+<li>The idea here is that adding an :on-click event handler to the parent div will capture all click events within the div element, including those for each button;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3b308cd" class="outline-3">
+<h3 id="org3b308cd"><span class="section-number-3">15.3.</span> Set :data-arg attr in each button</h3>
+<div class="outline-text-3" id="text-15-3">
+<ul class="org-ul">
+<li>Next, let's scroll down to the buttons;</li>
+<li>We can open each button's attributes map starting with the first;</li>
+<li><code>click on</code> <b>Add &gt; :data-arg &gt; "-10"</b></li>
+<li><code>click on</code> <b>Add &gt; :data-arg &gt; "-1"</b></li>
+<li><code>click on</code> <b>Add &gt; :data-arg &gt; "1"</b></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org81d91ef" class="outline-3">
+<h3 id="org81d91ef"><span class="section-number-3">15.4.</span> Set :arg-spec in parent div Event Map</h3>
+<div class="outline-text-3" id="text-15-4">
+<ul class="org-ul">
+<li><code>scroll-to</code> parent div</li>
+<li><code>[open</code> <b>Event Map</b> <code>for editing]</code></li>
+<li>I'm about to do something which looks a little complex; please bear with me, once I'm done I'll break it down and explain it so hopefully you won't get too confused by what's going on;</li>
+<li><code>click on</code> <b>Add</b></li>
+<li>which opens a sub-commands panel containing additional keys we can add to the Event Map;</li>
+<li>we'll cover all of these in due course, but for now I'm going to click on :arg-spec,
+<ul class="org-ul">
+<li>which adds an Event Map :arg-spec editor;</li>
+</ul></li>
+<li><code>click on</code> <b>Add</b></li>
+<li>that opens a sub-commands panel with three keys;</li>
+<li><code>click on</code> <b>:data-args</b>,</li>
+<li>which adds something called an <b>Attribute Coercer Map</b></li>
+<li>For the key, I'll type :arg</li>
+<li>and then when I click on its value, it opens a <b>Select Coercer</b> dropdown;
+<ul class="org-ul">
+<li><code>click on</code> <b>:Number</b></li>
+</ul></li>
+<li><code>scroll-to</code> parent div element</li>
+<li><code>[close</code> (div) <code>]</code></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5475afd" class="outline-3">
+<h3 id="org5475afd"><span class="section-number-3">15.5.</span> Review of :arg-spec</h3>
+<div class="outline-text-3" id="text-15-5">
+<ul class="org-ul">
+<li>in the parent div element, which contains our input buttons,
+<ul class="org-ul">
+<li>we created an Attributes Map;</li>
+</ul></li>
+<li>we added an :on-click attribute,</li>
+<li>and set its value to a :swap handler Event Map;</li>
+<li>The Event Map :arg is set to update the <code>counter</code> state variable,
+<ul class="org-ul">
+<li>by calling the + function on its current value,</li>
+<li>and passing the value of :arg, which is nil;</li>
+</ul></li>
+<li>That isn't actually what we want,</li>
+<li>so what I'm going to do now is I'm going to delete :arg;
+<ul class="org-ul">
+<li><code>[open</code> <b>map editor</b> <code>for editing]</code></li>
+<li>select :arg entry</li>
+<li><code>click on</code> <b>Delete</b></li>
+</ul></li>
+<li>So our :swap handler is incomplete: it needs to add something to <code>counter</code> whenever a user clicks on a button,
+<ul class="org-ul">
+<li>but there isn't anything to add any more because we just deleted the :arg key!</li>
+</ul></li>
+<li>That's where the <code>:arg-spec</code> key in the Event Map comes in:
+<ul class="org-ul">
+<li>it provides a specification for creating an argument to pass to our event handler;</li>
+</ul></li>
+<li><code>scroll-to</code> first input/button</li>
+<li>Remember we set each button's <code>:data-arg</code> attribute to a number,
+<ul class="org-ul">
+<li>specifically: -10, -1 and 1;</li>
+<li>so what we'd like to do is to extract that number from the <code>:data-arg</code> attribute, and pass it to the :swap event handler;</li>
+</ul></li>
+<li><code>scroll-to</code> Event Map</li>
+<li>That's what the :data-args key of the :arg-spec is for;
+<ul class="org-ul">
+<li>its value is a map of data attribute names we are interested in passing to the event handler, but without the "data-" prefix</li>
+<li>the fact that we see <code>:arg</code> means we want to extract the value of the <code>:data-arg</code> attribute;</li>
+</ul></li>
+<li>But the problem is that attributes are expressed as strings,
+<ul class="org-ul">
+<li>so we have to convert from strings to numbers;</li>
+</ul></li>
+<li>That's why the value of the <code>:arg</code> in the <code>:data-args</code> map is <code>:Number</code>;
+<ul class="org-ul">
+<li>this says: "convert the value in the :data-arg attribute of the element to a number, before passing it to the :swap handler"</li>
+</ul></li>
+<li>If all of this is too much to take in, let's first see this in action;</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfe2708a" class="outline-2">
+<h2 id="orgfe2708a"><span class="section-number-2">16.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-16">
+<ul class="org-ul">
+<li>Clicking on any button still works the way it did before we got rid of the individual event handlers on each button;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org890d697" class="outline-2">
+<h2 id="org890d697"><span class="section-number-2">17.</span> Recap</h2>
+<div class="outline-text-2" id="text-17">
+<ul class="org-ul">
+<li><code>scroll-to</code> Event Map</li>
+<li>we got rid of the :on-click Event Handler on each button,</li>
+<li>and instead created a single :swap Event Handler on the parent div element;</li>
+<li>on each button, we added a :data-arg attribute with the value of that button, as a string</li>
+<li>and on the :swap Event Map of the parent div, we set the :state and :fn keys of its :arg so to update the <code>counter</code> state variable by adding something to it,</li>
+<li>and we created an :arg-spec to extract the value of :data-arg from the button we click on, convert it to a number, and pass it to the :swap handler as the :arg key, to replace the :arg key that we deleted;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1a67435" class="outline-2">
+<h2 id="org1a67435"><span class="section-number-2">18.</span> Event Delegation</h2>
+<div class="outline-text-2" id="text-18">
+<ul class="org-ul">
+<li>This is a technique know as Event Delegation, and is something which has existed in JavaScript since the beginning;
+<ul class="org-ul">
+<li>but the Entmorph version I've shown you here requires very little code to produce a lot of functionality which would otherwise require a lot of manipulation of elements;</li>
+</ul></li>
+<li>The main advantage is that we only need to create a single event handler to handle different, but related operations, in this case adding different numbers to a state variable</li>
+<li>Event Delegations works for most types of event handler, including setters; (demonstrate with update-counter!)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc26d9f4" class="outline-2">
+<h2 id="orgc26d9f4"><span class="section-number-2">19.</span> Add Event map :opts, :selector</h2>
+<div class="outline-text-2" id="text-19">
+<ul class="org-ul">
+<li>Let's add a couple more keys to the Event Map.</li>
+<li><code>click on</code> <b>Add</b></li>
+<li><code>:opts</code>
+<ul class="org-ul">
+<li><code>:stop</code></li>
+</ul></li>
+<li><code>:selector</code>
+<ul class="org-ul">
+<li>'input[type="button"]'</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org8cdb2db" class="outline-2">
+<h2 id="org8cdb2db"><span class="section-number-2">20.</span> More buttons: -100, +10, +100, Reset</h2>
+<div class="outline-text-2" id="text-20">
+<ul class="org-ul">
+<li>Next, let's add buttons for -100, +10 and +100
+<ul class="org-ul">
+<li>This shows how easy it is, we just need to add a button and set its :data-arg attribute to the value we want to add to <code>counter</code></li>
+</ul></li>
+<li>Reset (to 0)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org246e6c7" class="outline-2">
+<h2 id="org246e6c7"><span class="section-number-2">21.</span> Event Handlers work directly with state variables</h2>
+<div class="outline-text-2" id="text-21">
+<ul class="org-ul">
+<li>In Entmorph, Event Handlers work directly with state variables;</li>
+<li>unlike traditional event handlers, which usually require working with DOM elements, stopping or preventing events and so on;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9f8b3a0" class="outline-2">
+<h2 id="org9f8b3a0"><span class="section-number-2">22.</span> Final</h2>
+<div class="outline-text-2" id="text-22">
+<ul class="org-ul">
+<li>We've covered a lot in this video, and if you've made it this far, seriously, well done on perservering;</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2025-06-26 Thu 15:23</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
