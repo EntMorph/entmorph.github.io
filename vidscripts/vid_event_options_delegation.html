@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-06-27 Fri 18:18 -->
+<!-- 2025-06-27 Fri 18:21 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Entmorph Components - Event Delegation</title>
@@ -202,61 +202,61 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8ab3e38">1. Introduction</a></li>
-<li><a href="#org6628032">2. Start</a></li>
-<li><a href="#orga8c2999">3. Review: <code>:render</code> section</a>
+<li><a href="#org99d3b77">1. Introduction</a></li>
+<li><a href="#orgef60a55">2. Start</a></li>
+<li><a href="#org6b59d7c">3. Review: <code>:render</code> section</a>
 <ul>
-<li><a href="#org6aeb5b1">3.1. Delete :on-click attrbutes of all buttons, add :data-arg</a></li>
-<li><a href="#orgc37c2da">3.2. Surround [:span [-100] [-10] [-1]]</a></li>
-<li><a href="#org23c80db">3.3. Add :arg-spec</a></li>
+<li><a href="#org8a2641a">3.1. Delete :on-click attrbutes of all buttons, add :data-arg</a></li>
+<li><a href="#org114ad4c">3.2. Surround [:span [-100] [-10] [-1]]</a></li>
+<li><a href="#orgc98b685">3.3. Add :arg-spec</a></li>
 </ul>
 </li>
-<li><a href="#orgdfc6d27">4. <b>Preview Component</b></a></li>
-<li><a href="#org56745dd">5. Explanation of Event Delegation</a>
+<li><a href="#org2a6bd77">4. <b>Preview Component</b></a></li>
+<li><a href="#org755bb76">5. Explanation of Event Delegation</a>
 <ul>
-<li><a href="#orgce9e635">5.1. Example while scrolling (use SCROLLBAR to navigate)</a></li>
+<li><a href="#org6ed99c0">5.1. Example while scrolling (use SCROLLBAR to navigate)</a></li>
 </ul>
 </li>
-<li><a href="#org6894670">6. Add :opts, :selector</a></li>
-<li><a href="#orgcd43a9e">7. Event Delegation for +ve buttons</a>
+<li><a href="#orga8604f0">6. Add :opts, :selector</a></li>
+<li><a href="#orgea80830">7. Event Delegation for +ve buttons</a>
 <ul>
-<li><a href="#orga97b1c4">7.1. Surround +ve buttons with :span</a></li>
-<li><a href="#orgdfc49bf">7.2. Add :swap Event Map to parent :span</a></li>
-<li><a href="#org43a4e20">7.3. Set :arg-spec in parent div Event Map</a></li>
+<li><a href="#org5edd60d">7.1. Surround +ve buttons with :span</a></li>
+<li><a href="#org7f09a85">7.2. Add :swap Event Map to parent :span</a></li>
+<li><a href="#org8540953">7.3. Set :arg-spec in parent div Event Map</a></li>
 </ul>
 </li>
-<li><a href="#orgde72f71">8. <b>Preview Component</b></a></li>
-<li><a href="#org0dfc668">9. Explanation and subtle difference</a></li>
-<li><a href="#org0fb0747">10. Final</a></li>
+<li><a href="#orgb22075e">8. <b>Preview Component</b></a></li>
+<li><a href="#orgdf8f204">9. Explanation and subtle difference</a></li>
+<li><a href="#org2f58c6b">10. Final</a></li>
 </ul>
 </div>
 </div>
 <p>
 <a href="./index.html">Index</a>
-<a id="org0a83bb1"></a>
+<a id="orgdb456bb"></a>
 </p>
 
-<div id="outline-container-org8ab3e38" class="outline-2">
-<h2 id="org8ab3e38"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org99d3b77" class="outline-2">
+<h2 id="org99d3b77"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-<a href="#org0a83bb1">Top</a>
+<a href="#orgdb456bb">Top</a>
 </p>
 <ul class="org-ul">
 <li>Hi, I'm Ali Hussein, creator of Entmorph;</li>
-<li>In the previous video, we introduced Event Maps, a declarative mechanism which simplifies event handling in Entmorph Components;</li>
+<li>In the previous video, we introduced Event Maps, a declarative mechanism employed by Entmorph Components which greatly simplifies event handling;</li>
 <li>In this video we'll continue to work with Event Maps,
 <ul class="org-ul">
-<li>by looking at how to save time and effort by employing Event Delegation;</li>
+<li>and look at how to save time and improve performance by employing Event Delegation;</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6628032" class="outline-2">
-<h2 id="org6628032"><span class="section-number-2">2.</span> Start</h2>
+<div id="outline-container-orgef60a55" class="outline-2">
+<h2 id="orgef60a55"><span class="section-number-2">2.</span> Start</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-<a href="#org0a83bb1">Top</a>
+<a href="#orgdb456bb">Top</a>
 </p>
 <ul class="org-ul">
 <li>We'll start with the component from our last video, but we won't change the <b>User Interface</b> at all;</li>
@@ -264,11 +264,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orga8c2999" class="outline-2">
-<h2 id="orga8c2999"><span class="section-number-2">3.</span> Review: <code>:render</code> section</h2>
+<div id="outline-container-org6b59d7c" class="outline-2">
+<h2 id="org6b59d7c"><span class="section-number-2">3.</span> Review: <code>:render</code> section</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-<a href="#org0a83bb1">Top</a>
+<a href="#orgdb456bb">Top</a>
 </p>
 <ul class="org-ul">
 <li><code>scroll-to</code> :render</li>
@@ -289,8 +289,8 @@
 <li>So let's do something about that;</li>
 </ul>
 </div>
-<div id="outline-container-org6aeb5b1" class="outline-3">
-<h3 id="org6aeb5b1"><span class="section-number-3">3.1.</span> Delete :on-click attrbutes of all buttons, add :data-arg</h3>
+<div id="outline-container-org8a2641a" class="outline-3">
+<h3 id="org8a2641a"><span class="section-number-3">3.1.</span> Delete :on-click attrbutes of all buttons, add :data-arg</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>I'm going to start by deleting the <code>:on-click</code> attribute for each button we've created so far;</li>
@@ -303,8 +303,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc37c2da" class="outline-3">
-<h3 id="orgc37c2da"><span class="section-number-3">3.2.</span> Surround [:span [-100] [-10] [-1]]</h3>
+<div id="outline-container-org114ad4c" class="outline-3">
+<h3 id="org114ad4c"><span class="section-number-3">3.2.</span> Surround [:span [-100] [-10] [-1]]</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>=select: =-ve buttons</li>
@@ -340,8 +340,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org23c80db" class="outline-3">
-<h3 id="org23c80db"><span class="section-number-3">3.3.</span> Add :arg-spec</h3>
+<div id="outline-container-orgc98b685" class="outline-3">
+<h3 id="orgc98b685"><span class="section-number-3">3.3.</span> Add :arg-spec</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li><code>scroll-to</code> span Event Map</li>
@@ -398,11 +398,11 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgdfc6d27" class="outline-2">
-<h2 id="orgdfc6d27"><span class="section-number-2">4.</span> <b>Preview Component</b></h2>
+<div id="outline-container-org2a6bd77" class="outline-2">
+<h2 id="org2a6bd77"><span class="section-number-2">4.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-4">
 <p>
-<a href="#org0a83bb1">Top</a>
+<a href="#orgdb456bb">Top</a>
 </p>
 <ul class="org-ul">
 <li>Remember we removed the <code>:on-click</code> attribute from all of the buttons,
@@ -414,11 +414,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org56745dd" class="outline-2">
-<h2 id="org56745dd"><span class="section-number-2">5.</span> Explanation of Event Delegation</h2>
+<div id="outline-container-org755bb76" class="outline-2">
+<h2 id="org755bb76"><span class="section-number-2">5.</span> Explanation of Event Delegation</h2>
 <div class="outline-text-2" id="text-5">
 <p>
-<a href="#org0a83bb1">Top</a>
+<a href="#orgdb456bb">Top</a>
 </p>
 <ul class="org-ul">
 <li><code>click on</code> <b>Browser Back</b></li>
@@ -437,8 +437,8 @@
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-orgce9e635" class="outline-3">
-<h3 id="orgce9e635"><span class="section-number-3">5.1.</span> Example while scrolling (use SCROLLBAR to navigate)</h3>
+<div id="outline-container-org6ed99c0" class="outline-3">
+<h3 id="org6ed99c0"><span class="section-number-3">5.1.</span> Example while scrolling (use SCROLLBAR to navigate)</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>Let's work through an example of this:</li>
@@ -456,11 +456,11 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org6894670" class="outline-2">
-<h2 id="org6894670"><span class="section-number-2">6.</span> Add :opts, :selector</h2>
+<div id="outline-container-orga8604f0" class="outline-2">
+<h2 id="orga8604f0"><span class="section-number-2">6.</span> Add :opts, :selector</h2>
 <div class="outline-text-2" id="text-6">
 <p>
-<a href="#org0a83bb1">Top</a>
+<a href="#orgdb456bb">Top</a>
 </p>
 <ul class="org-ul">
 <li>Let's add a couple more keys to the Event Map.</li>
@@ -488,26 +488,26 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcd43a9e" class="outline-2">
-<h2 id="orgcd43a9e"><span class="section-number-2">7.</span> Event Delegation for +ve buttons</h2>
+<div id="outline-container-orgea80830" class="outline-2">
+<h2 id="orgea80830"><span class="section-number-2">7.</span> Event Delegation for +ve buttons</h2>
 <div class="outline-text-2" id="text-7">
 <p>
-<a href="#org0a83bb1">Top</a>
+<a href="#orgdb456bb">Top</a>
 </p>
 <ul class="org-ul">
 <li>We can use Event Delegation with the :swap handler as well;</li>
 </ul>
 </div>
-<div id="outline-container-orga97b1c4" class="outline-3">
-<h3 id="orga97b1c4"><span class="section-number-3">7.1.</span> Surround +ve buttons with :span</h3>
+<div id="outline-container-org5edd60d" class="outline-3">
+<h3 id="org5edd60d"><span class="section-number-3">7.1.</span> Surround +ve buttons with :span</h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li>Let's do this now for the +ve buttons which are on the right of our <b>User Interface</b></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdfc49bf" class="outline-3">
-<h3 id="orgdfc49bf"><span class="section-number-3">7.2.</span> Add :swap Event Map to parent :span</h3>
+<div id="outline-container-org7f09a85" class="outline-3">
+<h3 id="org7f09a85"><span class="section-number-3">7.2.</span> Add :swap Event Map to parent :span</h3>
 <div class="outline-text-3" id="text-7-2">
 <ul class="org-ul">
 <li><code>scroll-to</code> parent :span</li>
@@ -525,8 +525,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org43a4e20" class="outline-3">
-<h3 id="org43a4e20"><span class="section-number-3">7.3.</span> Set :arg-spec in parent div Event Map</h3>
+<div id="outline-container-org8540953" class="outline-3">
+<h3 id="org8540953"><span class="section-number-3">7.3.</span> Set :arg-spec in parent div Event Map</h3>
 <div class="outline-text-3" id="text-7-3">
 <ul class="org-ul">
 <li><code>scroll-to</code> parent span</li>
@@ -548,22 +548,22 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgde72f71" class="outline-2">
-<h2 id="orgde72f71"><span class="section-number-2">8.</span> <b>Preview Component</b></h2>
+<div id="outline-container-orgb22075e" class="outline-2">
+<h2 id="orgb22075e"><span class="section-number-2">8.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-8">
 <p>
-<a href="#org0a83bb1">Top</a>
+<a href="#orgdb456bb">Top</a>
 </p>
 <ul class="org-ul">
 <li>Now the +ve buttons are all working again;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0dfc668" class="outline-2">
-<h2 id="org0dfc668"><span class="section-number-2">9.</span> Explanation and subtle difference</h2>
+<div id="outline-container-orgdf8f204" class="outline-2">
+<h2 id="orgdf8f204"><span class="section-number-2">9.</span> Explanation and subtle difference</h2>
 <div class="outline-text-2" id="text-9">
 <p>
-<a href="#org0a83bb1">Top</a>
+<a href="#orgdb456bb">Top</a>
 </p>
 <ul class="org-ul">
 <li><code>click on</code> <b>Browser Back</b></li>
@@ -585,11 +585,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org0fb0747" class="outline-2">
-<h2 id="org0fb0747"><span class="section-number-2">10.</span> Final</h2>
+<div id="outline-container-org2f58c6b" class="outline-2">
+<h2 id="org2f58c6b"><span class="section-number-2">10.</span> Final</h2>
 <div class="outline-text-2" id="text-10">
 <p>
-<a href="#org0a83bb1">Top</a>
+<a href="#orgdb456bb">Top</a>
 </p>
 <ul class="org-ul">
 <li>So that wraps up our introduction to using Event Maps in Entmorph Components;</li>
@@ -601,7 +601,7 @@
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2025-06-27 Fri 18:18</p>
+<p class="date">Created: 2025-06-27 Fri 18:21</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
