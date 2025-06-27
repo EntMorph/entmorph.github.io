@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-06-27 Fri 02:05 -->
+<!-- 2025-06-27 Fri 18:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Entmorph Components - Event Delegation</title>
@@ -202,59 +202,63 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org7367db4">1. Introduction</a></li>
-<li><a href="#org22c0548">2. Start</a></li>
-<li><a href="#orgbc4d02e">3. Review: <code>:render</code> section</a>
+<li><a href="#org42631f6">1. Introduction</a></li>
+<li><a href="#org5173d49">2. Start</a></li>
+<li><a href="#org3861510">3. Review: <code>:render</code> section</a>
 <ul>
-<li><a href="#org67df7ee">3.1. Delete :on-click attrbutes of all buttons, add :data-arg</a></li>
-<li><a href="#org572d1d0">3.2. Surround [:span [-100] [-10] [-1]]</a></li>
+<li><a href="#orgc09903e">3.1. Delete :on-click attrbutes of all buttons, add :data-arg</a></li>
+<li><a href="#orge7849c4">3.2. Surround [:span [-100] [-10] [-1]]</a></li>
+<li><a href="#orgc409a5e">3.3. Add :arg-spec</a></li>
 </ul>
 </li>
-<li><a href="#org48fbad6">4. <b>Preview Component</b></a></li>
-<li><a href="#orgae5c240">5. Explanation of Event Delegation</a>
+<li><a href="#org9bf558d">4. <b>Preview Component</b></a></li>
+<li><a href="#org1ee7867">5. Explanation of Event Delegation</a>
 <ul>
-<li><a href="#org188ca16">5.1. Example while scrolling (use SCROLLBAR to navigate)</a></li>
+<li><a href="#org9918dce">5.1. Example while scrolling (use SCROLLBAR to navigate)</a></li>
 </ul>
 </li>
-<li><a href="#org3c19899">6. Add :opts, :selector</a></li>
-<li><a href="#orgb4b7704">7. Event Delegation for +ve buttons</a>
+<li><a href="#org0eeebeb">6. Add :opts, :selector</a></li>
+<li><a href="#orgb362167">7. Event Delegation for +ve buttons</a>
 <ul>
-<li><a href="#orgf569c89">7.1. Surround +ve buttons with :span</a></li>
-<li><a href="#org4b772d1">7.2. Add :swap Event Map to parent :span</a></li>
-<li><a href="#org19ada0d">7.3. Set :arg-spec in parent div Event Map</a></li>
+<li><a href="#org1fef1d8">7.1. Surround +ve buttons with :span</a></li>
+<li><a href="#orgf983a3f">7.2. Add :swap Event Map to parent :span</a></li>
+<li><a href="#org19834cb">7.3. Set :arg-spec in parent div Event Map</a></li>
 </ul>
 </li>
-<li><a href="#orgf0308fa">8. <b>Preview Component</b></a></li>
-<li><a href="#org90917b2">9. Explanation and subtle difference</a></li>
-<li><a href="#org30d3414">10. Event Handlers work directly with state variables</a></li>
+<li><a href="#org157b067">8. <b>Preview Component</b></a></li>
+<li><a href="#org6b5d9a4">9. Explanation and subtle difference</a></li>
+<li><a href="#org9095cfa">10. Final</a></li>
 </ul>
 </div>
 </div>
 <p>
 <a href="./index.html">Index</a>
-<a id="orgfe7c4f1"></a>
+<a id="org1533ac6"></a>
 </p>
 
-<div id="outline-container-org7367db4" class="outline-2">
-<h2 id="org7367db4"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org42631f6" class="outline-2">
+<h2 id="org42631f6"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
-<li>In the previous video, we introduced Entmorph Event Maps, a declarative mechanism which simplifies event handling compared to traditional methods;</li>
-<li>In this video we'll continue to work with Event Maps by looking at how to save ourselves time and effort by employing Event Delegation;</li>
+<li>In the previous video, we introduced Event Maps, a declarative mechanism which simplifies event handling in Entmorph Components;</li>
+<li>In this video we'll continue to work with Event Maps,
+<ul class="org-ul">
+<li>by looking at how to save time and effort by employing Event Delegation;</li>
+</ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org22c0548" class="outline-2">
-<h2 id="org22c0548"><span class="section-number-2">2.</span> Start</h2>
+<div id="outline-container-org5173d49" class="outline-2">
+<h2 id="org5173d49"><span class="section-number-2">2.</span> Start</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>We'll start with the component from our last video, but we won't change the <b>User Interface</b> at all;</li>
-<li>Instead, what we're going to do is to cut out most of what we did in the previous video, and replace it with something much simpler;</li>
+<li>Instead, what we're going to do is to cut out most of what we did in the previous video, and replace it with something even simpler;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbc4d02e" class="outline-2">
-<h2 id="orgbc4d02e"><span class="section-number-2">3.</span> Review: <code>:render</code> section</h2>
+<div id="outline-container-org3861510" class="outline-2">
+<h2 id="org3861510"><span class="section-number-2">3.</span> Review: <code>:render</code> section</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><code>scroll-to</code> :render</li>
@@ -262,17 +266,21 @@
 <ul class="org-ul">
 <li>we had to add an <code>:on-click</code> event handler to each button;</li>
 </ul></li>
-<li>For a small number of buttons this is manageable, but as the number of buttons we create grows,
+<li>For a small number of buttons this is manageable,
 <ul class="org-ul">
+<li>but as the number of buttons we create grows,</li>
 <li>this can quickly become cumbersome,</li>
 <li>not to mention tedious;</li>
 </ul></li>
-<li>It also creates one event handler for each button, which can impact performance;</li>
-<li>So let's look at a way of doing this which involves less work and performs better;</li>
+<li>It also creates one event handler for each button,
+<ul class="org-ul">
+<li>which can impact performance;</li>
+</ul></li>
+<li>So let's do something about that;</li>
 </ul>
 </div>
-<div id="outline-container-org67df7ee" class="outline-3">
-<h3 id="org67df7ee"><span class="section-number-3">3.1.</span> Delete :on-click attrbutes of all buttons, add :data-arg</h3>
+<div id="outline-container-orgc09903e" class="outline-3">
+<h3 id="orgc09903e"><span class="section-number-3">3.1.</span> Delete :on-click attrbutes of all buttons, add :data-arg</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>I'm going to start by deleting the <code>:on-click</code> attribute for each button we've created so far;</li>
@@ -281,40 +289,51 @@
 <li>I'm going to give each button a <code>:data-arg</code> attribute instead;</li>
 <li>I'll set its value to the same value that the Event Map <code>:arg</code> had for that button;</li>
 </ul></li>
+<li>We're going to use the :data-arg attribute as an alternative to the :on-click Event Map;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org572d1d0" class="outline-3">
-<h3 id="org572d1d0"><span class="section-number-3">3.2.</span> Surround [:span [-100] [-10] [-1]]</h3>
+<div id="outline-container-orge7849c4" class="outline-3">
+<h3 id="orge7849c4"><span class="section-number-3">3.2.</span> Surround [:span [-100] [-10] [-1]]</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>=select: =-ve buttons</li>
-<li><code>click on</code> <b>Element Children: Transform &gt; Surround Selected</b></li>
-<li>which surrounds the selected buttons with an element</li>
+<li><code>click on</code> <b>Element Children: Transform &gt; Surround Selected</b>
+<ul class="org-ul">
+<li>which is a command which surrounds the selected buttons with an element</li>
+</ul></li>
 <li>Tag: <code>span</code></li>
 <li><code>[open</code> <b>span</b> <code>for editing]</code></li>
 <li><code>click on</code> <b>Add Attributes &gt; Add Event</b></li>
 <li><code>click on</code> <b>on-click</b></li>
 <li>Set value to Event Map
 <ul class="org-ul">
-<li>:handler {{{uc!}}}</li>
+<li>:handler <code>update-counter!</code></li>
 <li>:arg      nil</li>
 </ul></li>
-<li>We're using a well-known technique called Event Delegation,
+<li>What we're here is we're using a well-known technique called Event Delegation,
 <ul class="org-ul">
-<li>which lets us capture events higher up in the DOM tree,</li>
-<li>and using a single event handler rather than one for each button;</li>
+<li>which lets us capture events using a single event handler on the parent element,</li>
+<li>rather than one for each button;</li>
 </ul></li>
-<li>So we want to call {{{uc!}}} when a user presses any of the buttons in the :span element,
+<li>So when a user presses any of the buttons in the :span element,
 <ul class="org-ul">
-<li>however the :arg is nil, which isn't what we want;</li>
+<li>it should call <code>update-counter!</code>;</li>
+<li>except its <code>:arg</code> is nil, which isn't what we want;</li>
 </ul></li>
 <li>Since we added a <code>:data-arg</code> attribute to each element,
 <ul class="org-ul">
 <li>it would be nice if we could extract the value of that attribute,</li>
-<li>and pass it to {{{uc!}}} whenever a users clicks that button</li>
+<li>and pass it to <code>update-counter!</code> whenever a users clicks that button</li>
 </ul></li>
 <li>Thankfully, <b>Event Maps</b> let us do this;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc409a5e" class="outline-3">
+<h3 id="orgc409a5e"><span class="section-number-3">3.3.</span> Add :arg-spec</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
 <li><code>scroll-to</code> span Event Map</li>
 <li>I'm about to do something which is a little involved,
 <ul class="org-ul">
@@ -323,18 +342,19 @@
 <li>I'll explain what I'm doing as I go along,</li>
 <li>and once I've finished and we preview it,
 <ul class="org-ul">
-<li>I'll break it down so hopefully it'll make sense in case it seems confusing at first;</li>
+<li>I'll break it down so hopefully it'll make sense in case it seems confusing;</li>
 </ul></li>
 <li>I'll begin by <code>click on</code> <b>Add</b>
 <ul class="org-ul">
 <li>which opens a sub-menu containing all the keys we can add to an Event Map;</li>
-<li>We'll look at some of these later, but now &#x2026;</li>
+<li>we'll look at some of these later, but for now &#x2026;</li>
 </ul></li>
 <li><code>click on</code> <b>:arg-spec</b>;
 <ul class="org-ul">
-<li>which adds an "Event Map :arg-spec" editor</li>
-<li>which contains an empty map;</li>
-<li>:arg-spec lets us specify either a part or the whole :arg which we pass to the :handler, by specifying data to extract from the element we click on;</li>
+<li>which adds an "Event Map :arg-spec" editor;</li>
+<li>:arg-spec lets us specify either the whole <code>:arg</code>, or a part of it,</li>
+<li>which we pass to the handler,</li>
+<li>by specifying data to extract from the element we click on;</li>
 </ul></li>
 <li>If I <code>click on</code> <b>Add</b> within that <code>:arg-spec</code> editor,
 <ul class="org-ul">
@@ -363,13 +383,13 @@
 <ul class="org-ul">
 <li>we can see all the changes we just made more clearly;</li>
 </ul></li>
-<li>Before explaining this in detail, let's first preview the latest component to see if it worked;</li>
+<li>Let's first preview the latest component to see if it worked;</li>
 </ul>
 </div>
 </div>
 </div>
-<div id="outline-container-org48fbad6" class="outline-2">
-<h2 id="org48fbad6"><span class="section-number-2">4.</span> <b>Preview Component</b></h2>
+<div id="outline-container-org9bf558d" class="outline-2">
+<h2 id="org9bf558d"><span class="section-number-2">4.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Remember we removed the <code>:on-click</code> attribute from all of the buttons,
@@ -381,46 +401,47 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgae5c240" class="outline-2">
-<h2 id="orgae5c240"><span class="section-number-2">5.</span> Explanation of Event Delegation</h2>
+<div id="outline-container-org1ee7867" class="outline-2">
+<h2 id="org1ee7867"><span class="section-number-2">5.</span> Explanation of Event Delegation</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li><code>click on</code> <b>Browser Back</b></li>
 <li>Now let's try to understand how this works;</li>
 <li>When a user clicks on one of the buttons contained in the span element,
 <ul class="org-ul">
-<li>the <code>:on-click</code> Event Map in the span element calls the {{{uc!}}} setter function,</li>
+<li>the <code>:on-click</code> Event Map in the span element calls the <code>update-counter!</code> setter function,</li>
 <li>passing it the value of <code>:arg</code>;</li>
 <li>but the <code>:arg</code> in the Event Map is nil;</li>
 </ul></li>
 <li>That's ok, because we've added an <code>:arg-spec</code> entry to the Event Map, and what this does is:
 <ul class="org-ul">
-<li>it extracts the :data-arg attribute from the button that was pressed,</li>
+<li>it extracts the <code>:data-arg</code> attribute from the button that was pressed,</li>
 <li>it then converts it to an integer using the :Integer coercer;</li>
-<li>and finally it passes the result to {{{uc!}}};</li>
+<li>and finally it passes the result to <code>update-counter!</code>;</li>
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-org188ca16" class="outline-3">
-<h3 id="org188ca16"><span class="section-number-3">5.1.</span> Example while scrolling (use SCROLLBAR to navigate)</h3>
+<div id="outline-container-org9918dce" class="outline-3">
+<h3 id="org9918dce"><span class="section-number-3">5.1.</span> Example while scrolling (use SCROLLBAR to navigate)</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>Let's work through an example of this:</li>
 <li><code>scroll-to</code> Output</li>
-<li>a user clicks on the -100 button;</li>
+<li>I'll click on the -100 button;</li>
 <li><code>scroll-to</code> -100 input/button</li>
 <li>its <code>:data-arg</code> attribute has a value of "-100", as a string</li>
 <li><code>scroll-to</code> :arg-spec</li>
+<li>the :arg-spec is looking for a data- attribute on the element called data-arg;</li>
 <li>the :Integer coercer in the :arg-spec converts the :data-arg attribute from a string to the number <code>-100</code></li>
 <li><code>scroll-to</code> :handler</li>
-<li>add then passes it as the argument to the {{{uc!}}} handler;</li>
+<li>add then passes it as the argument to the <code>update-counter!</code> handler;</li>
 <li>The same thing happens if we click on the -10 or -1 buttons;</li>
 </ul>
 </div>
 </div>
 </div>
-<div id="outline-container-org3c19899" class="outline-2">
-<h2 id="org3c19899"><span class="section-number-2">6.</span> Add :opts, :selector</h2>
+<div id="outline-container-org0eeebeb" class="outline-2">
+<h2 id="org0eeebeb"><span class="section-number-2">6.</span> Add :opts, :selector</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Let's add a couple more keys to the Event Map.</li>
@@ -431,39 +452,40 @@
 </ul></li>
 <li>This stops the click event from bubbling up to elements higher in the tree;
 <ul class="org-ul">
-<li>there's also <code>:prevent</code>, which prevents the default event behaviour;</li>
-<li>and <code>:current</code>, which only calls the handler if the user clicks on the span element, which isn't what we want here;</li>
+<li>there's also:
+<ul class="org-ul">
+<li><code>:prevent</code>, which prevents the default event behaviour;</li>
+<li>and <code>:current</code>, which only calls the handler if the user clicks on the span element,</li>
+</ul></li>
+<li>neither of which is what we want here;</li>
 </ul></li>
 <li>We'll also add a <code>:selector</code> key;
 <ul class="org-ul">
 <li>'input[type="button"]'</li>
 <li>which is a CSS query;</li>
 </ul></li>
-<li>This ensures that the handler is only called when the target is a button;
-<ul class="org-ul">
-<li>although we don't strictly need it here, it's good practice set a <code>:selector</code> in your Event Maps, to make sure that only the elements your interested in trigger the handler;</li>
-</ul></li>
+<li>This ensures that the handler is only called when the target is a button;</li>
+<li>Although we don't strictly need it here, it's good practice to set a <code>:selector</code> in your Event Maps, to make sure that only the elements you're interested in trigger the handler;</li>
 </ul>
 </div>
 </div>
-
-<div id="outline-container-orgb4b7704" class="outline-2">
-<h2 id="orgb4b7704"><span class="section-number-2">7.</span> Event Delegation for +ve buttons</h2>
+<div id="outline-container-orgb362167" class="outline-2">
+<h2 id="orgb362167"><span class="section-number-2">7.</span> Event Delegation for +ve buttons</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>We can use Event Delegation with the :swap handler as well;</li>
 </ul>
 </div>
-<div id="outline-container-orgf569c89" class="outline-3">
-<h3 id="orgf569c89"><span class="section-number-3">7.1.</span> Surround +ve buttons with :span</h3>
+<div id="outline-container-org1fef1d8" class="outline-3">
+<h3 id="org1fef1d8"><span class="section-number-3">7.1.</span> Surround +ve buttons with :span</h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
-<li>Let's do this now for the +ve buttons</li>
+<li>Let's do this now for the +ve buttons which are on the right of our <b>User Interface</b></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4b772d1" class="outline-3">
-<h3 id="org4b772d1"><span class="section-number-3">7.2.</span> Add :swap Event Map to parent :span</h3>
+<div id="outline-container-orgf983a3f" class="outline-3">
+<h3 id="orgf983a3f"><span class="section-number-3">7.2.</span> Add :swap Event Map to parent :span</h3>
 <div class="outline-text-3" id="text-7-2">
 <ul class="org-ul">
 <li><code>scroll-to</code> parent :span</li>
@@ -481,8 +503,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org19ada0d" class="outline-3">
-<h3 id="org19ada0d"><span class="section-number-3">7.3.</span> Set :arg-spec in parent div Event Map</h3>
+<div id="outline-container-org19834cb" class="outline-3">
+<h3 id="org19834cb"><span class="section-number-3">7.3.</span> Set :arg-spec in parent div Event Map</h3>
 <div class="outline-text-3" id="text-7-3">
 <ul class="org-ul">
 <li><code>scroll-to</code> parent span</li>
@@ -504,30 +526,27 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgf0308fa" class="outline-2">
-<h2 id="orgf0308fa"><span class="section-number-2">8.</span> <b>Preview Component</b></h2>
+<div id="outline-container-org157b067" class="outline-2">
+<h2 id="org157b067"><span class="section-number-2">8.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
-<li>Now the +ve buttons are all working like they used to when they each had their own event handler;</li>
+<li>Now the +ve buttons are all working again;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org90917b2" class="outline-2">
-<h2 id="org90917b2"><span class="section-number-2">9.</span> Explanation and subtle difference</h2>
+<div id="outline-container-org6b5d9a4" class="outline-2">
+<h2 id="org6b5d9a4"><span class="section-number-2">9.</span> Explanation and subtle difference</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li><code>click on</code> <b>Browser Back</b></li>
-<li>Event Delegation for the :swap handler works in almost the same way as for the {{{uc!}}} handler, with one subtle but important difference;
+<li>Event Delegation for the :swap handler works in almost the same way as for the <code>update-counter!</code> handler, with one subtle but important difference;</li>
+<li><code>scroll-to</code> <code>update-counter!</code> Event Map
 <ul class="org-ul">
-<li>:arg nil (in uc!) vs :arg map</li>
-</ul></li>
-<li><code>scroll-to</code> {{{uc!}}} Event Map
-<ul class="org-ul">
-<li>For the {{{uc!}}} Event Map, its <code>:arg</code> was nil;</li>
+<li>For the <code>update-counter!</code> Event Map, its <code>:arg</code> was nil;</li>
 <li>The :arg-spec actually produces a map with a value of {:arg -100}</li>
 <li>It then tries to merge it with the :arg of the Event Handler, which is nil;</li>
-<li>Because the result is a map with a single key, it passes just the value of that key, -100, to {{{uc!}}}</li>
 </ul></li>
+<li>Now here's the key difference between the two: because the result is a map with a single key, it passes just the value of that key, -100, to <code>update-counter!</code></li>
 <li><code>scroll-to</code> :swap Event Map
 <ul class="org-ul">
 <li>For the :swap Event Map, its <code>:arg</code> is a map, not nil;</li>
@@ -536,26 +555,22 @@
 </ul></li>
 <li>This is a technicality, but it's very important to know if you are going to use Event Delegation effectively, as it can easily trip you up;</li>
 </ul>
-
-
-
-<p>
-CURRENT
-</p>
 </div>
 </div>
-<div id="outline-container-org30d3414" class="outline-2">
-<h2 id="org30d3414"><span class="section-number-2">10.</span> Event Handlers work directly with state variables</h2>
+<div id="outline-container-org9095cfa" class="outline-2">
+<h2 id="org9095cfa"><span class="section-number-2">10.</span> Final</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
-<li>In Entmorph, Event Handlers work directly with state variables;</li>
-<li>unlike traditional event handlers, which usually require working with DOM elements, stopping or preventing events and so on;</li>
+<li>So that wraps up our introduction to using Event Maps in Entmorph Components;</li>
+<li>There are many built-in handlers which perform common tasks, and these will be covered both in the documentation and in dedicated videos;</li>
+<li>In the next video, we'll look at Entmorph Special Elements, which are an extension to HTML that provide functionality that is normally provided by template languages.</li>
+<li>Thanks for watching.</li>
 </ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2025-06-27 Fri 02:05</p>
+<p class="date">Created: 2025-06-27 Fri 18:07</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
