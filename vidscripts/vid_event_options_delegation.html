@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-06-27 Fri 02:05 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Entmorph Components - Event Delegation</title>
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link href="/css/style.css" rel="stylesheet" type="text/css"></link>
+<style>body{font-size: 30px;}code{background:#efefef;padding: 4px;border-radius:5px;}ul{list-style-type:circle;}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Entmorph Components - Event Delegation</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org7367db4">1. Introduction</a></li>
+<li><a href="#org22c0548">2. Start</a></li>
+<li><a href="#orgbc4d02e">3. Review: <code>:render</code> section</a>
+<ul>
+<li><a href="#org67df7ee">3.1. Delete :on-click attrbutes of all buttons, add :data-arg</a></li>
+<li><a href="#org572d1d0">3.2. Surround [:span [-100] [-10] [-1]]</a></li>
+</ul>
+</li>
+<li><a href="#org48fbad6">4. <b>Preview Component</b></a></li>
+<li><a href="#orgae5c240">5. Explanation of Event Delegation</a>
+<ul>
+<li><a href="#org188ca16">5.1. Example while scrolling (use SCROLLBAR to navigate)</a></li>
+</ul>
+</li>
+<li><a href="#org3c19899">6. Add :opts, :selector</a></li>
+<li><a href="#orgb4b7704">7. Event Delegation for +ve buttons</a>
+<ul>
+<li><a href="#orgf569c89">7.1. Surround +ve buttons with :span</a></li>
+<li><a href="#org4b772d1">7.2. Add :swap Event Map to parent :span</a></li>
+<li><a href="#org19ada0d">7.3. Set :arg-spec in parent div Event Map</a></li>
+</ul>
+</li>
+<li><a href="#orgf0308fa">8. <b>Preview Component</b></a></li>
+<li><a href="#org90917b2">9. Explanation and subtle difference</a></li>
+<li><a href="#org30d3414">10. Event Handlers work directly with state variables</a></li>
+</ul>
+</div>
+</div>
+<p>
+<a href="./index.html">Index</a>
+<a id="orgfe7c4f1"></a>
+</p>
+
+<div id="outline-container-org7367db4" class="outline-2">
+<h2 id="org7367db4"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>In the previous video, we introduced Entmorph Event Maps, a declarative mechanism which simplifies event handling compared to traditional methods;</li>
+<li>In this video we'll continue to work with Event Maps by looking at how to save ourselves time and effort by employing Event Delegation;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org22c0548" class="outline-2">
+<h2 id="org22c0548"><span class="section-number-2">2.</span> Start</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>We'll start with the component from our last video, but we won't change the <b>User Interface</b> at all;</li>
+<li>Instead, what we're going to do is to cut out most of what we did in the previous video, and replace it with something much simpler;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbc4d02e" class="outline-2">
+<h2 id="orgbc4d02e"><span class="section-number-2">3.</span> Review: <code>:render</code> section</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li><code>scroll-to</code> :render</li>
+<li>Looking at the code for our <b>User Interface</b>
+<ul class="org-ul">
+<li>we had to add an <code>:on-click</code> event handler to each button;</li>
+</ul></li>
+<li>For a small number of buttons this is manageable, but as the number of buttons we create grows,
+<ul class="org-ul">
+<li>this can quickly become cumbersome,</li>
+<li>not to mention tedious;</li>
+</ul></li>
+<li>It also creates one event handler for each button, which can impact performance;</li>
+<li>So let's look at a way of doing this which involves less work and performs better;</li>
+</ul>
+</div>
+<div id="outline-container-org67df7ee" class="outline-3">
+<h3 id="org67df7ee"><span class="section-number-3">3.1.</span> Delete :on-click attrbutes of all buttons, add :data-arg</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>I'm going to start by deleting the <code>:on-click</code> attribute for each button we've created so far;</li>
+<li>To make up for this,
+<ul class="org-ul">
+<li>I'm going to give each button a <code>:data-arg</code> attribute instead;</li>
+<li>I'll set its value to the same value that the Event Map <code>:arg</code> had for that button;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org572d1d0" class="outline-3">
+<h3 id="org572d1d0"><span class="section-number-3">3.2.</span> Surround [:span [-100] [-10] [-1]]</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li>=select: =-ve buttons</li>
+<li><code>click on</code> <b>Element Children: Transform &gt; Surround Selected</b></li>
+<li>which surrounds the selected buttons with an element</li>
+<li>Tag: <code>span</code></li>
+<li><code>[open</code> <b>span</b> <code>for editing]</code></li>
+<li><code>click on</code> <b>Add Attributes &gt; Add Event</b></li>
+<li><code>click on</code> <b>on-click</b></li>
+<li>Set value to Event Map
+<ul class="org-ul">
+<li>:handler {{{uc!}}}</li>
+<li>:arg      nil</li>
+</ul></li>
+<li>We're using a well-known technique called Event Delegation,
+<ul class="org-ul">
+<li>which lets us capture events higher up in the DOM tree,</li>
+<li>and using a single event handler rather than one for each button;</li>
+</ul></li>
+<li>So we want to call {{{uc!}}} when a user presses any of the buttons in the :span element,
+<ul class="org-ul">
+<li>however the :arg is nil, which isn't what we want;</li>
+</ul></li>
+<li>Since we added a <code>:data-arg</code> attribute to each element,
+<ul class="org-ul">
+<li>it would be nice if we could extract the value of that attribute,</li>
+<li>and pass it to {{{uc!}}} whenever a users clicks that button</li>
+</ul></li>
+<li>Thankfully, <b>Event Maps</b> let us do this;</li>
+<li><code>scroll-to</code> span Event Map</li>
+<li>I'm about to do something which is a little involved,
+<ul class="org-ul">
+<li>so please bear with me;</li>
+</ul></li>
+<li>I'll explain what I'm doing as I go along,</li>
+<li>and once I've finished and we preview it,
+<ul class="org-ul">
+<li>I'll break it down so hopefully it'll make sense in case it seems confusing at first;</li>
+</ul></li>
+<li>I'll begin by <code>click on</code> <b>Add</b>
+<ul class="org-ul">
+<li>which opens a sub-menu containing all the keys we can add to an Event Map;</li>
+<li>We'll look at some of these later, but now &#x2026;</li>
+</ul></li>
+<li><code>click on</code> <b>:arg-spec</b>;
+<ul class="org-ul">
+<li>which adds an "Event Map :arg-spec" editor</li>
+<li>which contains an empty map;</li>
+<li>:arg-spec lets us specify either a part or the whole :arg which we pass to the :handler, by specifying data to extract from the element we click on;</li>
+</ul></li>
+<li>If I <code>click on</code> <b>Add</b> within that <code>:arg-spec</code> editor,
+<ul class="org-ul">
+<li>it gives us three options;</li>
+</ul></li>
+<li>I'll select ":data-args"
+<ul class="org-ul">
+<li>which adds an "Attribute Coercer" editor;</li>
+<li>Adding ":data-args" tells our Event Map that we want to extract data from one or more data- attributes (for example :data-arg) in our button to pass to the handler;</li>
+</ul></li>
+<li>Key: <code>:arg</code>
+<ul class="org-ul">
+<li>which is the name of <code>:data-arg</code> attribute without the <code>data-</code> prefix;</li>
+</ul></li>
+<li>Val:
+<ul class="org-ul">
+<li>when I open the value,</li>
+<li>it gives me a <b>Select Coercer</b> dropdown;</li>
+<li><code>click on</code> <b>:Integer</b>
+<ul class="org-ul">
+<li>which converts the value of the :data-arg to an integer;</li>
+</ul></li>
+</ul></li>
+<li><code>scroll-to</code> Event Map</li>
+<li>If I <code>[close</code> (Event Map) <code>]</code>,
+<ul class="org-ul">
+<li>we can see all the changes we just made more clearly;</li>
+</ul></li>
+<li>Before explaining this in detail, let's first preview the latest component to see if it worked;</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org48fbad6" class="outline-2">
+<h2 id="org48fbad6"><span class="section-number-2">4.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>Remember we removed the <code>:on-click</code> attribute from all of the buttons,
+<ul class="org-ul">
+<li>and just added a single <code>:on-click</code> attribute to the <code>@span</code> around the 3 buttons on the left;</li>
+<li>Now clicking on any button shows that each button works as it used to;</li>
+<li>and clicking on the buttons on the right still don't work, which is to be expected;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgae5c240" class="outline-2">
+<h2 id="orgae5c240"><span class="section-number-2">5.</span> Explanation of Event Delegation</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li><code>click on</code> <b>Browser Back</b></li>
+<li>Now let's try to understand how this works;</li>
+<li>When a user clicks on one of the buttons contained in the span element,
+<ul class="org-ul">
+<li>the <code>:on-click</code> Event Map in the span element calls the {{{uc!}}} setter function,</li>
+<li>passing it the value of <code>:arg</code>;</li>
+<li>but the <code>:arg</code> in the Event Map is nil;</li>
+</ul></li>
+<li>That's ok, because we've added an <code>:arg-spec</code> entry to the Event Map, and what this does is:
+<ul class="org-ul">
+<li>it extracts the :data-arg attribute from the button that was pressed,</li>
+<li>it then converts it to an integer using the :Integer coercer;</li>
+<li>and finally it passes the result to {{{uc!}}};</li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-org188ca16" class="outline-3">
+<h3 id="org188ca16"><span class="section-number-3">5.1.</span> Example while scrolling (use SCROLLBAR to navigate)</h3>
+<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li>Let's work through an example of this:</li>
+<li><code>scroll-to</code> Output</li>
+<li>a user clicks on the -100 button;</li>
+<li><code>scroll-to</code> -100 input/button</li>
+<li>its <code>:data-arg</code> attribute has a value of "-100", as a string</li>
+<li><code>scroll-to</code> :arg-spec</li>
+<li>the :Integer coercer in the :arg-spec converts the :data-arg attribute from a string to the number <code>-100</code></li>
+<li><code>scroll-to</code> :handler</li>
+<li>add then passes it as the argument to the {{{uc!}}} handler;</li>
+<li>The same thing happens if we click on the -10 or -1 buttons;</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org3c19899" class="outline-2">
+<h2 id="org3c19899"><span class="section-number-2">6.</span> Add :opts, :selector</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>Let's add a couple more keys to the Event Map.</li>
+<li><code>click on</code> <b>Add</b></li>
+<li><code>:opts</code>
+<ul class="org-ul">
+<li><code>:stop</code></li>
+</ul></li>
+<li>This stops the click event from bubbling up to elements higher in the tree;
+<ul class="org-ul">
+<li>there's also <code>:prevent</code>, which prevents the default event behaviour;</li>
+<li>and <code>:current</code>, which only calls the handler if the user clicks on the span element, which isn't what we want here;</li>
+</ul></li>
+<li>We'll also add a <code>:selector</code> key;
+<ul class="org-ul">
+<li>'input[type="button"]'</li>
+<li>which is a CSS query;</li>
+</ul></li>
+<li>This ensures that the handler is only called when the target is a button;
+<ul class="org-ul">
+<li>although we don't strictly need it here, it's good practice set a <code>:selector</code> in your Event Maps, to make sure that only the elements your interested in trigger the handler;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb4b7704" class="outline-2">
+<h2 id="orgb4b7704"><span class="section-number-2">7.</span> Event Delegation for +ve buttons</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>We can use Event Delegation with the :swap handler as well;</li>
+</ul>
+</div>
+<div id="outline-container-orgf569c89" class="outline-3">
+<h3 id="orgf569c89"><span class="section-number-3">7.1.</span> Surround +ve buttons with :span</h3>
+<div class="outline-text-3" id="text-7-1">
+<ul class="org-ul">
+<li>Let's do this now for the +ve buttons</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4b772d1" class="outline-3">
+<h3 id="org4b772d1"><span class="section-number-3">7.2.</span> Add :swap Event Map to parent :span</h3>
+<div class="outline-text-3" id="text-7-2">
+<ul class="org-ul">
+<li><code>scroll-to</code> parent :span</li>
+<li><code>click on</code> <b>Add Attributes &gt; Add Event</b></li>
+<li><code>click on</code> <b>on-click</b></li>
+<li>For its value</li>
+<li><code>click on</code> <b>nil &gt; :swap</b></li>
+<li>which creates a :swap handler Event Map;</li>
+<li>Again, I'll set
+<ul class="org-ul">
+<li>:state -&gt; <code>counter</code></li>
+<li>:fn -&gt; <code>+</code></li>
+<li>but for :arg, I'll leave it blank for now;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org19ada0d" class="outline-3">
+<h3 id="org19ada0d"><span class="section-number-3">7.3.</span> Set :arg-spec in parent div Event Map</h3>
+<div class="outline-text-3" id="text-7-3">
+<ul class="org-ul">
+<li><code>scroll-to</code> parent span</li>
+<li><code>[open</code> <b>Event Map</b> <code>for editing]</code></li>
+<li>As before, we'll add an :arg-spec editor</li>
+<li><code>click on</code> <b>Add :arg-spec</b></li>
+<li><code>click on</code> <b>Add</b></li>
+<li>that opens a sub-commands panel with three keys;</li>
+<li><code>click on</code> <b>:data-args</b>,</li>
+<li>which adds an <b>Attribute Coercer</b> editor;</li>
+<li>For the key, again I'll type <code>:arg</code></li>
+<li>and then when I click on its value, it opens a <b>Select Coercer</b> dropdown;
+<ul class="org-ul">
+<li><code>click on</code> <b>:Integer</b></li>
+</ul></li>
+<li><code>scroll-to</code> parent span element</li>
+<li><code>[close</code> (span) <code>]</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf0308fa" class="outline-2">
+<h2 id="orgf0308fa"><span class="section-number-2">8.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li>Now the +ve buttons are all working like they used to when they each had their own event handler;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org90917b2" class="outline-2">
+<h2 id="org90917b2"><span class="section-number-2">9.</span> Explanation and subtle difference</h2>
+<div class="outline-text-2" id="text-9">
+<ul class="org-ul">
+<li><code>click on</code> <b>Browser Back</b></li>
+<li>Event Delegation for the :swap handler works in almost the same way as for the {{{uc!}}} handler, with one subtle but important difference;
+<ul class="org-ul">
+<li>:arg nil (in uc!) vs :arg map</li>
+</ul></li>
+<li><code>scroll-to</code> {{{uc!}}} Event Map
+<ul class="org-ul">
+<li>For the {{{uc!}}} Event Map, its <code>:arg</code> was nil;</li>
+<li>The :arg-spec actually produces a map with a value of {:arg -100}</li>
+<li>It then tries to merge it with the :arg of the Event Handler, which is nil;</li>
+<li>Because the result is a map with a single key, it passes just the value of that key, -100, to {{{uc!}}}</li>
+</ul></li>
+<li><code>scroll-to</code> :swap Event Map
+<ul class="org-ul">
+<li>For the :swap Event Map, its <code>:arg</code> is a map, not nil;</li>
+<li>Again, the <code>:arg-spec</code> produces a map with a value of <code>{:arg 100}</code> (or whatever is in the :data-arg of the button)</li>
+<li>It then tries to merge it with the :arg of the Event Handler, and the result is a merged map containing :state, :fn, and the :arg; and this is what is passed to the :swap handler;</li>
+</ul></li>
+<li>This is a technicality, but it's very important to know if you are going to use Event Delegation effectively, as it can easily trip you up;</li>
+</ul>
+
+
+
+<p>
+CURRENT
+</p>
+</div>
+</div>
+<div id="outline-container-org30d3414" class="outline-2">
+<h2 id="org30d3414"><span class="section-number-2">10.</span> Event Handlers work directly with state variables</h2>
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li>In Entmorph, Event Handlers work directly with state variables;</li>
+<li>unlike traditional event handlers, which usually require working with DOM elements, stopping or preventing events and so on;</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2025-06-27 Fri 02:05</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
