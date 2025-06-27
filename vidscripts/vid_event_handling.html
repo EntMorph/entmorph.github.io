@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-06-27 Fri 02:05 -->
+<!-- 2025-06-27 Fri 15:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Entmorph Components - Event Handling</title>
@@ -202,90 +202,89 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orged53134">1. Introduction</a></li>
-<li><a href="#org4d05bdd">2. Preview of Component</a></li>
-<li><a href="#orgab0d08f">3. Starting Project</a></li>
-<li><a href="#orgc499d2f">4. Add [-] [0]</a></li>
-<li><a href="#org3f8c1c8">5. Rename <code>state-var</code> to <code>counter</code></a></li>
-<li><a href="#org3e33270">6. Build Component</a></li>
-<li><a href="#orgcf86597">7. Add Event Handler to: "-1" Button</a>
+<li><a href="#org4080877">1. Introduction</a></li>
+<li><a href="#org72b1ff4">2. Preview of Component</a></li>
+<li><a href="#orgaaa8b7f">3. Starting Project</a></li>
+<li><a href="#orgc6e0a65">4. Add [-] [0]</a></li>
+<li><a href="#org9182707">5. Rename <code>state-var</code> to <code>counter</code></a></li>
+<li><a href="#org0095123">6. Build Component</a></li>
+<li><a href="#orgd45e5d9">7. Add Event Handler to: "-1" Button</a>
 <ul>
-<li><a href="#org8885b7c">7.1. Set :on-click to Event Map</a></li>
-<li><a href="#org4eea09b">7.2. Add {{{uc!}}} setter</a></li>
-<li><a href="#org9b8a083">7.3. Review</a></li>
-<li><a href="#orgcaf0871">7.4. Add {{{uc!}}} to Event Map</a></li>
-<li><a href="#org58dd5fd">7.5. Review</a></li>
+<li><a href="#org8bacc08">7.1. Set :on-click to Event Map</a></li>
+<li><a href="#orgc9a10c7">7.2. Add {{{uc!}}} setter</a></li>
+<li><a href="#org594c3fc">7.3. Review</a></li>
+<li><a href="#org5a7bf30">7.4. Add {{{uc!}}} to Event Map</a></li>
+<li><a href="#org80b3dac">7.5. Review</a></li>
 </ul>
 </li>
-<li><a href="#orgdbf2517">8. <b>Preview Component</b></a></li>
-<li><a href="#orga7fd64f">9. Copy "-1" to "+1" Button</a></li>
-<li><a href="#org3163bbe">10. <b>Preview Component</b></a></li>
-<li><a href="#org5f8fd43">11. Review</a></li>
-<li><a href="#org85beee5">12. Paste [-10], [-100]</a></li>
-<li><a href="#orgef30058">13. <b>Preview Component</b></a></li>
-<li><a href="#orge1959b1">14. Review</a></li>
-<li><a href="#orgdf394b2">15. Add "+10" button with :swap Event Map</a>
+<li><a href="#org28dfd0f">8. <b>Preview Component</b></a></li>
+<li><a href="#orgce751fd">9. Copy "-1" to "+1" Button</a></li>
+<li><a href="#orgc0d832e">10. <b>Preview Component</b></a></li>
+<li><a href="#org81c2c87">11. Review</a></li>
+<li><a href="#orgfd24f42">12. Paste [-10], [-100]</a></li>
+<li><a href="#org551d819">13. <b>Preview Component</b></a></li>
+<li><a href="#org4ef03b2">14. Review</a></li>
+<li><a href="#orgafadb0b">15. Add "+10" button with :swap Event Map</a>
 <ul>
-<li><a href="#org6bdc3ba">15.1. Copy "-1" button</a></li>
-<li><a href="#orgfc46492">15.2. Review</a></li>
+<li><a href="#orgcf1dc00">15.1. Copy "-1" button</a></li>
+<li><a href="#org8da342f">15.2. Review</a></li>
 </ul>
 </li>
-<li><a href="#org5c57a5d">16. <b>Preview Component</b></a></li>
-<li><a href="#org5006c15">17. Explanation</a></li>
-<li><a href="#org739406b">18. Add [+100]</a></li>
-<li><a href="#orgac9e077">19. Add Reset button</a></li>
-<li><a href="#org6300a54">20. <b>Preview Component</b></a></li>
-<li><a href="#org9da14f0">21. Video Summary</a></li>
-<li><a href="#org8dff7d8">22. What is a component?</a></li>
-<li><a href="#org44c2046">23. Next</a></li>
+<li><a href="#org0d7d871">16. <b>Preview Component</b></a></li>
+<li><a href="#orgd48e507">17. Explanation</a></li>
+<li><a href="#org94aaa4f">18. Add [+100]</a></li>
+<li><a href="#org80632f9">19. Add Reset button</a></li>
+<li><a href="#orgdd6baf0">20. <b>Preview Component</b></a></li>
+<li><a href="#org82144eb">21. Diagram:</a></li>
+<li><a href="#orgdd9ec7d">22. What is a component?</a></li>
+<li><a href="#org6e9f270">23. Next</a></li>
 </ul>
 </div>
 </div>
 <p>
 <a href="./index.html">Index</a>
-<a id="orgd8cfc15"></a>
+<a id="org868f1ec"></a>
 </p>
 
-<div id="outline-container-orged53134" class="outline-2">
-<h2 id="orged53134"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org4080877" class="outline-2">
+<h2 id="org4080877"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Hi, I'm Ali Hussein, creator of Entmorph,
 <ul class="org-ul">
-<li>and in this video we're going to look at Event Handling in Entmorph Components;</li>
+<li>and in this video we're going to explore Event Handling in Entmorph Components;</li>
 </ul></li>
-<li>So far we haven't had to handle events ourselves because we've been using reactive varaibles to update the <b>User Interface</b> for us;</li>
-<li>In this video, we're going to introduce buttons for the first time,
+<li>So far we haven't had to handle events ourselves because we've been using input element to automatically update reactive varaibles;</li>
+<li>In this video, we're going to introduce buttons for the first time, which obviously can't update reactive variables directly;
 <ul class="org-ul">
-<li>and use a mechanism called an Event Map which provides a simple way to handle events, declaratively</li>
+<li>We'll introduce a mechanism called an Event Map which provides a neat and simple way to handle events, declaratively</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4d05bdd" class="outline-2">
-<h2 id="org4d05bdd"><span class="section-number-2">2.</span> Preview of Component</h2>
+<div id="outline-container-org72b1ff4" class="outline-2">
+<h2 id="org72b1ff4"><span class="section-number-2">2.</span> Preview of Component</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
-<li>We're going to take a break from our SVG component which we've been developing over the last few videos,
+<li>We're going to create a new component,
 <ul class="org-ul">
-<li>and create a new component,</li>
 <li>which will look like this at the end of the video;</li>
 </ul></li>
-<li>In the cetner there's a number box,
+<li>In the center there's a number box,
 <ul class="org-ul">
-<li>and to either side various buttons which allow us to update the value in the number box,</li>
+<li>and to either side there are buttons which allow us to update the value in the number box,</li>
 <li>like so;</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgab0d08f" class="outline-2">
-<h2 id="orgab0d08f"><span class="section-number-2">3.</span> Starting Project</h2>
+<div id="outline-container-orgaaa8b7f" class="outline-2">
+<h2 id="orgaaa8b7f"><span class="section-number-2">3.</span> Starting Project</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>So let's begin.</li>
 <li><b>Goto</b> &gt; <code>Code</code></li>
-<li>To save some time so I can focus on showing you event handling,
+<li>To save some time so that I can focus on showing you event handling,
 <ul class="org-ul">
 <li>I've already created a project with a component,</li>
 <li><b>Goto</b> &gt; <code>:styles</code></li>
@@ -298,13 +297,13 @@
 </ul></li>
 <li><code>scroll-to</code> :render
 <ul class="org-ul">
-<li>I've also added the .main style to the root <code>div</code> element;</li>
+<li>I've also already added the .main style to the root <code>div</code> element;</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc499d2f" class="outline-2">
-<h2 id="orgc499d2f"><span class="section-number-2">4.</span> Add [-] [0]</h2>
+<div id="outline-container-orgc6e0a65" class="outline-2">
+<h2 id="orgc6e0a65"><span class="section-number-2">4.</span> Add [-] [0]</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>So let's create our <b>User Interface</b>.</li>
@@ -329,8 +328,10 @@
 <li><code>click on</code> <b>Add &gt; :div</b>, to create a container for our buttons;</li>
 <li><code>click on</code> <b>Add &gt; Add Input &gt; Button</b>
 <ul class="org-ul">
+<li>which has default :value and :on-click attributes;</li>
 <li>a button's <code>:value</code> attribute is actually its label;</li>
 <li>:value "-1"</li>
+<li>:on-click in a minute</li>
 </ul></li>
 <li><code>click on</code> <b>Add &gt; Add Input &gt; Number</b>
 <ul class="org-ul">
@@ -342,8 +343,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org3f8c1c8" class="outline-2">
-<h2 id="org3f8c1c8"><span class="section-number-2">5.</span> Rename <code>state-var</code> to <code>counter</code></h2>
+<div id="outline-container-org9182707" class="outline-2">
+<h2 id="org9182707"><span class="section-number-2">5.</span> Rename <code>state-var</code> to <code>counter</code></h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Let's just rename <code>state-var</code> to something more meaningful;</li>
@@ -354,8 +355,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org3e33270" class="outline-2">
-<h2 id="org3e33270"><span class="section-number-2">6.</span> Build Component</h2>
+<div id="outline-container-org0095123" class="outline-2">
+<h2 id="org0095123"><span class="section-number-2">6.</span> Build Component</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li><b>Goto</b> &gt; <code>Output</code></li>
@@ -367,8 +368,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcf86597" class="outline-2">
-<h2 id="orgcf86597"><span class="section-number-2">7.</span> Add Event Handler to: "-1" Button</h2>
+<div id="outline-container-orgd45e5d9" class="outline-2">
+<h2 id="orgd45e5d9"><span class="section-number-2">7.</span> Add Event Handler to: "-1" Button</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li><code>scroll-to</code> :render &gt; "-1"</li>
@@ -379,8 +380,8 @@
 <li>To do this, we need to add a <code>click</code> event handler to the button;</li>
 </ul>
 </div>
-<div id="outline-container-org8885b7c" class="outline-3">
-<h3 id="org8885b7c"><span class="section-number-3">7.1.</span> Set :on-click to Event Map</h3>
+<div id="outline-container-org8bacc08" class="outline-3">
+<h3 id="org8bacc08"><span class="section-number-3">7.1.</span> Set :on-click to Event Map</h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li>There's already an <code>:on-click</code> attribute,
@@ -390,11 +391,13 @@
 </ul></li>
 <li>There's an <b>Event Maps</b> section with quite a few options,
 <ul class="org-ul">
+<li>a couple of which we'll look at in this video,</li>
 <li>but for now I'm just going to select <b>Event Map</b> from the very top;</li>
 </ul></li>
-<li>This adds an <b>Event Map</b> editor,
+<li>This creates an <b>Event Map</b> editor for the :on-click attribute;</li>
+<li>An <b>Event Map</b> is a declarative mechanism which allows us to configure how an event is handled by an element;
 <ul class="org-ul">
-<li>which contains a map with two keys:
+<li>The default <b>Event Map</b> contains two keys:
 <ul class="org-ul">
 <li><code>:handler</code></li>
 <li>and <code>:arg</code></li>
@@ -405,15 +408,15 @@
 <li>which means that their values are fixed,</li>
 <li>and we can't edit them;</li>
 </ul></li>
-<li>We need to set <code>:handler</code> to something,
+<li>We need to set <code>:handler</code> to something which is called when the event is triggered;
 <ul class="org-ul">
 <li>but before we do that we first need to create that something;</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org4eea09b" class="outline-3">
-<h3 id="org4eea09b"><span class="section-number-3">7.2.</span> Add {{{uc!}}} setter</h3>
+<div id="outline-container-orgc9a10c7" class="outline-3">
+<h3 id="orgc9a10c7"><span class="section-number-3">7.2.</span> Add {{{uc!}}} setter</h3>
 <div class="outline-text-3" id="text-7-2">
 <ul class="org-ul">
 <li><b>Goto</b> &gt; <code>Code</code></li>
@@ -421,20 +424,21 @@
 <li><code>click on</code> <b>Add Section &gt; :setters</b></li>
 <li>This creates a :setters section,
 <ul class="org-ul">
-<li>which allows us to create functions for updating state variables;</li>
+<li>which allows us to create functions which update state variables;</li>
 </ul></li>
-<li>Let's add a setter;</li>
-<li><code>click on</code> <b>Add</b>
+<li>If I <code>click on</code> <b>Add</b>
 <ul class="org-ul">
-<li>which gives us three options
+<li>it opens a sub-commands panel with three options:
 <ul class="org-ul">
 <li>swap!, reset!, and empty;</li>
 </ul></li>
-<li>from the sub-commands, I'll select "swap setter!",</li>
+</ul></li>
+<li>I'll select "swap setter!",
+<ul class="org-ul">
 <li><code>click on</code> <b>swap! setter</b></li>
 <li>which is the most common one you'll use;</li>
 </ul></li>
-<li>This adds a new swap! setter;</li>
+<li>This creates a swap! setter;</li>
 <li>Id: {{{uc!}}}</li>
 <li>Expr: and it already has an expression,
 <ul class="org-ul">
@@ -453,7 +457,7 @@
 <li><code>reference</code> to <code>counter</code>
 <ul class="org-ul">
 <li>I've selected <code>counter</code> and not <code>@counter</code> for the reference;</li>
-<li>this is because <code>@counter</code> gives us the value of <code>counter</code>, whereas the swap! function needs <code>counter</code> without the <code>@</code> to update the <code>counter</code> <b>State Variable</b></li>
+<li>this is because <code>@counter</code> represents the value of <code>counter</code>, whereas the swap! function needs <code>counter</code> without the <code>@</code> in order to update it;</li>
 </ul></li>
 <li><code>f</code> to <b>Function</b> &gt; <code>+</code></li>
 <li>And we need to add one more argument:
@@ -466,53 +470,49 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org9b8a083" class="outline-3">
-<h3 id="org9b8a083"><span class="section-number-3">7.3.</span> Review</h3>
+<div id="outline-container-org594c3fc" class="outline-3">
+<h3 id="org594c3fc"><span class="section-number-3">7.3.</span> Review</h3>
 <div class="outline-text-3" id="text-7-3">
 <ul class="org-ul">
-<li>we created a setter called {{{uc!}}}</li>
-<li>which is a function which takes an argument <code>x</code></li>
-<li>and it calls the <code>swap!</code> function,
+<li>We created a setter called {{{uc!}}}</li>
+<li>Its value is a function which takes an parameter <code>x</code>
+<ul class="org-ul">
+<li>and calls the <code>swap!</code> function,
 <ul class="org-ul">
 <li>which updates the <code>counter</code> state variable by adding <code>x</code> to it;</li>
-<li>so it's like calling "counter = counter + x"</li>
 </ul></li>
-<li>Up to now, to update a state variable, we've had to set the {{{val-attr} of an input number or input range element to an @Reactive;</li>
+</ul></li>
+<li>Up to now, to update a state variable, we've had to set the <code>:value</code> attribute of an input number or input range element to an @Reactive;</li>
 <li>So setters provide another mechanism for updating state variables;</li>
 <li>But, we still need some way to call the setter;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcaf0871" class="outline-3">
-<h3 id="orgcaf0871"><span class="section-number-3">7.4.</span> Add {{{uc!}}} to Event Map</h3>
+<div id="outline-container-org5a7bf30" class="outline-3">
+<h3 id="org5a7bf30"><span class="section-number-3">7.4.</span> Add {{{uc!}}} to Event Map</h3>
 <div class="outline-text-3" id="text-7-4">
 <ul class="org-ul">
 <li>So let's do that now;</li>
 <li><b>Goto</b> &gt; <code>:render</code></li>
 <li><code>scroll-to</code> "-1" button</li>
-<li>And within the <code>:on-click</code> Event Map
+<li>And within the <code>:on-click</code> <b>Event Map</b>
 <ul class="org-ul">
-<li>we'll set its :handler by clicking on <code>nil</code></li>
-<li>and selecting <b>Select Id</b>, which opens as Select Id dropdown;</li>
-</ul></li>
-<li>From the <b>Local Ids</b> section of the dropdown,
-<ul class="org-ul">
-<li>I'll select {{{uc!}}}</li>
+<li>we can now set its :handler, by clicking on <code>nil</code></li>
+<li>and selecting <b>Select Setter</b> &gt; {{{uc!}}}</li>
 </ul></li>
 <li>and for the <code>:arg</code>,
 <ul class="org-ul">
-<li><code>click on</code> <b><code>nil</code> &gt; Number</b></li>
-<li><code>-1</code></li>
+<li><code>click on</code> <b><code>nil</code> &gt; Number &gt; <code>-1</code></b></li>
 </ul></li>
 <li><code>[close</code> (Event Map) <code>]</code></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org58dd5fd" class="outline-3">
-<h3 id="org58dd5fd"><span class="section-number-3">7.5.</span> Review</h3>
+<div id="outline-container-org80b3dac" class="outline-3">
+<h3 id="org80b3dac"><span class="section-number-3">7.5.</span> Review</h3>
 <div class="outline-text-3" id="text-7-5">
 <ul class="org-ul">
-<li>Now our -1 Button has an <code>:on-click</code> attribute set to something called an Event Map,
+<li>Our -1 Button has an <code>:on-click</code> attribute set to an Event Map,
 <ul class="org-ul">
 <li>which has a <code>:handler</code> set to {{{uc!}}},</li>
 <li>and an <code>:arg</code> of -1</li>
@@ -525,8 +525,8 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgdbf2517" class="outline-2">
-<h2 id="orgdbf2517"><span class="section-number-2">8.</span> <b>Preview Component</b></h2>
+<div id="outline-container-org28dfd0f" class="outline-2">
+<h2 id="org28dfd0f"><span class="section-number-2">8.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>Now when we click on the "-1" button,
@@ -537,15 +537,15 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orga7fd64f" class="outline-2">
-<h2 id="orga7fd64f"><span class="section-number-2">9.</span> Copy "-1" to "+1" Button</h2>
+<div id="outline-container-orgce751fd" class="outline-2">
+<h2 id="orgce751fd"><span class="section-number-2">9.</span> Copy "-1" to "+1" Button</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li>Let's create a "+1" button</li>
 <li><code>click on</code> <b>Browser Back</b></li>
 <li>=select: ="-1" Button</li>
-<li>Copy Child</li>
-<li>Paste Child</li>
+<li><code>click on</code> <b>Clipboard &gt; Copy Child</b></li>
+<li>{{{click(Paste Child &gt; Paste at End}}}</li>
 <li><code>scroll-to</code> "+1" Button</li>
 <li>~:value "+1"</li>
 <li><code>:on-click &gt; :arg</code> 1</li>
@@ -553,8 +553,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org3163bbe" class="outline-2">
-<h2 id="org3163bbe"><span class="section-number-2">10.</span> <b>Preview Component</b></h2>
+<div id="outline-container-orgc0d832e" class="outline-2">
+<h2 id="orgc0d832e"><span class="section-number-2">10.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>And now if we click on "+1",
@@ -564,8 +564,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org5f8fd43" class="outline-2">
-<h2 id="org5f8fd43"><span class="section-number-2">11.</span> Review</h2>
+<div id="outline-container-org81c2c87" class="outline-2">
+<h2 id="org81c2c87"><span class="section-number-2">11.</span> Review</h2>
 <div class="outline-text-2" id="text-11">
 <ul class="org-ul">
 <li><code>scroll-to</code> :render</li>
@@ -573,7 +573,7 @@
 <ul class="org-ul">
 <li>{{{uc!}}}</li>
 </ul></li>
-<li>And we call it from each button element,
+<li>which we call from two button elements,
 <ul class="org-ul">
 <li>passing an <code>:arg</code> which is set to:
 <ul class="org-ul">
@@ -585,8 +585,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org85beee5" class="outline-2">
-<h2 id="org85beee5"><span class="section-number-2">12.</span> Paste [-10], [-100]</h2>
+<div id="outline-container-orgfd24f42" class="outline-2">
+<h2 id="orgfd24f42"><span class="section-number-2">12.</span> Paste [-10], [-100]</h2>
 <div class="outline-text-2" id="text-12">
 <ul class="org-ul">
 <li>We've already copied our -1 button</li>
@@ -597,8 +597,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgef30058" class="outline-2">
-<h2 id="orgef30058"><span class="section-number-2">13.</span> <b>Preview Component</b></h2>
+<div id="outline-container-org551d819" class="outline-2">
+<h2 id="org551d819"><span class="section-number-2">13.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-13">
 <ul class="org-ul">
 <li>And if we click on -10 or -100,
@@ -608,8 +608,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orge1959b1" class="outline-2">
-<h2 id="orge1959b1"><span class="section-number-2">14.</span> Review</h2>
+<div id="outline-container-org4ef03b2" class="outline-2">
+<h2 id="org4ef03b2"><span class="section-number-2">14.</span> Review</h2>
 <div class="outline-text-2" id="text-14">
 <ul class="org-ul">
 <li><code>scroll-to</code> :render</li>
@@ -617,16 +617,16 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdf394b2" class="outline-2">
-<h2 id="orgdf394b2"><span class="section-number-2">15.</span> Add "+10" button with :swap Event Map</h2>
+<div id="outline-container-orgafadb0b" class="outline-2">
+<h2 id="orgafadb0b"><span class="section-number-2">15.</span> Add "+10" button with :swap Event Map</h2>
 <div class="outline-text-2" id="text-15">
 <ul class="org-ul">
-<li>Let's look at an alternative to using setters;</li>
+<li>Now, let's look at an alternative to using setters;</li>
 <li>This time we'll create a +10 button;</li>
 </ul>
 </div>
-<div id="outline-container-org6bdc3ba" class="outline-3">
-<h3 id="org6bdc3ba"><span class="section-number-3">15.1.</span> Copy "-1" button</h3>
+<div id="outline-container-orgcf1dc00" class="outline-3">
+<h3 id="orgcf1dc00"><span class="section-number-3">15.1.</span> Copy "-1" button</h3>
 <div class="outline-text-3" id="text-15-1">
 <ul class="org-ul">
 <li>We can use the button that's already in our clipboard;</li>
@@ -644,68 +644,59 @@
 <li><code>Change Editor from</code> Event Map <code>to</code>  :swap</li>
 <li>So we still have an <b>Event Map</b>,
 <ul class="org-ul">
-<li>but now <code>:handler</code> is set to the <code>:swap</code> keyword</li>
-<li>and <code>:arg</code> has become a map of 3 keys;</li>
+<li>but now <code>:handler</code> is set to the <code>:swap</code> keyword instead of the {{{uc!}}} setter;</li>
+<li>and <code>:arg</code> is now a map of 3 keys;</li>
 </ul></li>
 <li>Let's update the map:
 <ul class="org-ul">
 <li><code>:state</code> <code>click on</code> <b>Select &gt; counter</b></li>
 <li><code>:fn</code> <code>click on</code> <b>inc &gt; +</b></li>
-<li><code>:arg</code> {{{click(nil &gt; Number &gt; -10}}}</li>
+<li><code>:arg</code> {{{click(nil &gt; Number &gt; +10}}}</li>
 </ul></li>
 <li><code>[close</code> (Event Map) <code>]</code></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfc46492" class="outline-3">
-<h3 id="orgfc46492"><span class="section-number-3">15.2.</span> Review</h3>
+<div id="outline-container-org8da342f" class="outline-3">
+<h3 id="org8da342f"><span class="section-number-3">15.2.</span> Review</h3>
 <div class="outline-text-3" id="text-15-2">
 <ul class="org-ul">
 <li><code>scroll-to</code> parent input/button</li>
-<li>We have a "+10" button;</li>
-<li>with a <code>:swap</code> <b>Event Map</b></li>
-<li>and its <code>:arg</code> set to a map which has <code>:state</code>, <code>:fn</code> and <code>:value</code> keys;</li>
-<li>this means that when a user clicks on this button,
+<li>When a user clicks on this button,
 <ul class="org-ul">
-<li>it updates the <code>counter</code> state variable</li>
-<li>by taking its current value and adding -10 to it,
-<ul class="org-ul">
-<li>or subtracting 10 from it;</li>
-</ul></li>
+<li>it should update the <code>counter</code> state variable</li>
+<li>by taking its current value and adding 10 to it;</li>
 </ul></li>
 </ul>
 </div>
 </div>
 </div>
-<div id="outline-container-org5c57a5d" class="outline-2">
-<h2 id="org5c57a5d"><span class="section-number-2">16.</span> <b>Preview Component</b></h2>
+<div id="outline-container-org0d7d871" class="outline-2">
+<h2 id="org0d7d871"><span class="section-number-2">16.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-16">
 <ul class="org-ul">
 <li>Clicking on the new "+10" button works as we expected;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5006c15" class="outline-2">
-<h2 id="org5006c15"><span class="section-number-2">17.</span> Explanation</h2>
+<div id="outline-container-orgd48e507" class="outline-2">
+<h2 id="orgd48e507"><span class="section-number-2">17.</span> Explanation</h2>
 <div class="outline-text-2" id="text-17">
 <ul class="org-ul">
 <li><code>scroll-to</code> input/button with :swap handler</li>
-<li>the :swap handler is an alternative to creating a setter;</li>
-<li>it provides exactly the same functionality as the {{{uc!}}},
+<li>The :swap handler is an alternative to creating a setter;</li>
+<li>It provides exactly the same functionality as {{{uc!}}},
 <ul class="org-ul">
-<li>but we didn't have to call a setter function;</li>
-<li>we just specified a state variable, a function to call on it, and an argument to pass to that function;</li>
+<li>but one advantage is we didn't have to call a setter function;</li>
 </ul></li>
-<li>The two methods are equivalent to each other and you can use whichever one you prefer;
-<ul class="org-ul">
-<li>if you need to update the same variable from different places in your <b>User Interface</b>, you probably want to use a setter;</li>
-</ul></li>
-<li>otherwise the :swap handler saves you from having to create a separate setter function;</li>
+<li>The two methods are equivalent to each other and you can use whichever one you prefer;</li>
+<li>If you need to update the same variable from different places in your <b>User Interface</b>, you probably want to use a setter;</li>
+<li>Otherwise the :swap handler saves you from having to create a separate setter function;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org739406b" class="outline-2">
-<h2 id="org739406b"><span class="section-number-2">18.</span> Add [+100]</h2>
+<div id="outline-container-org94aaa4f" class="outline-2">
+<h2 id="org94aaa4f"><span class="section-number-2">18.</span> Add [+100]</h2>
 <div class="outline-text-2" id="text-18">
 <ul class="org-ul">
 <li>For completeness, and to balance our <b>User Interface</b>,</li>
@@ -713,53 +704,46 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgac9e077" class="outline-2">
-<h2 id="orgac9e077"><span class="section-number-2">19.</span> Add Reset button</h2>
+<div id="outline-container-org80632f9" class="outline-2">
+<h2 id="org80632f9"><span class="section-number-2">19.</span> Add Reset button</h2>
 <div class="outline-text-2" id="text-19">
-<div class="org-src-container">
-<pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">button</span>
- <span style="color: #7388d6;">{</span><span style="color: #F5666D;">:value</span> <span style="color: #4E9A06;">"Reset"</span>
-  <span style="color: #F5666D;">:on-click</span> <span style="color: #909183;">{</span><span style="color: #F5666D;">:handler</span> <span style="color: #F5666D;">:reset</span>
-             <span style="color: #F5666D;">:arg</span>     <span style="color: #709870;">{</span><span style="color: #F5666D;">:state</span> counter
-                       <span style="color: #F5666D;">:value</span> 0<span style="color: #709870;">}</span><span style="color: #909183;">}</span><span style="color: #7388d6;">}</span><span style="color: #707183;">]</span>
-</pre>
-</div>
 <ul class="org-ul">
+<li><p>
+And let's also add a Reset button, which resets the value of <code>counter</code> to 0;
+</p>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:div</span>
+ <span style="color: #7388d6;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">button</span>
+  <span style="color: #909183;">{</span><span style="color: #F5666D;">:value</span> <span style="color: #4E9A06;">"Reset"</span>
+   <span style="color: #F5666D;">:on-click</span> <span style="color: #709870;">{</span><span style="color: #F5666D;">:handler</span> <span style="color: #F5666D;">:reset</span>
+              <span style="color: #F5666D;">:arg</span>     <span style="color: #907373;">{</span><span style="color: #F5666D;">:state</span> counter
+                        <span style="color: #F5666D;">:value</span> 0<span style="color: #907373;">}</span><span style="color: #709870;">}</span><span style="color: #909183;">}</span><span style="color: #7388d6;">]</span><span style="color: #707183;">]</span>
+</pre>
+</div></li>
 <li>The :reset handler is very similar to the :swap handler, except that rather than calling a function to update counter, it just sets it to the value of 0 whenever a user presses the Reset button;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6300a54" class="outline-2">
-<h2 id="org6300a54"><span class="section-number-2">20.</span> <b>Preview Component</b></h2>
+<div id="outline-container-orgdd6baf0" class="outline-2">
+<h2 id="orgdd6baf0"><span class="section-number-2">20.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-20">
 <ul class="org-ul">
 <li>So now we have a +100 button, and a Reset button which resets the value of the counter back to 0;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org9da14f0" class="outline-2">
-<h2 id="org9da14f0"><span class="section-number-2">21.</span> Video Summary</h2>
+<div id="outline-container-org82144eb" class="outline-2">
+<h2 id="org82144eb"><span class="section-number-2">21.</span> Diagram:</h2>
 <div class="outline-text-2" id="text-21">
 <ul class="org-ul">
-<li>In this video we looked at Event Maps,
-<ul class="org-ul">
-<li>which are a mechanism for handling events by calling:
-<ul class="org-ul">
-<li>setters</li>
-<li>:swap handlers or,</li>
-<li>:reset handlers</li>
-</ul></li>
-<li>all of which do one thing: they update a state variable;</li>
-</ul></li>
-<li>The state variable then updates the <b>User Interface</b> as required,
-<ul class="org-ul">
-<li>so there's no need to manipulate the DOM yourself;</li>
-</ul></li>
+<li>input elements -&gt; state vars -&gt;                  ui</li>
+<li>input elements -&gt; state vars -&gt; computer vars -&gt; ui</li>
+<li>event maps     -&gt; state vars -&gt;                  ui</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org8dff7d8" class="outline-2">
-<h2 id="org8dff7d8"><span class="section-number-2">22.</span> What is a component?</h2>
+<div id="outline-container-orgdd9ec7d" class="outline-2">
+<h2 id="orgdd9ec7d"><span class="section-number-2">22.</span> What is a component?</h2>
 <div class="outline-text-2" id="text-22">
 <ul class="org-ul">
 <li>Returning to the diagram that we introduced in the State Variables and Reactivity video,
@@ -769,16 +753,12 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org44c2046" class="outline-2">
-<h2 id="org44c2046"><span class="section-number-2">23.</span> Next</h2>
+<div id="outline-container-org6e9f270" class="outline-2">
+<h2 id="org6e9f270"><span class="section-number-2">23.</span> Next</h2>
 <div class="outline-text-2" id="text-23">
 <ul class="org-ul">
-<li>In this video, we've covered the basics of how Event Handling works in Entmorph;</li>
-<li>In the next video, we'll continue to explore event handling in Entmorph components,
-<ul class="org-ul">
-<li>by looking at some useful Event Map options,</li>
-<li>and we'll also look at how to save time by using Event Delegation.</li>
-</ul></li>
+<li>In this video, we've covered the basics of how to use Event Maps to handle events in Entmorph Components;</li>
+<li>In the next video, we'll look at how to save time and improve performance by using Event Delegation.</li>
 </ul>
 <p>
 Thanks for watching.
@@ -787,7 +767,7 @@ Thanks for watching.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2025-06-27 Fri 02:05</p>
+<p class="date">Created: 2025-06-27 Fri 15:06</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
