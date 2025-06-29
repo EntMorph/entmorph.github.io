@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-06-29 Sun 21:33 -->
+<!-- 2025-06-29 Sun 22:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Creating a Paint Component in Entmorph</title>
@@ -202,62 +202,62 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org0b4cb07">1. Overview</a></li>
-<li><a href="#org8452b94">2. Starting with :styles</a></li>
-<li><a href="#org10b486f">3. Add classes</a></li>
-<li><a href="#orgeb96f37">4. Add &lt;canvas&gt;</a></li>
-<li><a href="#org10d1373">5. Build then Preview</a></li>
-<li><a href="#org44b5e72">6. Add :behaviours</a></li>
-<li><a href="#orga0f7907">7. Rename <code>state-var</code> -&gt; <code>canvas-styles</code></a></li>
-<li><a href="#orgc69ce8b">8. <b>Preview Component</b></a></li>
-<li><a href="#orgb24ffdc">9. Add line to canvas</a></li>
-<li><a href="#orgd37279b">10. Set :autostart? true</a></li>
-<li><a href="#orgdf8921e">11. <b>Preview Component</b></a></li>
-<li><a href="#org3ed9357">12. Add: rect, fill-circle behaviours</a></li>
-<li><a href="#orgbd8c078">13. Switch to <code>rectangle</code> on canvas</a></li>
-<li><a href="#org9c6477d">14. Switch to <code>fill-circle</code> on canvas</a></li>
-<li><a href="#orgb60cae0">15. Two things</a></li>
-<li><a href="#org90c2d6e">16. Add :switcher</a></li>
-<li><a href="#org5441ea2">17. Update switcher :behaviours map</a></li>
-<li><a href="#orgef3c387">18. Add :state &gt; <code>mode-state</code></a></li>
-<li><a href="#orge9ff5d2">19. Set switcher :mode-state, :init-mode</a></li>
-<li><a href="#org911eb45">20. Add switcher to canvas</a></li>
-<li><a href="#org73d5a6e">21. <b>Preview Component</b></a></li>
-<li><a href="#org2d48340">22. Add canvas mode buttons</a></li>
-<li><a href="#orgcf42a50">23. Add :#each Special Element</a>
+<li><a href="#orgf234562">1. Overview</a></li>
+<li><a href="#orgbf25510">2. Starting with :styles</a></li>
+<li><a href="#org8000df9">3. Add classes</a></li>
+<li><a href="#org4e40766">4. Add &lt;canvas&gt;</a></li>
+<li><a href="#org3a7e417">5. Build then Preview</a></li>
+<li><a href="#org236f21c">6. Add :behaviours</a></li>
+<li><a href="#orga718b56">7. Rename <code>state-var</code> -&gt; <code>canvas-styles</code></a></li>
+<li><a href="#orge31475f">8. <b>Preview Component</b></a></li>
+<li><a href="#org6e25cf6">9. Add line to canvas</a></li>
+<li><a href="#org40f2023">10. Set :autostart? true</a></li>
+<li><a href="#org061e228">11. <b>Preview Component</b></a></li>
+<li><a href="#org2c96a69">12. Add: rect, fill-circle behaviours</a></li>
+<li><a href="#orgfa049ac">13. Switch to <code>rectangle</code> on canvas</a></li>
+<li><a href="#orgb488305">14. Switch to <code>fill-circle</code> on canvas</a></li>
+<li><a href="#org491f35e">15. Two things</a></li>
+<li><a href="#org688ebfd">16. Add :switcher</a></li>
+<li><a href="#org047e9ae">17. Update switcher :behaviours map</a></li>
+<li><a href="#org674579e">18. Add :state &gt; <code>mode-state</code></a></li>
+<li><a href="#orge4a0b41">19. Set switcher :mode-state, :init-mode</a></li>
+<li><a href="#orge7dd54d">20. Add switcher to canvas</a></li>
+<li><a href="#orgba0cbee">21. <b>Preview Component</b></a></li>
+<li><a href="#org0126cc2">22. Add canvas mode buttons</a></li>
+<li><a href="#org56c3494">23. Add :#each Special Element</a>
 <ul>
-<li><a href="#org2b5a0a5">23.1. Add :fieldset</a></li>
-<li><a href="#org020dce8">23.2. Add :div with :on-click Event Map</a></li>
-<li><a href="#orgb319ce6">23.3. Add Buttons</a></li>
-<li><a href="#org07f93f6">23.4. Update parent :div Event Handler</a></li>
+<li><a href="#orgf351b3e">23.1. Add :fieldset</a></li>
+<li><a href="#orge22a64b">23.2. Add :div with :on-click Event Map</a></li>
+<li><a href="#orgfd75181">23.3. Add Buttons</a></li>
+<li><a href="#org07b15c1">23.4. Update parent :div Event Handler</a></li>
 </ul>
 </li>
-<li><a href="#org7c1e637">24. <b>Preview Component</b></a></li>
-<li><a href="#orge815b11">25. Set canvas-styles state var</a></li>
-<li><a href="#orgc7943d8">26. <b>Preview Component</b></a></li>
-<li><a href="#orgdcc6f23">27. Add table to update canvas-styles</a></li>
-<li><a href="#org33b7716">28. Destructure canvas-styles state variable</a></li>
-<li><a href="#org641c1d4">29. Add cursors to :input elements</a></li>
-<li><a href="#org509c177">30. <b>Preview Component</b></a></li>
-<li><a href="#org2b2d43e">31. Last steps: Clear Canvas, Download</a></li>
-<li><a href="#org69018b9">32. Set :html.canvas/clear :canvas-id</a></li>
-<li><a href="#org836e86e">33. Add Download button</a></li>
-<li><a href="#org5143170">34. <b>Preview Component</b></a></li>
-<li><a href="#orgc937635">35. <span class="todo TODO">TODO</span> :noexport:</a></li>
-<li><a href="#orgfa0388e">36. Conclusion</a></li>
+<li><a href="#org3e25558">24. <b>Preview Component</b></a></li>
+<li><a href="#org71cba32">25. Set canvas-styles state var</a></li>
+<li><a href="#orgce562dc">26. <b>Preview Component</b></a></li>
+<li><a href="#orgada8376">27. Add table to update canvas-styles</a></li>
+<li><a href="#orgf8b9e5d">28. Destructure canvas-styles state variable</a></li>
+<li><a href="#orgc2df9f5">29. Add cursors to :input elements</a></li>
+<li><a href="#org76fa7c9">30. <b>Preview Component</b></a></li>
+<li><a href="#org57ac611">31. Last steps: Clear Canvas, Download</a></li>
+<li><a href="#orgbcb6993">32. Set :html.canvas/clear :canvas-id</a></li>
+<li><a href="#org05cf2a2">33. Add Download button</a></li>
+<li><a href="#orgda8ee6e">34. <b>Preview Component</b></a></li>
+<li><a href="#org89d0bea">35. <span class="todo TODO">TODO</span> :noexport:</a></li>
+<li><a href="#orgb0c4f8b">36. Conclusion</a></li>
 </ul>
 </div>
 </div>
 <p>
 <a href="./index.html">Index</a>
-<a id="orgf67683c"></a>
+<a id="org563fa73"></a>
 </p>
 
-<div id="outline-container-org0b4cb07" class="outline-2">
-<h2 id="org0b4cb07"><span class="section-number-2">1.</span> Overview</h2>
+<div id="outline-container-orgf234562" class="outline-2">
+<h2 id="orgf234562"><span class="section-number-2">1.</span> Overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>Hi, I'm Ali Hussein, creator of Entmorph,</li>
@@ -276,11 +276,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org8452b94" class="outline-2">
-<h2 id="org8452b94"><span class="section-number-2">2.</span> Starting with :styles</h2>
+<div id="outline-container-orgbf25510" class="outline-2">
+<h2 id="orgbf25510"><span class="section-number-2">2.</span> Starting with :styles</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li><code>Switch to 1st Tab</code></li>
@@ -298,11 +298,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org10b486f" class="outline-2">
-<h2 id="org10b486f"><span class="section-number-2">3.</span> Add classes</h2>
+<div id="outline-container-org8000df9" class="outline-2">
+<h2 id="org8000df9"><span class="section-number-2">3.</span> Add classes</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>I'll set .main on the root <code>div</code> element
@@ -317,11 +317,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgeb96f37" class="outline-2">
-<h2 id="orgeb96f37"><span class="section-number-2">4.</span> Add &lt;canvas&gt;</h2>
+<div id="outline-container-org4e40766" class="outline-2">
+<h2 id="org4e40766"><span class="section-number-2">4.</span> Add &lt;canvas&gt;</h2>
 <div class="outline-text-2" id="text-4">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>within <code>div.canvas-container</code>
@@ -335,11 +335,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org10d1373" class="outline-2">
-<h2 id="org10d1373"><span class="section-number-2">5.</span> Build then Preview</h2>
+<div id="outline-container-org3a7e417" class="outline-2">
+<h2 id="org3a7e417"><span class="section-number-2">5.</span> Build then Preview</h2>
 <div class="outline-text-2" id="text-5">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li><code>scroll-to</code> Run Panel</li>
@@ -351,11 +351,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org44b5e72" class="outline-2">
-<h2 id="org44b5e72"><span class="section-number-2">6.</span> Add :behaviours</h2>
+<div id="outline-container-org236f21c" class="outline-2">
+<h2 id="org236f21c"><span class="section-number-2">6.</span> Add :behaviours</h2>
 <div class="outline-text-2" id="text-6">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>Let's add the ability for users to draw lines on the canvas;</li>
@@ -393,11 +393,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orga0f7907" class="outline-2">
-<h2 id="orga0f7907"><span class="section-number-2">7.</span> Rename <code>state-var</code> -&gt; <code>canvas-styles</code></h2>
+<div id="outline-container-orga718b56" class="outline-2">
+<h2 id="orga718b56"><span class="section-number-2">7.</span> Rename <code>state-var</code> -&gt; <code>canvas-styles</code></h2>
 <div class="outline-text-2" id="text-7">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li><b>Goto</b> &gt; <code>:state</code>
@@ -410,11 +410,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc69ce8b" class="outline-2">
-<h2 id="orgc69ce8b"><span class="section-number-2">8.</span> <b>Preview Component</b></h2>
+<div id="outline-container-orge31475f" class="outline-2">
+<h2 id="orge31475f"><span class="section-number-2">8.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-8">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>Now when I click on the canvas,
@@ -430,11 +430,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb24ffdc" class="outline-2">
-<h2 id="orgb24ffdc"><span class="section-number-2">9.</span> Add line to canvas</h2>
+<div id="outline-container-org6e25cf6" class="outline-2">
+<h2 id="org6e25cf6"><span class="section-number-2">9.</span> Add line to canvas</h2>
 <div class="outline-text-2" id="text-9">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>So let's do that now</li>
@@ -465,11 +465,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd37279b" class="outline-2">
-<h2 id="orgd37279b"><span class="section-number-2">10.</span> Set :autostart? true</h2>
+<div id="outline-container-org40f2023" class="outline-2">
+<h2 id="org40f2023"><span class="section-number-2">10.</span> Set :autostart? true</h2>
 <div class="outline-text-2" id="text-10">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>But there's one more thing we need to do to get our line behaviour to work;</li>
@@ -486,11 +486,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdf8921e" class="outline-2">
-<h2 id="orgdf8921e"><span class="section-number-2">11.</span> <b>Preview Component</b></h2>
+<div id="outline-container-org061e228" class="outline-2">
+<h2 id="org061e228"><span class="section-number-2">11.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-11">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>Now let's try drawing on the canvas again
@@ -502,11 +502,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org3ed9357" class="outline-2">
-<h2 id="org3ed9357"><span class="section-number-2">12.</span> Add: rect, fill-circle behaviours</h2>
+<div id="outline-container-org2c96a69" class="outline-2">
+<h2 id="org2c96a69"><span class="section-number-2">12.</span> Add: rect, fill-circle behaviours</h2>
 <div class="outline-text-2" id="text-12">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>So let's give our users the ability to draw more things than just straight lines;</li>
@@ -528,11 +528,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbd8c078" class="outline-2">
-<h2 id="orgbd8c078"><span class="section-number-2">13.</span> Switch to <code>rectangle</code> on canvas</h2>
+<div id="outline-container-orgfa049ac" class="outline-2">
+<h2 id="orgfa049ac"><span class="section-number-2">13.</span> Switch to <code>rectangle</code> on canvas</h2>
 <div class="outline-text-2" id="text-13">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li><code>scroll-to</code> canvas</li>
@@ -542,11 +542,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org9c6477d" class="outline-2">
-<h2 id="org9c6477d"><span class="section-number-2">14.</span> Switch to <code>fill-circle</code> on canvas</h2>
+<div id="outline-container-orgb488305" class="outline-2">
+<h2 id="orgb488305"><span class="section-number-2">14.</span> Switch to <code>fill-circle</code> on canvas</h2>
 <div class="outline-text-2" id="text-14">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li><b>Preview Component</b></li>
@@ -565,11 +565,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb60cae0" class="outline-2">
-<h2 id="orgb60cae0"><span class="section-number-2">15.</span> Two things</h2>
+<div id="outline-container-org491f35e" class="outline-2">
+<h2 id="org491f35e"><span class="section-number-2">15.</span> Two things</h2>
 <div class="outline-text-2" id="text-15">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>The best way to do this is to add some buttons to let our users select a shape;</li>
@@ -581,11 +581,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org90c2d6e" class="outline-2">
-<h2 id="org90c2d6e"><span class="section-number-2">16.</span> Add :switcher</h2>
+<div id="outline-container-org688ebfd" class="outline-2">
+<h2 id="org688ebfd"><span class="section-number-2">16.</span> Add :switcher</h2>
 <div class="outline-text-2" id="text-16">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>To select which behaviour is active on the canvas,
@@ -610,11 +610,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org5441ea2" class="outline-2">
-<h2 id="org5441ea2"><span class="section-number-2">17.</span> Update switcher :behaviours map</h2>
+<div id="outline-container-org047e9ae" class="outline-2">
+<h2 id="org047e9ae"><span class="section-number-2">17.</span> Update switcher :behaviours map</h2>
 <div class="outline-text-2" id="text-17">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>Let's update the :behaviours map</li>
@@ -634,11 +634,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgef3c387" class="outline-2">
-<h2 id="orgef3c387"><span class="section-number-2">18.</span> Add :state &gt; <code>mode-state</code></h2>
+<div id="outline-container-org674579e" class="outline-2">
+<h2 id="org674579e"><span class="section-number-2">18.</span> Add :state &gt; <code>mode-state</code></h2>
 <div class="outline-text-2" id="text-18">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li><b>Goto</b> &gt; <code>:state</code></li>
@@ -650,11 +650,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orge9ff5d2" class="outline-2">
-<h2 id="orge9ff5d2"><span class="section-number-2">19.</span> Set switcher :mode-state, :init-mode</h2>
+<div id="outline-container-orge4a0b41" class="outline-2">
+<h2 id="orge4a0b41"><span class="section-number-2">19.</span> Set switcher :mode-state, :init-mode</h2>
 <div class="outline-text-2" id="text-19">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li><b>Goto</b> &gt; <code>:behaviours &gt; switcher</code>
@@ -669,11 +669,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org911eb45" class="outline-2">
-<h2 id="org911eb45"><span class="section-number-2">20.</span> Add switcher to canvas</h2>
+<div id="outline-container-orge7dd54d" class="outline-2">
+<h2 id="orge7dd54d"><span class="section-number-2">20.</span> Add switcher to canvas</h2>
 <div class="outline-text-2" id="text-20">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li><b>Goto</b> &gt; <code>:render &gt; canvas</code></li>
@@ -683,11 +683,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org73d5a6e" class="outline-2">
-<h2 id="org73d5a6e"><span class="section-number-2">21.</span> <b>Preview Component</b></h2>
+<div id="outline-container-orgba0cbee" class="outline-2">
+<h2 id="orgba0cbee"><span class="section-number-2">21.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-21">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>We can still draw a line on the canvas;</li>
@@ -708,11 +708,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org2d48340" class="outline-2">
-<h2 id="org2d48340"><span class="section-number-2">22.</span> Add canvas mode buttons</h2>
+<div id="outline-container-org0126cc2" class="outline-2">
+<h2 id="org0126cc2"><span class="section-number-2">22.</span> Add canvas mode buttons</h2>
 <div class="outline-text-2" id="text-22">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>So now we need a way for our users to switch the behaviour themselves;</li>
@@ -729,22 +729,22 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcf42a50" class="outline-2">
-<h2 id="orgcf42a50"><span class="section-number-2">23.</span> Add :#each Special Element</h2>
+<div id="outline-container-org56c3494" class="outline-2">
+<h2 id="org56c3494"><span class="section-number-2">23.</span> Add :#each Special Element</h2>
 <div class="outline-text-2" id="text-23">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li><b>Goto</b> &gt; <code>:render</code></li>
 <li><code>[open</code> <b>div.control-panel</b> <code>for editing]</code></li>
 </ul>
 </div>
-<div id="outline-container-org2b5a0a5" class="outline-3">
-<h3 id="org2b5a0a5"><span class="section-number-3">23.1.</span> Add :fieldset</h3>
+<div id="outline-container-orgf351b3e" class="outline-3">
+<h3 id="orgf351b3e"><span class="section-number-3">23.1.</span> Add :fieldset</h3>
 <div class="outline-text-3" id="text-23-1">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>First we'll create a panel for the buttons;</li>
@@ -757,11 +757,11 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org020dce8" class="outline-3">
-<h3 id="org020dce8"><span class="section-number-3">23.2.</span> Add :div with :on-click Event Map</h3>
+<div id="outline-container-orge22a64b" class="outline-3">
+<h3 id="orge22a64b"><span class="section-number-3">23.2.</span> Add :div with :on-click Event Map</h3>
 <div class="outline-text-3" id="text-23-2">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li><code>Within ~:fieldset~, under ~:legend~</code></li>
@@ -783,11 +783,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb319ce6" class="outline-3">
-<h3 id="orgb319ce6"><span class="section-number-3">23.3.</span> Add Buttons</h3>
+<div id="outline-container-orgfd75181" class="outline-3">
+<h3 id="orgfd75181"><span class="section-number-3">23.3.</span> Add Buttons</h3>
 <div class="outline-text-3" id="text-23-3">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li><code>Within :div</code></li>
@@ -811,11 +811,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org07f93f6" class="outline-3">
-<h3 id="org07f93f6"><span class="section-number-3">23.4.</span> Update parent :div Event Handler</h3>
+<div id="outline-container-org07b15c1" class="outline-3">
+<h3 id="org07b15c1"><span class="section-number-3">23.4.</span> Update parent :div Event Handler</h3>
 <div class="outline-text-3" id="text-23-4">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>When a user presses a button, it needs to change the active mode on the Canvas;</li>
@@ -844,11 +844,11 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org7c1e637" class="outline-2">
-<h2 id="org7c1e637"><span class="section-number-2">24.</span> <b>Preview Component</b></h2>
+<div id="outline-container-org3e25558" class="outline-2">
+<h2 id="org3e25558"><span class="section-number-2">24.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-24">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>First, we have a "Canvas Mode" section in the left panel,
@@ -869,11 +869,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orge815b11" class="outline-2">
-<h2 id="orge815b11"><span class="section-number-2">25.</span> Set canvas-styles state var</h2>
+<div id="outline-container-org71cba32" class="outline-2">
+<h2 id="org71cba32"><span class="section-number-2">25.</span> Set canvas-styles state var</h2>
 <div class="outline-text-2" id="text-25">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li><b>Goto</b> &gt; <code>Code &gt; :behaviours</code></li>
@@ -901,11 +901,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc7943d8" class="outline-2">
-<h2 id="orgc7943d8"><span class="section-number-2">26.</span> <b>Preview Component</b></h2>
+<div id="outline-container-orgce562dc" class="outline-2">
+<h2 id="orgce562dc"><span class="section-number-2">26.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-26">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>Draw Circle - nice orange color</li>
@@ -919,11 +919,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdcc6f23" class="outline-2">
-<h2 id="orgdcc6f23"><span class="section-number-2">27.</span> Add table to update canvas-styles</h2>
+<div id="outline-container-orgada8376" class="outline-2">
+<h2 id="orgada8376"><span class="section-number-2">27.</span> Add table to update canvas-styles</h2>
 <div class="outline-text-2" id="text-27">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>Now all we need to do is to give our users the same ability to be able to update these styles;</li>
@@ -982,11 +982,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org33b7716" class="outline-2">
-<h2 id="org33b7716"><span class="section-number-2">28.</span> Destructure canvas-styles state variable</h2>
+<div id="outline-container-orgf8b9e5d" class="outline-2">
+<h2 id="orgf8b9e5d"><span class="section-number-2">28.</span> Destructure canvas-styles state variable</h2>
 <div class="outline-text-2" id="text-28">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li><b>Goto</b> &gt; <code>:state</code></li>
@@ -1018,11 +1018,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org641c1d4" class="outline-2">
-<h2 id="org641c1d4"><span class="section-number-2">29.</span> Add cursors to :input elements</h2>
+<div id="outline-container-orgc2df9f5" class="outline-2">
+<h2 id="orgc2df9f5"><span class="section-number-2">29.</span> Add cursors to :input elements</h2>
 <div class="outline-text-2" id="text-29">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li><code>click on</code> <b>Browser Back</b></li>
@@ -1030,11 +1030,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org509c177" class="outline-2">
-<h2 id="org509c177"><span class="section-number-2">30.</span> <b>Preview Component</b></h2>
+<div id="outline-container-org76fa7c9" class="outline-2">
+<h2 id="org76fa7c9"><span class="section-number-2">30.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-30">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>Now we have a new section of controls,
@@ -1055,11 +1055,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org2b2d43e" class="outline-2">
-<h2 id="org2b2d43e"><span class="section-number-2">31.</span> Last steps: Clear Canvas, Download</h2>
+<div id="outline-container-org57ac611" class="outline-2">
+<h2 id="org57ac611"><span class="section-number-2">31.</span> Last steps: Clear Canvas, Download</h2>
 <div class="outline-text-2" id="text-31">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>We could keep adding more canvas shape behaviours,
@@ -1096,11 +1096,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org69018b9" class="outline-2">
-<h2 id="org69018b9"><span class="section-number-2">32.</span> Set :html.canvas/clear :canvas-id</h2>
+<div id="outline-container-orgbcb6993" class="outline-2">
+<h2 id="orgbcb6993"><span class="section-number-2">32.</span> Set :html.canvas/clear :canvas-id</h2>
 <div class="outline-text-2" id="text-32">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>Now let's go back to our Clear button</li>
@@ -1112,11 +1112,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org836e86e" class="outline-2">
-<h2 id="org836e86e"><span class="section-number-2">33.</span> Add Download button</h2>
+<div id="outline-container-org05cf2a2" class="outline-2">
+<h2 id="org05cf2a2"><span class="section-number-2">33.</span> Add Download button</h2>
 <div class="outline-text-2" id="text-33">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <div class="org-src-container">
 <pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">button</span>
@@ -1127,11 +1127,11 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org5143170" class="outline-2">
-<h2 id="org5143170"><span class="section-number-2">34.</span> <b>Preview Component</b></h2>
+<div id="outline-container-orgda8ee6e" class="outline-2">
+<h2 id="orgda8ee6e"><span class="section-number-2">34.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-34">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>Now we have a "Utilities" panel in our control panel on the LHS</li>
@@ -1148,22 +1148,22 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc937635" class="outline-2">
-<h2 id="orgc937635"><span class="section-number-2">35.</span> <span class="todo TODO">TODO</span> :noexport:</h2>
+<div id="outline-container-org89d0bea" class="outline-2">
+<h2 id="org89d0bea"><span class="section-number-2">35.</span> <span class="todo TODO">TODO</span> :noexport:</h2>
 <div class="outline-text-2" id="text-35">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>Capture mouse events outside of the canvas using new functionality</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgfa0388e" class="outline-2">
-<h2 id="orgfa0388e"><span class="section-number-2">36.</span> Conclusion</h2>
+<div id="outline-container-orgb0c4f8b" class="outline-2">
+<h2 id="orgb0c4f8b"><span class="section-number-2">36.</span> Conclusion</h2>
 <div class="outline-text-2" id="text-36">
 <p>
-<a href="#orgf67683c">Top</a>
+<a href="#org563fa73">Top</a>
 </p>
 <ul class="org-ul">
 <li>Throughout this video, I've used tools which have always been available to our users as part of the development process;
@@ -1204,7 +1204,7 @@
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2025-06-29 Sun 21:33</p>
+<p class="date">Created: 2025-06-29 Sun 22:53</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
