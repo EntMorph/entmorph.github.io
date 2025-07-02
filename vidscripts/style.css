@@ -662,6 +662,7 @@ table {
     font-weight:   normal;
     padding:       10px;
     border-bottom: 2px solid #fff;
+    background:    #DDD;
 }
 
 .let-bindings > tbody >  tr > td:first-child {
