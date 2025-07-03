@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-07-02 Wed 21:30 -->
+<!-- 2025-07-03 Thu 13:37 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Entmorph Introducing the Code Editor</title>
@@ -202,45 +202,49 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5b6d03d">1. Introduction</a></li>
-<li><a href="#orgbee4605">2. Create Project</a></li>
-<li><a href="#org987448f">3. Project Outline</a></li>
-<li><a href="#orgece2822">4. Brief Overview</a></li>
-<li><a href="#orgdaae339">5. Namespace Commands</a></li>
-<li><a href="#orge33244f">6. Add Number</a></li>
-<li><a href="#orgd310a9a">7. Close Cell</a></li>
-<li><a href="#orgcf3212d">8. Add String</a></li>
-<li><a href="#orge0283d3">9. Goto Menu</a></li>
-<li><a href="#org02fc9a9">10. Add Vector</a></li>
-<li><a href="#org551b0b9">11. <span class="todo TODO">TODO</span> Vector Operations</a></li>
-<li><a href="#orgd664d65">12. Bonus: conj action</a></li>
-<li><a href="#org050bb65">13. Add Map</a></li>
-<li><a href="#org37a124c">14. Map Operations</a>
+<li><a href="#org8933702">1. Introduction</a></li>
+<li><a href="#org3506618">2. Create Project</a></li>
+<li><a href="#org4e220c8">3. Project Outline</a></li>
+<li><a href="#org7bbc3a9">4. Brief Overview</a></li>
+<li><a href="#org194f23b">5. Namespace Commands</a></li>
+<li><a href="#org5e00eec">6. Add Number</a></li>
+<li><a href="#org58c9935">7. Close Cell</a></li>
+<li><a href="#orgd98ebd6">8. Add String</a></li>
+<li><a href="#org2e31ada">9. Goto Menu</a></li>
+<li><a href="#org8d47322">10. Introduce Goto Cell Panel</a></li>
+<li><a href="#orgc59a0de">11. Add Vector</a></li>
+<li><a href="#org581d198">12. Vector Operations</a>
 <ul>
-<li><a href="#org15fdd09">14.1. get</a></li>
-<li><a href="#org6b7ce62">14.2. <span class="todo TODO">TODO</span> Call keyword as fn</a></li>
-<li><a href="#org8ca15a5">14.3. <span class="todo TODO">TODO</span> Call map as fn</a></li>
-<li><a href="#orga096d56">14.4. assoc</a></li>
-<li><a href="#orgcfa4b9b">14.5. <span class="todo TODO">TODO</span> dissoc</a></li>
-<li><a href="#org8be2de2">14.6. <span class="todo TODO">TODO</span> get-in</a></li>
+<li><a href="#org3ab9b09">12.1. get from vector</a></li>
 </ul>
 </li>
-<li><a href="#orgfb345cb">15. Add Set</a></li>
-<li><a href="#org9ac1f66">16. Demo Goto Cell panel</a></li>
-<li><a href="#org756cf73">17. Automatic Reference Updating</a></li>
-<li><a href="#org492645e">18. Demo Undo/Redo panel</a></li>
-<li><a href="#orga621c34">19. Summary</a></li>
-<li><a href="#orgbeb726a">20. Next</a></li>
+<li><a href="#orgacdaa43">13. Bonus: conj action</a></li>
+<li><a href="#org862b5f9">14. Add Map</a></li>
+<li><a href="#org9b95b78">15. Map Operations</a>
+<ul>
+<li><a href="#orgc226f38">15.1. get</a></li>
+<li><a href="#orgd0df982">15.2. <span class="todo TODO">TODO</span> Call keyword as fn</a></li>
+<li><a href="#orga6e74c1">15.3. <span class="todo TODO">TODO</span> Call map as fn</a></li>
+<li><a href="#org05fe995">15.4. assoc</a></li>
+<li><a href="#orgbb3efb7">15.5. <span class="todo TODO">TODO</span> dissoc</a></li>
+<li><a href="#org1a0bf0a">15.6. <span class="todo TODO">TODO</span> get-in</a></li>
+</ul>
+</li>
+<li><a href="#org173b032">16. Add Set</a></li>
+<li><a href="#org73c6e61">17. Automatic Reference Updating</a></li>
+<li><a href="#org8523f01">18. Demo Undo/Redo panel</a></li>
+<li><a href="#org00077fa">19. Summary</a></li>
+<li><a href="#orgf78ee98">20. Next</a></li>
 </ul>
 </div>
 </div>
 <p>
 <a href="./index.html">Index</a>
-<a id="orgd78c468"></a>
+<a id="org6ed7e71"></a>
 </p>
 
-<div id="outline-container-org5b6d03d" class="outline-2">
-<h2 id="org5b6d03d"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org8933702" class="outline-2">
+<h2 id="org8933702"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Hi, I'm Ali Hussein, creator of Entmorph,
@@ -251,8 +255,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbee4605" class="outline-2">
-<h2 id="orgbee4605"><span class="section-number-2">2.</span> Create Project</h2>
+<div id="outline-container-org3506618" class="outline-2">
+<h2 id="org3506618"><span class="section-number-2">2.</span> Create Project</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>I've logged in to my account on entmorph.com;</li>
@@ -265,37 +269,36 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org987448f" class="outline-2">
-<h2 id="org987448f"><span class="section-number-2">3.</span> Project Outline</h2>
+<div id="outline-container-org4e220c8" class="outline-2">
+<h2 id="org4e220c8"><span class="section-number-2">3.</span> Project Outline</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>This creates an empty project;
 <ul class="org-ul">
-<li>with the Name of the project at the very top;</li>
-<li>a Save button underneath it,</li>
-<li>and a Project Details panel which allows us to rename the project;</li>
+<li>with the <b>Name</b> of the project at the very top,</li>
+<li>a <b>Save button</b> underneath it,</li>
+<li>and a <b>Project Details</b> panel which allows us to rename the project;</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgece2822" class="outline-2">
-<h2 id="orgece2822"><span class="section-number-2">4.</span> Brief Overview</h2>
+<div id="outline-container-org7bbc3a9" class="outline-2">
+<h2 id="org7bbc3a9"><span class="section-number-2">4.</span> Brief Overview</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
-<li>The Code Editor allows us to create what are called <i>cells</i>;</li>
+<li>In the Code Editor, we create what are called <i>cells</i>;</li>
 <li>Each cell contains code, which we can then evaluate to produce an output;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdaae339" class="outline-2">
-<h2 id="orgdaae339"><span class="section-number-2">5.</span> Namespace Commands</h2>
+<div id="outline-container-org194f23b" class="outline-2">
+<h2 id="org194f23b"><span class="section-number-2">5.</span> Namespace Commands</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
-<li><code>scroll-to</code> Namespace Commands</li>
+<li><code>scroll-to</code> <b>Namespace Commands</b></li>
 <li>which gives us options to create 3 types of cell:
 <ul class="org-ul">
-<li>Data</li>
-<li>Actions</li>
+<li>Data and Actions, which are covered in this and the next video,</li>
 <li>Components, which are covered in a separate series of videos</li>
 </ul></li>
 <li><code>click on</code> <b>Add Data</b>
@@ -305,8 +308,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orge33244f" class="outline-2">
-<h2 id="orge33244f"><span class="section-number-2">6.</span> Add Number</h2>
+<div id="outline-container-org5e00eec" class="outline-2">
+<h2 id="org5e00eec"><span class="section-number-2">6.</span> Add Number</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li><code>click on</code> <b>Number</b></li>
@@ -317,10 +320,12 @@
 <li>At the very top, there's an autogenerated <b>Id</b>,
 <ul class="org-ul">
 <li>which we can use to refer to the cell from within other cells;</li>
+</ul></li>
+<li>It's a good idea to rename a cell's Id as soon as you create it;
+<ul class="org-ul">
 <li><code>click on</code> <b>Id</b></li>
 <li>Rename: <code>my-number</code></li>
 </ul></li>
-<li>It's always a good idea to rename a cell's Id as soon as you create;</li>
 <li>Underneath that, there are Undo, Redo and Delete buttons,</li>
 <li>followed by a <b>Cell Commands</b> panel,
 <ul class="org-ul">
@@ -329,8 +334,8 @@
 <li>Then, there's a <b>Code Panel</b>, which is the most important part of the cell;
 <ul class="org-ul">
 <li>Since we selected Number, there's a Number editor in the <b>Code Panel</b></li>
-<li>I can set its value in the number: <code>12345</code></li>
-<li>or by selecting any of the commands in the <b>Number Commands</b> panel above it;</li>
+<li>I can set its value in the textbox: <code>12345</code></li>
+<li>and update it by selecting any of the commands in the <b>Number Commands</b> panel above it;</li>
 </ul></li>
 <li><code>Scroll so Output Panel is in view</code></li>
 <li>Below the <b>Code Panel</b>, there's a <b>Run Panel</b>,
@@ -342,25 +347,11 @@
 <ul class="org-ul">
 <li>the <b>Output Panel</b> becomes populated with the Number</li>
 </ul></li>
-<li><code>click on</code> <b><b>Live Edit</b></b>
-<ul class="org-ul">
-<li>then edit the Number,</li>
-<li>the <b>Output Panel</b> is updated in real time to show the latest value;</li>
-</ul></li>
-<li>For Numbers and other basic data types,
-<ul class="org-ul">
-<li>where the Code value is the same as the Output,</li>
-<li>this isn't that useful;</li>
-</ul></li>
-<li>But when we look at data structures and actions later on,
-<ul class="org-ul">
-<li>Live Edit can be a valuable tool to help us understand what we're coding;</li>
-</ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd310a9a" class="outline-2">
-<h2 id="orgd310a9a"><span class="section-number-2">7.</span> Close Cell</h2>
+<div id="outline-container-org58c9935" class="outline-2">
+<h2 id="org58c9935"><span class="section-number-2">7.</span> Close Cell</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Once we're done editing, it's a good idea to close an editor to keep the <b>User Interface</b> tidy;</li>
@@ -369,25 +360,26 @@
 <li>both the Number commands and textbox disappear,</li>
 <li>and we just see the number itself;</li>
 </ul></li>
+<li>We can open the Number editor again by clicking on it;</li>
 <li><code>[open</code> <b>Number</b> <code>for editing]</code></li>
-<li>Then we can open the Number editor again by clicking on it;</li>
 <li>If we <code>scroll-to</code> Cell Id
 <ul class="org-ul">
-<li>and {{{click(Cell Id : Close}}}</li>
+<li>and <code>click on</code> <b>Cell Id : Close</b></li>
 </ul></li>
 <li>This closes the whole cell for editing,
 <ul class="org-ul">
-<li>which also closes the Number editor,</li>
-<li>and hides the Cell Commands;</li>
+<li>including the Number editor,</li>
+<li>and it hides the Cell Commands;</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcf3212d" class="outline-2">
-<h2 id="orgcf3212d"><span class="section-number-2">8.</span> Add String</h2>
+<div id="outline-container-orgd98ebd6" class="outline-2">
+<h2 id="orgd98ebd6"><span class="section-number-2">8.</span> Add String</h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>Now let's add another cell</li>
+<li><code>scroll-to</code> <b>Namespace Commands</b></li>
 <li><code>click on</code> <b>String</b>
 <ul class="org-ul">
 <li>which creates a new cell with a String editor;</li>
@@ -400,23 +392,21 @@
 <li>a Run Panel</li>
 <li>and an <b>Output Panel</b></li>
 </ul></li>
-<li>Where they differ is in the <b>Code Panel</b> editor;
-<ul class="org-ul">
-<li>which of course affects what appears in the <b>Output Panel</b>;</li>
-</ul></li>
+<li>Where they differ is in the <b>Code Panel</b> editor;</li>
 <li>In this cell we have a <b>String</b> editor;</li>
 <li>If we click on the editor name, which looks like a link,
 <ul class="org-ul">
 <li>it opens a dropdown menu which lets us change the type and value of the editor;</li>
-<li>we'll look at a few of these as we go along;</li>
+<li><code>click on</code> <b>Cancel</b></li>
 </ul></li>
 <li>Type: "Hello, world!"</li>
 <li><code>and press</code> <b>Enter</b></li>
+<li><code>click on</code> <b>Run</b></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge0283d3" class="outline-2">
-<h2 id="orge0283d3"><span class="section-number-2">9.</span> Goto Menu</h2>
+<div id="outline-container-org2e31ada" class="outline-2">
+<h2 id="org2e31ada"><span class="section-number-2">9.</span> Goto Menu</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li>Rather than scroll up and down all the time,
@@ -424,48 +414,71 @@
 <li>where possible I'll use the <b>Goto</b> menu,</li>
 <li>which is available at the top of most sections;</li>
 </ul></li>
-<li><b>Goto</b> &gt; <code>Namespace commands</code></li>
+<li><b>Goto</b> &gt; <code>{{{Top}}}</code></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org02fc9a9" class="outline-2">
-<h2 id="org02fc9a9"><span class="section-number-2">10.</span> Add Vector</h2>
+<div id="outline-container-org8d47322" class="outline-2">
+<h2 id="org8d47322"><span class="section-number-2">10.</span> Introduce Goto Cell Panel</h2>
 <div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li>Once you create at least one cell, a Goto Cell panel appears at the top of the Code Editor,
+<ul class="org-ul">
+<li>which contains the name of each Cell as a link to that cell;</li>
+<li><code>DEMO</code></li>
+<li><b>Goto</b> &gt; <code>my-string</code> -&gt; <b>Goto</b> &gt; <code>Top</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc59a0de" class="outline-2">
+<h2 id="orgc59a0de"><span class="section-number-2">11.</span> Add Vector</h2>
+<div class="outline-text-2" id="text-11">
 <ul class="org-ul">
 <li>Now let's add a Vector, which is the first collection type we'll look at;</li>
 <li><code>click on</code> <b>Vector</b></li>
 <li>Rename Id: <code>my-vector</code></li>
 <li>A vector can hold a sequence of items;</li>
 <li>Let's add some items: <code>[nil true :iguana]</code></li>
-<li>A Keyword is a like a string but can't have any spaces;</li>
+<li>A <b>Keyword</b> is a like a string, but it starts with a colon, and can't have any spaces;</li>
 <li>It's very useful when used as a key in a map, which we'll look at in a minute;</li>
 <li><code>click on</code> <b>Add</b></li>
-<li>We can also add the number and string cells that we created earliers as items to our vector;</li>
+<li>We can also add the number and string cells that we created earlier as items to our vector;</li>
 <li><code>[... my-number my-string]</code></li>
 <li><code>click on</code> <b>Run</b>
 <ul class="org-ul">
 <li>we see the first three elements of the vector, followed by the values of our number and string cells;</li>
 <li>So whenever we run the code, all references such as <code>my-number</code> and <code>my-string</code>, are displayed in the <b>Output Panel</b> as their actual values;</li>
 </ul></li>
+<li>Now let's try the <b>Live Edit</b> feature;</li>
 <li><code>click on</code> <b>Live Edit</b></li>
-<li>=select: =nil
+<li><code>select:</code> nil
 <ul class="org-ul">
 <li><code>click on</code> <b>Delete</b></li>
 </ul></li>
-<li>=select: =0
+<li>the <b>Output Panel</b> is updated in real time;</li>
+<li><code>select:</code> 0
 <ul class="org-ul">
 <li><code>click on</code> <b>Swap</b></li>
-<li>and so on</li>
+</ul></li>
+<li>For Numbers and other basic data types,
+<ul class="org-ul">
+<li>where the Code value is the same as the Output,</li>
+<li>this isn't that useful;</li>
+</ul></li>
+<li>But for data structures and especially for actions which we'll look at soon,
+<ul class="org-ul">
+<li>Live Edit can help us understand how what we're coding actually works;</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org551b0b9" class="outline-2">
-<h2 id="org551b0b9"><span class="section-number-2">11.</span> <span class="todo TODO">TODO</span> Vector Operations</h2>
-<div class="outline-text-2" id="text-11">
+<div id="outline-container-org581d198" class="outline-2">
+<h2 id="org581d198"><span class="section-number-2">12.</span> Vector Operations</h2>
+<div class="outline-text-2" id="text-12">
 <ul class="org-ul">
 <li>Let's perform some basic operations on the vector;</li>
-<li><b>Goto</b> &gt; <code>Namespace Commands</code></li>
+<li><b>Goto</b> &gt; <code>{{{ns-comms}}}</code></li>
 <li><code>click on</code> <b>Add Action</b></li>
 <li>An action is any code which does something with data;</li>
 <li>There are a number of actions available to us here, and we'll cover most of these in our next video;</li>
@@ -473,20 +486,27 @@
 <li><code>click on</code> <b>Call</b>
 <ul class="org-ul">
 <li>which creates a new Action cell,</li>
-<li>with a <b>Select Function</b> dropdown menu open;</li>
+<li>with a <b>Select Function</b> dropdown menu already open;</li>
 </ul></li>
+</ul>
+</div>
+<div id="outline-container-org3ab9b09" class="outline-3">
+<h3 id="org3ab9b09"><span class="section-number-3">12.1.</span> get from vector</h3>
+<div class="outline-text-3" id="text-12-1">
+<ul class="org-ul">
+<li>We want to retrieve a value at a given index from the vector;</li>
 <li>Type: "get"
 <ul class="org-ul">
-<li>=select: =get</li>
+<li><code>select:</code> get</li>
 <li>which creates a call to the <code>get</code> function</li>
 </ul></li>
 <li>Before continuing, I'll just <code>scroll-to</code> Cell Id</li>
-<li>Rename Id: get-from-vector-action</li>
+<li>Rename Id: <code>get-from-vector-action</code></li>
 <li><code>scroll-to</code> <b>Code Panel</b></li>
 <li>Within the <b>Code Panel</b> for this cell, there's now an Action editor,
 <ul class="org-ul">
 <li>with a green box which has the name of a function, <code>get</code></li>
-<li>in the tab at the top-left of the box;</li>
+<li>in the tab at its top-left;</li>
 </ul></li>
 <li>This is a call Action,
 <ul class="org-ul">
@@ -498,12 +518,12 @@
 <li>Within "Action Args Commands"
 <ul class="org-ul">
 <li><code>click on</code> <b>Add</b></li>
-<li>to add an argument;</li>
+<li>to add the first argument;</li>
 </ul></li>
 <li>Within the Select dropdown, let's find our vector cell id,
 <ul class="org-ul">
 <li>type "my"</li>
-<li>=select: =my-vector</li>
+<li><code>select:</code> my-vector</li>
 </ul></li>
 <li><code>click on</code> <b>Add &gt; Number &gt; 1</b></li>
 <li><code>[close</code> (Action) <code>]</code></li>
@@ -516,7 +536,7 @@
 <li>which automatically triggers a Run</li>
 </ul></li>
 <li><b>Output Panel</b> now shows <code>:iguana</code></li>
-<li>= Update 1 to 2, 3, 4=</li>
+<li><code>Update 1 to 2, 3, 4</code></li>
 <li>As we update the index,
 <ul class="org-ul">
 <li>the value in the <b>Output Panel</b> updates to show the item in the vector at that index &#x2026;</li>
@@ -527,33 +547,33 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd664d65" class="outline-2">
-<h2 id="orgd664d65"><span class="section-number-2">12.</span> Bonus: conj action</h2>
 </div>
-<div id="outline-container-org050bb65" class="outline-2">
-<h2 id="org050bb65"><span class="section-number-2">13.</span> Add Map</h2>
-<div class="outline-text-2" id="text-13">
+<div id="outline-container-orgacdaa43" class="outline-2">
+<h2 id="orgacdaa43"><span class="section-number-2">13.</span> Bonus: conj action</h2>
+</div>
+<div id="outline-container-org862b5f9" class="outline-2">
+<h2 id="org862b5f9"><span class="section-number-2">14.</span> Add Map</h2>
+<div class="outline-text-2" id="text-14">
 <ul class="org-ul">
 <li>Now let's add a Map</li>
-<li>Rather than go back to the Namespace Commands to add another type,
+<li>Rather than go back to the <b>Namespace Commands</b> to add another cell,
 <ul class="org-ul">
-<li>we can use the Cell Commands at the top of each cell;</li>
+<li>we can use the Cell Commands at the top of each cell</li>
+<li>to insert a new cell before or after the current cell;</li>
 </ul></li>
-<li>We can use them to insert a new cell before or after the current cell;</li>
 <li><code>click on</code> <b>Insert After &gt; Map</b></li>
 <li>Which creates a Map cell after the current cell;</li>
-<li><code>scroll-to</code> <b>Code Panel</b></li>
+<li><code>scroll-to</code> {{{Cell Id}}}</li>
 <li>Rename Id: <code>my-map</code></li>
-<li>Map here is short for Hash-map, and is very similar what is called a dictionary or an associative array in other languages;</li>
+<li>Map is short for <b>Hash-map</b>, also known as a <b>dictionary</b> or an <b>associative array</b> in some languages;</li>
 <li>It's a data structure which lets you store a unique key with an associated value;</li>
-<li>We than they use that key to lookup the value in the map;</li>
+<li>We can then use that key to look up the value in the map;</li>
 <li>You can use any type of value as the key for a map,
 <ul class="org-ul">
 <li>and its very common to use strings and numbers,</li>
 </ul></li>
 <li>But even more common is to use keywords as keys, which is why there's a default empty keyword which is created when you first create a new Map;</li>
 <li>Let's add some keys to it;</li>
-<li>Before I do that, let's turn Live Edit on so we can see result map being built in the <b>Output Panel</b> as we create it;</li>
 </ul>
 <div class="org-src-container">
 <pre class="src src-clojurescript"><span style="color: #707183;">{</span><span style="color: #F5666D;">:number</span> my-number
@@ -562,27 +582,27 @@
 </pre>
 </div>
 <ul class="org-ul">
-<li><code>click on</code> <b>Live Edit</b></li>
+<li><code>click on</code> <b>Run</b></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org37a124c" class="outline-2">
-<h2 id="org37a124c"><span class="section-number-2">14.</span> Map Operations</h2>
-<div class="outline-text-2" id="text-14">
+<div id="outline-container-org9b95b78" class="outline-2">
+<h2 id="org9b95b78"><span class="section-number-2">15.</span> Map Operations</h2>
+<div class="outline-text-2" id="text-15">
 <ul class="org-ul">
 <li>Maps are probably the most useful data structure in Entmorph, as they are in most languages which use them;</li>
-<li>There are a lot of things we can do with them, and here we'll look at a small handful of fundamental operations.</li>
+<li>There are a lot of things we can do with them, and here we'll look at a small handful of operations.</li>
 </ul>
 </div>
-<div id="outline-container-org15fdd09" class="outline-3">
-<h3 id="org15fdd09"><span class="section-number-3">14.1.</span> get</h3>
-<div class="outline-text-3" id="text-14-1">
+<div id="outline-container-orgc226f38" class="outline-3">
+<h3 id="orgc226f38"><span class="section-number-3">15.1.</span> get</h3>
+<div class="outline-text-3" id="text-15-1">
 <ul class="org-ul">
-<li>we'll start with retrieving values by key;</li>
-<li>as we did for vectors, we'll use the <code>get</code> function again;</li>
+<li>We'll start with retrieving values by key;</li>
+<li>As we did for vectors, we'll use the <code>get</code> function;</li>
 <li><code>scroll-to</code> Cell Commands</li>
 <li><code>click on</code> <b>Insert Action After &gt; Call</b></li>
-<li>Select: type "get"</li>
+<li>Select searchbox &gt; "get"</li>
 <li><code>click on</code> <b>get</b></li>
 <li>Rename Id: <code>get-from-map-action</code></li>
 <li><code>click on</code> <b>Action Args &gt; Add</b>
@@ -594,9 +614,9 @@
 <ul class="org-ul">
 <li>Select: Keyword &gt; :number (DON'T PRESS ENTER)</li>
 </ul></li>
-<li>= Review =
+<li><code>Review</code>
 <ul class="org-ul">
-<li>Here we're calling the <code>get</code> function on our map to retrieve the value which has the key <code>:number</code>;</li>
+<li>We're calling the <code>get</code> function on our map to retrieve the value which has the key <code>:number</code>;</li>
 </ul></li>
 <li><code>click on</code> <b>Live Edit</b></li>
 <li>Change :number -&gt; :string -&gt; :vector</li>
@@ -604,15 +624,15 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org6b7ce62" class="outline-3">
-<h3 id="org6b7ce62"><span class="section-number-3">14.2.</span> <span class="todo TODO">TODO</span> Call keyword as fn</h3>
+<div id="outline-container-orgd0df982" class="outline-3">
+<h3 id="orgd0df982"><span class="section-number-3">15.2.</span> <span class="todo TODO">TODO</span> Call keyword as fn</h3>
 </div>
-<div id="outline-container-org8ca15a5" class="outline-3">
-<h3 id="org8ca15a5"><span class="section-number-3">14.3.</span> <span class="todo TODO">TODO</span> Call map as fn</h3>
+<div id="outline-container-orga6e74c1" class="outline-3">
+<h3 id="orga6e74c1"><span class="section-number-3">15.3.</span> <span class="todo TODO">TODO</span> Call map as fn</h3>
 </div>
-<div id="outline-container-orga096d56" class="outline-3">
-<h3 id="orga096d56"><span class="section-number-3">14.4.</span> assoc</h3>
-<div class="outline-text-3" id="text-14-4">
+<div id="outline-container-org05fe995" class="outline-3">
+<h3 id="org05fe995"><span class="section-number-3">15.4.</span> assoc</h3>
+<div class="outline-text-3" id="text-15-4">
 <ul class="org-ul">
 <li>Next we'll look at how to add a value to a map;</li>
 <li><code>click on</code> <b>Cell Commands &gt; Insert Action After &gt; Call</b></li>
@@ -621,15 +641,13 @@
 <ul class="org-ul">
 <li>which creates a call to the <code>assoc</code> function;</li>
 </ul></li>
-<li>This function takes at least 3 arguments,
+<li>This function takes a minimum of 3 arguments,
 <ul class="org-ul">
 <li>which we'll add now;</li>
 </ul></li>
 <li>The first is the collection we want to update;</li>
-<li>The second is the key within that collection that we want to update;
+<li>The second is the key within that collection whose value we want to update;
 <ul class="org-ul">
-<li>If the key already exists, then its value is replaced;</li>
-<li>Otherwise we create a new key and value in the map;</li>
 <li><code>click on</code> <b>Keyword &gt; :number</b></li>
 </ul></li>
 <li>And the final argument is the value that we want to give the key within the map;
@@ -637,7 +655,7 @@
 <li><code>click on</code> <b>Number &gt; 54321</b></li>
 </ul></li>
 <li><code>click on</code> <b>Run</b></li>
-<li>= Note change in just :number key=</li>
+<li><code>Note change in just :number key</code></li>
 <li>This is a good time to mention that Entmorph uses immutable data structures,
 <ul class="org-ul">
 <li>and this applies to maps, vectors and as we'll soon see, sets;</li>
@@ -648,26 +666,26 @@
 </ul></li>
 <li>Instead, when we call a function like <code>assoc</code>,
 <ul class="org-ul">
-<li>what it actually does is it creates a new map which is what you would get if the original map was updated;</li>
+<li>what it actually does is it creates a new map which contains the change you want;</li>
 </ul></li>
-<li>But the original map hasn't changed, and what this means is that both the original and the result can exist at the same time;</li>
+<li>But the original map doesn't change, and what this means is that both the original and the new map exist at the same time;</li>
 <li>This has many implications, the overwhelming majority of them good,
 <ul class="org-ul">
-<li>and we'll go over these in future videos as well as the documentation;</li>
+<li>and we'll go over these in future videos as well as in the documentation;</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcfa4b9b" class="outline-3">
-<h3 id="orgcfa4b9b"><span class="section-number-3">14.5.</span> <span class="todo TODO">TODO</span> dissoc</h3>
+<div id="outline-container-orgbb3efb7" class="outline-3">
+<h3 id="orgbb3efb7"><span class="section-number-3">15.5.</span> <span class="todo TODO">TODO</span> dissoc</h3>
 </div>
-<div id="outline-container-org8be2de2" class="outline-3">
-<h3 id="org8be2de2"><span class="section-number-3">14.6.</span> <span class="todo TODO">TODO</span> get-in</h3>
+<div id="outline-container-org1a0bf0a" class="outline-3">
+<h3 id="org1a0bf0a"><span class="section-number-3">15.6.</span> <span class="todo TODO">TODO</span> get-in</h3>
 </div>
 </div>
-<div id="outline-container-orgfb345cb" class="outline-2">
-<h2 id="orgfb345cb"><span class="section-number-2">15.</span> Add Set</h2>
-<div class="outline-text-2" id="text-15">
+<div id="outline-container-org173b032" class="outline-2">
+<h2 id="org173b032"><span class="section-number-2">16.</span> Add Set</h2>
+<div class="outline-text-2" id="text-16">
 <ul class="org-ul">
 <li>Next, let's add a Set</li>
 <li><code>click on</code> <b>Insert After &gt; Set</b></li>
@@ -679,9 +697,9 @@
 <li><code>click on</code> <b>Add &gt; Number 0</b></li>
 <li><code>click on</code> <b>Add &gt; Number 0</b></li>
 <li>Only one of the zeros is shown;</li>
-<li>=Number Commands: +1</li>
+<li>Number Commands &gt; +1</li>
 <li>Only when we update the second number does it appear in the output;</li>
-<li>Sets aren't actually sorted at all, so it's just luck that the items in the <b>Output Panel</b> are in the same order as they are in the <b>Code Panel</b>;</li>
+<li>Sets aren't actually sorted, so it's just luck that the items in the <b>Output Panel</b> are in the same order as they are in the <b>Code Panel</b>;</li>
 <li>There are various set operations, like union, difference, and interesection,
 <ul class="org-ul">
 <li>which we'll look at in a dedicated video on sets;</li>
@@ -689,28 +707,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org9ac1f66" class="outline-2">
-<h2 id="org9ac1f66"><span class="section-number-2">16.</span> Demo Goto Cell panel</h2>
-<div class="outline-text-2" id="text-16">
-<ul class="org-ul">
-<li><code>click on</code> <b>Top</b></li>
-<li>There's a Goto Cell panel which was created as soon as we created our first cell;
-<ul class="org-ul">
-<li>if we click on an Id,</li>
-<li>this lets us easily navigate through the Code Editor to any cell;</li>
-</ul></li>
-<li>And from that cell to get back to the Goto Cell panel,
-<ul class="org-ul">
-<li>we just have to click on <b>Goto</b> &gt; Top</li>
-</ul></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org756cf73" class="outline-2">
-<h2 id="org756cf73"><span class="section-number-2">17.</span> Automatic Reference Updating</h2>
+<div id="outline-container-org73c6e61" class="outline-2">
+<h2 id="org73c6e61"><span class="section-number-2">17.</span> Automatic Reference Updating</h2>
 <div class="outline-text-2" id="text-17">
 <ul class="org-ul">
-<li><code>click on</code> <b><code>my-number</code></b></li>
+<li><b>Goto</b> &gt; <code>Top &gt; ~my-number~</code></li>
 <li>One very useful feature of the Code Editor which I want to show you is this;</li>
 <li>Suppose we want to rename <code>my-number</code> to <code>another-number</code>;</li>
 <li>In a traditional text-based code editor, we would have use the text editor's search and replace operation, and manually go through all occurrences of the search string to confirm the replacement;
@@ -723,7 +724,7 @@
 <li>Rename <code>my-number</code> -&gt; <code>another-number</code></li>
 <li>If we <code>scroll-to</code> Goto Cell
 <ul class="org-ul">
-<li>it's reference has been automatically updated;</li>
+<li>it's reference has automatically been updated;</li>
 </ul></li>
 <li><code>click on</code> <b>Goto Cell &gt; my-vector</b>
 <ul class="org-ul">
@@ -744,8 +745,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org492645e" class="outline-2">
-<h2 id="org492645e"><span class="section-number-2">18.</span> Demo Undo/Redo panel</h2>
+<div id="outline-container-org8523f01" class="outline-2">
+<h2 id="org8523f01"><span class="section-number-2">18.</span> Demo Undo/Redo panel</h2>
 <div class="outline-text-2" id="text-18">
 <ul class="org-ul">
 <li><b>Goto</b> &gt; <code>Top</code></li>
@@ -774,14 +775,11 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orga621c34" class="outline-2">
-<h2 id="orga621c34"><span class="section-number-2">19.</span> Summary</h2>
+<div id="outline-container-org00077fa" class="outline-2">
+<h2 id="org00077fa"><span class="section-number-2">19.</span> Summary</h2>
 <div class="outline-text-2" id="text-19">
 <ul class="org-ul">
-<li>In this video, we introduced code cells,
-<ul class="org-ul">
-<li>which is where you create code which you can then run</li>
-</ul></li>
+<li>In this video, we introduced code cells,</li>
 <li>We looked at all of the data types available,
 <ul class="org-ul">
 <li>including numbers, strings, booleans, keywords,</li>
@@ -796,18 +794,18 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbeb726a" class="outline-2">
-<h2 id="orgbeb726a"><span class="section-number-2">20.</span> Next</h2>
+<div id="outline-container-orgf78ee98" class="outline-2">
+<h2 id="orgf78ee98"><span class="section-number-2">20.</span> Next</h2>
 <div class="outline-text-2" id="text-20">
 <ul class="org-ul">
-<li>In the next video, we'll look at the various other actions available in the Namespace Commands Add Actions panel.</li>
+<li>In the next video, we'll look at various other actions available in the <b>Namespace Commands</b> Add Actions panel.</li>
 <li>Thanks for watching.</li>
 </ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2025-07-02 Wed 21:30</p>
+<p class="date">Created: 2025-07-03 Thu 13:37</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

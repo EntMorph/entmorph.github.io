@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-07-02 Wed 17:18 -->
+<!-- 2025-07-03 Thu 01:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Entmorph Introducing the Code Editor - Actions</title>
@@ -202,19 +202,34 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org072503b">1. Introduction</a></li>
-<li><a href="#org17471ff">2. Create New Project</a></li>
-<li><a href="#orgd0a2dfc">3. Add let Action</a></li>
+<li><a href="#orgcfd24d7">1. Introduction</a></li>
+<li><a href="#org82fb965">2. Create New Project</a></li>
+<li><a href="#org1783db6">3. Add my-number</a></li>
+<li><a href="#org45cfec8">4. Add my-range (range my-number)</a></li>
+<li><a href="#org475c40a">5. Add inc-range</a></li>
+<li><a href="#org37c0894">6. Add let Action</a>
+<ul>
+<li><a href="#org8e5afa5">6.1. Update Bindings</a></li>
+</ul>
+</li>
+<li><a href="#org1a6948a">7. if Action</a></li>
+<li><a href="#org79ddc5c">8. fn Action</a>
+<ul>
+<li><a href="#orga8fda00">8.1. Add function Action</a></li>
+<li><a href="#org6afc33b">8.2. Build, Test Function</a></li>
+</ul>
+</li>
+<li><a href="#org08f9447">9. Summary</a></li>
 </ul>
 </div>
 </div>
 <p>
 <a href="./index.html">Index</a>
-<a id="orge318251"></a>
+<a id="org61dbdde"></a>
 </p>
 
-<div id="outline-container-org072503b" class="outline-2">
-<h2 id="org072503b"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-orgcfd24d7" class="outline-2">
+<h2 id="orgcfd24d7"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>In the previous video, we introduced the Code Editor,
@@ -225,29 +240,225 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org17471ff" class="outline-2">
-<h2 id="org17471ff"><span class="section-number-2">2.</span> Create New Project</h2>
+<div id="outline-container-org82fb965" class="outline-2">
+<h2 id="org82fb965"><span class="section-number-2">2.</span> Create New Project</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Introducing Code Editor Actions</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd0a2dfc" class="outline-2">
-<h2 id="orgd0a2dfc"><span class="section-number-2">3.</span> Add let Action</h2>
+<div id="outline-container-org1783db6" class="outline-2">
+<h2 id="org1783db6"><span class="section-number-2">3.</span> Add my-number</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
-<li><code>scroll-to</code> Namespace Commands</li>
-<li><code>click on</code> <b>Add Action</b></li>
-<li>We'll start with a let Action;</li>
-<li>Rename Id: <code>my-let</code></li>
+<li>We'll start by adding a number;</li>
+<li><code>click on</code> <b>Add Data &gt; Number</b></li>
+<li>Rename ID: <code>my-number</code></li>
+<li>Value: 10</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org45cfec8" class="outline-2">
+<h2 id="org45cfec8"><span class="section-number-2">4.</span> Add my-range (range my-number)</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li><code>scroll-to</code> <b>Namespace Commands</b></li>
+<li>Add Action &gt; Call</li>
+<li>Select: range</li>
+<li>Rename ID: <code>my-range</code></li>
+<li>here we're calling the range function, which takes 1 or more arguments;
+<ul class="org-ul">
+<li>the 1 arity version returns a range of numbers from 0 to the argument;</li>
+</ul></li>
+<li>Args: [~my-number~]</li>
+<li><code>click on</code> <b>Run</b></li>
+<li>Output: (0&#x2026;9)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org475c40a" class="outline-2">
+<h2 id="org475c40a"><span class="section-number-2">5.</span> Add inc-range</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>Add Action &gt; Call</li>
+<li>Select: map</li>
+<li>Rename ID: <code>inc-range</code></li>
+<li>Args: [ Function &gt; inc, <code>my-range</code> ]</li>
+<li>Here we're calling the <code>map</code> function, which in this case takes the range of numbers, and calls the <code>inc</code> function to increment each number by 1;</li>
+<li><code>click on</code> <b>Run</b></li>
+<li>Output: <code>(1...10)</code></li>
+<li>We've created 3 cells, one number cell and two action cells, to produce something which is relatively simple;</li>
+<li>But more than that, we could have done all of this work in just a single cell;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org37c0894" class="outline-2">
+<h2 id="org37c0894"><span class="section-number-2">6.</span> Add let Action</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li><b>Goto</b> &gt; <code>{{{ns-comms}}}</code></li>
+<li><code>click on</code> <b>Add Action &gt; let Action</b></li>
+<li>Rename Id: <code>my-let-inc-range</code></li>
 <li><code>scroll-to</code> <b>Code Panel</b></li>
+<li>there's an Action editor, which contains a <code>let</code> action;</li>
+<li>Within the <code>let</code> action there are two sections:
+<ul class="org-ul">
+<li><b>Bindings</b>, where we add expressions,</li>
+<li><b>Body</b>, which returns a single value from bindings;</li>
+</ul></li>
+<li>The default let action has an expression with an id of <code>new-item</code> which, is set to nil, and the body returns <code>new-item</code></li>
+</ul>
+</div>
+<div id="outline-container-org8e5afa5" class="outline-3">
+<h3 id="org8e5afa5"><span class="section-number-3">6.1.</span> Update Bindings</h3>
+<div class="outline-text-3" id="text-6-1">
+<ul class="org-ul">
+<li><code>[open</code> <b>Bindings</b> <code>for editing]</code></li>
+<li>The Bindings section lets us create any number of expressions, each of which has an id;</li>
+<li><code>click on</code> <b>Live Edit</b></li>
+<li><code>TYPE SLOWLY</code></li>
+<li>I'll start by renaming <code>new-item</code> -&gt; <code>range-end</code>
+<ul class="org-ul">
+<li>Notice that as I do this, the reference to <code>new-item</code> in the Body is also renamed;</li>
+<li>This is another example of <i>automatic reference updating</i>,</li>
+<li>which was introduced in the last video;</li>
+</ul></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">[</span>range-end 10
+ my-range <span style="color: #7388d6;">(</span>range range-end<span style="color: #7388d6;">)</span>
+ numbers  <span style="color: #7388d6;">(</span>map inc my-range<span style="color: #7388d6;">)</span><span style="color: #707183;">]</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li><code>[open</code> <b>Body</b> <code>for editing]</code>
+<ul class="org-ul">
+<li>and we should return <code>numbers</code> instead of <code>range-end</code> in the Body</li>
+</ul></li>
+<li><code>scroll-to</code> <b>Output Panel</b></li>
+<li><code>scroll-to</code> Bindings</li>
+<li><code>click on</code> <b>Run</b></li>
+<li>Using a <code>let</code> action, we've managed to produce the same result in a single cell that we did earlier using three cells;</li>
+<li>A <code>let</code> action is very useful for performing a sequence of computations which depend on each other, and returning a single result;</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org1a6948a" class="outline-2">
+<h2 id="org1a6948a"><span class="section-number-2">7.</span> if Action</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>Next let's add an <i>if Action</i></li>
+<li><code>click on</code> <b>Cell Commands &gt; Insert Action After &gt; if</b></li>
+<li>This creates a new cell containing an <code>if</code> action;</li>
+<li>This is useful when you need to return one of two alternative values,
+<ul class="org-ul">
+<li>based on the outcome of a condition;</li>
+</ul></li>
+<li>Let's add a condition;</li>
+<li><code>click on</code> <b>nil &gt; Action &gt; even?</b></li>
+<li>which adds a call to the <code>even?</code> function,
+<ul class="org-ul">
+<li>which takes one argument;</li>
+<li>and returns true if the number is even;</li>
+</ul></li>
+<li><code>click on</code> <b>Add &gt; Number</b>
+<ul class="org-ul">
+<li><code>[close</code> (Action) <code>]</code></li>
+</ul></li>
+<li>Let's add both a true and false expression;</li>
+<li>True: <code>click on</code> <b>nil &gt; String &gt; "Number is even"</b></li>
+<li>False: <code>click on</code> <b>nil &gt; String &gt; "Number is odd"</b></li>
+<li><code>scroll-to</code> Run</li>
+<li><code>click on</code> <b>Live Edit</b></li>
+<li>Now the output shows the string "Number is even"</li>
+<li><code>scroll-to</code> even number arg</li>
+<li><code>[open</code> <b>Number 0</b> <code>for editing]</code></li>
+<li><code>click on</code> <b>Commands &gt; +1</b></li>
+<li>Rinse and repeat</li>
+<li>And that's the <i>if action</i>;
+<ul class="org-ul">
+<li>we don't have to have just strings, we can add any expression in the true or false branches;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org79ddc5c" class="outline-2">
+<h2 id="org79ddc5c"><span class="section-number-2">8.</span> fn Action</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-orga8fda00" class="outline-3">
+<h3 id="orga8fda00"><span class="section-number-3">8.1.</span> Add function Action</h3>
+<div class="outline-text-3" id="text-8-1">
+<ul class="org-ul">
+<li>Next let's add a <i>function Action</i></li>
+<li><code>click on</code> <b>Cell Commands &gt; Insert Action After &gt; fn</b></li>
+<li>This creates a new cell containing a function action,</li>
+<li>It has two sections:
+<ul class="org-ul">
+<li>Parameters</li>
+<li>Body</li>
+</ul></li>
+<li>The Body has a default call action which is asking for a function,
+<ul class="org-ul">
+<li>so I'll select one now:</li>
+<li>'*'</li>
+</ul></li>
+<li>Rename Id: <code>product</code></li>
+<li>We'll add a second parameter;</li>
+<li><code>[open</code> <b>Parameters</b> <code>for editing]</code>
+<ul class="org-ul">
+<li><code>click on</code> <b>Add Parameter &gt; y</b></li>
+<li><code>[close</code> (Parameters) <code>]</code></li>
+</ul></li>
+<li>Then within the Body,
+<ul class="org-ul">
+<li>we'll open the times (or product) Action,</li>
+<li>Set args: x, y</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6afc33b" class="outline-3">
+<h3 id="org6afc33b"><span class="section-number-3">8.2.</span> Build, Test Function</h3>
+<div class="outline-text-3" id="text-8-2">
+<ul class="org-ul">
+<li>Then, if we <code>scroll-to</code> Run Panel,</li>
+<li><code>click on</code> <b>Build Function</b></li>
+<li>The Output Panel becomes populated with a Test Function panel,
+<ul class="org-ul">
+<li>which contains a call to the <code>product</code> function we just created;</li>
+</ul></li>
+<li>Not only have we built our function, but we can now test to see how it works by supplying test arguments;</li>
+<li>e.g. 5, 6</li>
+<li>And we can do this for other values;</li>
+<li>If we wanted to, we can add any number of tests by clicking on the Add Test command;</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org08f9447" class="outline-2">
+<h2 id="org08f9447"><span class="section-number-2">9.</span> Summary</h2>
+<div class="outline-text-2" id="text-9">
+<ul class="org-ul">
+<li>In this video we looked at three important actions:
+<ul class="org-ul">
+<li>let</li>
+<li>if</li>
+<li>and fn</li>
+</ul></li>
+<li>and there are more actions in development which will hopefully be released by the time you watch this video;</li>
+<li>CURRENT: Together with call actions, you should now be able to create a lot of functionality.</li>
+<li>In this and the previous video, we've covered the basics of the Entmorph Code Editor;</li>
+<li>In future videos we'll cover each data type and each several actions in more detail.</li>
+<li>Thanks for watching.</li>
 </ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2025-07-02 Wed 17:18</p>
+<p class="date">Created: 2025-07-03 Thu 01:28</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
