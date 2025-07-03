@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-07-03 Thu 20:34 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Entmorph Introducing Conditional Special Elements</title>
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link href="/css/style.css" rel="stylesheet" type="text/css"></link>
+<style>body{font-size: 30px;}code{background:#efefef;padding: 4px;border-radius:5px;}ul{list-style-type:circle;}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Entmorph Introducing Conditional Special Elements</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org01f573e">1. Introduction</a></li>
+<li><a href="#orge9ec076">2. Start Project</a></li>
+<li><a href="#orge4602e0">3. Add :state variables:</a></li>
+<li><a href="#orgac6d844">4. Add :div.checkbox-container for :#if</a>
+<ul>
+<li><a href="#org399b9ba">4.1. Set div.main class</a></li>
+<li><a href="#orgc7b5945">4.2. Add :div.checkbox-container with children</a></li>
+<li><a href="#org1ad021e">4.3. Add :#id email-checkbox</a></li>
+<li><a href="#orgf584203">4.4. Set :for to email-checkbox</a></li>
+</ul>
+</li>
+<li><a href="#org381741c">5. Build and <b>Preview Component</b></a></li>
+<li><a href="#org258063d">6. Add :div.section</a></li>
+<li><a href="#orgebbb432">7. <b>Preview Component</b></a></li>
+<li><a href="#orgf50d6f7">8. Review of :#if</a></li>
+<li><a href="#org305cf9a">9. Add :div.checkbox-container for :#when</a>
+<ul>
+<li><a href="#org7943951">9.1. Review :#when</a></li>
+</ul>
+</li>
+<li><a href="#orgc2b6c5a">10. <b>Preview Component</b></a></li>
+<li><a href="#orgb88def7">11. Summary</a></li>
+<li><a href="#org0ba8cc7">12. Next</a></li>
+</ul>
+</div>
+</div>
+<p>
+<a href="./index.html">Index</a>
+<a id="org022dc38"></a>
+</p>
+
+<div id="outline-container-org01f573e" class="outline-2">
+<h2 id="org01f573e"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<a href="#org022dc38">Top</a>
+</p>
+<ul class="org-ul">
+<li>Hi, I'm Ali Hussein, creator of Entmorph,</li>
+<li>and in this video we're going to introduce Special Elements,
+<ul class="org-ul">
+<li>which are an Entmorph extension to HTML</li>
+<li>which allows us to make decisions about what to display in the <b>User Interface</b> based on changes in reactive variables;</li>
+</ul></li>
+<li>As usal the best way to understand this is to see it demonstrated;</li>
+<li>There are several different Special Elements,
+<ul class="org-ul">
+<li>so in this video we'll explore Conditional Special Elements,</li>
+<li>and in the next video we'll look at Sequence Special Elements;</li>
+</ul></li>
+<li>We're going to create this component, which has two sections;
+<ul class="org-ul">
+<li>at the top, there's a form requesting you to login using your username;</li>
+<li>if we click on the checkbox, the form switches so that you can login using your email address instead;</li>
+</ul></li>
+<li>Then underneath that is a checkbox which if we check it will show a set of advanced controls for a widget;</li>
+<li>These are both just examples which demonstrate how Special Elements work, and as such they don't do anything at all;</li>
+<li>So let's get started;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge9ec076" class="outline-2">
+<h2 id="orge9ec076"><span class="section-number-2">2.</span> Start Project</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="#org022dc38">Top</a>
+</p>
+<ul class="org-ul">
+<li>To save time, I've already created a project with a component which has the styles we want already defined;</li>
+<li><code>scroll-to</code> :styles &gt; Outline</li>
+<li>There are 4 class style rules which we'll apply to our component as we go along;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge4602e0" class="outline-2">
+<h2 id="orge4602e0"><span class="section-number-2">3.</span> Add :state variables:</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+<a href="#org022dc38">Top</a>
+</p>
+<ul class="org-ul">
+<li>We'll start by adding state variables;</li>
+<li><code>scroll-to</code> :state</li>
+<li>Rename default:
+<ul class="org-ul">
+<li><code>[email-login? false]</code></li>
+</ul></li>
+<li>Add:
+<ul class="org-ul">
+<li><code>[advanced-controls? false]</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgac6d844" class="outline-2">
+<h2 id="orgac6d844"><span class="section-number-2">4.</span> Add :div.checkbox-container for :#if</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+<a href="#org022dc38">Top</a>
+</p>
+<ul class="org-ul">
+<li><code>scroll-to</code> :render</li>
+</ul>
+</div>
+<div id="outline-container-org399b9ba" class="outline-3">
+<h3 id="org399b9ba"><span class="section-number-3">4.1.</span> Set div.main class</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+<a href="#org022dc38">Top</a>
+</p>
+<ul class="org-ul">
+<li>Set: <code>div.main</code></li>
+<li><code>[open</code> <b>div.main</b> <code>for editing]</code></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc7b5945" class="outline-3">
+<h3 id="orgc7b5945"><span class="section-number-3">4.2.</span> Add :div.checkbox-container with children</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+<a href="#org022dc38">Top</a>
+</p>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:div</span>
+ <span style="color: #7388d6;">[</span><span style="color: #F5666D;">:div.checkbox-container</span>
+  <span style="color: #909183;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">checkbox</span>
+   <span style="color: #709870;">{</span><span style="color: #F5666D;">:checked</span> @email-login?<span style="color: #709870;">}</span><span style="color: #909183;">]</span>
+  <span style="color: #204A87;">;; </span><span style="color: #204A87;">And to allow our users to click on the checkbox using a label</span>
+  <span style="color: #909183;">[</span><span style="color: #F5666D;">:label</span>
+   <span style="color: #709870;">{</span><span style="color: #F5666D;">:for</span> <span style="color: #F5666D;">:???</span><span style="color: #709870;">}</span>
+   <span style="color: #4E9A06;">"Email login?"</span><span style="color: #909183;">]</span><span style="color: #7388d6;">]</span>
+ <span style="color: #204A87;">;; </span><span style="color: #204A87;">:div with :#if here</span>
+ <span style="color: #707183;">]</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org1ad021e" class="outline-3">
+<h3 id="org1ad021e"><span class="section-number-3">4.3.</span> Add :#id email-checkbox</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+<a href="#org022dc38">Top</a>
+</p>
+<ul class="org-ul">
+<li>The <code>:label</code> element <code>:for</code> attribute needs an id for the checkbox;</li>
+<li>In HTML, we would set the :id attribute of the checkbox,
+<ul class="org-ul">
+<li><code>:id</code> "email-checkbox"</li>
+</ul></li>
+<li>But if we did this here, if we want to create more than one instance of this component on the same page,
+<ul class="org-ul">
+<li>each instance would have a checkbox with an id of "email-checkbox",</li>
+<li>which isn't allowed;</li>
+</ul></li>
+<li>To solve this, we'll use a Special Attribute;
+<ul class="org-ul">
+<li><code>click on</code> <b>Add Special &gt; :#id</b></li>
+</ul></li>
+<li>This is an Entmorph extension to HTML,
+<ul class="org-ul">
+<li>and what this does is each time a new instance of this component is created,</li>
+<li>it generates a new id for the checkbox,</li>
+<li>and that id is guaranteed to be unique;</li>
+</ul></li>
+<li><code>:#id email-checkbox</code></li>
+<li>Even though we've called in "email-checkbox" here, this is just so we can refer to it, for example from another attribute;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf584203" class="outline-3">
+<h3 id="orgf584203"><span class="section-number-3">4.4.</span> Set :for to email-checkbox</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+<a href="#org022dc38">Top</a>
+</p>
+<ul class="org-ul">
+<li><code>scroll-to</code> :label &gt; :for</li>
+<li><code>[open</code> <b>:for "id"</b> <code>for editing]</code></li>
+<li>Set to Auto Id &gt; email-checbox</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org381741c" class="outline-2">
+<h2 id="org381741c"><span class="section-number-2">5.</span> Build and <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-5">
+<p>
+<a href="#org022dc38">Top</a>
+</p>
+<ul class="org-ul">
+<li>So we have a checkbox with a label;</li>
+<li>When we click on either the checkbox or the label, it toggles the checkbox;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org258063d" class="outline-2">
+<h2 id="org258063d"><span class="section-number-2">6.</span> Add :div.section</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+<a href="#org022dc38">Top</a>
+</p>
+<ul class="org-ul">
+<li>Now let's add a section which will respond to changes in the <code>email-login?</code> state variable, which the checkbox is updating;</li>
+<li><code>scroll-to</code> div.checkbox-container</li>
+<li><code>[close</code> (div.checkbox-container) <code>]</code></li>
+<li>Underneath it we'll add:</li>
+<li><code>:div.section</code></li>
+<li><code>click on</code> <b>Special</b></li>
+<li>which opens a sub-menu with the special elements which are currently available;</li>
+<li><code>click on</code> <b>:#if</b>
+<ul class="org-ul">
+<li>which creates an <code>:#if</code> special element,</li>
+<li>which has 3 sections:
+<ul class="org-ul">
+<li>Condition</li>
+<li>True Element, which is rendered when the Condition is true,</li>
+<li>False Element, which is rendered when the Condition is false</li>
+</ul></li>
+</ul></li>
+<li>We'll start with the Condition</li>
+<li>This can be an expression, including an @Reactive;</li>
+<li><code>click on</code> <b>nil &gt; @Reactive &gt; email-login?</b></li>
+<li>See following diagram:</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:div.section</span>
+ <span style="color: #7388d6;">[</span><span style="color: #F5666D;">:#if</span> @email-login?
+  <span style="color: #204A87;">;; </span><span style="color: #204A87;">Open True Element</span>
+  <span style="color: #909183;">[</span><span style="color: #F5666D;">:div</span>
+   <span style="color: #4E9A06;">"Login using email address"</span>
+   <span style="color: #204A87;">;; </span><span style="color: #204A87;">Leave :value empty</span>
+   <span style="color: #709870;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">text</span>
+    <span style="color: #907373;">{</span><span style="color: #F5666D;">:placeholder</span> <span style="color: #4E9A06;">"E-mail"</span><span style="color: #907373;">}</span><span style="color: #709870;">]</span>
+   <span style="color: #204A87;">;; </span><span style="color: #204A87;">Leave :on-click empty</span>
+   <span style="color: #709870;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">button</span>
+    <span style="color: #907373;">{</span><span style="color: #F5666D;">:value</span> <span style="color: #4E9A06;">"Login"</span><span style="color: #907373;">}</span><span style="color: #709870;">]</span><span style="color: #909183;">]</span>
+  <span style="color: #204A87;">;; </span><span style="color: #204A87;">Copy and paste from True Element</span>
+  <span style="color: #909183;">[</span><span style="color: #F5666D;">:div</span>
+   <span style="color: #4E9A06;">"Login using username"</span>
+   <span style="color: #709870;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">text</span>
+    <span style="color: #907373;">{</span><span style="color: #F5666D;">:placeholder</span> <span style="color: #4E9A06;">"Username"</span><span style="color: #907373;">}</span><span style="color: #709870;">]</span>
+   <span style="color: #709870;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">button</span>
+    <span style="color: #907373;">{</span><span style="color: #F5666D;">:value</span> <span style="color: #4E9A06;">"Login"</span><span style="color: #907373;">}</span><span style="color: #709870;">]</span><span style="color: #909183;">]</span><span style="color: #7388d6;">]</span><span style="color: #707183;">]</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li><code>REVIEW</code></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgebbb432" class="outline-2">
+<h2 id="orgebbb432"><span class="section-number-2">7.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-7">
+<p>
+<a href="#org022dc38">Top</a>
+</p>
+<ul class="org-ul">
+<li>Since the <code>email-login?</code> state variable is false,
+<ul class="org-ul">
+<li>and the checkbox is unchecked,</li>
+<li>our :#if Special Element renders the False Element branch,</li>
+<li>which is why we see the Username login;</li>
+</ul></li>
+<li><code>click on</code> <b>checkbox</b>
+<ul class="org-ul">
+<li>this swaps out the Username elements for the Email login elements;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf50d6f7" class="outline-2">
+<h2 id="orgf50d6f7"><span class="section-number-2">8.</span> Review of :#if</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+<a href="#org022dc38">Top</a>
+</p>
+<ul class="org-ul">
+<li><code>scroll-to</code> :#if</li>
+<li>So the :#if Special Element,
+<ul class="org-ul">
+<li>through its Condition expression,</li>
+<li>reacts to changes in the @email-login? state variable,</li>
+<li>and renders the True or False Element branch appropriately;</li>
+</ul></li>
+<li>The :#if Special Element is very useful if you have two alternatives and you want to switch between them;</li>
+<li>However there are also times when you want to be able to show or hide something;</li>
+<li>For that, we need to use the :#when Special Element</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org305cf9a" class="outline-2">
+<h2 id="org305cf9a"><span class="section-number-2">9.</span> Add :div.checkbox-container for :#when</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+<a href="#org022dc38">Top</a>
+</p>
+<ul class="org-ul">
+<li><b>Goto</b> &gt; <code>Code &gt; :render</code></li>
+<li><code>[close</code> (:div.checkbox-container) <code>]</code></li>
+<li><code>[close</code> (:#if :div.section) <code>]</code></li>
+<li><code>click on</code> <b>Add</b></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:div</span>
+ <span style="color: #7388d6;">[</span><span style="color: #F5666D;">:div.checkbox-container</span>
+  <span style="color: #909183;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">checkbox</span>
+   <span style="color: #709870;">{</span><span style="color: #F5666D;">:checked</span> @advanced-controls?
+    <span style="color: #F5666D;">:#id</span>     controls-checkbox<span style="color: #709870;">}</span><span style="color: #909183;">]</span>
+  <span style="color: #909183;">[</span><span style="color: #F5666D;">:label</span>
+   <span style="color: #709870;">{</span><span style="color: #F5666D;">:for</span> controls-checkbox<span style="color: #709870;">}</span>
+   <span style="color: #4E9A06;">"Show advanced controls"</span><span style="color: #909183;">]</span><span style="color: #7388d6;">]</span><span style="color: #707183;">]</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li><code>click on</code> <b>Add</b></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:#when</span> ,,,<span style="color: #707183;">]</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>As with the :#if Special Element,
+<ul class="org-ul">
+<li>there's a Condition, which we can set to any expression;
+<ul class="org-ul">
+<li><code>@advanced-controls?</code></li>
+</ul></li>
+<li>Then underneath, there's an Element children panel,
+<ul class="org-ul">
+<li>which is exactly the same as for HTML Elements;</li>
+</ul></li>
+</ul></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:div.section</span>
+ <span style="color: #7388d6;">[</span><span style="color: #F5666D;">:div.number-slider</span>
+  <span style="color: #909183;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">number</span><span style="color: #909183;">]</span>
+  <span style="color: #909183;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">range</span><span style="color: #909183;">]</span><span style="color: #7388d6;">]</span><span style="color: #707183;">]</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>We don't need to set the :value attributes to anything as this is just for display purposes;</li>
+<li>When the Condition expression is true, the Element Children are displayed;
+<ul class="org-ul">
+<li>otherwise, they're hidden;</li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-org7943951" class="outline-3">
+<h3 id="org7943951"><span class="section-number-3">9.1.</span> Review :#when</h3>
+<div class="outline-text-3" id="text-9-1">
+<p>
+<a href="#org022dc38">Top</a>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc2b6c5a" class="outline-2">
+<h2 id="orgc2b6c5a"><span class="section-number-2">10.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-10">
+<p>
+<a href="#org022dc38">Top</a>
+</p>
+<ul class="org-ul">
+<li>Now we have a second checkbox,
+<ul class="org-ul">
+<li>and when we toggle it,</li>
+<li>the panel which displays the Number Slider appears and disappears below it;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgb88def7" class="outline-2">
+<h2 id="orgb88def7"><span class="section-number-2">11.</span> Summary</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+<a href="#org022dc38">Top</a>
+</p>
+<ul class="org-ul">
+<li>In this video we looked at two conditional special elements,
+<ul class="org-ul">
+<li>:#if, which lets us choose what to display between two alternatives;</li>
+<li>:#when, which lets us show or hide a part of our <b>User Interface</b></li>
+</ul></li>
+<li>Each of these Special Elements lets us set a Condition expression,
+<ul class="org-ul">
+<li>which controls what is rendered in the <b>User Interface</b></li>
+</ul></li>
+<li>We can set anything here, but if we use an @Reactive, we make the whole Special Element react to changes to reactive variables;</li>
+<li>There's also a :#cond Special Element which will be released soon, which allows us to choose from multiple conditions and alternatives;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0ba8cc7" class="outline-2">
+<h2 id="org0ba8cc7"><span class="section-number-2">12.</span> Next</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+<a href="#org022dc38">Top</a>
+</p>
+<ul class="org-ul">
+<li>In the next video, we'll look at Sequence Special Elements.</li>
+<li>Thanks for watching.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2025-07-03 Thu 20:34</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
