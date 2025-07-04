@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-07-04 Fri 18:55 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Entmorph Introducing Component Destructuring</title>
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link href="/css/style.css" rel="stylesheet" type="text/css"></link>
+<style>body{font-size: 30px;}code{background:#efefef;padding: 4px;border-radius:5px;}ul{list-style-type:circle;}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Entmorph Introducing Component Destructuring</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgc21731a">1. Introduction</a></li>
+<li><a href="#org2ff7fc5">2. Start Project</a></li>
+<li><a href="#org64de1ff">3. Init :state</a></li>
+<li><a href="#orgfaaecc7">4. :render add :line (axes) and :circle elements</a></li>
+<li><a href="#org3ab8462">5. Destructure axes</a>
+<ul>
+<li><a href="#org1d766fe">5.1. Review</a></li>
+</ul>
+</li>
+<li><a href="#orgf4966cf">6. Set :line axes reactive attributes</a></li>
+<li><a href="#org5530ca2">7. <b>Preview Component</b></a></li>
+<li><a href="#orgce01bc7">8. Add number+slider for just y-axis (left/right)</a></li>
+<li><a href="#org82e1059">9. <b>Preview Component</b></a></li>
+<li><a href="#orgd2569a5">10. Review circle attributes</a></li>
+<li><a href="#org363fd04">11. Destructure circle</a></li>
+<li><a href="#org639d48b">12. Set :circle element attributes to cursors</a></li>
+<li><a href="#orga19e581">13. <b>Preview Component</b></a></li>
+<li><a href="#org787ddc0">14. Mention Cursors</a></li>
+<li><a href="#orgea691e0">15. Next</a></li>
+</ul>
+</div>
+</div>
+<p>
+<a href="./index.html">Index</a>
+<a id="orgdde6416"></a>
+</p>
+
+<div id="outline-container-orgc21731a" class="outline-2">
+<h2 id="orgc21731a"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<a href="#orgdde6416">Top</a>
+</p>
+<ul class="org-ul">
+<li>Hi, I'm Ali Hussein, creator of Entmorph,
+<ul class="org-ul">
+<li>and in this video we're going to look at destructuring in Entmorph components;</li>
+</ul></li>
+<li>If you're looking for destructuring in general, 
+<ul class="org-ul">
+<li>there is a separate video which you can find either on Youtube or on entmorph.com</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org2ff7fc5" class="outline-2">
+<h2 id="org2ff7fc5"><span class="section-number-2">2.</span> Start Project</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="#orgdde6416">Top</a>
+</p>
+<ul class="org-ul">
+<li>To save time, I've already created a project with a component which has the styles we want already defined;</li>
+<li><code>scroll-to</code> :styles &gt; Outline</li>
+<li>There are 4 class style rules which we'll apply to our component as we go along;</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org64de1ff" class="outline-2">
+<h2 id="org64de1ff"><span class="section-number-2">3.</span> Init :state</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>It also has a state section with the following items:</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">[</span>x-axis 250
+ y-axis 250
+ circle-x 200
+ circle-y 200
+ circle-r 50
+ <span style="color: #707183;">]</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>We want to use these state variables to draw x- and y-axes,
+<ul class="org-ul">
+<li>and a circle</li>
+<li>on an SVG element;</li>
+</ul></li>
+<li>and we also want to create controls for both the axes and the circle properties;</li>
+<li>The problem is, we've created one state variable for each property, which although it works, looks very messy;</li>
+<li>and if we want to add even more shapes, it will just become even messier;</li>
+<li>Rather than use individual properties, we can group related properties together using data structures;</li>
+<li><code>click on</code> <b>Add</b>:</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">[</span>axes    <span style="color: #7388d6;">[</span>250 250<span style="color: #7388d6;">]</span>
+ circle  <span style="color: #7388d6;">{</span><span style="color: #F5666D;">:cx</span> 200 <span style="color: #F5666D;">:cy</span> 200 <span style="color: #F5666D;">:r</span> 50<span style="color: #7388d6;">}</span>
+ <span style="color: #707183;">]</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>And let's delete our original state variables as we don't need them any more;</li>
+<li><code>select:</code> All &gt; <code>click on</code> <b>Delete</b></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgfaaecc7" class="outline-2">
+<h2 id="orgfaaecc7"><span class="section-number-2">4.</span> :render add :line (axes) and :circle elements</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>Next, let's add an SVG element with axes and a circle</li>
+<li><code>scroll-to</code> :render</li>
+<li><code>click on</code> <b>Add &gt; svg</b></li>
+<li><code>click on</code> <b>Add &gt; SVG Element &gt; line</b> TWICE</li>
+<li><code>click on</code> <b>Add &gt; SVG Element &gt; circle</b></li>
+<li>A line has start and end coordinates,
+<ul class="org-ul">
+<li>from x1, y1 to x2, y2;</li>
+</ul></li>
+<li>x-axis:
+<ul class="org-ul">
+<li>set {:x1 0, :x2 500} both fixed;</li>
+<li>And we want to be able to move it up and down,
+<ul class="org-ul">
+<li>so we need to set both the y-coordinates to an @Reactive;</li>
+</ul></li>
+<li>:y1 <code>click on</code> <b>nil &gt; <span class="underline">String</span> &gt; @Reactive &gt; ???</b>
+<ul class="org-ul">
+<li>and the problem is we only have the <code>axes</code> <b>State Variable</b>,</li>
+<li>which is a vector,</li>
+<li>whereas we need just the y-coordinate from it;</li>
+<li><code>click on</code> <b>Cancel</b></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3ab8462" class="outline-2">
+<h2 id="org3ab8462"><span class="section-number-2">5.</span> Destructure axes</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li><b>Goto</b> &gt; <code>:state</code></li>
+<li>To pass just the y-coordinate from the <code>axes</code> state variable to the :line element?
+<ul class="org-ul">
+<li>we're going to use a technique called vector destructuring;</li>
+</ul></li>
+<li>To do that, I'll click on the <code>axes</code> state variable,
+<ul class="org-ul">
+<li>which opens its editor;</li>
+<li>underneath the id textbox is a Destructure button;</li>
+<li>when I click on it, it opens a panel with a set of Destructure commands;</li>
+</ul></li>
+<li>Since <code>axes</code> has a vector value,
+<ul class="org-ul">
+<li>we need to select the vector destructure command;</li>
+<li><code>click on</code> <b>[&#x2026;]</b></li>
+<li>which creates a Vector destructure editor;</li>
+</ul></li>
+<li>There are two coordinates: x- and y-
+<ul class="org-ul">
+<li>so I'll add an id for each of them;</li>
+<li>[axes-x axes-y]</li>
+<li><code>click on</code> <b>Ok</b></li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-org1d766fe" class="outline-3">
+<h3 id="org1d766fe"><span class="section-number-3">5.1.</span> Review</h3>
+<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li>We've created two new variables which look just like state variables,
+<ul class="org-ul">
+<li>except they aren't state variables;</li>
+</ul></li>
+<li>They're actually known as <i>cursors</i>;
+<ul class="org-ul">
+<li>and we can use then anywhere that we can use a state variable;</li>
+</ul></li>
+<li>The difference between a cursor and a state variable is that a cursor allows us to update a value <i>within</i> a state variable,
+<ul class="org-ul">
+<li>so for instance axes-x allows us to update the first item in the axes vector, without needing to update the whole vector;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf4966cf" class="outline-2">
+<h2 id="orgf4966cf"><span class="section-number-2">6.</span> Set :line axes reactive attributes</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>Let's see our cursors in action;</li>
+<li><code>click on</code> <b>Browser Back</b></li>
+<li>x-axis:
+<ul class="org-ul">
+<li>set {:x1 0, :x2 500} both fixed;</li>
+<li>:y1, :y2
+<ul class="org-ul">
+<li><span class="underline">String</span> -&gt; @Reactive -&gt; ???</li>
+<li>so both the cursors we just created now appear in the Select Reactive menu, which is what we would have expected;</li>
+<li>Set both to @axes-y</li>
+</ul></li>
+</ul></li>
+<li>y-axis: set just {:y1 0, :y2 500}
+<ul class="org-ul">
+<li>:x1, :x2 both to @axes-x</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5530ca2" class="outline-2">
+<h2 id="org5530ca2"><span class="section-number-2">7.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>Now the axes are drawn through the middle, as we were hoping;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgce01bc7" class="outline-2">
+<h2 id="orgce01bc7"><span class="section-number-2">8.</span> Add number+slider for just y-axis (left/right)</h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li>Now let's create an input control to allow our users to move the y-axis left and right;</li>
+<li><b>Goto</b> &gt; <code>Code &gt; :render</code></li>
+<li>Add after SVG element;</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-clojurescript"><span style="color: #707183;">[</span><span style="color: #F5666D;">:table</span>
+ <span style="color: #7388d6;">[</span><span style="color: #F5666D;">:tbody</span>
+  <span style="color: #909183;">[</span><span style="color: #F5666D;">:tr</span>
+   <span style="color: #709870;">[</span><span style="color: #F5666D;">:td</span>
+    <span style="color: #4E9A06;">"y-axis x"</span><span style="color: #709870;">]</span>
+   <span style="color: #709870;">[</span><span style="color: #F5666D;">:td</span>
+    <span style="color: #907373;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">number</span>
+     <span style="color: #6276ba;">{</span><span style="color: #F5666D;">:value</span> @axes-x
+      <span style="color: #F5666D;">:max</span>   500<span style="color: #6276ba;">}</span><span style="color: #907373;">]</span>
+    <span style="color: #907373;">[</span><span style="color: #F5666D;">:</span><span style="color: #2F8B58; font-weight: bold;">input</span><span style="color: #2E3436; background-color: #EDEDED;">/</span><span style="color: #F5666D;">range</span>
+     <span style="color: #6276ba;">{</span><span style="color: #F5666D;">:value</span> @axes-x
+      <span style="color: #F5666D;">:max</span>   500<span style="color: #6276ba;">}</span><span style="color: #907373;">]</span><span style="color: #709870;">]</span><span style="color: #909183;">]</span><span style="color: #7388d6;">]</span><span style="color: #707183;">]</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org82e1059" class="outline-2">
+<h2 id="org82e1059"><span class="section-number-2">9.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-9">
+<ul class="org-ul">
+<li>Moving the slide left and right moves the y-axis,
+<ul class="org-ul">
+<li>so input elements interact with our cursors as we would expect;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd2569a5" class="outline-2">
+<h2 id="orgd2569a5"><span class="section-number-2">10.</span> Review circle attributes</h2>
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li>Now let's deal with our circle;</li>
+<li><code>scroll-to</code> :circle</li>
+<li>The circle has three attributes
+<ul class="org-ul">
+<li>:cx</li>
+<li>:cy</li>
+<li>:r</li>
+</ul></li>
+<li>all of which we want to control using state variables;</li>
+<li>If we try and set the attribute of say :cx,
+<ul class="org-ul">
+<li><code>click on</code> <b>"100" &gt; <span class="underline">String</span> &gt; @Reactive &gt; ???</b></li>
+<li>we have the same problem as we did for the axes lines;</li>
+<li>we have a <code>circle</code> state variable, but we can't set it as the value of the :cx attribute;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org363fd04" class="outline-2">
+<h2 id="org363fd04"><span class="section-number-2">11.</span> Destructure circle</h2>
+<div class="outline-text-2" id="text-11">
+<ul class="org-ul">
+<li><b>Goto</b> &gt; <code>Code &gt; :state</code></li>
+<li>And this time we'll destructure the <code>circle</code> state variable;</li>
+<li><code>click on</code> <b><code>circle</code> &gt; Destructure</b></li>
+<li>to open the Destructure commands panel;</li>
+<li>This the value of the <code>circle</code> state variable is a map,
+<ul class="org-ul">
+<li>we need to use map destructuring;</li>
+<li>but there are a number of different map destructure commands available;</li>
+<li>so another clue to help us choose is the fact that all the keys of the map are keywords;</li>
+<li>this means we need to choose the map :keys destructure command;</li>
+</ul></li>
+<li><code>click on</code> <b>{:keys[&#x2026;]}</b></li>
+<li>This creates a Map Destructure editor with a fixed <code>:keys</code> entry which has a Id vector as its value;</li>
+<li><code>scroll-to</code> circle map</li>
+<li>Since our map has the keys :cx, :cy and :r, we need to use these as the ids in the Ids vector;</li>
+<li><code>[close</code> (circle state-var) <code>]</code></li>
+<li>We've introduced 3 state variables, cx, cy and r, each corresponding to one of the keys in the map on the right;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org639d48b" class="outline-2">
+<h2 id="org639d48b"><span class="section-number-2">12.</span> Set :circle element attributes to cursors</h2>
+<div class="outline-text-2" id="text-12">
+<ul class="org-ul">
+<li>Let's return to our :circle element</li>
+<li><code>click on</code> <b>Browser Back</b></li>
+<li>circle: set: cx, cy and r attributes;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga19e581" class="outline-2">
+<h2 id="orga19e581"><span class="section-number-2">13.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-13">
+<ul class="org-ul">
+<li>The circle has now moved to the coordinates specified by the circle state variable;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org787ddc0" class="outline-2">
+<h2 id="org787ddc0"><span class="section-number-2">14.</span> Mention Cursors</h2>
+<div class="outline-text-2" id="text-14">
+<ul class="org-ul">
+<li><b>Goto</b> &gt; <code>:state</code></li>
+<li>Destructuring is a general mechanism which can be used anywhere you introduce an id whose value can be a data structure, for example:
+<ul class="org-ul">
+<li>Input Parameters</li>
+<li>:state section</li>
+<li>:computed section</li>
+</ul></li>
+<li>and within the :render section, it can be used in the :#each and :#each-cursor special elements;</li>
+<li>Within the :state and :computed sections, destructuring creates reactive variables called cursors, which can be used anywhere you can use state variables;</li>
+<li>So any time you have several state variables which are really part of the same thing,
+<ul class="org-ul">
+<li>like we did at the very start,</li>
+<li>you may want to consider grouping them together either into a vector or a map,</li>
+<li>and then using destructuring to create cursors which you can then reference in the <code>:render</code> section</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgea691e0" class="outline-2">
+<h2 id="orgea691e0"><span class="section-number-2">15.</span> Next</h2>
+<div class="outline-text-2" id="text-15">
+<ul class="org-ul">
+<li><code>scroll-to</code> :input/number for y-axis x</li>
+<li>We created a control for moving the y-axis, consisting of a number box and slider;</li>
+<li>But what if we want to create similar controls, for the x-axis and all the properties of the circle?</li>
+<li>With just what we've learnt so far, the only way we can do that is to copy and paste the table row with the number and range elements,
+<ul class="org-ul">
+<li>and update each copy with the correct cursor;</li>
+</ul></li>
+<li>In the next video, we'll look at a better way to do this which involves creating child components;</li>
+<li>Thanks for watching</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2025-07-04 Fri 18:55</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
