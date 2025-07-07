@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-07-04 Fri 20:31 -->
+<!-- 2025-07-07 Mon 13:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Entmorph Introducing Component Destructuring</title>
@@ -202,38 +202,38 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2637112">1. Introduction</a></li>
-<li><a href="#org0771103">2. Start Project</a></li>
-<li><a href="#org1eae1b7">3. Init :state</a></li>
-<li><a href="#org2803f09">4. :render add :line (axes) and :circle elements</a></li>
-<li><a href="#org3d5626e">5. Destructure axes</a>
+<li><a href="#org4810cd2">1. Introduction</a></li>
+<li><a href="#org6545e75">2. Start Project</a></li>
+<li><a href="#org9bbccd2">3. Init :state</a></li>
+<li><a href="#org2ed10b6">4. :render add :line (axes) and :circle elements</a></li>
+<li><a href="#org579de08">5. Destructure axes</a>
 <ul>
-<li><a href="#orgb781433">5.1. Review</a></li>
+<li><a href="#orgdc41bda">5.1. Review</a></li>
 </ul>
 </li>
-<li><a href="#orgc98b2f9">6. Set :line axes reactive attributes</a></li>
-<li><a href="#orgb204979">7. <b>Preview Component</b></a></li>
-<li><a href="#org8d0f99f">8. Add number+slider for just y-axis (left/right)</a></li>
-<li><a href="#org241e2cf">9. <b>Preview Component</b></a></li>
-<li><a href="#org944f893">10. Review circle attributes</a></li>
-<li><a href="#orgc866abb">11. Destructure circle</a></li>
-<li><a href="#org625f496">12. Set :circle element attributes to cursors</a></li>
-<li><a href="#orgd6dac5b">13. <b>Preview Component</b></a></li>
-<li><a href="#org13474f9">14. Mention Cursors</a></li>
-<li><a href="#orga58cc90">15. Next</a></li>
+<li><a href="#org27d1a7b">6. Set :line axes reactive attributes</a></li>
+<li><a href="#org048ba6f">7. <b>Preview Component</b></a></li>
+<li><a href="#orgee008c8">8. Add number+slider for just y-axis (left/right)</a></li>
+<li><a href="#orge8877eb">9. <b>Preview Component</b></a></li>
+<li><a href="#org2d1b2d6">10. Review circle attributes</a></li>
+<li><a href="#orgf169b30">11. Destructure circle</a></li>
+<li><a href="#org1729878">12. Set :circle element attributes to cursors</a></li>
+<li><a href="#org6077576">13. <b>Preview Component</b></a></li>
+<li><a href="#orgbee93fd">14. Summary</a></li>
+<li><a href="#orgdc579bc">15. Next</a></li>
 </ul>
 </div>
 </div>
 <p>
 <a href="./index.html">Index</a>
-<a id="org2b64e97"></a>
+<a id="org4456ff8"></a>
 </p>
 
-<div id="outline-container-org2637112" class="outline-2">
-<h2 id="org2637112"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org4810cd2" class="outline-2">
+<h2 id="org4810cd2"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-<a href="#org2b64e97">Top</a>
+<a href="#org4456ff8">Top</a>
 </p>
 <ul class="org-ul">
 <li>Hi, I'm Ali Hussein, creator of Entmorph,
@@ -244,28 +244,34 @@
 <ul class="org-ul">
 <li>there is a separate video which you can find either on Youtube or on entmorph.com</li>
 </ul></li>
+<li>In this video we're going to create a component which looks like this:
+<ul class="org-ul">
+<li>it has an SVG element on the left hand side,</li>
+<li>with x- and -y-axes,</li>
+<li>and a circle;</li>
+</ul></li>
+<li>and on the right hand side is a single row containing a number box and range slider for moving the y-axis;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0771103" class="outline-2">
-<h2 id="org0771103"><span class="section-number-2">2.</span> Start Project</h2>
+<div id="outline-container-org6545e75" class="outline-2">
+<h2 id="org6545e75"><span class="section-number-2">2.</span> Start Project</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-<a href="#org2b64e97">Top</a>
+<a href="#org4456ff8">Top</a>
 </p>
 <ul class="org-ul">
 <li>To save time, I've already created a project with a component which has the styles we want already defined;</li>
 <li><code>scroll-to</code> :styles &gt; Outline</li>
-<li>There are 4 class style rules which we'll apply to our component as we go along;</li>
+<li>There is a single .main class style rules which I've already applied to the root div element of the component;</li>
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org1eae1b7" class="outline-2">
-<h2 id="org1eae1b7"><span class="section-number-2">3.</span> Init :state</h2>
+<div id="outline-container-org9bbccd2" class="outline-2">
+<h2 id="org9bbccd2"><span class="section-number-2">3.</span> Init :state</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
-<li>It also has a state section with the following items:</li>
+<li>It also has a :state section already populated with the following items:</li>
 </ul>
 <div class="org-src-container">
 <pre class="src src-clojurescript"><span style="color: #707183;">[</span>x-axis 250
@@ -300,8 +306,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org2803f09" class="outline-2">
-<h2 id="org2803f09"><span class="section-number-2">4.</span> :render add :line (axes) and :circle elements</h2>
+<div id="outline-container-org2ed10b6" class="outline-2">
+<h2 id="org2ed10b6"><span class="section-number-2">4.</span> :render add :line (axes) and :circle elements</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Next, let's add an SVG element with axes and a circle</li>
@@ -331,8 +337,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org3d5626e" class="outline-2">
-<h2 id="org3d5626e"><span class="section-number-2">5.</span> Destructure axes</h2>
+<div id="outline-container-org579de08" class="outline-2">
+<h2 id="org579de08"><span class="section-number-2">5.</span> Destructure axes</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li><b>Goto</b> &gt; <code>:state</code></li>
@@ -360,8 +366,8 @@
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-orgb781433" class="outline-3">
-<h3 id="orgb781433"><span class="section-number-3">5.1.</span> Review</h3>
+<div id="outline-container-orgdc41bda" class="outline-3">
+<h3 id="orgdc41bda"><span class="section-number-3">5.1.</span> Review</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>We've created two new variables which look just like state variables,
@@ -380,8 +386,8 @@
 </div>
 </div>
 </div>
-<div id="outline-container-orgc98b2f9" class="outline-2">
-<h2 id="orgc98b2f9"><span class="section-number-2">6.</span> Set :line axes reactive attributes</h2>
+<div id="outline-container-org27d1a7b" class="outline-2">
+<h2 id="org27d1a7b"><span class="section-number-2">6.</span> Set :line axes reactive attributes</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Let's see our cursors in action;</li>
@@ -403,16 +409,16 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb204979" class="outline-2">
-<h2 id="orgb204979"><span class="section-number-2">7.</span> <b>Preview Component</b></h2>
+<div id="outline-container-org048ba6f" class="outline-2">
+<h2 id="org048ba6f"><span class="section-number-2">7.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Now the axes are drawn through the middle, as we were hoping;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org8d0f99f" class="outline-2">
-<h2 id="org8d0f99f"><span class="section-number-2">8.</span> Add number+slider for just y-axis (left/right)</h2>
+<div id="outline-container-orgee008c8" class="outline-2">
+<h2 id="orgee008c8"><span class="section-number-2">8.</span> Add number+slider for just y-axis (left/right)</h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>Now let's create an input control to allow our users to move the y-axis left and right;</li>
@@ -436,8 +442,8 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org241e2cf" class="outline-2">
-<h2 id="org241e2cf"><span class="section-number-2">9.</span> <b>Preview Component</b></h2>
+<div id="outline-container-orge8877eb" class="outline-2">
+<h2 id="orge8877eb"><span class="section-number-2">9.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li>Moving the slide left and right moves the y-axis,
@@ -447,8 +453,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org944f893" class="outline-2">
-<h2 id="org944f893"><span class="section-number-2">10.</span> Review circle attributes</h2>
+<div id="outline-container-org2d1b2d6" class="outline-2">
+<h2 id="org2d1b2d6"><span class="section-number-2">10.</span> Review circle attributes</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>Now let's deal with our circle;</li>
@@ -469,8 +475,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc866abb" class="outline-2">
-<h2 id="orgc866abb"><span class="section-number-2">11.</span> Destructure circle</h2>
+<div id="outline-container-orgf169b30" class="outline-2">
+<h2 id="orgf169b30"><span class="section-number-2">11.</span> Destructure circle</h2>
 <div class="outline-text-2" id="text-11">
 <ul class="org-ul">
 <li><b>Goto</b> &gt; <code>Code &gt; :state</code></li>
@@ -493,8 +499,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org625f496" class="outline-2">
-<h2 id="org625f496"><span class="section-number-2">12.</span> Set :circle element attributes to cursors</h2>
+<div id="outline-container-org1729878" class="outline-2">
+<h2 id="org1729878"><span class="section-number-2">12.</span> Set :circle element attributes to cursors</h2>
 <div class="outline-text-2" id="text-12">
 <ul class="org-ul">
 <li>Let's return to our :circle element</li>
@@ -503,55 +509,49 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd6dac5b" class="outline-2">
-<h2 id="orgd6dac5b"><span class="section-number-2">13.</span> <b>Preview Component</b></h2>
+<div id="outline-container-org6077576" class="outline-2">
+<h2 id="org6077576"><span class="section-number-2">13.</span> <b>Preview Component</b></h2>
 <div class="outline-text-2" id="text-13">
 <ul class="org-ul">
 <li>The circle has now moved to the coordinates specified by the circle state variable;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org13474f9" class="outline-2">
-<h2 id="org13474f9"><span class="section-number-2">14.</span> Mention Cursors</h2>
+<div id="outline-container-orgbee93fd" class="outline-2">
+<h2 id="orgbee93fd"><span class="section-number-2">14.</span> Summary</h2>
 <div class="outline-text-2" id="text-14">
 <ul class="org-ul">
 <li><b>Goto</b> &gt; <code>:state</code></li>
-<li>Destructuring is a general mechanism which can be used anywhere you introduce an id whose value can be a data structure, for example:
-<ul class="org-ul">
-<li>Input Parameters</li>
-<li>:state section</li>
-<li>:computed section</li>
-</ul></li>
-<li>and within the :render section, it can be used in the :#each and :#each-cursor special elements;</li>
-<li>Within the :state and :computed sections, destructuring creates reactive variables called cursors, which can be used anywhere you can use state variables;</li>
 <li>So any time you have several state variables which are really part of the same thing,
 <ul class="org-ul">
 <li>like we did at the very start,</li>
-<li>you may want to consider grouping them together either into a vector or a map,</li>
+<li>you should probably consider grouping them together,</li>
+<li>either into a vector,</li>
+<li>or a map,</li>
 <li>and then using destructuring to create cursors which you can then reference in the <code>:render</code> section</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orga58cc90" class="outline-2">
-<h2 id="orga58cc90"><span class="section-number-2">15.</span> Next</h2>
+<div id="outline-container-orgdc579bc" class="outline-2">
+<h2 id="orgdc579bc"><span class="section-number-2">15.</span> Next</h2>
 <div class="outline-text-2" id="text-15">
 <ul class="org-ul">
 <li><code>scroll-to</code> :input/number for y-axis x</li>
 <li>We created a control for moving the y-axis, consisting of a number box and slider;</li>
 <li>But what if we want to create similar controls, for the x-axis and all the properties of the circle?</li>
-<li>With just what we've learnt so far, the only way we can do that is to copy and paste the table row with the number and range elements,
+<li>With just what we've learnt so far, the only way we can do that is to copy and paste the table row containing the number and range elements,
 <ul class="org-ul">
 <li>and update each copy with the correct cursor;</li>
 </ul></li>
-<li>In the next video, we'll look at a better way to do this which involves creating child components;</li>
+<li>In the next video, we'll look at a much better way to do this which involves creating child components;</li>
 <li>Thanks for watching</li>
 </ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2025-07-04 Fri 20:31</p>
+<p class="date">Created: 2025-07-07 Mon 13:45</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
