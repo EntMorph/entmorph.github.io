@@ -7,6 +7,7 @@ html, body  {
     font-family:     "DM Sans", sans-serif;
     font-weight:     400;
     font-size:       18px;
+    overscroll-behavior-y: none; /* Disable vertical overscroll affordance */
 }
 
 ul { list-style: none }
@@ -117,6 +118,9 @@ textarea {
 .disp-none {
     display:        none;
 }
+.disp-flex {
+    display: flex;
+}
 .inblk-ch > * {
     display:        inline-block; 
 }
@@ -183,6 +187,9 @@ li {
 .vert-mid {
     vertical-align: middle;
 }
+.vert-bottom {
+    vertical-align: bottom;
+}
 
 .w20em {
     width:  20em;
@@ -215,6 +222,14 @@ table.body-middle-radius > tbody > tr > td:last-child {
     margin: 0.2em auto;
     width:  20em;
 }
+@media only screen and (max-device-width: 480px) {
+    .login-screen {
+        width: 90%;
+    }
+}
+
+
+
 .panel {
     border:        1px solid #aaa;
     border-radius: 0 0 4px 4px;
@@ -374,7 +389,9 @@ input[type="button"].editor-section-button:hover {
     border-bottom:    1px solid hsl(177deg 25% 60%);
 }
 
-.css-rule-section > .tab-section-heading > .tab-heading {
+.test-function-child > .tab-section-heading > .tab-heading,
+.css-rule-section    > .tab-section-heading > .tab-heading
+{
     background:     #DDDDDD;
     color:          #000000;
 }
@@ -469,9 +486,17 @@ ul.validation > li {
     padding:   1em 2em;
 }
 .server-form table {
+    width:          100%;
     min-width:      290px;
     border-spacing: 0.4em 0.6em;
 }
+@media only screen and (max-device-width: 480px) {
+    .server-form table {
+        min-width: 0;
+    }
+}
+
+
 .server-form table input[type="text"],
 .server-form table input[type="password"],
 .server-form table input[type="email"],
@@ -494,6 +519,12 @@ ul.validation > li {
 .contact-form table {
     width: 100%;
 }
+@media only screen and (max-device-width: 480px) {
+    .contact-form {
+        width:     100%;
+    }
+}
+
 .email-address-form {
     max-width: 600px;
 }
@@ -565,6 +596,11 @@ table.horiz-vector > tbody > tr > td {
 - params: nothing extra for borders, font-size should be set
 - indexes: bottom border, 
  */
+table.action-args {
+    background:    #FFFFFF;
+    border-radius: 5px;
+}
+table.action-args > thead > tr > th,
 table.action-args > thead > tr > td {
     padding:        5px;
     text-align:     center;
@@ -575,20 +611,26 @@ table.action-args > thead > tr > td {
     font-family:    monospace;
     font-size:      1.4em;
 }
+table.action-args > thead > tr > th:first-child,
 table.action-args > thead > tr > td:first-child {
     border-left-width:      1px;
 }
+table.action-args > thead > tr.params > th,
 table.action-args > thead > tr.params > td {
     border-top-width:     1px;
-    /* border-bottom-width:  1px; */
 }
+table.action-args > thead > tr.params > th.placeholder,
 table.action-args > thead > tr.params > td.placeholder {
     border-style:  dashed;
     color:         #777;
 }
+table.action-args > thead > tr.indexes > th,
 table.action-args > thead > tr.indexes > td {
     border-bottom:         1px solid #aaa;
 }
+
+
+
 tr.vert-indexes > td:first-child {
     border-left: 1px solid #aaa;
 }
@@ -642,11 +684,18 @@ table {
 .app {
     min-height:   100%;
     padding-top:  1em;
-    padding-left: 20px;
     margin-left:  auto; 
     margin-right: auto;
     width:        90%;
 }
+
+@media only screen and (max-device-width: 480px) {
+    .app {
+        padding-left: 0;
+        width:     95%;
+    }
+}
+
 
 /* Let Bindings Vector */
 .let-bindings {
@@ -852,6 +901,8 @@ input[type="text"][name="search"] {
     margin-bottom: 5px;
 }
 
+.sub-properties-section input[type="text"],
+.sub-properties-section input[type="number"],
 input.editor  {
     padding:       7px;
     border-radius: 5px;
@@ -871,6 +922,36 @@ input.editor  {
 input.editor:focus {
     box-shadow:    0px 0px 10px 1px #79acff;
 }
+
+.code-prompt {
+    background:    #fffffa;
+    border:        1px solid #AAA;
+    border-radius: 20px;
+    box-shadow:    0 0 10px 1px #EFEFEF;
+    padding:       1em;
+    margin:        1em 0;
+}
+.code-prompt textarea {
+    background:    inherit;
+    outline:       none;
+    border:        none;
+    padding:       0.2em;
+}
+.code-prompt input[type="button"] {
+    border:        1px solid #CCC;
+    padding:       0.7em;
+    border-radius: 10px;
+    background:    #fffffa;
+    margin-right:  10px;
+}
+.code-prompt input[type="button"]:hover {
+    background:    #fffde5;
+}
+
+
+/* .code-prompt > textarea:focus { */
+    
+
 
 input[type=range] {
     margin: 10px;
@@ -1180,6 +1261,13 @@ table.each-editor > tbody > tr > td:last-child {
     padding-right:  5px;
 }
 
+.rest-arg {
+    /* font-family:   "DM Sans"; */
+    font-size:     1.2em;
+    display:       inline;
+    padding:       0.2em 0.5em;;
+    border-radius: 5px;
+}
 
 /*
 ON HOLD, revisit this to add brackets to start/end cell contents;
@@ -1762,7 +1850,7 @@ table.history-item td {
 }
 
 canvas {
-    background: #efefef;
+    background: #FEFEFE;
 }
 
 .edit-properties {
@@ -1955,6 +2043,13 @@ table.func-params td {
  ********************/
 .editor-shadow {
     box-shadow:    0px 1px 5px 0px #ccc;
+}
+
+.viewer.namespaced-symbol {
+    background:    #F7E018;
+}
+.viewer.namespaced-symbol:focus {
+    outline:       2px solid orange;
 }
 
 .viewer {
@@ -2390,6 +2485,32 @@ ul.if-false > li:nth-child(2) {
     outline:       3px solid blue;
 }
 
+.run-function-test {
+    margin-bottom: 1em;
+}
+.run-function-test .run-btn {
+    margin-bottom: 1em;
+}
+
+.test-result {
+    padding: 0.2em 1em;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    margin-left: 0.1em;
+    margin-bottom: -0.1em;
+}
+.test-result.passed {
+    color: #FFF;
+    background: #30c430;
+    font-weight: bold;
+}
+.test-result.failed {
+    color: #FFF;
+    background: #FF0000;
+    font-weight: bold;
+}
+
+
 /*
 .edit-cell {
     text-decoration: underline;
@@ -2446,6 +2567,12 @@ ul.if-false > li:nth-child(2) {
     border-radius: 3px;
     padding:       0.5em;
     text-shadow:   none;
+}
+.embedded-editor input.editor:focus {
+    box-shadow: none;
+}
+.embedded-editor input.edit-button.ok {
+    background: #EFEFEF;
 }
 
 .checkbox-wrapper {
@@ -2617,6 +2744,18 @@ fieldset.commands {
     border:     1px solid #ccc;
     padding:    0.4em;
     margin-right: 0.5%;
+}
+
+.display-id {
+    padding:   0.1em 0.5em;
+    font-size: 1.1em;
+    margin:    0.2em;
+    color:     #000099;
+}
+.display-id:hover {
+    border-radius: 5px;
+    background:    #EFEFEF;
+    transition:    background 200ms ease-in-out;
 }
 
 /* ul.ns-code-editor Styles */
@@ -2997,20 +3136,20 @@ table.css-prop-editor {
     border-spacing:    0;
     border-collapse:   separate;
     background:        #F8F8F8;
-    border-radius:     20px;
+    border-radius:     15px;
     margin:            0 1em 1em 1em;
 }
 
-table.css-prop-editor > thead > tr > td {
+table.css-prop-editor > thead > tr > th {
     padding:    1em;
     text-align: center;
     background: #CCC;
 }
-table.css-prop-editor > thead > tr > td:first-child {
-    border-top-left-radius:  20px;
+table.css-prop-editor > thead > tr > th:first-child {
+    border-top-left-radius:  15px;
 }
-table.css-prop-editor > thead > tr > td:last-child {
-    border-top-right-radius:  20px;
+table.css-prop-editor > thead > tr > th:last-child {
+    border-top-right-radius:  15px;
 }
 table.css-prop-editor > tbody > tr > td {
     padding:       0.4em 1.3em;
@@ -3023,11 +3162,114 @@ table.css-prop-editor > tbody > tr > td:first-child {
     text-align:  right;
 }
 table.css-prop-editor > tbody > tr:last-child > td:first-child {
-    border-bottom-left-radius:  20px;
+    border-bottom-left-radius:  15px;
 }
 table.css-prop-editor > tbody > tr:last-child > td:last-child {
-    border-bottom-right-radius:  20px;
+    border-bottom-right-radius:  15px;
 }
+table.properties {
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom:  0.4em;
+}
+table.properties > thead > tr > th,
+table.properties > tbody > tr > td {
+    background:    #FAFAFA;
+    padding:       0.5em;
+    border-left:   none;
+    border-right:  none;
+    border-bottom: 1px solid #CCC;
+}
+table.properties > thead > tr > th:first-child,
+table.properties > tbody > tr > td:first-child {
+    color:         #333;
+    background:    #D4ECEB;
+    border:        none;
+    font-weight:   bold;
+    text-align:    right;
+}
+
+table.properties > * > tr:first-child > td:first-child {
+    border-top-left-radius:  5px;
+}
+table.properties > * > tr:first-child > td:last-child {
+    border-top-right-radius:  5px;
+}
+table.properties > * > tr:last-child > td:first-child {
+    border-bottom-left-radius:  5px;
+}
+table.properties > * > tr:last-child > td:last-child {
+    border-bottom-right-radius:  5px;
+}
+
+
+table.properties > tbody > tr:last-child > td {
+    border:none;
+}
+
+
+
+
+table.sub-properties {
+    width:         100%;
+    background:    #EFEFEF;
+    padding:       0.6em;
+    border-radius: 5px;
+    margin-bottom: 0.6em;
+}
+
+table.sub-properties td {
+    padding:        0.3em;
+}
+table.sub-properties td:first-child {
+    text-align:     right;
+}
+
+
+
+
+
+table.nice-records thead td,
+table.nice-records thead th {
+    color: #444;
+    background: #D4ECEB
+}
+
+table.nice-records {
+    width:      100%;
+    padding:    0.6em;
+}
+table.nice-records thead tr th {
+    padding:   0.5em;
+}
+
+table.nice-records thead tr th:first-child {
+    border-top-left-radius:    5px;
+}
+table.nice-records thead tr th:last-child {
+    border-top-right-radius:    5px;
+}
+table.nice-records tbody tr:last-child td {
+    border-bottom: 2px solid #D4ECEB;
+}
+
+table.nice-records td {
+    padding:        0.3em;
+    border-bottom:  1px solid #EEE
+}
+table.nice-records td:first-child {
+    border-left: 2px solid #D4ECEB;
+}
+table.nice-records td:last-child {
+    border-right: 2px solid #D4ECEB;
+}
+
+
+
+
+
+
+
 
 .min-slider-max {
     background:    #EFEFEF;
@@ -3201,7 +3443,8 @@ div.error {
     color:       #333;
     font-weight: bold;
 }
-.error-box ul  {
+.error-box ul,
+.error ul{
     padding-left:    1em;
     list-style-type: initial;
 }
@@ -3407,16 +3650,15 @@ input.disabled, input:disabled {
     margin-top:    0.2em;
 }
 
-/* .popup table* styles
- Some apply to all tables, some to just table.select, and some to just
- table.autosuggest
-*/
 .popup table {
     width:          100%;
     border-spacing: 0 2px;
 }
 .popup table td {
     padding: 0.2em;
+}
+.popup table td:first-child {
+    width: 1em;
 }
 .popup table.shortcuts td:first-child {
     width: 3em;
@@ -3491,12 +3733,48 @@ input.disabled, input:disabled {
     background: #21a9ff;
 }
 
+.virtual-scroller-container {
+    display:    flex;
+    column-gap: 4px;
+}
+.scrollbar {
+    width:         20px;
+    background:    #EFEFEF;
+    padding-left:  2px;
+    padding-right: 2px;
+    border-radius: 5px;
+}
+.scrollbar .thumb {
+    width:         16px;
+    border-radius: 5px;
+    background:    #AAA;
+}
+
 /*
 .popup li .collapser {
     margin-right: 0;
     margin-left: -22px;
 }
 */
+
+.select-menu {
+    display:        flex;
+    flex-direction: column;
+    row-gap:        4px;
+}
+.select-menu td {
+    height: var(--row-height);
+}
+.select-menu table {
+    border-spacing: 0;
+}
+.select-menu table tr.selector-heading {
+    outline: 1px solid #EEE
+}
+.select-menu table td {
+    padding-top: 0;
+    padding-bottom: 0;
+}
 
 .select-behaviour .popup table td {
     font-family: monospace;
@@ -3580,6 +3858,7 @@ ul.func-versions li:hover {
     padding-bottom: 1.2em;
     font-size:      1.5em;
 }
+
 .site-header a {
     display:            block;
     padding:            1em 0.2em;
@@ -3594,15 +3873,28 @@ ul.func-versions li:hover {
 }
 
 ul.site-nav {
-    float:          left;
     margin:         0;
     padding-top:    0;
     padding-bottom: 0;
 }
-.site-nav a.site-subtitle:hover {
+
+.site-minititles li {
+    
+}
+.site-minititles li a {
+    padding-left:   0.6em;
+    padding-right:  0.6em;
+    padding-top:    0.6em;
+    padding-bottom: 0.6em;
+    font-size:      1.2em;
+}
+.site-nav a.site-subtitle:hover,
+.site-minititles li a:hover {
     background:      #009991;
     transition:      background 200ms;
+
 }
+
 .site-title  {
     font-size:     2.6em;
     margin-right:  20px;
@@ -3768,6 +4060,7 @@ h2 {
 
 .ns-tree > li > .selected {
     border-radius: 0.2em;
+    background:    #DDD;
 }
 
 ul.ns-code-require {
@@ -4027,7 +4320,7 @@ ul > li:last-child > .tab-section {
     background: #a00;
 }
 .debug-panel.dev-test {
-    background: #aa6300;
+    background: #e38400;
 }
 .debug-panel.test {
     background: #de7700;
@@ -4134,6 +4427,14 @@ ul.big-buttons > li > a {
     padding-top:    1em;
     padding-bottom: 1em;
 }
+
+.test-function-section.tab-section {
+    margin-bottom: 2em;
+}
+.test-function-section canvas {
+    border: 1px solid #CCC;
+}
+
 
 /*
 .test-component-options {
@@ -4400,6 +4701,45 @@ Palette
 
 .no-border {border: none;}
 
+.main-page-sections section {
+    background:     #F6F6F6;
+    border-radius:  20px;
+    padding:        0.5em 3em;
+    margin-bottom:  2em;
+}
+
+@media only screen and (max-device-width: 480px) {
+    .main-page-sections section {
+        padding:        0.2em 1em;
+        margin-bottom:  2em;
+    }
+}
+
+
+
+.main-page-sections section.video-section {
+    background:     #edf3f3;
+}
+
+.main-page-sections section .bold,
+section.video-section h1.title {
+    color:           #30504e;
+}
+
+section.video-section h1.title a {
+    text-decoration: none;
+}
+section.video-section h1.title a:hover {
+    text-decoration: underline;
+}
+section.video-section h1.title a:visited {
+    color:           #30504e;
+}
+.main-page-sections section.blank-bg {
+    background:      none;
+}
+
+
 .video-with-description {
     margin-top:  1em;
 }
@@ -4413,8 +4753,9 @@ Palette
     /* width:          50%; */
 }
 .video-with-description iframe {
+    background:     #000;
     border-radius:  5px;
-    box-shadow:     0 0 20px 10px #CCC;
+    box-shadow:     0 0 0px 8px hsl(175 20% 72% / 1);
     margin-right:   2em;
 }
 .video-with-description  img {
@@ -4441,21 +4782,20 @@ img.frame {
     box-shadow:     0 0 7px 5px rgba(220, 220, 220, 0.5);
 }
 
-
-
 .video-container {
-  position: relative;
-  width: 100%;
-  height: 0;
+  position:       relative;
+  width:          100%;
+  height:         0;
   max-width:      1200px;
   padding-bottom: 56.25%; /* Fallback: 16:9 aspect ratio */
 }
+
 .video-container iframe {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top:      0;
+  left:     0;
+  width:    100%;
+  height:   100%;
 }
 /* Modern browsers with aspect-ratio support */
 @supports (aspect-ratio: 16 / 9) {
@@ -4469,4 +4809,61 @@ img.frame {
     top: auto;
     left: auto;
   }
+}
+.project-browser {
+    border-spacing: 0.3em 0.3em;
+}
+
+.project-browser > tbody > tr > td {
+    vertical-align: top;
+}
+
+.scene-editor {
+    display: flex;
+}
+.scene-editor > .list-scene-objects {
+    border:      2px solid red;
+}
+.scene-editor > canvas {
+    border:      2px solid purple;
+}
+.scene-editor > .scene-object-properties {
+    border:      2px solid green;
+}
+
+
+.properties-section  > .tab-section-heading > .tab-heading
+{
+    background:     #DDDDDD;
+    color:          #000000;
+}
+.properties-section > .tab-body {
+    padding:       0.5em;
+    border:        2px solid #c7e1a0;
+    background:    #fff;
+}
+
+.sub-properties-section  > .tab-section-heading > .tab-heading
+{
+    border-top-left-radius: 5px;
+    background: #D4ECEB;
+    color: #333;
+    border-top-right-radius: 5px;
+    padding: 2px 12px;
+}
+.sub-properties-section > .tab-body {
+    padding:                 0;
+    border:                  none;
+    background:              #FAFAFA;
+}
+
+.sub-properties-section input[type="text"],
+.sub-properties-section input[type="number"]
+{
+    text-align: right;
+}
+
+.control-panel {
+    display: flex;
+    flex-flow: column nowrap;
 }
