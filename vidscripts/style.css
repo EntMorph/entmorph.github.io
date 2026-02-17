@@ -128,6 +128,7 @@ textarea {
     overflow: hidden;
 }
 .auto-height {height: auto;}
+/* DROP, and use flex on ul instead; */
 .horiz-ul li {
     display:        inline-block;
 }
@@ -776,7 +777,7 @@ ul.list {
 
 ul.list > li {
     padding:       5px 8px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #EFEFEF;
     border-radius: 5px 5px 0 0;
 }
 
@@ -901,8 +902,10 @@ input[type="text"][name="search"] {
     margin-bottom: 5px;
 }
 
-.sub-properties-section input[type="text"],
-.sub-properties-section input[type="number"],
+
+table.properties input:is([type="text"], [type="number"], [type="email"]),
+.sub-properties-section input:is([type="text"],[type="number"]),
+table.sub-properties input:is([type="text"],[type="number"]),
 input.editor  {
     padding:       7px;
     border-radius: 5px;
@@ -2493,16 +2496,14 @@ ul.if-false > li:nth-child(2) {
 }
 
 .test-result {
-    padding: 0.2em 1em;
-    border: 1px solid #CCC;
+    padding:       0.1em 1em;
     border-radius: 5px;
-    margin-left: 0.1em;
-    margin-bottom: -0.1em;
+    margin-left:   0.1em;
+    margin-bottom: -2px;
 }
 .test-result.passed {
-    color: #FFF;
-    background: #30c430;
-    font-weight: bold;
+    color:       #FFF;
+    background:  #30c430;
 }
 .test-result.failed {
     color: #FFF;
@@ -2667,7 +2668,6 @@ input[type="checkbox"] .checkbox {
  NSCode Editor
 
  **********/
-
 fieldset.commands {
     padding-top:   0.6em;
     margin-top:    10px;
@@ -2676,6 +2676,7 @@ fieldset.commands {
     border-radius: 5px;
     background:    #FAFAFA;
 }
+
 .commands legend {
     border:        2px solid #559D9A;
     background:    #FFFFFF;
@@ -3172,6 +3173,11 @@ table.properties {
     border-spacing: 0;
     margin-bottom:  0.4em;
 }
+table.properties > thead > tr,
+table.properties > tbody > tr {
+    height: 4em;
+}
+
 table.properties > thead > tr > th,
 table.properties > tbody > tr > td {
     background:    #FAFAFA;
@@ -3201,11 +3207,10 @@ table.properties > * > tr:last-child > td:first-child {
 table.properties > * > tr:last-child > td:last-child {
     border-bottom-right-radius:  5px;
 }
-
-
 table.properties > tbody > tr:last-child > td {
     border:none;
 }
+
 
 
 
@@ -3224,20 +3229,25 @@ table.sub-properties td {
 table.sub-properties td:first-child {
     text-align:     right;
 }
-
+table.sub-properties select {
+    padding:       0.4em;
+    border-radius: 5px;
+    background:    #FFF;
+    border:        1px solid #AAA
+}
 
 
 
 
 table.nice-records thead td,
 table.nice-records thead th {
-    color: #444;
+    color:      #444;
     background: #D4ECEB
 }
 
 table.nice-records {
     width:      100%;
-    padding:    0.6em;
+    /* padding:    0.6em; */
 }
 table.nice-records thead tr th {
     padding:   0.5em;
@@ -3263,7 +3273,9 @@ table.nice-records td:first-child {
 table.nice-records td:last-child {
     border-right: 2px solid #D4ECEB;
 }
-
+table.nice-records tr.selected td {
+    background: #EFEFEF;
+}
 
 
 
@@ -3733,6 +3745,18 @@ input.disabled, input:disabled {
     background: #21a9ff;
 }
 
+.flex-col-container {
+    display:   flex;
+    flex-flow: column nowrap;
+    row-gap:   10px;
+}
+
+.flex-row-container {
+    display:     flex;
+    flex-flow:   row nowrap;
+    column-gap:  10px;
+}
+
 .virtual-scroller-container {
     display:    flex;
     column-gap: 4px;
@@ -3847,9 +3871,8 @@ ul.func-versions li:hover {
 /* SERVER-SIDE STYLES */
 .site-header {
     padding-right:  1em;
-    border:         1px solid #aaa;
-    background:     #00807a;
     color:          #fff;
+    background:     #00807a;
     box-shadow:     #00807a 0px 0 50px -10px;
     overflow:       hidden;
 }
@@ -3873,14 +3896,16 @@ ul.func-versions li:hover {
 }
 
 ul.site-nav {
+    display:        flex;
     margin:         0;
     padding-top:    0;
     padding-bottom: 0;
 }
 
-.site-minititles li {
-    
+.nav-right {
+    margin-inline-start: auto;    
 }
+
 .site-minititles li a {
     padding-left:   0.6em;
     padding-right:  0.6em;
@@ -4452,7 +4477,7 @@ ul.big-buttons > li > a {
 
 .test-component-container iframe.test-component-iframe {
     border:        none;
-    min-height:    1000px;
+    min-height:    1500px;
     border:        2px dashed #CCC;
 }
 
@@ -4819,18 +4844,119 @@ img.frame {
 }
 
 .scene-editor {
-    display: flex;
-}
-.scene-editor > .list-scene-objects {
-    border:      2px solid red;
-}
-.scene-editor > canvas {
-    border:      2px solid purple;
-}
-.scene-editor > .scene-object-properties {
-    border:      2px solid green;
+    display:       flex;
+    flex-flow:     column nowrap;
+    row-gap:       10px;
+    align-items:   start;
 }
 
+.editor fieldset,
+.scene-editor fieldset {
+    border:        1px solid #CCC;
+    border-radius: 10px;
+    background:    #FFF;
+}
+
+.editor fieldset legend,
+.scene-editor fieldset legend {
+    /* border:        1px solid #EFEFEF; */
+    background:    #FFFFFF;
+    color:         #333;
+    padding:       0.1em 0.6em;
+    border-radius: 5px;
+}
+
+.scene-editor fieldset input[type="button"] {
+    border:        1px solid #CCC;
+    cursor:        pointer;
+    border-radius: 5px;
+    padding:       0.2em 0.5em;
+}
+
+.scene-editor fieldset input[type="button"]:hover {
+    background: #CCC;
+    
+}
+.scene-editor fieldset input[type="button"]:focus {
+    outline: 1px solid #AAA;
+    border:  1px solid #999;
+}
+.scene-editor fieldset input[type="button"].selected {
+    background: #999;
+    color:      #FFF;
+}
+
+
+.scene-editor .canvas-container {
+    position: relative;
+    display:  inline-block;
+}
+
+.canvas-container .canvas-textarea {
+    position: absolute;
+    resize:   none;
+    outline:    none;
+    background: white;
+    margin:     0;
+    overflow:   hidden;
+    box-sizing: border-box;
+}
+
+.scene-editor-bx {
+    box-shadow:    0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);
+}
+
+.scene-editor > .top-panel {
+    display:       flex;
+    flex-flow:     row nowrap;
+    column-gap:    5px;
+    align-items:   stretch;
+}
+.scene-editor > .control-panel-canvas {
+    display:       flex;
+    flex-flow:     row nowrap;
+    align-items:   start;
+    column-gap:    10px;
+    /* programmatically set height to be same as canvas */
+}
+
+.scene-editor .control-panel {
+    flex:          0 0 450px;
+    display:       flex;
+    flex-flow:     column nowrap;
+    row-gap:       20px;
+    padding:       0.6em;
+    /* min-width:     450px; */
+    max-height:    100%;
+    overflow-y:    scroll;
+    border:        1px solid #CCC;
+    border-radius: 10px;
+}
+
+.scene-editor .constraint-desc {
+    border-radius: 10px;
+    background:    #FAFAFA;
+    padding:       0.4em;
+}
+
+.buttons-grid {
+    padding:               0.2em;
+    margin:                0;
+    display:               grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows:    repeat(3, 1fr);
+    row-gap:               10px;
+    column-gap:            10px;
+}
+.buttons-grid input[type="button"] {
+    width: 100%;
+}
+
+.scene-editor canvas {
+    background:     #FAFAFA;
+}
+.scene-editor .scene-object-properties .tab-body {
+}
 
 .properties-section  > .tab-section-heading > .tab-heading
 {
@@ -4839,7 +4965,7 @@ img.frame {
 }
 .properties-section > .tab-body {
     padding:       0.5em;
-    border:        2px solid #c7e1a0;
+    border:        1px solid #DDD;
     background:    #fff;
 }
 
@@ -4852,18 +4978,27 @@ img.frame {
     padding: 2px 12px;
 }
 .sub-properties-section > .tab-body {
-    padding:                 0;
+    padding:                 10px;
     border:                  none;
     background:              #FAFAFA;
 }
 
-.sub-properties-section input[type="text"],
-.sub-properties-section input[type="number"]
-{
+.sub-properties-section input[type="number"] {
     text-align: right;
 }
 
+.sub-properties-section table.sub-properties {
+    border-top-left-radius: 0;
+}
+
+/*
 .control-panel {
-    display: flex;
-    flex-flow: column nowrap;
+}
+*/
+
+.constraint-section.tab-section .tab-section-heading .tab-heading {
+    background: #ACF;
+}
+.constraint-section.tab-section .tab-body {
+    border:     1px solid #ACF;
 }
