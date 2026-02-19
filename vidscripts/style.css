@@ -301,6 +301,11 @@ table.body-middle-radius > tbody > tr > td:last-child {
 .tab-body > .tab-section:last-child {
     margin-bottom: 0;
 }
+.tab-section-heading > .tab-icons {
+    display: inline-flex;
+    padding: 6px;
+}
+
 
 .nowrap {
     white-space:    nowrap;
@@ -3229,7 +3234,9 @@ table.sub-properties td {
 table.sub-properties td:first-child {
     text-align:     right;
 }
-table.sub-properties select {
+table.sub-properties select,
+.constraints-section select
+{
     padding:       0.4em;
     border-radius: 5px;
     background:    #FFF;
@@ -3243,6 +3250,9 @@ table.nice-records thead td,
 table.nice-records thead th {
     color:      #444;
     background: #D4ECEB
+}
+table.nice-records thead th {
+    text-align: center;
 }
 
 table.nice-records {
@@ -4978,9 +4988,13 @@ img.frame {
     padding: 2px 12px;
 }
 .sub-properties-section > .tab-body {
-    padding:                 10px;
+    padding:                 unset;
     border:                  none;
     background:              #FAFAFA;
+}
+.constraints-section > .tab-body {
+    border:  1px solid #d4eceb;
+    padding: 10px;    
 }
 
 .sub-properties-section input[type="number"] {
