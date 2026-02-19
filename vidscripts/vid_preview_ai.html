@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2026-02-19 Thu 16:58 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Entmorph - Preview of Ai Capabilities</title>
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link href="/css/style.css" rel="stylesheet" type="text/css"></link>
+<style>body{font-size: 30px;}code{background:#efefef;padding: 4px;border-radius:5px;}ul{list-style-type:circle;}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Entmorph - Preview of Ai Capabilities</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org1006a3e">1. Introduction</a></li>
+<li><a href="#org9e18778">2. Project Overview</a></li>
+<li><a href="#org59dafce">3. Function Prompt: average</a></li>
+<li><a href="#org955578c">4. Function Prompt: Polygon in Circle</a></li>
+<li><a href="#orgdfdcfc7">5. Component: Sketchpad</a></li>
+<li><a href="#org65606b2">6. Component: Scene</a></li>
+<li><a href="#org42276f4">7. Component: Graph + Equations</a></li>
+<li><a href="#orgcea9639">8. Component: Interactive Diagram</a></li>
+</ul>
+</div>
+</div>
+<p>
+<a href="./index.html">Index</a>
+<a id="org3274de2"></a>
+</p>
+
+<p>
+<b>AFTER EACH DEMO, *Goto</b> &gt; <code>Cell Top</code>, close cell, then move to next one;*
+</p>
+<div id="outline-container-org1006a3e" class="outline-2">
+<h2 id="org1006a3e"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Hi, I'm Ali Hussein, creator of Entmorph,
+<ul class="org-ul">
+<li>and in this video,</li>
+<li>I'm going to preview some of Entmorph's Ai capabilities that I've been working on recently.</li>
+</ul></li>
+<li>In particular I'm going to show you two types of Ai Prompt:
+<ul class="org-ul">
+<li>Functions, and</li>
+<li>Components</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9e18778" class="outline-2">
+<h2 id="org9e18778"><span class="section-number-2">2.</span> Project Overview</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li><code>scroll-to</code> Goto Cells</li>
+<li>To save time, I've already created a project with a number of cells;
+<ul class="org-ul">
+<li>in each cell, instead of data, actions or components, which we normally include in a cell, I've added an Ai Prompt, and that's what we'll use to generate the code for that cell</li>
+<li>You'll notice that each cell just has a generic id to be begin with;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org59dafce" class="outline-2">
+<h2 id="org59dafce"><span class="section-number-2">3.</span> Function Prompt: average</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li><code>scroll-to</code> First Cell</li>
+<li>So I'll scroll down to the first cell;</li>
+<li>At the top, it has an autogenerated Id of <code>id0</code></li>
+<li>In the Code panel,
+<ul class="org-ul">
+<li>there's an Ai Prompt with a Generate button,</li>
+<li>and at the very bottom of the cell,</li>
+<li>the Output panel is currently empty;</li>
+</ul></li>
+<li><code>scroll-to</code> Code Panel</li>
+<li>I'll read out the Ai Prompt text in each case,
+<ul class="org-ul">
+<li>then I'll click on the Generate button;</li>
+<li>when I do this, it might take some time for the Ai response to come back;</li>
+<li>if it does, I'll cut that out from the video and I'll just report at the end how long it took;</li>
+</ul></li>
+<li>So let's get started with the first prompt;
+<ul class="org-ul">
+<li>we're going to start with something very simple,</li>
+<li>to reduce the chances of any hallucinations from the Ai;</li>
+</ul></li>
+<li>[read Ai Prompt]</li>
+<li><code>click on</code> <b>Generate</b></li>
+<li>&#x2026; and it's generated the code for a function below</li>
+<li>First of all, if I scroll back up, you'll notice that the cell Id has been renamed to <code>average</code>, which is the name the Ai has chosen for the function;</li>
+<li>Next, if I scroll down to the code,
+<ul class="org-ul">
+<li>I could read it to see if it works,
+<ul class="org-ul">
+<li>which is fine for something small like this,</li>
+</ul></li>
+<li>but I can do something far more effective;</li>
+</ul></li>
+<li><code>click on</code> <b>Goto &gt; Output</b></li>
+<li>You can see the Output panel is now populated,
+<ul class="org-ul">
+<li>meaning that the function has already been built for us;</li>
+</ul></li>
+<li><code>scroll-to</code> Function Test</li>
+<li>Within the Output Panel,
+<ul class="org-ul">
+<li>there's a <b>Function Test</b> panel containing a <b>call</b> to our <code>average</code> function,
+<ul class="org-ul">
+<li>with some test parameters;</li>
+</ul></li>
+<li>and below that there's the <b>Expected</b> result for this call;</li>
+<li>The Ai has generated both the call and the expected result,
+<ul class="org-ul">
+<li>so you should always check these to make sure they are correct;</li>
+<li>In this case we can do it in our heads, and everything looks correct;</li>
+</ul></li>
+</ul></li>
+<li>Now, if I click on "Run Function Test",
+<ul class="org-ul">
+<li>we see the <b>Test Result</b> is the same as the Expected value,</li>
+<li>and we also get an indicator which informs us that the test has passed;</li>
+</ul></li>
+<li>I had asked the Ai to generate three tests in the prompt,
+<ul class="org-ul">
+<li>so if I scroll down,</li>
+<li>you'll see there are two more tests</li>
+</ul></li>
+<li>If I run each of these tests, hopefully they'll pass;
+<ul class="org-ul">
+<li>[RUN TESTS]</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org955578c" class="outline-2">
+<h2 id="org955578c"><span class="section-number-2">4.</span> Function Prompt: Polygon in Circle</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li><code>scroll-to</code> First Cell</li>
+<li>Now let's look at a second, much more interesting function.</li>
+<li>[Read Prompt]</li>
+<li>So this time, our function should provide a visual result.</li>
+<li><code>click on</code> <b>Generate</b>
+<ul class="org-ul">
+<li>It's generated a function which takes two arguments:
+<ul class="org-ul">
+<li>an HTML Canvas Context, and</li>
+<li>a map which let's us specify all of our other requirements;</li>
+</ul></li>
+</ul></li>
+<li><code>scroll-to</code> Cell Id
+<ul class="org-ul">
+<li>Again, the Ai has generated a new id for the function <span class="underline">_</span></li>
+</ul></li>
+<li><b>Goto</b> &gt; <code>Output</code></li>
+<li>This time, instead of a "Function Test",
+<ul class="org-ul">
+<li>which we had in our previous example,</li>
+<li>we have a "Canvas Function Test" which has a slightly different layout;</li>
+<li>there's still a test call to our function,</li>
+<li>but there's no Expected value, which makes sense because this function draws onto a canvas and doesn't return a value we can easily test for;</li>
+</ul></li>
+<li>So how can we test it?</li>
+<li>If I scroll down a little,
+<ul class="org-ul">
+<li>underneath the "Run Function Test" button,</li>
+<li>there's an empty rectangle, which is a canvas element;</li>
+<li>if I click on "Run Function Test",</li>
+<li>a circle appears with a triangle in it, which is what I had asked for;</li>
+</ul></li>
+<li><code>scroll-to</code> Function Call
+<ul class="org-ul">
+<li>The first argument <code>canvas-context</code> is the context of the Canvas element below,
+<ul class="org-ul">
+<li>and has been provided for us by the test;</li>
+</ul></li>
+<li>The second argument is a map of values, which we can play with;</li>
+</ul></li>
+<li>The first thing I'm going to do is to click on Live Edit,
+<ul class="org-ul">
+<li>so that any change I make will update the canvas immediately, rather than having to press "Run Function Test" each time;</li>
+</ul></li>
+<li>What I'll now do is open the map,
+<ul class="org-ul">
+<li>open the editor for :n,</li>
+<li>and move :n to the very bottom so that we can see the canvas at the same time;</li>
+</ul></li>
+<li>I'll open the editor for :n</li>
+<li>Then scroll back down so we can see both <code>n</code> and the canvas;</li>
+<li>Now when I update <code>n</code>,
+<ul class="org-ul">
+<li>we transition through the regular polygons</li>
+<li>and if we keep going, above around 35 it starts to look like a circle;</li>
+</ul></li>
+<li>We can of course adjust any of the values to see if our function works as expected;</li>
+<li>So Entmorph provides us with the ability to quickly unit test any canvas drawing function directly in the browser, whether the Ai has generated it or we create it ourselves;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgdfdcfc7" class="outline-2">
+<h2 id="orgdfdcfc7"><span class="section-number-2">5.</span> Component: Sketchpad</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>Now let's move from functions to components;</li>
+<li><code>scroll-to</code> id2</li>
+<li>[WARNING: Clear is not undoable;]</li>
+<li>[READ PROMPT]</li>
+<li>I'll click on Generate</li>
+<li>&#x2026; [seconds later]</li>
+<li>And this time instead of a function,
+<ul class="org-ul">
+<li>we've got an Entmorph component;</li>
+</ul></li>
+<li>We can look at the code in a while;</li>
+<li>But first, let's try out the component;</li>
+<li><code>scroll-to</code> Run</li>
+<li><code>click on</code> <b>Build &gt; Preview Component</b></li>
+<li>[Scroll into view]</li>
+<li>At the bottom right,
+<ul class="org-ul">
+<li>there's a grey rectangle;</li>
+<li>if I click and drag on it, I can draw red lines;</li>
+</ul></li>
+<li>If we look at the "Draw Tool" panel at the very top,
+<ul class="org-ul">
+<li>Line is selected</li>
+<li>I can change the tool &#x2026;</li>
+</ul></li>
+<li>I can click on Download to save the current canvas as a JPEG image</li>
+<li>Clear to clear the canvas</li>
+<li>On the left, I can change any of the Styles</li>
+<li>If I click on the Snap to Grid checkbox and draw on the cavas
+<ul class="org-ul">
+<li>then draw a line/circle</li>
+<li>and I can change the spacing</li>
+</ul></li>
+<li>And finally, 
+<ul class="org-ul">
+<li>if I click on Undo (x many),
+<ul class="org-ul">
+<li>it undoes all operations back to the beginning,</li>
+</ul></li>
+<li>and then Redo (x many) takes me back to the end</li>
+</ul></li>
+<li>So, all the features I asked for have not only been included,
+<ul class="org-ul">
+<li>all of them are working;</li>
+<li>there are no bugs, no hallucinations;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org65606b2" class="outline-2">
+<h2 id="org65606b2"><span class="section-number-2">6.</span> Component: Scene</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>Let's try another component;</li>
+<li>Now let's create another component,
+<ul class="org-ul">
+<li>which also includes a canvas,</li>
+<li>but this time with an important difference.</li>
+</ul></li>
+<li>READ PROMPT</li>
+<li>So there are some similarities to the previous component, but also some new features which affect how we can edit shapes we've already drawn;</li>
+<li><code>click on</code> <b>Generate</b>
+<b>Goto</b> &gt; <code>Output</code></li>
+<li><code>click on</code> <b>Build &gt; Preview</b></li>
+<li>Once again we have a canvas on the bottom right, all the controls we asked for;</li>
+<li>From the Tool panel at the top,
+<ul class="org-ul">
+<li>I'll select Ellipse</li>
+<li>and draw an ellipse onto the canvas</li>
+<li>I can select any of these blue selection handles to resize the ellipse;</li>
+</ul></li>
+</ul>
+<p>
+TODO: Better labels for strokeStyle etc.
+</p>
+<ul class="org-ul">
+<li>On the left hand side a Properties panel has appeared,
+<ul class="org-ul">
+<li>and I can update for example
+<ul class="org-ul">
+<li>line color (BLUE)</li>
+<li>the line thickness (10)</li>
+<li>and the fill color (CORNFLOUR BLUE)</li>
+<li>which we won't see unless we change the :stroke-fill from :stroke to :stroke-fill</li>
+</ul></li>
+</ul></li>
+<li>Let's see if the other shapes are working
+<ul class="org-ul">
+<li>Line</li>
+<li>Circle</li>
+<li>Centered Circle</li>
+<li>Rectangle</li>
+<li>and we already tried the ellipse</li>
+</ul></li>
+<li>So the shapes are working fine</li>
+<li>Pan
+<ul class="org-ul">
+<li>then Center</li>
+</ul></li>
+<li>Zoom - let's us both zoom in and out
+<ul class="org-ul">
+<li>then Reset Zoom to take us back to the initial zoom level of 1</li>
+</ul></li>
+<li>Download
+<ul class="org-ul">
+<li>once again we can download the image as a jpeg;</li>
+</ul></li>
+<li>Undo/Redo
+<ul class="org-ul">
+<li>And finally let's try Undo (x many)</li>
+<li>and then Redo to take us back to the last thing we did before we started the Undo process</li>
+</ul></li>
+<li>Once again we have a component where all the features we asked for have been included, and they're all working</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org42276f4" class="outline-2">
+<h2 id="org42276f4"><span class="section-number-2">7.</span> Component: Graph + Equations</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>Now I'll scroll down to the next cell, and read out the prompt;</li>
+<li>READ PROMPT</li>
+<li>Generate</li>
+<li>Once again a component has been generated for us;</li>
+<li><b>Goto</b> &gt; <code>Output</code></li>
+<li><code>click on</code> <b>Build &gt; Preview</b></li>
+<li>So the most important thing is we have a graph showing the three equations I requested in the prompt;</li>
+<li>To the bottom left there's a Coefficients panel
+<ul class="org-ul">
+<li>if I slide each slider back and forth, we can see the effect it has on each equation;</li>
+<li><code>a</code> only affects the quartic equation;</li>
+<li><code>b</code> affects the quartic and the cubic like so;</li>
+<li><code>c</code> has a really intersting effect</li>
+<li><code>d</code> dances from side to side</li>
+<li>and <code>e</code> moves all equations up and down</li>
+</ul></li>
+<li>Above that, we have Zoom and Pan buttons;
+<ul class="org-ul">
+<li>Pan is selected by default, so when I click and drag on the graph, I can move it around</li>
+<li>If I now select Zoom, when I click and drag on the graph &#x2026;
+<ul class="org-ul">
+<li>let's first find an interesting point, like this intersection here &#x2026;</li>
+<li>so now when I click and drag at that point,</li>
+<li>I can drag up to zooms in,</li>
+<li>and drag down, to zoom back out;</li>
+<li>And notice how the grid lines and the division markers on the axes are correctly updating as we zoom in and out;</li>
+</ul></li>
+</ul></li>
+<li>Reset Zoom, Center</li>
+<li>There's also a single Download button;
+<ul class="org-ul">
+<li>when I click on it, it opens a dialog to save the graph</li>
+</ul></li>
+<li>And finally, above the graph there's a control listing each equation,
+<ul class="org-ul">
+<li>together with its line color,
+<ul class="org-ul">
+<li>and line thickness (e.g. 2 to 8), both of which we can change;</li>
+<li>and a checkbox to hide the equation plot on the graph</li>
+</ul></li>
+</ul></li>
+<li>So once again, everything I requested has been produced and is working correctly;</li>
+</ul>
+<p>
+DEMONSTRATE layout changes e.g. Move ListEquations left
+</p>
+</div>
+</div>
+<div id="outline-container-orgcea9639" class="outline-2">
+<h2 id="orgcea9639"><span class="section-number-2">8.</span> Component: Interactive Diagram</h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li>Now I want to create one last component;</li>
+<li>I'll scroll down to the next cell and open it;</li>
+<li><code>READ PROMPT</code></li>
+<li><code>click on</code> <b>Build</b></li>
+<li><code>scroll-to</code> Preview</li>
+<li>Now I am going to hold my breath as this might work,
+<ul class="org-ul">
+<li>or partly work,</li>
+<li>or just not work at all,</li>
+<li>so here goes, fingers-crossed &#x2026;</li>
+</ul></li>
+<li><code>click on</code> <b>Preview</b></li>
+<li>Now I'll select the end of the left string &#x2026; pull it down, and with any luck &#x2026; yes!</li>
+<li>Ok that works. So not let's look at what's actually going on.</li>
+<li><code>GOES WRONG</code></li>
+<li>Ok, so it went wrong, let's try and fix it.</li>
+<li><code>Wrong or right</code></li>
+<li>I'll scroll back up to the component
+<ul class="org-ul">
+<li>and open the :state section</li>
+</ul></li>
+<li>On the left we have a set of state variables,
+<ul class="org-ul">
+<li>which are used elsewhere in the component;</li>
+</ul></li>
+<li>But on the right, where we would normally have data values
+<ul class="org-ul">
+<li>we have an editor containing a canvas which has the same pulley that we asked the Ai to build for us;</li>
+<li>So this provides us, as developers, with a visual tool for creating user experiences;</li>
+<li>I'll show you a couple of features right now;</li>
+</ul></li>
+<li>The canvas contains a list of distinct shapes, which appear to be connected toghether;
+<ul class="org-ul">
+<li>the most important thing is that when I pull down on the left string,</li>
+<li>the right string and the weight attached to it, move up by an equal amount</li>
+</ul></li>
+<li>On the left hand side is a list of all the objects shown in the canvas,
+<ul class="org-ul">
+<li>and the Ai has generated a meaningful name for each of them so it's easy to identify them;</li>
+</ul></li>
+</ul>
+<p>
+IF WORKING:
+</p>
+<ul class="org-ul">
+<li>I'll first click on the right-string;
+<ul class="org-ul">
+<li>and a Properties panel appears;</li>
+<li>containing attributes which show this is an object of type :line,</li>
+<li></li>
+</ul></li>
+</ul>
+<p>
+IF NOT WORKING:
+</p>
+<ul class="org-ul">
+<li>So I'll go through each object that needs to be fixed;</li>
+<li>I'll start by clicking on <span class="underline">__</span>
+<ul class="org-ul">
+<li>and this cases a properties panel to appear under the list of objects which let's us edit the object;</li>
+</ul></li>
+<li>You'll see that each constraint has a property editor,
+<ul class="org-ul">
+<li>and underneath that there's a text description of what the constraint does to the parent object;</li>
+</ul></li>
+<li>RATHER than fixing bugs in code, we can use the Canvas Scene Editor to shown here to directly fix any problems using constraints</li>
+<li>APPLICATIONS
+<ul class="org-ul">
+<li>Physics simulations</li>
+<li>Games</li>
+<li>Interactive diagrams</li>
+<li>Animations</li>
+<li>Tutorials or tutorial aids</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2026-02-19 Thu 16:58</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

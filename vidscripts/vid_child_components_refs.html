@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-07-06 Sun 15:37 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Entmorph Introducing Component Children and :refs</title>
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link href="/css/style.css" rel="stylesheet" type="text/css"></link>
+<style>body{font-size: 30px;}code{background:#efefef;padding: 4px;border-radius:5px;}ul{list-style-type:circle;}</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Entmorph Introducing Component Children and :refs</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org7570bb9">1. Introduction</a></li>
+<li><a href="#orgec955e7">2. Start Project</a></li>
+<li><a href="#orgedc16bc">3. <b>Preview Component</b></a></li>
+<li><a href="#org94e0b88">4. Lament</a></li>
+<li><a href="#org4a898af">5. Add ControlsRow</a>
+<ul>
+<li><a href="#org2475755">5.1. Paste tr</a></li>
+<li><a href="#orge28a66f">5.2. Add parameters</a></li>
+<li><a href="#orgc2ee3c8">5.3. </a></li>
+</ul>
+</li>
+<li><a href="#orgec6b8c8">6. Scrap</a></li>
+<li><a href="#orgaae358d">7. Bonus: :html.element/set-coords</a></li>
+</ul>
+</div>
+</div>
+<p>
+<a href="./index.html">Index</a>
+<a id="org1e88823"></a>
+</p>
+
+<div id="outline-container-org7570bb9" class="outline-2">
+<h2 id="org7570bb9"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<a href="#org1e88823">Top</a>
+</p>
+<ul class="org-ul">
+<li>Hi, I'm Ali Hussein, creator of Entmorph,
+<ul class="org-ul">
+<li>and in this video we're going to introduce component elements,</li>
+<li>which allow us to include components within components;</li>
+</ul></li>
+<li>We'll start with the component we developed in the video on Destructuring in components,
+<ul class="org-ul">
+<li>which looks like this,</li>
+</ul></li>
+<li>and finish adding controls to it using component elements,
+<ul class="org-ul">
+<li>so that by the end of the video,</li>
+<li>it will look like this;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgec955e7" class="outline-2">
+<h2 id="orgec955e7"><span class="section-number-2">2.</span> Start Project</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>So let's begin;</li>
+<li>I'll switch back to the tab which has the original component loaded;</li>
+<li><b>Goto</b> &gt; <code>Code &gt; :state</code></li>
+<li>Our goal is to create number and slider controls,
+<ul class="org-ul">
+<li>one for each axis,</li>
+<li>and one for each property of the circle;</li>
+</ul></li>
+<li><b>Goto</b> &gt; <code>:render</code></li>
+<li><code>scroll-to</code> :table</li>
+<li>We've already created controls for the y-axis;</li>
+<li>If we now want to create controls for the x-axis,
+<ul class="org-ul">
+<li>one way to do it would be to copy and paste the row for the y-axis;</li>
+<li><code>Demonstrate</code></li>
+</ul></li>
+<li>and then update the pasted row
+<ul class="org-ul">
+<li><code>Update cell label</code></li>
+<li><code>Update reactive in each input</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgedc16bc" class="outline-2">
+<h2 id="orgedc16bc"><span class="section-number-2">3.</span> <b>Preview Component</b></h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>We now have a second row for moving the x-axis up and down;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org94e0b88" class="outline-2">
+<h2 id="org94e0b88"><span class="section-number-2">4.</span> Lament</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li><code>scroll-to</code> :render &gt; :table</li>
+<li>While copying the row works,
+<ul class="org-ul">
+<li>if we want to add more controls to control the properties of the circle,</li>
+<li>we would have to keep copying, pasting and updating the cell label and :value attributes each time we paste;</li>
+</ul></li>
+<li>And if we ever want to change the structure of the table,
+<ul class="org-ul">
+<li>we would have to update all the rows in the table,</li>
+<li>which would result in a lot of work for us;</li>
+</ul></li>
+<li>Rather than use copy and paste, we can avoid all this extra work by moving the whole row into its own component;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4a898af" class="outline-2">
+<h2 id="org4a898af"><span class="section-number-2">5.</span> Add ControlsRow</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>I'll begin by creating a new component;</li>
+<li><b>Goto</b> &gt; <code>Cell Top</code></li>
+<li><code>click on</code> <b>Cell Commands &gt; Insert Component Before</b></li>
+<li>Id: <code>ControlsRow</code></li>
+<li>I'm just going to get rid of the default state variable as this component won't have any state of its own;
+<ul class="org-ul">
+<li><code>Clear :state</code></li>
+</ul></li>
+</ul>
+</div>
+<div id="outline-container-org2475755" class="outline-3">
+<h3 id="org2475755"><span class="section-number-3">5.1.</span> Paste tr</h3>
+<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li><code>scroll-to</code> :render</li>
+<li>Since the last thing we copied was the table row,
+<ul class="org-ul">
+<li>we can paste it here;</li>
+<li>and we'll paste it over the root :div element;</li>
+</ul></li>
+<li><code>[open</code> <b>:div</b> <code>for editing]</code></li>
+<li><code>click on</code> <b>Clipboard &gt; Paste</b></li>
+<li><code>[open</code> <b>:tr</b> <code>for editing]</code></li>
+<li>If we look at both the input elements,
+<ul class="org-ul">
+<li>you'll notice that the :value attribute for each element has been reset to nil;</li>
+</ul></li>
+<li>This is because when we copied the component,
+<ul class="org-ul">
+<li>the each :value attribute was set to an @Reactive for the <code>axes-x</code> state variable,</li>
+<li>which was defined in the :state section of the DestructureComponent;</li>
+</ul></li>
+<li>But in this component, there is no <code>axes-x</code> in the :state section;</li>
+<li>So to avoid any errors,
+<ul class="org-ul">
+<li>when we pasted the element,</li>
+<li>Entmorph reset each <code>:value</code> attribute to <code>nil</code>;</li>
+</ul></li>
+<li>We need to supply the correct reactive variable to this attribute, which we'll do in a minute;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge28a66f" class="outline-3">
+<h3 id="orge28a66f"><span class="section-number-3">5.2.</span> Add parameters</h3>
+<div class="outline-text-3" id="text-5-2">
+<ul class="org-ul">
+<li>Our first cell has the label "y-axis (x-coord)",
+<ul class="org-ul">
+<li>so we need to be able to customize this as well;</li>
+</ul></li>
+<li>To provide customization to our <code>ControlsRow</code> component,
+<ul class="org-ul">
+<li>we'll add parameters to it;</li>
+</ul></li>
+<li><b>Goto</b> &gt; <code>{{{input-params}}}</code></li>
+<li><code>[open</code> <b><b>Input Parameters</b></b> <code>for editing]</code></li>
+<li><code>[number-ref]</code>
+<ul class="org-ul">
+<li>I've used a <code>-ref</code> suffix to indicate that this is going to be a reactive variable;</li>
+</ul></li>
+<li>Then I'll add a second parameter,
+<ul class="org-ul">
+<li>which will be a map of keywords which we'll use in the <code>:render</code> section</li>
+<li>so I'll click on the Keyword Map Destructure command;</li>
+<li>For now we'll just expect a <code>:label</code> key, and we'll add more keywords later;</li>
+<li><code>[{:keys [label] }]</code></li>
+</ul></li>
+<li>This shows that <b>Input Parameters</b> is another place we can use Destructuring in a Component;</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgc2ee3c8" class="outline-3">
+<h3 id="orgc2ee3c8"><span class="section-number-3">5.3.</span> </h3>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-orgec6b8c8" class="outline-2">
+<h2 id="orgec6b8c8"><span class="section-number-2">6.</span> Scrap</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>Component Children and :refs (using component from this video)</li>
+<li>Can start with a static example of rendering a :locals-defined circles vector, rendered in an :#each using map destructure</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgaae358d" class="outline-2">
+<h2 id="orgaae358d"><span class="section-number-2">7.</span> Bonus: :html.element/set-coords</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Next video
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Created: 2025-07-06 Sun 15:37</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
