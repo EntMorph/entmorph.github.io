@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-02-19 Thu 16:58 -->
+<!-- 2026-02-20 Fri 05:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Entmorph - Preview of Ai Capabilities</title>
@@ -202,27 +202,28 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1006a3e">1. Introduction</a></li>
-<li><a href="#org9e18778">2. Project Overview</a></li>
-<li><a href="#org59dafce">3. Function Prompt: average</a></li>
-<li><a href="#org955578c">4. Function Prompt: Polygon in Circle</a></li>
-<li><a href="#orgdfdcfc7">5. Component: Sketchpad</a></li>
-<li><a href="#org65606b2">6. Component: Scene</a></li>
-<li><a href="#org42276f4">7. Component: Graph + Equations</a></li>
-<li><a href="#orgcea9639">8. Component: Interactive Diagram</a></li>
+<li><a href="#orgeac0b37">1. Introduction</a></li>
+<li><a href="#orgcf23f13">2. Project Overview</a></li>
+<li><a href="#org07f8aae">3. Function Prompt: average</a></li>
+<li><a href="#orgb1131db">4. Function Prompt: Polygon in Circle</a></li>
+<li><a href="#org75337fb">5. Component: Sketchpad</a></li>
+<li><a href="#orgda06c2f">6. Component: Scene</a></li>
+<li><a href="#org5f79b94">7. Component: Graph + Equations</a></li>
+<li><a href="#orge404c70">8. Component: Interactive Diagram</a></li>
 </ul>
 </div>
 </div>
 <p>
 <a href="./index.html">Index</a>
-<a id="org3274de2"></a>
+<a id="orgecfe863"></a>
 </p>
 
 <p>
+<b>START IN FULL SCREEN</b>
 <b>AFTER EACH DEMO, *Goto</b> &gt; <code>Cell Top</code>, close cell, then move to next one;*
 </p>
-<div id="outline-container-org1006a3e" class="outline-2">
-<h2 id="org1006a3e"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-orgeac0b37" class="outline-2">
+<h2 id="orgeac0b37"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Hi, I'm Ali Hussein, creator of Entmorph,
@@ -238,8 +239,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org9e18778" class="outline-2">
-<h2 id="org9e18778"><span class="section-number-2">2.</span> Project Overview</h2>
+<div id="outline-container-orgcf23f13" class="outline-2">
+<h2 id="orgcf23f13"><span class="section-number-2">2.</span> Project Overview</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><code>scroll-to</code> Goto Cells</li>
@@ -251,8 +252,8 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org59dafce" class="outline-2">
-<h2 id="org59dafce"><span class="section-number-2">3.</span> Function Prompt: average</h2>
+<div id="outline-container-org07f8aae" class="outline-2">
+<h2 id="org07f8aae"><span class="section-number-2">3.</span> Function Prompt: average</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><code>scroll-to</code> First Cell</li>
@@ -280,11 +281,14 @@
 <li><code>click on</code> <b>Generate</b></li>
 <li>&#x2026; and it's generated the code for a function below</li>
 <li>First of all, if I scroll back up, you'll notice that the cell Id has been renamed to <code>average</code>, which is the name the Ai has chosen for the function;</li>
-<li>Next, if I scroll down to the code,
+<li>Next, if I scroll down to the code;</li>
+<li>Entmorph uses a visual representation of the ClojureScript language,
 <ul class="org-ul">
+<li>which Ai models are very good at understanding and generating;</li>
 <li>I could read it to see if it works,
 <ul class="org-ul">
 <li>which is fine for something small like this,</li>
+<li>and a quick glance shows that it looks about right;</li>
 </ul></li>
 <li>but I can do something far more effective;</li>
 </ul></li>
@@ -301,11 +305,16 @@
 <li>with some test parameters;</li>
 </ul></li>
 <li>and below that there's the <b>Expected</b> result for this call;</li>
-<li>The Ai has generated both the call and the expected result,
-<ul class="org-ul">
-<li>so you should always check these to make sure they are correct;</li>
-<li>In this case we can do it in our heads, and everything looks correct;</li>
 </ul></li>
+<li><code>average</code> is a <i>pure function</i>,
+<ul class="org-ul">
+<li>meaning that for any given input parameters,</li>
+<li>the expected result will always be the same;</li>
+</ul></li>
+<li>Since the Ai has generated both the call and the expected result,
+<ul class="org-ul">
+<li>it's a good idea to always check to confirm that the expected result is correct for the given parameters;</li>
+<li>In this case we can do it in our heads, and everything looks correct;</li>
 </ul></li>
 <li>Now, if I click on "Run Function Test",
 <ul class="org-ul">
@@ -322,42 +331,63 @@
 <li>[RUN TESTS]</li>
 </ul></li>
 </ul>
+<p>
+<code>Conclusion</code>
+</p>
+<ul class="org-ul">
+<li>So we can ask an Ai to generate functions and any number of tests for those functions,</li>
+<li>which are conveniently included within the function cell itself;</li>
+</ul>
 </div>
 </div>
-<div id="outline-container-org955578c" class="outline-2">
-<h2 id="org955578c"><span class="section-number-2">4.</span> Function Prompt: Polygon in Circle</h2>
+<div id="outline-container-orgb1131db" class="outline-2">
+<h2 id="orgb1131db"><span class="section-number-2">4.</span> Function Prompt: Polygon in Circle</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li><code>scroll-to</code> First Cell</li>
 <li>Now let's look at a second, much more interesting function.</li>
 <li>[Read Prompt]</li>
-<li>So this time, our function should provide a visual result.</li>
-<li><code>click on</code> <b>Generate</b>
-<ul class="org-ul">
-<li>It's generated a function which takes two arguments:
+<li><code>click on</code> <b>Generate</b></li>
+<li>The Ai has generated a function which takes two parameters:
 <ul class="org-ul">
 <li>an HTML Canvas Context, and</li>
 <li>a map which let's us specify all of our other requirements;</li>
 </ul></li>
-</ul></li>
-<li><code>scroll-to</code> Cell Id
+<li>If we look at the function body,
 <ul class="org-ul">
-<li>Again, the Ai has generated a new id for the function <span class="underline">_</span></li>
+<li>this time we have calls to the Canvas API,</li>
+<li>as well as the JavaScript Math library;</li>
+<li>there's quite a lot of code here,</li>
+<li>so rather than read it all,</li>
+<li>let's now test it;</li>
 </ul></li>
-<li><b>Goto</b> &gt; <code>Output</code></li>
+<li><code>scroll-to</code> Output</li>
 <li>This time, instead of a "Function Test",
 <ul class="org-ul">
 <li>which we had in our previous example,</li>
-<li>we have a "Canvas Function Test" which has a slightly different layout;</li>
-<li>there's still a test call to our function,</li>
-<li>but there's no Expected value, which makes sense because this function draws onto a canvas and doesn't return a value we can easily test for;</li>
+<li>we have a "Canvas Function Test",
+<ul class="org-ul">
+<li>which has a slightly different layout;</li>
+</ul></li>
+</ul></li>
+<li>At the top, we still have a call to our function,
+<ul class="org-ul">
+<li>but there's no Expected value,</li>
+<li>and that's because this function draws onto a canvas,
+<ul class="org-ul">
+<li>and so doesn't return a value we can test for;</li>
+</ul></li>
 </ul></li>
 <li>So how can we test it?</li>
 <li>If I scroll down a little,
 <ul class="org-ul">
 <li>underneath the "Run Function Test" button,</li>
-<li>there's an empty rectangle, which is a canvas element;</li>
-<li>if I click on "Run Function Test",</li>
+<li>there's an empty rectangle, which is actually a canvas element;</li>
+<li>if I click on "Run Function Test",
+<ul class="org-ul">
+<li>hopefully it'll work;</li>
+</ul></li>
+<li>Yes!</li>
 <li>a circle appears with a triangle in it, which is what I had asked for;</li>
 </ul></li>
 <li><code>scroll-to</code> Function Call
@@ -370,7 +400,7 @@
 </ul></li>
 <li>The first thing I'm going to do is to click on Live Edit,
 <ul class="org-ul">
-<li>so that any change I make will update the canvas immediately, rather than having to press "Run Function Test" each time;</li>
+<li>so that any change I make will update the canvas immediately, rather than having to press "Run Function Test" each time I make a change;</li>
 </ul></li>
 <li>What I'll now do is open the map,
 <ul class="org-ul">
@@ -385,18 +415,31 @@
 <li>and if we keep going, above around 35 it starts to look like a circle;</li>
 </ul></li>
 <li>We can of course adjust any of the values to see if our function works as expected;</li>
-<li>So Entmorph provides us with the ability to quickly unit test any canvas drawing function directly in the browser, whether the Ai has generated it or we create it ourselves;</li>
+</ul>
+<p>
+<code>Conclusion</code>
+</p>
+<ul class="org-ul">
+<li>So we can generate a function which draws onto a canvas,
+<ul class="org-ul">
+<li>and test it immediately in the browser,</li>
+<li>whether the Ai generates the function for us, or we create it ourselves;</li>
+</ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdfdcfc7" class="outline-2">
-<h2 id="orgdfdcfc7"><span class="section-number-2">5.</span> Component: Sketchpad</h2>
+<div id="outline-container-org75337fb" class="outline-2">
+<h2 id="org75337fb"><span class="section-number-2">5.</span> Component: Sketchpad</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
-<li>Now let's move from functions to components;</li>
+<li>Now let's move onto components;</li>
 <li><code>scroll-to</code> id2</li>
 <li>[WARNING: Clear is not undoable;]</li>
-<li>[READ PROMPT]</li>
+</ul>
+<p>
+<code>READ PROMPT</code>
+</p>
+<ul class="org-ul">
 <li>I'll click on Generate</li>
 <li>&#x2026; [seconds later]</li>
 <li>And this time instead of a function,
@@ -440,10 +483,20 @@
 <li>there are no bugs, no hallucinations;</li>
 </ul></li>
 </ul>
+<p>
+<code>Examine Component</code>
+</p>
+<ul class="org-ul">
+<li>We can make small changes to the component without having to send anything to the Ai
+<ul class="org-ul">
+<li>:state - update initial styles</li>
+<li>:render: layout changes, e.g. Undo/Redo to the right</li>
+</ul></li>
+</ul>
 </div>
 </div>
-<div id="outline-container-org65606b2" class="outline-2">
-<h2 id="org65606b2"><span class="section-number-2">6.</span> Component: Scene</h2>
+<div id="outline-container-orgda06c2f" class="outline-2">
+<h2 id="orgda06c2f"><span class="section-number-2">6.</span> Component: Scene</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Let's try another component;</li>
@@ -460,22 +513,31 @@
 <li>Once again we have a canvas on the bottom right, all the controls we asked for;</li>
 <li>From the Tool panel at the top,
 <ul class="org-ul">
-<li>I'll select Ellipse</li>
-<li>and draw an ellipse onto the canvas</li>
-<li>I can select any of these blue selection handles to resize the ellipse;</li>
+<li>I'll select Ellipse
+<ul class="org-ul">
+<li>to draw an ellipse onto the canvas;</li>
 </ul></li>
-</ul>
-<p>
-TODO: Better labels for strokeStyle etc.
-</p>
+<li>I can move it around,</li>
+<li>or change its shape;</li>
+</ul></li>
+<li>The empty panel on the left hand side now contains two new controls:
 <ul class="org-ul">
-<li>On the left hand side a Properties panel has appeared,
+<li>at the top, a control which contains the name of the object I just created,
 <ul class="org-ul">
+<li>with a checkbox which lets me hide it;</li>
+</ul></li>
+<li>and underneath that a Properties panel which we can use to update the ellipse;
+<ul class="org-ul">
+<li>or I can click directly on any selection handle to change its shape,
+<ul class="org-ul">
+<li>or move the ellipse on the canvas</li>
+</ul></li>
+</ul></li>
 <li>and I can update for example
 <ul class="org-ul">
 <li>line color (BLUE)</li>
 <li>the line thickness (10)</li>
-<li>and the fill color (CORNFLOUR BLUE)</li>
+<li>and the fill color (CORNFLOUR BLUE / Light orange)</li>
 <li>which we won't see unless we change the :stroke-fill from :stroke to :stroke-fill</li>
 </ul></li>
 </ul></li>
@@ -487,6 +549,7 @@ TODO: Better labels for strokeStyle etc.
 <li>Rectangle</li>
 <li>and we already tried the ellipse</li>
 </ul></li>
+<li>And you can see that as I add each new shape, an entry for it appears in the object list on the left;</li>
 <li>So the shapes are working fine</li>
 <li>Pan
 <ul class="org-ul">
@@ -505,12 +568,12 @@ TODO: Better labels for strokeStyle etc.
 <li>And finally let's try Undo (x many)</li>
 <li>and then Redo to take us back to the last thing we did before we started the Undo process</li>
 </ul></li>
-<li>Once again we have a component where all the features we asked for have been included, and they're all working</li>
+<li>Once again we've generated a component where all the features we asked for have been included, and they're all working</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org42276f4" class="outline-2">
-<h2 id="org42276f4"><span class="section-number-2">7.</span> Component: Graph + Equations</h2>
+<div id="outline-container-org5f79b94" class="outline-2">
+<h2 id="org5f79b94"><span class="section-number-2">7.</span> Component: Graph + Equations</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Now I'll scroll down to the next cell, and read out the prompt;</li>
@@ -556,13 +619,10 @@ TODO: Better labels for strokeStyle etc.
 </ul></li>
 <li>So once again, everything I requested has been produced and is working correctly;</li>
 </ul>
-<p>
-DEMONSTRATE layout changes e.g. Move ListEquations left
-</p>
 </div>
 </div>
-<div id="outline-container-orgcea9639" class="outline-2">
-<h2 id="orgcea9639"><span class="section-number-2">8.</span> Component: Interactive Diagram</h2>
+<div id="outline-container-orge404c70" class="outline-2">
+<h2 id="orge404c70"><span class="section-number-2">8.</span> Component: Interactive Diagram</h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>Now I want to create one last component;</li>
@@ -644,7 +704,7 @@ IF NOT WORKING:
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2026-02-19 Thu 16:58</p>
+<p class="date">Created: 2026-02-20 Fri 05:08</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
