@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2026-02-20 Fri 05:08 -->
+<!-- 2026-02-20 Fri 16:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Entmorph - Preview of Ai Capabilities</title>
@@ -202,28 +202,45 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgeac0b37">1. Introduction</a></li>
-<li><a href="#orgcf23f13">2. Project Overview</a></li>
-<li><a href="#org07f8aae">3. Function Prompt: average</a></li>
-<li><a href="#orgb1131db">4. Function Prompt: Polygon in Circle</a></li>
-<li><a href="#org75337fb">5. Component: Sketchpad</a></li>
-<li><a href="#orgda06c2f">6. Component: Scene</a></li>
-<li><a href="#org5f79b94">7. Component: Graph + Equations</a></li>
-<li><a href="#orge404c70">8. Component: Interactive Diagram</a></li>
+<li><a href="#orgc54b914">1. Introduction</a></li>
+<li><a href="#orgf1f778a">2. Project Overview</a></li>
+<li><a href="#org609e86c">3. Function Prompt: average</a></li>
+<li><a href="#org5f76579">4. Function Prompt: Polygon in Circle</a></li>
+<li><a href="#org53fed0f">5. Component: Sketchpad</a>
+<ul>
+<li><a href="#org67585d8">5.1. Examine Component</a></li>
+<li><a href="#org99e3b68">5.2. Conclusion: Sketchpad</a></li>
+</ul>
+</li>
+<li><a href="#org8f623eb">6. Component: Scene</a>
+<ul>
+<li><a href="#org033fba4">6.1. Conclusion</a></li>
+</ul>
+</li>
+<li><a href="#org7aec0a7">7. Component: Graph + Equations</a>
+<ul>
+<li><a href="#org01bee96">7.1. Conclusion</a></li>
+</ul>
+</li>
+<li><a href="#orge283b64">8. Component: Interactive Diagram</a></li>
+<li><a href="#org7dc8e2f">9. Conclusion</a></li>
 </ul>
 </div>
 </div>
 <p>
 <a href="./index.html">Index</a>
-<a id="orgecfe863"></a>
+<a id="org9458ee4"></a>
 </p>
 
 <p>
-<b>START IN FULL SCREEN</b>
-<b>AFTER EACH DEMO, *Goto</b> &gt; <code>Cell Top</code>, close cell, then move to next one;*
+<code>START IN FULL SCREEN</code>
 </p>
-<div id="outline-container-orgeac0b37" class="outline-2">
-<h2 id="orgeac0b37"><span class="section-number-2">1.</span> Introduction</h2>
+
+<p>
+<code>AFTER EACH DEMO, {{{goto(Cell Top)}}}, close cell, then move to next one;</code>
+</p>
+<div id="outline-container-orgc54b914" class="outline-2">
+<h2 id="orgc54b914"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Hi, I'm Ali Hussein, creator of Entmorph,
@@ -239,21 +256,23 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-orgcf23f13" class="outline-2">
-<h2 id="orgcf23f13"><span class="section-number-2">2.</span> Project Overview</h2>
+<div id="outline-container-orgf1f778a" class="outline-2">
+<h2 id="orgf1f778a"><span class="section-number-2">2.</span> Project Overview</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><code>scroll-to</code> Goto Cells</li>
 <li>To save time, I've already created a project with a number of cells;
 <ul class="org-ul">
-<li>in each cell, instead of data, actions or components, which we normally include in a cell, I've added an Ai Prompt, and that's what we'll use to generate the code for that cell</li>
-<li>You'll notice that each cell just has a generic id to be begin with;</li>
+<li>in each cell, instead of code,</li>
+<li>I've added an Ai Prompt,</li>
+<li>and that's what we'll use to generate the code for that cell;</li>
 </ul></li>
+<li>You'll notice that each cell just has a generic id to be begin with;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org07f8aae" class="outline-2">
-<h2 id="org07f8aae"><span class="section-number-2">3.</span> Function Prompt: average</h2>
+<div id="outline-container-org609e86c" class="outline-2">
+<h2 id="org609e86c"><span class="section-number-2">3.</span> Function Prompt: average</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><code>scroll-to</code> First Cell</li>
@@ -269,8 +288,8 @@
 <li>I'll read out the Ai Prompt text in each case,
 <ul class="org-ul">
 <li>then I'll click on the Generate button;</li>
-<li>when I do this, it might take some time for the Ai response to come back;</li>
-<li>if it does, I'll cut that out from the video and I'll just report at the end how long it took;</li>
+<li>if it takes more than a few seconds for the Ai response to come back,</li>
+<li>I'll cut that from the video and report how long it took;</li>
 </ul></li>
 <li>So let's get started with the first prompt;
 <ul class="org-ul">
@@ -290,9 +309,9 @@
 <li>which is fine for something small like this,</li>
 <li>and a quick glance shows that it looks about right;</li>
 </ul></li>
-<li>but I can do something far more effective;</li>
+<li>but it's much more effective if I test it;</li>
 </ul></li>
-<li><code>click on</code> <b>Goto &gt; Output</b></li>
+<li><code>scroll-to</code> Output</li>
 <li>You can see the Output panel is now populated,
 <ul class="org-ul">
 <li>meaning that the function has already been built for us;</li>
@@ -318,8 +337,8 @@
 </ul></li>
 <li>Now, if I click on "Run Function Test",
 <ul class="org-ul">
-<li>we see the <b>Test Result</b> is the same as the Expected value,</li>
-<li>and we also get an indicator which informs us that the test has passed;</li>
+<li>we see the <b>Test Result</b> is the same as the Expected Result,</li>
+<li>and an indicator appears which informs us that the test has passed;</li>
 </ul></li>
 <li>I had asked the Ai to generate three tests in the prompt,
 <ul class="org-ul">
@@ -335,18 +354,26 @@
 <code>Conclusion</code>
 </p>
 <ul class="org-ul">
-<li>So we can ask an Ai to generate functions and any number of tests for those functions,</li>
+<li>So we can ask the Ai to generate functions,
+<ul class="org-ul">
+<li>and any number of tests for those functions,</li>
 <li>which are conveniently included within the function cell itself;</li>
+</ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb1131db" class="outline-2">
-<h2 id="orgb1131db"><span class="section-number-2">4.</span> Function Prompt: Polygon in Circle</h2>
+<div id="outline-container-org5f76579" class="outline-2">
+<h2 id="org5f76579"><span class="section-number-2">4.</span> Function Prompt: Polygon in Circle</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li><code>scroll-to</code> First Cell</li>
 <li>Now let's look at a second, much more interesting function.</li>
-<li>[Read Prompt]</li>
+<li>I'll read out the prompt:</li>
+</ul>
+<p>
+<code>Read Prompt</code>
+</p>
+<ul class="org-ul">
 <li><code>click on</code> <b>Generate</b></li>
 <li>The Ai has generated a function which takes two parameters:
 <ul class="org-ul">
@@ -357,9 +384,11 @@
 <ul class="org-ul">
 <li>this time we have calls to the Canvas API,</li>
 <li>as well as the JavaScript Math library;</li>
-<li>there's quite a lot of code here,</li>
-<li>so rather than read it all,</li>
-<li>let's now test it;</li>
+</ul></li>
+<li>There's quite a lot of code here,
+<ul class="org-ul">
+<li>so rather than attempt read it all,</li>
+<li>let's just test it;</li>
 </ul></li>
 <li><code>scroll-to</code> Output</li>
 <li>This time, instead of a "Function Test",
@@ -372,7 +401,7 @@
 </ul></li>
 <li>At the top, we still have a call to our function,
 <ul class="org-ul">
-<li>but there's no Expected value,</li>
+<li>but there's no Expected Result,</li>
 <li>and that's because this function draws onto a canvas,
 <ul class="org-ul">
 <li>and so doesn't return a value we can test for;</li>
@@ -383,24 +412,25 @@
 <ul class="org-ul">
 <li>underneath the "Run Function Test" button,</li>
 <li>there's an empty rectangle, which is actually a canvas element;</li>
-<li>if I click on "Run Function Test",
+<li>if I click on "Run Function Test",</li>
+<li>a circle appears with a triangle in it,
 <ul class="org-ul">
-<li>hopefully it'll work;</li>
+<li>which thankfully is what I had asked for in the prompt;</li>
 </ul></li>
-<li>Yes!</li>
-<li>a circle appears with a triangle in it, which is what I had asked for;</li>
 </ul></li>
-<li><code>scroll-to</code> Function Call
-<ul class="org-ul">
+<li><code>scroll-to</code> Function Call</li>
 <li>The first argument <code>canvas-context</code> is the context of the Canvas element below,
 <ul class="org-ul">
 <li>and has been provided for us by the test;</li>
 </ul></li>
-<li>The second argument is a map of values, which we can play with;</li>
-</ul></li>
-<li>The first thing I'm going to do is to click on Live Edit,
+<li>The second argument is a map of values,
 <ul class="org-ul">
-<li>so that any change I make will update the canvas immediately, rather than having to press "Run Function Test" each time I make a change;</li>
+<li>which we can update to test the function further;</li>
+</ul></li>
+<li>The first thing I'm going to do is to check <b>Live Edit</b>,
+<ul class="org-ul">
+<li>so that any change I make will update the canvas immediately,</li>
+<li>rather than having to press "Run Function Test" each time I make a change;</li>
 </ul></li>
 <li>What I'll now do is open the map,
 <ul class="org-ul">
@@ -409,65 +439,74 @@
 </ul></li>
 <li>I'll open the editor for :n</li>
 <li>Then scroll back down so we can see both <code>n</code> and the canvas;</li>
-<li>Now when I update <code>n</code>,
+<li>Now when I increase <code>n</code>,
 <ul class="org-ul">
-<li>we transition through the regular polygons</li>
-<li>and if we keep going, above around 35 it starts to look like a circle;</li>
+<li>we transition through the regular polygons,</li>
+<li>all of which fit into the circle;</li>
+<li>and if we keep going, above around 35 or 40 it starts to look like a circle;</li>
 </ul></li>
-<li>We can of course adjust any of the values to see if our function works as expected;</li>
+<li>We can adjust any of the other values to see if our function works as expected;</li>
 </ul>
 <p>
 <code>Conclusion</code>
 </p>
 <ul class="org-ul">
-<li>So we can generate a function which draws onto a canvas,
+<li>So for any function which draws onto a canvas,
 <ul class="org-ul">
-<li>and test it immediately in the browser,</li>
+<li>we can test it immediately in the browser,</li>
 <li>whether the Ai generates the function for us, or we create it ourselves;</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org75337fb" class="outline-2">
-<h2 id="org75337fb"><span class="section-number-2">5.</span> Component: Sketchpad</h2>
+<div id="outline-container-org53fed0f" class="outline-2">
+<h2 id="org53fed0f"><span class="section-number-2">5.</span> Component: Sketchpad</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
-<li>Now let's move onto components;</li>
+<li>Next: let's look at components;</li>
 <li><code>scroll-to</code> id2</li>
-<li>[WARNING: Clear is not undoable;]</li>
 </ul>
 <p>
+<code>WARNING: Clear is not undoable</code>
 <code>READ PROMPT</code>
 </p>
 <ul class="org-ul">
-<li>I'll click on Generate</li>
-<li>&#x2026; [seconds later]</li>
-<li>And this time instead of a function,
+<li>Before pressing Generate,
 <ul class="org-ul">
-<li>we've got an Entmorph component;</li>
+<li><b>I'll add that for reasons I'll explain later</b> (explain later),</li>
+<li>I'm very confident that this, and the next two components, are going to work more or less exactly as I've requested;</li>
 </ul></li>
-<li>We can look at the code in a while;</li>
-<li>But first, let's try out the component;</li>
+<li><code>click on</code> <b>Generate</b>
+<ul class="org-ul">
+<li>and that's generated an Entmorph component;</li>
+</ul></li>
+<li>We can look at the code a little later;</li>
+<li>But first, let's test the component;</li>
 <li><code>scroll-to</code> Run</li>
 <li><code>click on</code> <b>Build &gt; Preview Component</b></li>
-<li>[Scroll into view]</li>
+<li>&#x2026; and scroll so we can see everything that's been built for us;</li>
+</ul>
+<p>
+<code>[Scroll into view]</code>
+</p>
+<ul class="org-ul">
 <li>At the bottom right,
 <ul class="org-ul">
-<li>there's a grey rectangle;</li>
+<li>there's a canvas;</li>
 <li>if I click and drag on it, I can draw red lines;</li>
 </ul></li>
-<li>If we look at the "Draw Tool" panel at the very top,
+<li>If we look at the "Tool" panel at the top,
 <ul class="org-ul">
-<li>Line is selected</li>
-<li>I can change the tool &#x2026;</li>
+<li>I can change the draw tool</li>
+<li><code>Cycle through all tools</code> ESP. <b>Draw</b> at the end;</li>
 </ul></li>
-<li>I can click on Download to save the current canvas as a JPEG image</li>
+<li>I can click on Download to save the canvas as a JPEG image</li>
 <li>Clear to clear the canvas</li>
 <li>On the left, I can change any of the Styles</li>
 <li>If I click on the Snap to Grid checkbox and draw on the cavas
 <ul class="org-ul">
-<li>then draw a line/circle</li>
-<li>and I can change the spacing</li>
+<li>then draw CIRCLE/RECT</li>
+<li>and I can change the spacing;</li>
 </ul></li>
 <li>And finally, 
 <ul class="org-ul">
@@ -475,82 +514,157 @@
 <ul class="org-ul">
 <li>it undoes all operations back to the beginning,</li>
 </ul></li>
-<li>and then Redo (x many) takes me back to the end</li>
+<li>and then Redo (x many) to take me all the back to where I was before I pressed Undo;</li>
 </ul></li>
-<li>So, all the features I asked for have not only been included,
+<li>So, all the features I asked for in the prompt have been included,
 <ul class="org-ul">
-<li>all of them are working;</li>
-<li>there are no bugs, no hallucinations;</li>
+<li>and all of them are working correctly;</li>
+<li>there are no bugs, no hallucinations,</li>
+<li>which is what I claimed would happen just before generating the component;</li>
 </ul></li>
 </ul>
-<p>
-<code>Examine Component</code>
-</p>
+</div>
+<div id="outline-container-org67585d8" class="outline-3">
+<h3 id="org67585d8"><span class="section-number-3">5.1.</span> Examine Component</h3>
+<div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
-<li>We can make small changes to the component without having to send anything to the Ai
+<li>Now suppose we want to make a couple of changes to the component;
 <ul class="org-ul">
-<li>:state - update initial styles</li>
-<li>:render: layout changes, e.g. Undo/Redo to the right</li>
+<li>We could ask the Ai to do it for us,</li>
+<li>or we could try to do it ourselves,</li>
+<li>which will both save us Ai tokens and encourage us to play with and better understand what we're building;</li>
+</ul></li>
+<li>Let's say, I want to move the Undo panel to the right of the Operations panel
+<ul class="org-ul">
+<li>This is a Layout change, which usually involves updating the :render section and can also include the :styles section;</li>
+</ul></li>
+<li><code>scroll-to</code> :render</li>
+<li>I'll open the .main element,
+<ul class="org-ul">
+<li>which contains two elements;</li>
+<li>I assume the first element represents the top row,
+<ul class="org-ul">
+<li>which contains the various tool panels;</li>
+</ul></li>
+<li>so if I open it up, it contains three fieldset elements,
+<ul class="org-ul">
+<li>which should correspond to each of the tool panels;</li>
+<li>the first one should be the Undo panel,</li>
+<li>and I can confirm that by opening it and looking at the &lt;legend&gt; element;</li>
+<li>and sure enough it is;</li>
+</ul></li>
+</ul></li>
+<li>If I now open the parent container,
+<ul class="org-ul">
+<li>select the first &lt;fieldset&gt;</li>
+<li>I can now move it to the bottom like so &#x2026;</li>
+</ul></li>
+<li><code>scroll-to</code> Output</li>
+<li><code>click on</code> <b>Preview</b></li>
+<li>You can see the Undo panel has been moved to the right hand side;</li>
+<li>Next, let's say I want to update the initial styles which a user sees,</li>
+<li><b>Goto</b> &gt; <code>Top &gt; :state</code></li>
+<li>On the left hand side are a set of state variables,
+<ul class="org-ul">
+<li>which are used elsewhere in the component,</li>
+<li>and which we can completely ignore;</li>
+</ul></li>
+<li>But on the right, where normally in code you might see a data structure,
+<ul class="org-ul">
+<li>we have a visual editor looks very similar to the Styles panel of the component;</li>
+<li>and this allows us to very quickly change the initial styles without having to deal with any code;</li>
+</ul></li>
+<li>So let's update the line thickness
+<ul class="org-ul">
+<li>1 -&gt; 5</li>
+<li>stroke red -&gt; blue</li>
+<li>lineCap -&gt; round</li>
+</ul></li>
+<li><b>Goto</b> &gt; <code>Output</code></li>
+<li><code>click on</code> <b>Preview</b></li>
+<li>You can see the initial styles have been updated,
+<ul class="org-ul">
+<li>and if I draw on the canvas,</li>
+<li>the line has rounded rather than square ends;</li>
 </ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgda06c2f" class="outline-2">
-<h2 id="orgda06c2f"><span class="section-number-2">6.</span> Component: Scene</h2>
+<div id="outline-container-org99e3b68" class="outline-3">
+<h3 id="org99e3b68"><span class="section-number-3">5.2.</span> Conclusion: Sketchpad</h3>
+<div class="outline-text-3" id="text-5-2">
+<ul class="org-ul">
+<li>So even if you aren't much of a coder,
+<ul class="org-ul">
+<li>you can explore the component code and make various types of changes using various visual editors built into Entmorph;</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org8f623eb" class="outline-2">
+<h2 id="org8f623eb"><span class="section-number-2">6.</span> Component: Scene</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
-<li>Let's try another component;</li>
-<li>Now let's create another component,
+<li>Now let's create another component;</li>
+<li>I'll scroll down to the next <b>cell</b>;</li>
+</ul>
+<p>
+<code>READ PROMPT</code>
+</p>
 <ul class="org-ul">
-<li>which also includes a canvas,</li>
-<li>but this time with an important difference.</li>
+<li>So this is similar to the previous component,
+<ul class="org-ul">
+<li>but also allows us to edit shapes after we've drawn them;</li>
 </ul></li>
-<li>READ PROMPT</li>
-<li>So there are some similarities to the previous component, but also some new features which affect how we can edit shapes we've already drawn;</li>
 <li><code>click on</code> <b>Generate</b>
 <b>Goto</b> &gt; <code>Output</code></li>
 <li><code>click on</code> <b>Build &gt; Preview</b></li>
-<li>Once again we have a canvas on the bottom right, all the controls we asked for;</li>
+<li>Once again we have a canvas on the bottom right,
+<ul class="org-ul">
+<li>and all the controls we asked for;</li>
+</ul></li>
 <li>From the Tool panel at the top,
 <ul class="org-ul">
 <li>I'll select Ellipse
 <ul class="org-ul">
-<li>to draw an ellipse onto the canvas;</li>
+<li>and draw an ellipse on the canvas;</li>
 </ul></li>
-<li>I can move it around,</li>
+</ul></li>
+<li>Immediately it becomes selected,
+<ul class="org-ul">
+<li>and I can move it around,</li>
 <li>or change its shape;</li>
 </ul></li>
-<li>The empty panel on the left hand side now contains two new controls:
+<li>The panel on the left which was empty until a few seconds ago now contains two new controls:
 <ul class="org-ul">
 <li>at the top, a control which contains the name of the object I just created,
 <ul class="org-ul">
-<li>with a checkbox which lets me hide it;</li>
+<li>with a checkbox which lets me hide it <code>demonstrate</code>;</li>
 </ul></li>
-<li>and underneath that a Properties panel which we can use to update the ellipse;
+<li>and underneath that there's a Properties panel which we can use to update the ellipse;</li>
+</ul></li>
+<li>I can update for example
 <ul class="org-ul">
-<li>or I can click directly on any selection handle to change its shape,
-<ul class="org-ul">
-<li>or move the ellipse on the canvas</li>
+<li>:stroke-fill (:stroke-fill) so we see both a border and a filled shape;</li>
+<li>Line Color -&gt; BLUE</li>
+<li>Line Thickness -&gt; 5</li>
+<li>and Fill Color -&gt; CORNFLOUR BLUE / Light orange</li>
+<li>you see the shape updates in real time as we do this;</li>
 </ul></li>
-</ul></li>
-<li>and I can update for example
-<ul class="org-ul">
-<li>line color (BLUE)</li>
-<li>the line thickness (10)</li>
-<li>and the fill color (CORNFLOUR BLUE / Light orange)</li>
-<li>which we won't see unless we change the :stroke-fill from :stroke to :stroke-fill</li>
-</ul></li>
-</ul></li>
-<li>Let's see if the other shapes are working
+<li>Let's quickly test the other shapes;
 <ul class="org-ul">
 <li>Line</li>
 <li>Circle</li>
 <li>Centered Circle</li>
 <li>Rectangle</li>
-<li>and we already tried the ellipse</li>
+<li>and we already tried the ellipse at the beginning;</li>
 </ul></li>
-<li>And you can see that as I add each new shape, an entry for it appears in the object list on the left;</li>
-<li>So the shapes are working fine</li>
+<li>And you can see that as I add each new shape,
+<ul class="org-ul">
+<li>an entry for it appears in the object list on the left;</li>
+</ul></li>
+<li>So all shapes are working fine;</li>
 <li>Pan
 <ul class="org-ul">
 <li>then Center</li>
@@ -568,18 +682,24 @@
 <li>And finally let's try Undo (x many)</li>
 <li>and then Redo to take us back to the last thing we did before we started the Undo process</li>
 </ul></li>
-<li>Once again we've generated a component where all the features we asked for have been included, and they're all working</li>
+</ul>
+</div>
+<div id="outline-container-org033fba4" class="outline-3">
+<h3 id="org033fba4"><span class="section-number-3">6.1.</span> Conclusion</h3>
+<div class="outline-text-3" id="text-6-1">
+<ul class="org-ul">
+<li>Once again we've generated a component where all the features we asked for have been included, and they're all working correctly;</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5f79b94" class="outline-2">
-<h2 id="org5f79b94"><span class="section-number-2">7.</span> Component: Graph + Equations</h2>
+</div>
+<div id="outline-container-org7aec0a7" class="outline-2">
+<h2 id="org7aec0a7"><span class="section-number-2">7.</span> Component: Graph + Equations</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Now I'll scroll down to the next cell, and read out the prompt;</li>
 <li>READ PROMPT</li>
 <li>Generate</li>
-<li>Once again a component has been generated for us;</li>
 <li><b>Goto</b> &gt; <code>Output</code></li>
 <li><code>click on</code> <b>Build &gt; Preview</b></li>
 <li>So the most important thing is we have a graph showing the three equations I requested in the prompt;</li>
@@ -590,24 +710,36 @@
 <li><code>b</code> affects the quartic and the cubic like so;</li>
 <li><code>c</code> has a really intersting effect</li>
 <li><code>d</code> dances from side to side</li>
-<li>and <code>e</code> moves all equations up and down</li>
+<li>and <code>e</code> is the constant coefficient,
+<ul class="org-ul">
+<li>and should move all equations up and down,</li>
+<li>which is exactly what it does;</li>
+</ul></li>
 </ul></li>
 <li>Above that, we have Zoom and Pan buttons;
 <ul class="org-ul">
 <li>Pan is selected by default, so when I click and drag on the graph, I can move it around</li>
-<li>If I now select Zoom, when I click and drag on the graph &#x2026;
+<li>If I now select Zoom,
 <ul class="org-ul">
-<li>let's first find an interesting point, like this intersection here &#x2026;</li>
-<li>so now when I click and drag at that point,</li>
-<li>I can drag up to zooms in,</li>
-<li>and drag down, to zoom back out;</li>
+<li>let's first find an interesting point,
+<ul class="org-ul">
+<li>like this intersection here &#x2026;</li>
+</ul></li>
+<li>so now when I click and drag up at that point,
+<ul class="org-ul">
+<li>the graph lines update nicely, as do the division numbers,
+<ul class="org-ul">
+<li>so we could in theory go on forever</li>
+</ul></li>
+</ul></li>
+<li>If I drag down, it zooms out again;</li>
+</ul></li>
 <li>And notice how the grid lines and the division markers on the axes are correctly updating as we zoom in and out;</li>
 </ul></li>
-</ul></li>
-<li>Reset Zoom, Center</li>
-<li>There's also a single Download button;
+<li>Reset Zoom</li>
+<li>There's also a Download button;
 <ul class="org-ul">
-<li>when I click on it, it opens a dialog to save the graph</li>
+<li>when I click on it, it opens a dialog to save the graph as an image;</li>
 </ul></li>
 <li>And finally, above the graph there's a control listing each equation,
 <ul class="org-ul">
@@ -617,12 +749,23 @@
 <li>and a checkbox to hide the equation plot on the graph</li>
 </ul></li>
 </ul></li>
-<li>So once again, everything I requested has been produced and is working correctly;</li>
+</ul>
+</div>
+<div id="outline-container-org01bee96" class="outline-3">
+<h3 id="org01bee96"><span class="section-number-3">7.1.</span> Conclusion</h3>
+<div class="outline-text-3" id="text-7-1">
+<ul class="org-ul">
+<li>So once again,
+<ul class="org-ul">
+<li>everything I requested from the Ai has been produced,</li>
+<li>and is working correctly;</li>
+</ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge404c70" class="outline-2">
-<h2 id="orge404c70"><span class="section-number-2">8.</span> Component: Interactive Diagram</h2>
+</div>
+<div id="outline-container-orge283b64" class="outline-2">
+<h2 id="orge283b64"><span class="section-number-2">8.</span> Component: Interactive Diagram</h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>Now I want to create one last component;</li>
@@ -637,8 +780,14 @@
 <li>so here goes, fingers-crossed &#x2026;</li>
 </ul></li>
 <li><code>click on</code> <b>Preview</b></li>
-<li>Now I'll select the end of the left string &#x2026; pull it down, and with any luck &#x2026; yes!</li>
-<li>Ok that works. So not let's look at what's actually going on.</li>
+<li>So it looks (about) right, which is a start;</li>
+<li>Now I'll select the end of the left string &#x2026; pull it down, and with any luck &#x2026;</li>
+</ul>
+<p>
+<code>GOES RIGHT</code>
+</p>
+<ul class="org-ul">
+<li>Ok that works. So now let's look at what's actually going on.</li>
 <li><code>GOES WRONG</code></li>
 <li>Ok, so it went wrong, let's try and fix it.</li>
 <li><code>Wrong or right</code></li>
@@ -649,21 +798,35 @@
 <li>On the left we have a set of state variables,
 <ul class="org-ul">
 <li>which are used elsewhere in the component;</li>
+<li>and which we can ignore;</li>
 </ul></li>
-<li>But on the right, where we would normally have data values
+<li>But on the right,
 <ul class="org-ul">
-<li>we have an editor containing a canvas which has the same pulley that we asked the Ai to build for us;</li>
-<li>So this provides us, as developers, with a visual tool for creating user experiences;</li>
-<li>I'll show you a couple of features right now;</li>
+<li>we have an editor, which provides the state variables with the data they need to pass to other parts of the component code;</li>
 </ul></li>
-<li>The canvas contains a list of distinct shapes, which appear to be connected toghether;
+<li>Notict that the canvas on the right has the same pulley that we asked the Ai to build for us;</li>
+<li>So as developers, we can edit everything we want to present to our users through this editor;
+<ul class="org-ul">
+<li>we don't have to deal with draw instructions, event handlers, or the Canvas API or any other code;</li>
+</ul></li>
+<li>We can just draw shapes onto the canvas here,
+<ul class="org-ul">
+<li>provide any behaviours we want,</li>
+<li>and even test it here without having to build the component;</li>
+</ul></li>
+<li>I'll demonstrate this by showing you a couple of features right now;</li>
+<li>The canvas contains a number of distinct shapes, which appear to be connected toghether to make our pulley;
 <ul class="org-ul">
 <li>the most important thing is that when I pull down on the left string,</li>
-<li>the right string and the weight attached to it, move up by an equal amount</li>
+<li>the right string and the weight attached to it,</li>
+<li>move up by an equal amount</li>
 </ul></li>
 <li>On the left hand side is a list of all the objects shown in the canvas,
 <ul class="org-ul">
-<li>and the Ai has generated a meaningful name for each of them so it's easy to identify them;</li>
+<li>and the Ai has generated a meaningful name for each object,
+<ul class="org-ul">
+<li>so it's easy to identify them;</li>
+</ul></li>
 </ul></li>
 </ul>
 <p>
@@ -673,8 +836,64 @@ IF WORKING:
 <li>I'll first click on the right-string;
 <ul class="org-ul">
 <li>and a Properties panel appears;</li>
-<li>containing attributes which show this is an object of type :line,</li>
-<li></li>
+<li>containing Attributes and Styles for this object;</li>
+</ul></li>
+<li>If I scroll all the way down, underneath Styles there's a Constraints panel,
+<ul class="org-ul">
+<li>which contains <b>N</b> constraints;</li>
+<li>a constraint creates a relationship between an object and another object,</li>
+<li>or an object and itself;</li>
+</ul></li>
+<li>In this case we have a <code>:self-attr</code> and a <code>:constant-minus-attr</code>;</li>
+<li><code>:self-attr</code>
+<ul class="org-ul">
+<li><code>to.x = from.x</code>
+<ul class="org-ul">
+<li>the start and end of the string should always be at the same x-position;</li>
+<li>in other words,
+<ul class="org-ul">
+<li>"the line should always be vertical"</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><code>:constant-minus-attr</code> (constant minus attribute constraint)
+<ul class="org-ul">
+<li><code>right-string.to.y = 550 - left-string.to.y</code>
+<ul class="org-ul">
+<li>the y-position of the end of the right string is 550 minus the y-position of the end of the left string;</li>
+<li>this ensures that pulling the left string down will pull the right string up,
+<ul class="org-ul">
+<li>and vice versa;</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>
+BONUS:
+</p>
+<ul class="org-ul">
+<li>Add a handle</li>
+<li>Create circle</li>
+<li>Set stroke-fill -&gt; stroke-fill
+<ul class="org-ul">
+<li>Line color - light grey</li>
+<li>Fill color - light orange</li>
+</ul></li>
+<li>Add :follow-attr constraint:
+<ul class="org-ul">
+<li>center.x = pulley.x</li>
+<li>Test to show effect:</li>
+<li>Now I can move the handle just up and down;</li>
+</ul></li>
+<li><code>left-string</code>
+<ul class="org-ul">
+<li>Add :follow-attr constraint:
+<ul class="org-ul">
+<li>to.y = handle.center.y</li>
+<li>Test:</li>
+<li>now if I click on the end of the string, I can no longer move it;</li>
+<li>but if I click on the handle, I can move it up and down, and that in turn moves the weight;</li>
+</ul></li>
 </ul></li>
 </ul>
 <p>
@@ -702,9 +921,52 @@ IF NOT WORKING:
 </ul>
 </div>
 </div>
+<div id="outline-container-org7dc8e2f" class="outline-2">
+<h2 id="org7dc8e2f"><span class="section-number-2">9.</span> Conclusion</h2>
+<div class="outline-text-2" id="text-9">
+<ul class="org-ul">
+<li>In this video, we've used Ai to create:
+<ul class="org-ul">
+<li>two functions, and</li>
+<li>four components</li>
+</ul></li>
+<li>The functions and their tests were generated entirely by the Ai,
+<ul class="org-ul">
+<li>and Entmorph provided controls for editing and testing them;</li>
+</ul></li>
+<li>But all the components were created using Entmorph's existing capabilities;
+<ul class="org-ul">
+<li>all the Ai did was to take the user prompt and translate it into a specification which Entmorph then used to generate the components;</li>
+</ul></li>
+<li>This approach provides us with tremendous advantages over just asking Ai to generate everything for us;
+<ul class="org-ul">
+<li>For example, I've seen people submitting between hundreds and low thousands of prompts trying to generate apps because an Ai prompt was the main or only tool available;</li>
+</ul></li>
+<li>With Entmorph, you can use the Ai for the initial generation, and maybe update it using Ai a small handful of times if you need to, 
+<ul class="org-ul">
+<li>but in many cases you should be able to tweak it using any of the visual editors available, some of which we have seen in this video,</li>
+<li>without having to edit a line of code;</li>
+</ul></li>
+<li>And since Entmorph uses its own capabilities to generate components,
+<ul class="org-ul">
+<li>this greatly increases the chances of generating robust applications since it involves using components and other features which have been thoroughly tested before being released to the public;</li>
+<li>this is a much more reliable approach than asking an Ai to generate all the code itself, which usually results in hallucinations which can be very difficult to fix, and the code itself is very difficult to maintain;</li>
+</ul></li>
+<li>I hope you've enjoyed this preview of Entmorph's Ai capabilities;
+<ul class="org-ul">
+<li>by the time you watch this, these should have been released, or something even better should be in place;</li>
+</ul></li>
+<li>Please check out Entmorph.com and the Youtube channel youtube.com/@entmorph,</li>
+<li>and of course please share with anyone who might find this video interesting.</li>
+</ul>
+<p>
+Thanks for watching;
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Created: 2026-02-20 Fri 05:08</p>
+<p class="date">Created: 2026-02-20 Fri 16:08</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
