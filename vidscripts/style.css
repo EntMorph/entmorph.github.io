@@ -940,6 +940,7 @@ input.editor:focus {
     margin:        1em 0;
 }
 .code-prompt textarea {
+    font-size:     1.2em;
     background:    inherit;
     outline:       none;
     border:        none;
